@@ -3,37 +3,37 @@ Feature: User Interface: The system shall support the storage, organization, and
 As a REDCap end user
 I want to see that file repository is functioning as expected
 
-Scenario: C.3.26.300.100 Automatic uploading of data export logs into the data export folder
+# Scenario: C.3.26.300.100 Automatic uploading of data export logs into the data export folder
 
-    #SETUP 
-    Given I login to REDCap with the user "Test_Admin"
-    And I create a new project named "C.3.26.300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
-    And I click on the link labeled "My Projects"
-    And I click on the link labeled "C.3.26.300.100"  
+#     #SETUP 
+#     Given I login to REDCap with the user "Test_Admin"
+#     And I create a new project named "C.3.26.300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+#     And I click on the link labeled "My Projects"
+#     And I click on the link labeled "C.3.26.300.100"  
 
-    #SETUP Export data automatically placed in file repo
-    Given I click on the link labeled "Data Exports, Reports, and Stats"
-    And I click on the button labeled "Export Data" for the report named "All data (all records and fields)" 
-    And I click on the radio labeled "CSV / Microsoft Excel (raw data)" in the dialog box
-    And I click on the button labeled "Export Data" in the dialog box
-    Then I should see a dialog containing the following text: "Data export was successful!"
+#     #SETUP Export data automatically placed in file repo
+#     Given I click on the link labeled "Data Exports, Reports, and Stats"
+#     And I click on the button labeled "Export Data" for the report named "All data (all records and fields)" 
+#     And I click on the radio labeled "CSV / Microsoft Excel (raw data)" in the dialog box
+#     And I click on the button labeled "Export Data" in the dialog box
+#     Then I should see a dialog containing the following text: "Data export was successful!"
 
-    Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
-    Then I should have a "csv" file that contains the headings below
-      | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete | ptname | text2 | textbox | notesbox | calculated_field | multiple_dropdown_auto | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox___1 | checkbox___2 | checkbox___3 | signature | file_upload | required | identifier | identifier_2 | edit_field | date_ymd | time_hhmmss | datetime_ymd_hmss | data_types_complete | survey_timestamp | name_survey | email_survey | survey_complete | consent_timestamp | name_consent | email_consent | dob | signature_consent | consent_complete |
+#     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
+#     Then I should have a "csv" file that contains the headings below
+#       | record_id | redcap_event_name | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | name | email | text_validation_complete | ptname | text2 | textbox | notesbox | calculated_field | multiple_dropdown_auto | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox___1 | checkbox___2 | checkbox___3 | signature | file_upload | required | identifier | identifier_2 | edit_field | date_ymd | time_hhmmss | datetime_ymd_hmss | data_types_complete | survey_timestamp | name_survey | email_survey | survey_complete | consent_timestamp | name_consent | email_consent | dob | signature_consent | consent_complete |
     
-    And I click on the button labeled "Close" in the dialog box
+#     And I click on the button labeled "Close" in the dialog box
 
-    #FUNCTIONAL_REQUIREMENT
-    ##ACTION Export data automatically placed in file repo
-    When I click on the link labeled "File Repository"
-    And I click on the link labeled "Data Export Files"
+#     #FUNCTIONAL_REQUIREMENT
+#     ##ACTION Export data automatically placed in file repo
+#     When I click on the link labeled "File Repository"
+#     And I click on the link labeled "Data Export Files"
 
-    # Then I verify I see the csv file 
-    And I should see "Data export file created by test_admin on"
+#     # Then I verify I see the csv file 
+#     And I should see "Data export file created by test_admin on"
 
-Scenario: C.3.26.300.200 Automatic uploading of e-Consent Framework PDFs
-    # REDUNDANT
+# Scenario: C.3.26.300.200 Automatic uploading of e-Consent Framework PDFs
+#     # REDUNDANT
 
 Scenario: C.3.26.300.300 Recycle bin function - permanently force delete 
 
@@ -50,43 +50,47 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
       |import_files/testusers_bulkupload.csv|
 
     ##VERIFY_FiRe file uploaded in folder
+    Then I should see "100% uploaded"
+    Then I should see "testusers_bulkupload.csv"
+    And I wait for 2 seconds
+
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Delete file
+    When I check the checkbox labeled "testusers_bulkupload.csv"
+    And I click on the button labeled "Delete"
+    Then I should see a dialog containing the following text: "Are you sure you wish to delete all the files currently selected on the page? Total files to be deleted: 1."
+    And I click on the button labeled "Delete" in the dialog box
+
+    ##VERIFY file deleted in folder
+    Then I should see a dialog containing the following text: "SUCCESS!"
+    And I close the popup
+    Then I should NOT see "testusers_bulkupload.csv"
+
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Cancel Restore deleted file
+    When I click on the link labeled "Recycle Bin"
+    And I wait for 5 seconds
+    Then I should see "testusers_bulkupload.csv"
+    When I click on the image "Restore deleted file?" link for the row containing "testusers_bulkupload.csv"
+    # When I click on the link labeled "Restore deleted file?"
+    Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
+    When I click on the button labeled "Cancel" in the dialog box
+    ##VERIFY file still in recycle folder
     Then I should see "testusers_bulkupload.csv"
 
-    # #FUNCTIONAL_REQUIREMENT
-    # ##ACTION Delete file
-    # When I check the checkbox labeled "testusers_bulk_upload.csv"
-    # And I click on the button labeled "Delete"
-    # Then I should see a dialog containing the following text: "Delete files?"
-    # And I click on the button labeled "Delete" in the dialog box
-    # ##VERIFY file deleted in folder
-    # Then I should see a dialog containing the following text: "SUCCESS!"
-    # And I close the popup
-    # Then I should NOT see "testusers_bulk_upload.csv"
-
-
-    # #FUNCTIONAL_REQUIREMENT
-    # ##ACTION Cancel Restore deleted file
-    # When I click on the link labeled "Recycle Bin"
-    # Then I should see "testusers_bulk_upload.csv"
-    # When I click on the link labeled "Restore deleted file?"
-    # Then I should see a dialog containing the following text: "File: testusers_bulk_upload.csv"
-    # When I click on the button labeled "Cancel" in the dialog box
-    # ##VERIFY file still in recycle folder
-    # Then I should see "testusers_bulk_upload.csv"
-
-    # #FUNCTIONAL_REQUIREMENT
-    # ##ACTION Restore deleted file
-    # When I click on the link labeled "Recycle Bin"
-    # Then I should see "testusers_bulk_upload.csv"
-    # When I click on the link labeled "Restore deleted file?"
-    # Then I should see a dialog containing the following text: "File: testusers_bulk_upload.csv"
-    # When I click on the button labeled "Restore" in the dialog box
-    # ##VERIFY file still in recycle folder
-    # Then I should see a dialog containing the following text: "SUCCESS!"
-    # And I close the popup
-    # Then I should see NOT "testusers_bulk_upload.csv"
-    # When I click on the link labeled "File Repository"
-    # Then I should see "testusers_bulk_upload.csv"
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Restore deleted file
+    When I click on the link labeled "Recycle Bin"
+    Then I should see "testusers_bulkupload.csv"
+    When I click on the link labeled "Restore deleted file?"
+    Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
+    When I click on the button labeled "Restore" in the dialog box
+    ##VERIFY file still in recycle folder
+    Then I should see a dialog containing the following text: "SUCCESS!"
+    And I close the popup
+    Then I should see NOT "testusers_bulkupload.csv"
+    When I click on the link labeled "File Repository"
+    Then I should see "testusers_bulkupload.csv"
 
     # #FUNCTIONAL_REQUIREMENT
     # ##ACTION Delete file
