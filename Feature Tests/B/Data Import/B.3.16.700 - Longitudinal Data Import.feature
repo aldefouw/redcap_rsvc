@@ -19,20 +19,13 @@ Then I should see Project status: "Production"
 ##ACTION
 When I click on the link labeled "Data Import Tool"
 And I click on the tab labeled "CSV import"
-# Then I should see the button labeled "Choose file"
 
 When I upload a "csv" format file located at "import_files/B316700100_DATA_INACCURATE.csv", by clicking the button near "Upload your CSV file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
-# When I click on the button labeled "Choose file"
-# And I upload the csv file labeled "B316700100_INACCURATE"
-# And I click on the button labeled "Upload File"
 Then I should see "ERROR:"
 And I click on the link labeled "RETURN TO PREVIOUS PAGE"
 
 When I upload a "csv" format file located at "import_files/B316700100_DATA_ACCURATE.csv", by clicking the button near "Upload your CSV file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
-# When I click on the button labeled "Choose file"
-# And I upload the csv file labeled "B3.16700100_ACCURATE"
-# And I click on the button labeled "Upload File"
-Then I should see "Your document was uploaded successfully and is ready for review" 
+Then I should see "Your document was uploaded successfully and is ready for review"
 
-When I click on the button labeled "Import Data" 
+When I click on the button labeled "Import Data"
 Then I should see "Import Successful!"
