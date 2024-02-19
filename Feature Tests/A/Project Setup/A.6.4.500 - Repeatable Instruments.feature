@@ -85,8 +85,8 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Then I should NOT see "Current instance:"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
-    When I see a dialog containing the following text: "Save your changes?"
-    Then I click on the button labeled "Leave without saving changes" in the dialog box
+#    When I see a dialog containing the following text: "Save your changes?"
+#    Then I click on the button labeled "Leave without saving changes" in the dialog box
 
     Given I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -124,8 +124,8 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Then I see "Current instance:"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
-    When I see a dialog containing the following text: "Save your changes?"
-    Then I click on the button labeled "Leave without saving changes" in the dialog box
+#    When I see a dialog containing the following text: "Save your changes?"
+#    Then I click on the button labeled "Leave without saving changes" in the dialog box
 
     Given I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -187,7 +187,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
 
     Given I click on the link labeled "Add / Edit Records"
     And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
-    And I click the X to delete all data related to the event named "Event 2"
+    And I click the X to delete all data related to the event named "#2"
     And I click on the button labeled "Delete this instance of this event" in the dialog box
     Then I should see "successfully deleted entire event of data"
     And I should NOT see "(#2)"
