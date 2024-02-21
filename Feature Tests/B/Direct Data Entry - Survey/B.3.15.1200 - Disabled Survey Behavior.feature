@@ -42,7 +42,6 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
     And I click on the tab labeled "Participant List"
     Then I should see the dropdown field labeled "Participant List" with the options below
       | [Initial survey] "Text Validation" - Event 1 (Arm 1: Arm 1) |
-      | "Survey" - Event 1 (Arm 1: Arm 1)                           |
       | "Consent" - Event 1 (Arm 1: Arm 1)                          |
       | "Text Validation" - Event 2 (Arm 1: Arm 1)                  |
       | "Survey" - Event Three (Arm 1: Arm 1)                       |
@@ -110,7 +109,6 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
     #MANUAL: We are verifying that you do NOT see "Text Validation" in the dropdown labeled "Participant List".
     # For comparison, see line 43 where "Text Validation" is included in this list ...
     Then I should see the dropdown field labeled "Participant List" with the options below
-      | "Survey" - Event 1 (Arm 1: Arm 1)      |
       | "Consent" - Event 1 (Arm 1: Arm 1)     |
       | "Survey" - Event Three (Arm 1: Arm 1)  |
       | "Consent" - Event Three (Arm 1: Arm 1) |
