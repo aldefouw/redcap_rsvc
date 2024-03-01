@@ -38,7 +38,7 @@ Feature: User Interface: The system shall import only valid formats for text fie
         #VERIFY_LOG
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-            | Username   | Action                 | List of Data ChangesOR Fields Exported |
+            | Username   | Action                 | List of Data Changes OR Fields Exported |
             | test_admin | Create record (import) | record_id = '100'                      |
             | test_admin | Create record (import) | record_id = '200'                      |
             | test_admin | Create record (import) | record_id = '300'                      |
@@ -71,7 +71,7 @@ Feature: User Interface: The system shall import only valid formats for text fie
         #verify import log
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-            | Username   | Action | List of Data ChangesOR Fields Exported |
+            | Username   | Action | List of Data Changes OR Fields Exported |
             | test_admin | 300    | email = 'ringo@noreply.edu'            |
             | test_admin | 300    | bdate = '1940-07-07'                   |
             | test_admin | 300    | multiple_radio_auto = '2'              |

@@ -44,7 +44,7 @@ Scenario: A.6.11.100.100 Production status setting in control center
   ##VERIFY_LOG
   When I click on the link labeled "Logging"
   Then I should see a table header and rows containing the following values in the logging table:
-    | Username   |  Action               | List of Data ChangesOR Fields Exported           |
+    | Username   |  Action               | List of Data Changes OR Fields Exported           |
     | test_user1 |  Manage/Design        | Send request to move project to production status|
 
   ##ACTION: cancel request
@@ -82,6 +82,6 @@ Scenario: A.6.11.100.100 Production status setting in control center
   ##VERIFY_LOG
   When I click on the link labeled "Logging"
   And I should see a table header and rows containing the following values in the logging table:
-   | Username   | Action           | List of Data ChangesOR Fields Exported  |
+   | Username   | Action           | List of Data Changes OR Fields Exported  |
    | test_user1 | Manage/Design    | Move project to Production status       |
 

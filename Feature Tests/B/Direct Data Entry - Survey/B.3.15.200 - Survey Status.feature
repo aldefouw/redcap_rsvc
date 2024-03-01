@@ -59,7 +59,7 @@ Feature: User Interface: Survey Project Settings: The system shall support surve
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username            | Action          | List of Data ChangesOR Fields Exported |
+      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | name = 'Name_survey'                   |
       | mm/dd/yyyy hh:mm | test_user1          | Manage/Design   | Set up survey                          |
 
@@ -90,5 +90,5 @@ Feature: User Interface: Survey Project Settings: The system shall support surve
     And I click on the link labeled "Logging"
     Then I should see "This module lists all changes made to this project"
     And I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data ChangesOR Fields Exported |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Modify survey info                     |

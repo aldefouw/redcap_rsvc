@@ -50,7 +50,7 @@ Then I verify the Data Collection Instrument named "Survey" is enabled for the E
 ##VERIFY_LOG
 When I click on the link labeled "Logging"
 Then I should see table header and rows containing the following values in the logging table:
-| Username   | Action        | List of Data ChangesOR Fields Exported                              |
+| Username   | Action        | List of Data Changes OR Fields Exported                              |
 | test_admin | Manage/Design | (Event: Event 2, Arm: Arm Two, Days Offset: 2, Offset Range: -0/+0) |
 | test_admin | Manage/Design | (Event: Event 4, Arm: Arm 1, Days Offset: 4, Offset Range: -0/+0)   |
 

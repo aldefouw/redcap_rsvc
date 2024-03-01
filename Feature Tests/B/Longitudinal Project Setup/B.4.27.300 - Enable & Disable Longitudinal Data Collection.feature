@@ -41,7 +41,7 @@ And I should see a table header containing the following values in the record st
 ##VERIFY_LOG
 When I click on the link labeled "Logging"
 Then I should see a table header and rows containing the following values in the logging table:
-  | Username    | Action          | List of Data ChangesOR Fields Exported |
+  | Username    | Action          | List of Data Changes OR Fields Exported |
   | test_user1  | Manage/Design   | Modify project settings                |
 
 #FUNCTIONAL REQUIREMENT
@@ -59,7 +59,7 @@ Then I should see a table header containing the following values in the record s
 ##VERIFY_LOG
 When I click on the link labeled "Logging"
 Then I should see a table header and rows containing the following values in the logging table:
-  | Username    | Action          | List of Data ChangesOR Fields Exported |
+  | Username    | Action          | List of Data Changes OR Fields Exported |
   | test_user1  | Manage/Design   | Modify project settings                |
 
 ##SETUP_PRODUCTION
@@ -102,5 +102,5 @@ And I should see a table header containing the following values in the record st
 ##VERIFY_LOG
 When I click on the link labeled "Logging"
 Then I should see a table header and rows containing the following values in the logging table:
-  | Username    | Action          | List of Data ChangesOR Fields Exported |
+  | Username    | Action          | List of Data Changes OR Fields Exported |
   | test_user1  | Manage/Design   | Modify project settings                |

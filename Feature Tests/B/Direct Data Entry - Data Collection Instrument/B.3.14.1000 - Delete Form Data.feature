@@ -50,7 +50,7 @@ Feature: Deleting Data: The system shall allow users to delete all data on the c
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action           | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_user1 | Update record1   | email_survey = ''                       |
       | mm/dd/yyyy hh:mm | test_user1 | Update record1   | name_survey = ''                        |
       | mm/dd/yyyy hh:mm | test_user1 | Update record1   | survey_complete = ''                    |

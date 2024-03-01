@@ -138,7 +138,7 @@ Feature: User Interface: The system shall support branching logic for data entry
     Given I return to the REDCap page I opened the survey from
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username            | Action          | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_admin          | Manage/Design   | Add/edit branching logic                |
 
 

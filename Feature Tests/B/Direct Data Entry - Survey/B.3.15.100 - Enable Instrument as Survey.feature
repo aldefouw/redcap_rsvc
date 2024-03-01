@@ -66,7 +66,7 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username            | Action          | List of Data ChangesOR Fields Exported |
+      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | name = 'Name_B.3.15.100.100'           |
 
     #FUNCTIONAL REQUIREMENT
@@ -92,7 +92,7 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
     When I click on the link labeled "Logging"
     Then I should see "This module lists all changes made to this project"
     And I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username            | Action          | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_user1          | Manage/Design   | Modify survey info                      |
 
     ##FUNCTIONAL REQUIREMENT

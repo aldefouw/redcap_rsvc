@@ -49,7 +49,7 @@ Then I should see a table row containing the following values in the codebook ta
 ##VERIFY_LOG
 When I click on the link labeled "Logging"
 Then I should see a table header and rows containing the following values in the logging table:
-  | Username   | Action        | List of Data ChangesOR Fields Exported |
+  | Username   | Action        | List of Data Changes OR Fields Exported |
   | test_admin | Manage/Design | Create project field                   |
 
 Scenario: B.6.7.1800.200 Designating field as required through Data Dictionary upload

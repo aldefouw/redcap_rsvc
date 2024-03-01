@@ -61,7 +61,7 @@ Feature: Deleting Data: The system shall allow users to delete all data in an ev
     #VERIFY_LOG:
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action           | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_user1 | Update record1   | calc_test = ''                          |
       | mm/dd/yyyy hh:mm | test_user1 | Update record1   | data_types_complete = ''                |
       | mm/dd/yyyy hh:mm | test_user1 | Update record1   | dob = ''                                |

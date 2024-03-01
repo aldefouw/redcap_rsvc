@@ -65,7 +65,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Given I click on the button labeled "Close" in the dialog box
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        |  List of Data ChangesOR Fields Exported |
+      | Username   | Action        |  List of Data Changes OR Fields Exported |
       | test_user1 | Manage/Design | Set up repeating instruments/events     |
 
     Given I click on the link labeled "Add / Edit Records"
@@ -111,7 +111,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Given I click on the button labeled "Close" in the dialog box
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        | List of Data ChangesOR Fields Exported |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
       | test_user1 | Manage/Design | Set up repeating instruments/events    |
 
     Given I click on the link labeled "Add / Edit Records"
@@ -146,7 +146,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Given I click on the button labeled "Close" in the dialog box
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        | List of Data ChangesOR Fields Exported |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
       | test_user1 | Manage/Design | Set up repeating instruments/events    |
 
     Given I click on the link labeled "Add / Edit Records"

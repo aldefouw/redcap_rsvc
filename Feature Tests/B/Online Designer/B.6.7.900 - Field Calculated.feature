@@ -62,7 +62,7 @@ Feature: Design forms Using Data Dictionary and Online Designer
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username    | Action        | List of Data ChangesOR Fields Exported |
+      | Username    | Action        | List of Data Changes OR Fields Exported |
       | test_admin  | Manage/Design | Create project field                   |
 
   Scenario: B.6.7.900.200 Creation of calculated field through Data Dictionary upload
@@ -93,5 +93,5 @@ Feature: Design forms Using Data Dictionary and Online Designer
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        | List of Data ChangesOR Fields Exported |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
       | test_admin | Manage/Design | Upload data dictionary                 |

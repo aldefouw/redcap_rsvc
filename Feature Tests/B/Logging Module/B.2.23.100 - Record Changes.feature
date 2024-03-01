@@ -22,5 +22,5 @@ Feature: User Interface: The logging module shall record all changes with userna
     When I click on the link labeled "Logging"
     ##VERIFY
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data ChangesOR Fields Exported    |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Move project to Production status         |
