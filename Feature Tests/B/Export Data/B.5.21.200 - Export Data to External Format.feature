@@ -15,20 +15,20 @@ When I click on the link labeled "Data Exports, Reports, and Stats"
 Then I should see a table row containing the following values in the reports table:
 | A | All data (all records and fields) |
 
-Given I click on the button labeled "Export Data"
+Given I click on the button labeled "Export Data" for the report named "All data (all records and fields)"
 And I click on the radio labeled "CSV / Microsoft Excel (raw data)" in the dialog box
 And I click on the button labeled "Export Data" in the dialog box
 Then I should see a dialog containing the following text: "Data export was successful!"
 
 Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
-Then I should see a downloaded file named "B521200100_DATA_2024-03-01_1201.csv"
+Then I should see a downloaded file named "B521200100_DATA_yyyy-mm-dd_hhmm.csv"
 #Manual Close file
 
 And I click on the button labeled "Close" in the dialog box
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: export CSV (labels)
-Given I click on the button labeled "Export Data"
+When I click on the button labeled "Export Data" for the report named "All data (all records and fields)"
 And I click on the radio labeled "CSV / Microsoft Excel (labels)" in the dialog box
 And I click on the button labeled "Export Data" in the dialog box
 Then I should see a dialog containing the following text: "Data export was successful!"
@@ -42,64 +42,65 @@ And I click on the button labeled "Close" in the dialog box
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: export SPSS
-Given I click on the button labeled "Export Data"
+Given I click on the button labeled "Export Data" for the report named "Test Report"
 And I click on the radio labeled "SPSS Statistical Software" in the dialog box
 And I click on the button labeled "Export Data" in the dialog box
 Then I should see a dialog containing the following text: "Data export was successful!"
 
 Given I click on the download icons to receive the files for the "SPSS Statistical Software" format in the dialog box
-Then I should see a downloaded file named "B521200100-TestReport_SPSS_2024-03-06_1314.sps"
+Then I should see a downloaded file named "B521200100-TestReport_SPSS_yyyy-mm-dd_hhmm.sps"
 #Manual Close file
 
 And I click on the button labeled "Close" in the dialog box
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: export SAS
-Given I click on the button labeled "Export Data"
+Given I click on the button labeled "Export Data" for the report named "Test Report"
 And I click on the radio labeled "SAS Statistical Software" in the dialog box
 And I click on the button labeled "Export Data" in the dialog box
 Then I should see a dialog containing the following text: "Data export was successful!"
 Given I click on the download icons to receive the files for the "SAS Statistical Software" format in the dialog box
-Then I should see a downloaded file named "B521200100-TestReport_SAS_2024-03-06_1333.sas"
+Then I should see a downloaded file named "B521200100-TestReport_SAS_yyyy-mm-dd_hhmm.sas"
 #Manual Close file
 
 And I click on the button labeled "Close" in the dialog box
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: export R
-Given I click on the button labeled "Export Data"
+Given I click on the button labeled "Export Data" for the report named "All data (all records and fields)"
 And I click on the radio labeled "R Statistical Software" in the dialog box
 And I click on the button labeled "Export Data" in the dialog box
 Then I should see a dialog containing the following text: "Data export was successful!"
 
 Given I click on the download icons to receive the files for the "R Statistical Software" format in the dialog box
-Then I should see a downloaded file named "B521200100_R_2024-03-06_1519.r"
+
+Then I should see a downloaded file named "B521200100_R_yyyy-mm-dd_hhmm.r"
 #Manual Close file
 
 And I click on the button labeled "Close" in the dialog box
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: export STATA
-Given I click on the button labeled "Export Data"
+  Given I click on the button labeled "Export Data" for the report named "Test Report"
 And I click on the radio labeled "Stata Statistical Software" in the dialog box
 And I click on the button labeled "Export Data" in the dialog box
 Then I should see a dialog containing the following text: "Data export was successful!"
 
 Given I click on the download icons to receive the files for the "Stata Statistical Software" format in the dialog box
-Then I should see a downloaded file named "B521200100-TestReport_STATA_2024-03-06_1535.do"
+Then I should see a downloaded file named "B521200100-TestReport_STATA_yyyy-mm-dd_hhmm.do"
 #Manual Close file
 
 And I click on the button labeled "Close" in the dialog box
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: export XML
-Given I click on the button labeled "Export Data"
+  Given I click on the button labeled "Export Data" for the report named "All data (all records and fields)"
 And I click on the radio labeled "CDISC ODM (XML)" in the dialog box
 And I click on the button labeled "Export Data" in the dialog box
 Then I should see a dialog containing the following text: "Data export was successful!"
 
 Given I click on the download icons to receive the files for the "CDISC ODM (XML)" format in the dialog box
-Then I should see a downloaded file named "B521200100_CDISC_ODM_2024-03-06_1557.xml"
+Then I should see a downloaded file named "B521200100_CDISC_ODM_yyyy-mm-dd_hhmm.xml"
 #Manual Close file
 
 And I click on the button labeled "Close" in the dialog box
