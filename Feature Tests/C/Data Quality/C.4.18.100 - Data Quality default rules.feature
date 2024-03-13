@@ -3,7 +3,7 @@ Feature: User Interface: The system shall provide default rules after installati
 As a REDCap end user
 I want to see that Data Quality Module is functioning as expected
 
-Scenario: C.4.18.100.100 Default data quality rules
+#Scenario: C.4.18.100.100 Default data quality rules
 
 #SETUP 
 #Given I login to REDCap with the user "Test_Admin"

@@ -3,7 +3,7 @@ Feature: User Interface: The system shall support the storage, organization, and
 As a REDCap end user
 I want to see that file repository is functioning as expected
 
-Scenario: C.3.26.300.100 Automatic uploading of data export logs into the data export folder
+#Scenario: C.3.26.300.100 Automatic uploading of data export logs into the data export folder
 
 #SETUP 
 #Given I login to REDCap with the user "Test_Admin"

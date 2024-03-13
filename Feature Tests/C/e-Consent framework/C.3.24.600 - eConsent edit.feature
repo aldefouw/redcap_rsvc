@@ -3,7 +3,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 As a REDCap end user
 I want to see that eConsent is functioning as expected
 
-Scenario: C.3.24.600.100 Enable/disable edit ability for e-Consent framework
+#Scenario: C.3.24.600.100 Enable/disable edit ability for e-Consent framework
 
 #SETUP
 #Given I login to REDCap with the user "Test_Admin"

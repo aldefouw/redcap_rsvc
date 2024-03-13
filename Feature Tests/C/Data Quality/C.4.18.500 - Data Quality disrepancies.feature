@@ -3,7 +3,7 @@ Feature: User Interface: The system shall support viewing discrepancies found in
 As a REDCap end user
 I want to see that Data Quality Module is functioning as expected
 
-Scenario: C.4.18.500.100 View discrepancies
+#Scenario: C.4.18.500.100 View discrepancies
 
 #SETUP
 #Given I login to REDCap with the user "Test_Admin"

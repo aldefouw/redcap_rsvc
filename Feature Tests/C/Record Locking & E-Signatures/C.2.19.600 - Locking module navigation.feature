@@ -3,7 +3,7 @@ Feature: User Interface: The tool shall support the ability to navigate directly
 As a REDCap end user
 I want to see that Record locking and E-signatures is functioning as expected
 
-Scenario: C.2.19.600.100 Navigate to record 
+#Scenario: C.2.19.600.100 Navigate to record
 
 #SETUP 
 #Given I login to REDCap with the user "Test_Admin"

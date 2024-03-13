@@ -3,7 +3,7 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
 As a REDCap end user
 I want to see that eConsent is functioning as expected
 
-Scenario: C.3.24.100.100 Enable/Disable eConsent framework
+#Scenario: C.3.24.100.100 Enable/Disable eConsent framework
 
 #SETUP
 #Given I login to REDCap with the user "Test_Admin"

@@ -3,7 +3,7 @@ Feature: User Interface: The system shall support excluding discrepancies found 
 As a REDCap end user
 I want to see that Data Quality Module is functioning as expected
 
-Scenario: C.4.18.600.100 Exclude discrepancies
+#Scenario: C.4.18.600.100 Exclude discrepancies
 
 #SETUP
 #Given I login to REDCap with the user "Test_Admin"

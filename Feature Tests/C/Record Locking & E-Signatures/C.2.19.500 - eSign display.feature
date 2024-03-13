@@ -3,7 +3,7 @@ Feature: User Interface: The tool shall display e-signature status of forms for 
 As a REDCap end user
 I want to see that Record locking and E-signatures is functioning as expected
 
-Scenario: C.2.19.500.100 Display e-signature
+#Scenario: C.2.19.500.100 Display e-signature
 
 #SETUP 
 #Given I login to REDCap with the user "Test_Admin"

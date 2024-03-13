@@ -3,7 +3,7 @@ Feature: User Interface: The system shall support data quality rule creation.
 As a REDCap end user
 I want to see that Data Quality Module is functioning as expected
 
-Scenario: C.4.18.200.100 Data quality rule creation
+#Scenario: C.4.18.200.100 Data quality rule creation
 
 
 #SETUP 

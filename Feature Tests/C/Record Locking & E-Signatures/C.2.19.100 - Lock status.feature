@@ -3,7 +3,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
 As a REDCap end user
 I want to see that Record locking and E-signatures is functioning as expected
 
-Scenario: C.2.19.100.100 Display locked and e-signed status
+#Scenario: C.2.19.100.100 Display locked and e-signed status
 
 #SETUP 
 #Given I login to REDCap with the user "Test_Admin"

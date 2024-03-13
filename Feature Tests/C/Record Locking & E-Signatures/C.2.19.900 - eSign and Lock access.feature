@@ -3,7 +3,7 @@ Feature: User Interface: The system shall support the ability to limit access to
 As a REDCap end user
 I want to see that Record locking and E-signatures is functioning as expected
 
-Scenario: C.2.19.900.100 Enable user rights for Record Locking Customization module 
+#Scenario: C.2.19.900.100 Enable user rights for Record Locking Customization module
 
 #SETUP 
 #Given I login to REDCap with the user "Test_User1"

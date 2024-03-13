@@ -3,7 +3,7 @@ Feature: User Interface: The system shall support the ability to run custom data
 As a REDCap end user
 I want to see that Data Quality Module is functioning as expected
 
-Scenario: C.4.18.1000.100 Real-time rule execution
+#Scenario: C.4.18.1000.100 Real-time rule execution
 
 #SETUP 
 #Given I login to REDCap with the user "Test_Admin"

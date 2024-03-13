@@ -3,7 +3,7 @@ Feature: User Interface:  The system shall support the ability to create, modify
 As a REDCap end user
 I want to see that Reporting is functioning as expected
 
-Scenario: C.5.22.200.100 - MISSING SCENARIO TITLE
+#Scenario: C.5.22.200.100 - MISSING SCENARIO TITLE
 
 #SETUP 
 #Given I login to REDCap with the user "Test_User1"

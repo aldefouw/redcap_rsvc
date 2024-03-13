@@ -3,7 +3,7 @@ Feature: User Interface: The tool shall support the filtering the record list:
 As a REDCap end user
 I want to see that Record locking and E-signatures is functioning as expected
 
-Scenario: C.2.19.300.100 Record locking and E-signatures filtering
+#Scenario: C.2.19.300.100 Record locking and E-signatures filtering
 #SETUP 
 #Given I login to REDCap with the user "Test_Admin"
 #And I create a new project named "C.2.19.300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button

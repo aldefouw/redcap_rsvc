@@ -3,7 +3,7 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
 As a REDCap end user
 I want to see that eConsent is functioning as expected
 
-Scenario: C.3.24.300.100 Certification required to submit completed survey
+#Scenario: C.3.24.300.100 Certification required to submit completed survey
 
 #SETUP
 #Given I login to REDCap with the user "Test_Admin"

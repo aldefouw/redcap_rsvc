@@ -3,7 +3,7 @@ Feature: User Interface: The system shall support editing of user defined rules.
 As a REDCap end user
 I want to see that Data Quality Module is functioning as expected
 
-Scenario: C.4.18.700.100 Edit rule
+#Scenario: C.4.18.700.100 Edit rule
 
 #SETUP
 #Given I login to REDCap with the user "Test_User1"

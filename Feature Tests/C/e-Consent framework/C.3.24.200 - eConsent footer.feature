@@ -3,7 +3,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 As a REDCap end user
 I want to see that eConsent is functioning as expected
 
-Scenario: C.3.24.200.100 e-Consent text validation
+#Scenario: C.3.24.200.100 e-Consent text validation
 
 #SETUP
 #Given I login to REDCap with the user "Test_Admin"

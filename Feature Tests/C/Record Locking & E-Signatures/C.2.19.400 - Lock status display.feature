@@ -3,7 +3,7 @@ Feature: User Interface: The tool shall display locked status of forms for all r
 As a REDCap end user
 I want to see that Record locking and E-signatures is functioning as expected
 
-Scenario: C.2.19.400.100 display lock status
+#Scenario: C.2.19.400.100 display lock status
 #SETUP 
 #Given I login to REDCap with the user "Test_Admin"
 #And I create a new project named "C.2.19.400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button

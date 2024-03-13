@@ -3,7 +3,7 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
 As a REDCap end user
 I want to see that eConsent is functioning as expected
 
-Scenario: C.3.24.800.100 e-Consent framework & Repeatable instruments/events
+#Scenario: C.3.24.800.100 e-Consent framework & Repeatable instruments/events
 
 #SETUP
 #Given I login to REDCap with the user "Test_Admin"

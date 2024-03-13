@@ -3,7 +3,7 @@ Feature: User Interface: The system shall support limiting a rule viewing that r
 As a REDCap end user
 I want to see that Data Quality Module is functioning as expected
 
-Scenario: C.4.18.1400.100 User access limit rule viewing
+#Scenario: C.4.18.1400.100 User access limit rule viewing
 
 #SETUP 
 #Given I login to REDCap with the user "Test_Admin"

@@ -3,7 +3,7 @@ Feature: User Interface: The system shall support limiting rule viewing to a Dat
 As a REDCap end user
 I want to see that Data Quality Module is functioning as expected
 
-Scenario: C.4.18.1300.100 DAG limits rule viewing
+#Scenario: C.4.18.1300.100 DAG limits rule viewing
 
 
 #SETUP 
