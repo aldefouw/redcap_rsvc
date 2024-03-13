@@ -5,7 +5,7 @@ Feature: User Interface: The system shall require changes made to data collectio
 
   Scenario: B.4.20.300.100 Changes occur in draft mode non-real-time
 
-     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
+    ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
     And I click on the link labeled "User Settings"
@@ -25,8 +25,6 @@ Feature: User Interface: The system shall require changes made to data collectio
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
-
-
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: Draft Mode
@@ -53,6 +51,6 @@ Feature: User Interface: The system shall require changes made to data collectio
 
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
-    Then I should see a table row containing the following values in the logging table:
+    Then I should see a table header and row containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported  |
       | test_user1 | Manage/Design | Approve production project modifications |
