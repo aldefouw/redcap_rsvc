@@ -56,6 +56,6 @@ And I should see a table header and rows containing the following values in a ta
 ##VERIFY_LOG
 When I click on the link labeled "Logging"
 Then I should see a table row containing the following values in the logging table:
-| Username |  Action                 | List of Data ChangesOR Fields Exported |
+| Username |  Action                 | List of Data Changes OR Fields Exported |
 | test_user1 | Manage/Design | Create project field |
 | test_user1 | Manage/Design | Edit project field |
