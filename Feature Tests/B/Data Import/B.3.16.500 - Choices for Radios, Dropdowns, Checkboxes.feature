@@ -40,8 +40,8 @@ Feature: User Interface: The system shall import only valid choice codes for rad
         ##ACTION:  corrected format
         When I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows Corrected.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
         Then I should see a table header and rows containing the following values in a table:
-            | Record | multiple_dropdown_auto | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox__1 |
-            | 300    | 3                      | 5                        | 2                   | 101                 | 0           |
+          | record_id | multiple_dropdown_auto | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox___1 |
+          | 300       | 3                      | 5                        | 2                   | 101                 | 0            |
 
         When I click on the button labeled "Import Data"
         Then I should see "Import Successful!"
