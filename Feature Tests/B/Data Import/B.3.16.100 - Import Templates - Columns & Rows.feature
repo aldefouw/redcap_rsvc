@@ -1,4 +1,4 @@
-Feature: User Interface: The system shall support the ability to download two versions of a data import template formatted as a CSV file| one to accommodate records in rows and one to accommodate records in columns.
+Feature: User Interface: The system shall support the ability to download two versions of a data import template formatted as a CSV file, one to accommodate records in rows and one to accommodate records in columns.
 
   As a REDCap end user
   I want to see that Data import is functioning as expected
