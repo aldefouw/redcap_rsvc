@@ -19,14 +19,14 @@ Feature: User Interface: The system shall provide the option to allow blank valu
         #FUNCTIONAL REQUIREMENT
         ##ACTION: Error during import
         When I click on the link labeled "Data Import Tool"
-        And I upload a "csv" format file located at "import_files//B3161200100_INACCURATE.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        And I upload a "csv" format file located at "import_files/B3161200100_INACCURATE.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
 
         ##VERIFY
         Then I should see "ERROR:"
 
         #FUNCTIONAL REQUIREMENT
         ##ACTION: w DAGs
-        When I upload a "csv" format file located at "import_files//B3161200100_ACCURATE.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        When I upload a "csv" format file located at "import_files/B3161200100_ACCURATE.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
 
         ##VERIFY
         Then I should see "Your document was uploaded successfully"
