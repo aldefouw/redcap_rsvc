@@ -39,8 +39,7 @@ Feature: User Interface: The system shall require the repeating instrument and i
         And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event 1 (Arm 1: Arm 1)"
         And for the Event Name "Event 1 (Arm 1: Arm 1)", I check the checkbox labeled "Text Validation" in the dialog box
         And for the Event Name "Event 1 (Arm 1: Arm 1)", I check the checkbox labeled "Data Types" in the dialog box
-        And I click on the button labeled "Save"
-        Then I should see "Successfully saved!"
+        And I click on the button labeled "Save" on the dialog box for the Repeatable Instruments and Events module
 
         #FUNCTIONAL REQUIREMENT
         ##ACTION: import without repeat instrument
