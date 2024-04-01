@@ -30,7 +30,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
     #FUNCTIONAL REQUIREMENT
     ##ACTION Lock Record Custom Text
     When I enter "Test custom text" into the textarea field labeled "Text Validation"
-    And I click on the first button labeled "Save"
+    And I click on the "Save" button within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
     Then I should see a table header and rows containing the following values in a table:
       | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
       | [✓]                                          | Text Validation            | [ ]                                            | Test custom text        |
@@ -39,7 +39,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
       | [✓]                                          | Consent                    | [ ]                                            | [text box]              |
 
     And I enter "Test custom text" into the textarea field labeled "Data Types"
-    And I click on the first button labeled "Save"
+    And I click on the "Save" button within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
     Then I should see a table header and rows containing the following values in a table:
       | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
       | [✓]                                          | Text Validation            | [ ]                                            | Test custom text        |
@@ -73,7 +73,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
     #And I click on the Edit icon in the row labeled "Text Validation"
     And I click on the Edit icon within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
     And I clear field and enter "New custom text" into the textarea field labeled "Text Validation"
-    And I click on the first button labeled "Save"
+    And I click on the "Save" button within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
     Then I should see a table header and rows containing the following values in a table:
       | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
       | [✓]                                          | Text Validation            | [ ]                                            | New custom text         |
