@@ -100,7 +100,9 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
       | Record ID  | Event Name             | Repeat Instrument | Repeat Instance | Data Access Group | Survey Identifier | Name            |
       | 1          | Event 1 (Arm 1: Arm 1) |                   |                 |                   |                   | B.3.15.1200.100 |
 
-    And I should NOT see "Survey Timestamp"
+    #MANUAL: Note that "text_validation_timestamp" is the column VARIABLE name used if Text Validation instrument was enabled as survey.
+    # Cannot look for "Survey Timestamp" because that same LABEL is used for all survey timestamp columns.
+    And I should NOT see "text_validation_timestamp"
 
     ##VERIFY_SDT: verifying survey link and return codes are NOT available
     Given I click on the link labeled "Survey Distribution Tools"
