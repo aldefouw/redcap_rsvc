@@ -55,7 +55,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Then I should see "Repeating instruments and events"
 
     When I open the dialog box for the Repeatable Instruments and Events module
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
     And I select "-- not repeating --" on the dropdown field labeled "Event 1 (Arm 1: Arm 1)"
     And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
     And I check the checkbox labeled "Survey"
@@ -101,7 +101,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Then I should see "Repeating instruments and events"
 
     When I open the dialog box for the Repeatable Instruments and Events module
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
     And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event 1 (Arm 1: Arm 1)"
     And I check the checkbox labeled "Data Types"
     And I select "-- not repeating --" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
@@ -137,7 +137,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
 
     When I click on the link labeled "Project Setup"
     And I open the dialog box for the Repeatable Instruments and Events module
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
     And I select "-- not repeating --" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
     And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
     And I click on the button labeled "Save"
@@ -170,7 +170,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
 
     When I click on the link labeled "Project Setup"
     And I open the dialog box for the Repeatable Instruments and Events module
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
     And I select "-- not repeating --" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
     And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
     And I click on the button labeled "Save"

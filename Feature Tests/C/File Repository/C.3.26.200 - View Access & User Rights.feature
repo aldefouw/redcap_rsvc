@@ -47,7 +47,7 @@ I want to see that file repository is functioning as expected
 #
 #Given I click on the button labeled "Upload" in the dialog box
 #Then I should see a dialog containing the following text: "SUCCESS!"
-#And I close the popup
+#And I click on the button labeled "Close" in the dialog box
 #
 #And I should see a table header and rows including the following values in the table:
 #|Role name                            | Username   |
@@ -337,7 +337,7 @@ I want to see that file repository is functioning as expected
 #And I click on the button labeled "Delete" in the dialog box
 ###VERIFY file deleted in folder
 #Then I should see a dialog containing the following text: "SUCCESS!"
-#And I close the popup
+#And I click on the button labeled "Close" in the dialog box
 #Then I should NOT see "user list for project 1.csv"
 #
 ###ACTION C.3.26.500.100 Delete folders - Cancel deletion
