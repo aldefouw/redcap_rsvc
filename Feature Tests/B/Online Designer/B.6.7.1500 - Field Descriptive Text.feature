@@ -71,7 +71,7 @@ Then I should see a table header and rows containing the following values in the
 Given I click on the link labeled "Add / Edit Records"
 When I click on the button labeled "Add new record"
 Then I should see the field labeled "Descriptive Text with File"
-And I should see "Attachment: "
+And I should see "Attachment:"
 And I should see a link labeled "B.6.7.1500_Upload File"
 
 When I download a file by clicking on the link labeled "B.6.7.1500_Upload File"
