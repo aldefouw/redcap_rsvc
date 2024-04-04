@@ -113,12 +113,21 @@ Feature: User Interface: The system shall support the storage, organization, and
     Then I should see a dialog containing the following text: "SUCCESS!"
     And I click on the button labeled "Close" in the dialog box
 
+
+
     # #FUNCTIONAL_REQUIREMENT
     # ##ACTION Cancel Permanently deleted file
+    Given I see a table header and rows containing the following values in the file repository table:
+      | Name        | Size    |
+      | Recycle Bin | 1 Files |
     When I click on the link labeled "Recycle Bin"
-    Then I should see "testusers_bulkupload.csv"
-    When I click on the Delete Permanently icon for the File Repository file named "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Size   | Time Uploaded    |
+      | testusers_bulkupload.csv | 0.4 KB | mm/dd/yyyy hh:mm |
+
+    Given I click on the Delete Permanently icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
+
     When I click on the button labeled "Cancel" in the dialog box
      ##VERIFY file still in recycle folder
     Then I should see a table header and rows containing the following values in the file repository table:
