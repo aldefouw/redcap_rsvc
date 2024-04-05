@@ -46,7 +46,7 @@ Feature: User Interface: The system shall import only valid formats for text fie
         #FUNCTIONAL_REQUIREMENT
         ##ACTION
         When I click on the link labeled "Data Import Tool"
-        And I select "Yes, blank values in the file will overwrite existing values" on the dropdown field labeled "Allow blank values to overwrite existing saved values?"
+        And I select "Yes, blank values in the file will overwrite existing values" on the dropdown field labeled "Overwrite data with blank values?"
         And I click on the button labeled "Yes, I understand" in the dialog box
         And I upload a "csv" format file located at "import_files//B.3.16.400_DataImport_Rows Bad.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
         Then I should see "Errors were detected in the import file that prevented it from being loaded."
