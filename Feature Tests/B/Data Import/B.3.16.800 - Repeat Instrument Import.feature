@@ -27,7 +27,7 @@ Feature: User Interface: The system shall require the repeating instrument and i
         #FUNCTIONAL REQUIREMENT
         ##ACTION: Error during import
         When I click on the link labeled "Data Import Tool"
-        And I upload a "csv" format file located at "import_files//B316800100_W_REPEATS.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        And I upload a "csv" format file located at "import_files//B316800100_W_REPEATS.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
         
         ##VERIFY
         Then I should see "ERROR:"
@@ -44,14 +44,14 @@ Feature: User Interface: The system shall require the repeating instrument and i
         #FUNCTIONAL REQUIREMENT
         ##ACTION: import without repeat instrument
         When I click on the link labeled "Data Import Tool"
-        And I upload a "csv" format file located at "import_files//B316800100_WOUT_REPEATS.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        And I upload a "csv" format file located at "import_files//B316800100_WOUT_REPEATS.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
 
         ##VERIFY
         Then I should see "ERROR:"
 
         #FUNCTIONAL REQUIREMENT
         ##ACTION: import with repeat instrument
-        When I upload a "csv" format file located at "import_files//B316800100_W_REPEATS.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        When I upload a "csv" format file located at "import_files//B316800100_W_REPEATS.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
 
         ##VERIFY
         Then I should see "Your document was uploaded successfully"

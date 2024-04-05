@@ -16,7 +16,7 @@ Feature: User Interface: The system shall import only valid choice codes for rad
         Then I see Project status: "Production"
 
         When I click on the link labeled "Data Import Tool"
-        And I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        And I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
         Then I should see "Your document was uploaded successfully and is ready for review"
 
         When I click on the button labeled "Import Data"
@@ -24,7 +24,7 @@ Feature: User Interface: The system shall import only valid choice codes for rad
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION:  incorrect format
-        When I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows Bad.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        When I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows Bad.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
         Then I should see "Errors were detected in the import file that prevented it from being loaded"
 
         And I should see a table header and rows containing the following values in a table:
@@ -38,7 +38,7 @@ Feature: User Interface: The system shall import only valid choice codes for rad
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION:  corrected format
-        When I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows Corrected.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+        When I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows Corrected.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
         Then I should see a table header and rows containing the following values in a table:
           | record_id | multiple_dropdown_auto | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox___1 |
           | 300       | 3                      | 5                        | 2                   | 101                 | 0            |
