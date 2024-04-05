@@ -112,6 +112,17 @@ Feature: User Interface: The system shall support data quality rule creation.
             | Username   | Action        | List of Data ChangesOR Fields Exported |
             | test_admin | Manage/Design | Delete data quality rule               |
             | test_admin | Manage/Design | Edit data quality rule                 |
-            | test_admin | Manage/Design | Execute data quality rule(s)           |
+            | test_admin | Manage/Design | Execute data quality rule: Rule 4      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule 3      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule 2      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule 1      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule I      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule G      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule H      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule E      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule D      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule C      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule B      |
+            | test_admin | Manage/Design | Execute data quality rule: Rule A      |
             | test_admin | Manage/Design | Upload Data Quality Rules              |
             | test_admin | Manage/Design | Create data quality rule               |
