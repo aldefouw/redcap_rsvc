@@ -1,6 +1,6 @@
 {
     "name": "redcap_rsvc",
-    "version": "13.1.37",
+    "version": "14.0.6",
     "description": "Version-specific automated features written in Gherkin for REDCap Cypress Test Framework.",
     "repository": {
       "type": "git",
