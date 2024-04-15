@@ -102,39 +102,39 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
         | 4_NoAccess_Noexport     | [No users assigned] |
         | TestRole                | [No users assigned] |
 
-    # When I click on the link labeled "test_user3 (Test User3)" 
-    # And I click on the button labeled "Assign to role" on the tooltip 
-    # And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
-    # And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
-    # And I click on the button labeled exactly "Assign"
-    # Then I should see "successfully ASSIGNED to the user role"
-    # Then I should see a table header and rows containing the following values in a table:
-    #     | Role name               | Username            |
-    #     | —                       | test_admin          |
-    #     | —                       | test_user4          |
-    #     | 1_FullRights            | test_user1          |
-    #     |                         | test_user2          |
-    #     | 2_Edit_RemoveID         | [No users assigned] |
-    #     | 3_ReadOnly_Deidentified | test_user3          |
-    #     | 4_NoAccess_Noexport     | [No users assigned] |
-    #     | TestRole                | [No users assigned] |
+    When I click on the link labeled "test_user3 (Test User3)" 
+    And I click on the button labeled "Assign to role" on the tooltip 
+    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I click on the button labeled exactly "Assign"
+    Then I should see "successfully ASSIGNED to the user role"
+    Then I should see a table header and rows containing the following values in a table:
+        | Role name               | Username            |
+        | —                       | test_admin          |
+        | —                       | test_user4          |
+        | 1_FullRights            | test_user1          |
+        |                         | test_user2          |
+        | 2_Edit_RemoveID         | [No users assigned] |
+        | 3_ReadOnly_Deidentified | test_user3          |
+        | 4_NoAccess_Noexport     | [No users assigned] |
+        | TestRole                | [No users assigned] |
 
-    # When I click on the link labeled "test_user4 (Test User4)" 
-    # And I click on the button labeled "Assign to role" on the tooltip 
-    # And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
-    # And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
-    # And I click on the button labeled exactly "Assign"
-    # Then I should see "successfully ASSIGNED to the user role"
-    # Then I should see a table header and rows containing the following values in a table:
-    #     | Role name               | Username            |
-    #     | —                       | test_admin          |
-    #     | 1_FullRights            | test_user1          |
-    #     |                         | test_user2          |
-    #     | 2_Edit_RemoveID         | [No users assigned] |
-    #     | 3_ReadOnly_Deidentified | test_user3          |
-    #     |                         | test_user4          |
-    #     | 4_NoAccess_Noexport     | [No users assigned] |
-    #     | TestRole                | [No users assigned] |
+    When I click on the link labeled "test_user4 (Test User4)" 
+    And I click on the button labeled "Assign to role" on the tooltip 
+    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I click on the button labeled exactly "Assign"
+    Then I should see "successfully ASSIGNED to the user role"
+    Then I should see a table header and rows containing the following values in a table:
+        | Role name               | Username            |
+        | —                       | test_admin          |
+        | 1_FullRights            | test_user1          |
+        |                         | test_user2          |
+        | 2_Edit_RemoveID         | [No users assigned] |
+        | 3_ReadOnly_Deidentified | test_user3          |
+        |                         | test_user4          |
+        | 4_NoAccess_Noexport     | [No users assigned] |
+        | TestRole                | [No users assigned] |
 
     #SETUP DAG: Assign User to DAG 
     Given I click on the link labeled "Data Access Groups"
@@ -165,19 +165,19 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
         |                           | test_user3          |
         |                           | test_user4          |
 
-    # When I select "test_user3 (Test User3)" on the dropdown field labeled "Assign user"
-    # And I select "TestGroup1" on the dropdown field labeled "to" 
-    # And I click on the button labeled "Assign"
-    # Then I should see "has been assigned to Data Access Group"
-    # Then I should see a table header and rows containing the following values in a table:
-    #     | Data Access Groups        | Users in group      |
-    #     | TestGroup1                | test_user1          |
-    #     |                           | test_user3          |
-    #     | TestGroup2                | test_user2          |
-    #     | [Not assigned to a group] | test_admin          |
-    #     |                           | test_user4          |
+    When I select "test_user3 (Test User3)" on the dropdown field labeled "Assign user"
+    And I select "TestGroup1" on the dropdown field labeled "to" 
+    And I click on the button labeled "Assign"
+    Then I should see "has been assigned to Data Access Group"
+    Then I should see a table header and rows containing the following values in a table:
+        | Data Access Groups        | Users in group      |
+        | TestGroup1                | test_user1          |
+        |                           | test_user3          |
+        | TestGroup2                | test_user2          |
+        | [Not assigned to a group] | test_admin          |
+        |                           | test_user4          |
 
-    # #"Test_User4" is not assigned to a DAG
+    #"Test_User4" is not assigned to a DAG
 
     And I logout
 
@@ -241,21 +241,21 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
     And I wait for 3 seconds
     Then I should see "user_list_for_project_1.csv"
 
-    # #FUNCTIONAL_REQUIREMENT
-    # ##ACTION Upload to Role folder
-    # When I click on the link labeled "File Repository"
-    # And I should see "Data Export Files"
-    # And I click on the link labeled "Role1_Folder"
-    # Then I should see "All Files/Role1_Folder"
-    # #C.3.26.400.100 #Upload more than one file at the same time using the select files to upload button
-    # When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
-    #   |/import_files/testusers_bulk_upload.csv|
-    #   |/import_files/user_list_for_project_1.csv|
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Upload to Role folder
+    When I click on the link labeled "File Repository"
+    And I should see "Data Export Files"
+    And I click on the link labeled "Role1_Folder"
+    Then I should see "All Files/Role1_Folder"
+    #C.3.26.400.100 #Upload more than one file at the same time using the select files to upload button
+    When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
+      |/import_files/testusers_bulk_upload.csv|
+      |/import_files/user_list_for_project_1.csv|
 
-    # #VERIFY_FiRe uploaded in subfolder
-    # And I wait for 5 seconds
-    # Then I should see "user_list_for_project_1.csv"
-    # And I should see "testusers_bulk_upload.csv"
+    #VERIFY_FiRe uploaded in subfolder
+    And I wait for 5 seconds
+    Then I should see "user_list_for_project_1.csv"
+    And I should see "testusers_bulk_upload.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup1
@@ -384,7 +384,7 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
     Then I should see "1-1"
     Then I should NOT see "2-1"
     And I logout
-
+    
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Download to top tier file 
