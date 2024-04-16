@@ -17,7 +17,7 @@ Feature: User Interface: The system shall support executing a rule.
     #FUNCTIONAL REQUIREMENT
     ##ACTION The system shall support executing a single rule.
     When I click on the link labeled "Data Quality"
-    And I click on the button labeled "Execute" for Rule # "1"
+    And I click on the "Execute" button for Data Quality Rule # "1"
     Then I should see a table header and rows containing the following values in a table:
       | Rule # | Rule Name   | Rule Logic  | Total Discrepancies |
       | 1      | [radio]=9.9 | [radio]=9.9 | 1                   |
