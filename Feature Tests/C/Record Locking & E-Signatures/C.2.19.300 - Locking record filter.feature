@@ -61,11 +61,11 @@ Feature: User Interface: The tool shall support the filtering the record list:
         And I should see "Show locked but not e-signed (excludes N/A)"
 
         When I click on the button labeled "Export all (CSV)" to download a file
-        Then the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "3" for column "Record"
-        Then  the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "Event 1 (Arm 1: Arm1)" for column "Event Name"
-        Then  the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "Text Validation" for column "Form Name"  
-        Then  the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value " " for column "Repeat Instance" 
-        Then  the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "MM/DD/YYYY" for column "Locked?" 
-        Then  the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "N/A" for column "E-signed?" 
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "3" for column "Record"
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "Event 1 (Arm 1: Arm1)" for column "Event Name"
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "Text Validation" for column "Form Name"
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value " " for column "Repeat Instance"
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "MM/DD/YYYY" for column "Locked?"
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "N/A" for column "E-signed?"
            
 #M: Close file
