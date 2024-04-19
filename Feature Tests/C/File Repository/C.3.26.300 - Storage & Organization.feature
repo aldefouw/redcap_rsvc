@@ -65,7 +65,12 @@ Feature: User Interface: The system shall support the storage, organization, and
     ##VERIFY file deleted in folder
     Then I should see a dialog containing the following text: "SUCCESS!"
     And I click on the button labeled "Close" in the dialog box
-    Then I should NOT see "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Size                    |
+      | Data Export Files        |                  | 0 Files                 |
+      | PDF Survey Archive       |                  | 0 Files                 |
+      | Recycle Bin              |                  | 1 Files                 |
+    And I should NOT see "testusers_bulkupload.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Cancel Restore deleted file
@@ -124,18 +129,26 @@ Feature: User Interface: The system shall support the storage, organization, and
     Then I should see a dialog containing the following text: "SUCCESS!"
     And I click on the button labeled "Close" in the dialog box
     When I click on the link labeled "File Repository"
-
-    Then I should NOT see "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Size                    |
+      | Data Export Files        |                  | 0 Files                 |
+      | PDF Survey Archive       |                  | 0 Files                 |
+      | Recycle Bin              |                  | 1 Files                 |
+    And I should NOT see "testusers_bulkupload.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Cancel Permanently deleted file
     When I click on the link labeled "Recycle Bin"
-    Then I should see "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
     When I click on the Delete Permanently icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Cancel" in the dialog box
     ##VERIFY file still in recycle folder
-    Then I should see "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Permanently deleted file
@@ -146,21 +159,25 @@ Feature: User Interface: The system shall support the storage, organization, and
     Then I should see a dialog containing the following text: "File was successfully deleted!"
     And I click on the button labeled "OK"
     When I click on the link labeled "File Repository"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Size                    |
+      | Data Export Files        |                  | 0 Files                 |
+      | PDF Survey Archive       |                  | 0 Files                 |
+      | Recycle Bin              |                  | 0 Files                 |
+    And I should NOT see "testusers_bulkupload.csv"
 
-    Then I should NOT see "testusers_bulkupload.csv"
     ##VERIFY file deleted in recycle folder
     When I click on the link labeled "Recycle Bin"
-    
-    Then I should NOT see "testusers_bulkupload.csv"
+    Then I should see "No files or sub-folders exist in this folder."
 
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username  | Action        | List of Data Changes OR Fields Exported |
-      |test_admin | Manage/Design | Permanently delete file from File Repository|
-      |test_admin | Manage/Design | Delete file from File Repository |
-      |test_admin | Manage/Design | Restore file in File Repository |
-      |test_admin | Manage/Design | Delete file from File Repository |
+      | Username   | Action        | List of Data Changes OR Fields Exported      |
+      | test_admin | Manage/Design | Permanently delete file from File Repository |
+      | test_admin | Manage/Design | Delete file from File Repository             |
+      | test_admin | Manage/Design | Restore file in File Repository              |
+      | test_admin | Manage/Design | Delete file from File Repository             |
 
     Scenario: C.3.26.300.400 Custom folder / sub-folder
     # REDUNDANT with C.3.26.200
