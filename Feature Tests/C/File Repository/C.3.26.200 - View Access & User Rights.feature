@@ -205,9 +205,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I click on the link labeled "1-1"
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
     And I should see "TestGroup1"
-
-    And I want to export a snapshot of this feature here
-
+    
 #FUNCTIONAL_REQUIREMENT
 #ACTION Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
   Scenario: C.3.26.200.100-B
