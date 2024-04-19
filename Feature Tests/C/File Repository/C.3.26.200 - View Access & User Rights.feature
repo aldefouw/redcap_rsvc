@@ -50,7 +50,7 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
 
     Given I click on the button labeled "Upload" in the dialog box
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
 
     Then I should see a table header and rows containing the following values in a table:
         | Role name               | Username            |
@@ -465,7 +465,7 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
     And I click on the button labeled "Delete" in the dialog box
     ##VERIFY file deleted in folder
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
     And I wait for 2 seconds
     Then I should NOT see "user_list_for_project_1.csv"
 

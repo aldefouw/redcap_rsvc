@@ -64,7 +64,7 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
 
     ##VERIFY file deleted in folder
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
     Then I should NOT see "testusers_bulkupload.csv"
 
     #FUNCTIONAL_REQUIREMENT
@@ -94,7 +94,7 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Restore" in the dialog box
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
     ##VERIFY file in File Repository
     When I click on the link labeled "File Repository"
     And I wait for 2 seconds
@@ -114,7 +114,7 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
     And I click on the button labeled "Delete" in the dialog box
     ##VERIFY file deleted in folder
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
     When I click on the link labeled "File Repository"    
     And I wait for 2 seconds
     Then I should NOT see "testusers_bulkupload.csv"
