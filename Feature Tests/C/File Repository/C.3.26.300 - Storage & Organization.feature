@@ -72,7 +72,7 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
     When I click on the link labeled "Recycle Bin"
     And I wait for 5 seconds
     Then I should see "testusers_bulkupload.csv"
-    When I click on the "Restore deleted file?" image for the file "testusers_bulkupload.csv" in File Repository
+    When I click on the Restore icon for the File Repository file named "testusers_bulkupload.csv"
     # When I click on the image "Restore deleted file?" link for the row containing "testusers_bulkupload.csv"
     # When I click on the link labeled "Restore deleted file?"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
@@ -82,7 +82,7 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Restore deleted file
-    When I click on the "Restore deleted file?" image for the file "testusers_bulkupload.csv" in File Repository
+    When I click on the Restore icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Cancel" in the dialog box
     ##VERIFY file still in recycle folder
@@ -90,7 +90,7 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Restore deleted file
-    When I click on the "Restore deleted file?" image for the file "testusers_bulkupload.csv" in File Repository
+    When I click on the Restore icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Restore" in the dialog box
     Then I should see a dialog containing the following text: "SUCCESS!"
@@ -123,7 +123,7 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
     ##ACTION Cancel Permanently deleted file
     When I click on the link labeled "Recycle Bin"
     Then I should see "testusers_bulkupload.csv"
-    When I click on the "Permanently delete file?" image for the file "testusers_bulkupload.csv" in File Repository
+    When I click on the Delete Permanently icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Cancel" in the dialog box
     ##VERIFY file still in recycle folder
@@ -131,7 +131,7 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Permanently deleted file
-    When I click on the "Permanently delete file?" image for the file "testusers_bulkupload.csv" in File Repository
+    When I click on the Delete Permanently icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Delete" in the dialog box
     ##VERIFY file deleted in recycle folder
