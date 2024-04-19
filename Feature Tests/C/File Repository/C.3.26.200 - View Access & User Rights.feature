@@ -1,9 +1,9 @@
 Feature: User Interface: The system shall support limiting file repository user view access and export rights.
 
-As a REDCap end user
-I want to see that file repository is functioning as expected
+  As a REDCap end user
+  I want to see that file repository is functioning as expected
 
-Scenario: C.3.26.200.100 - Limit user view and export access based on User Rights and DAG
+  Scenario: C.3.26.200.100 - Limit user view and export access based on User Rights and DAG
 
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
@@ -41,29 +41,29 @@ Scenario: C.3.26.200.100 - Limit user view and export access based on User Right
     Then I upload a "csv" format file located at "/import_files/user list for project 1.csv", by clicking the button near "Select your CSV file of users and their user rights to be added/modified:" to browse for the file, and clicking the button labeled "Upload" to upload the file
     Then I should see a dialog containing the following text: "Upload users (CSV) - Confirm"
     And I should see a table header and rows containing the following values in a table:
-        | username   |
-        | test_admin |
-        | test_user1 |
-        | test_user2 |
-        | test_user3 |
-        | test_user4 |
+      | username   |
+      | test_admin |
+      | test_user1 |
+      | test_user2 |
+      | test_user3 |
+      | test_user4 |
 
     Given I click on the button labeled "Upload" in the dialog box
     Then I should see a dialog containing the following text: "SUCCESS!"
     And I click on the button labeled "Close" in the dialog box
 
     Then I should see a table header and rows containing the following values in a table:
-        | Role name               | Username            |
-        | —                       | test_admin          |
-        | —                       | test_user1          |
-        | —                       | test_user2          |
-        | —                       | test_user3          |
-        | —                       | test_user4          |
-        | 1_FullRights            | [No users assigned] |
-        | 2_Edit_RemoveID         | [No users assigned] |
-        | 3_ReadOnly_Deidentified | [No users assigned] |
-        | 4_NoAccess_Noexport     | [No users assigned] |
-        | TestRole                | [No users assigned] |
+      | Role name               | Username            |
+      | —                       | test_admin          |
+      | —                       | test_user1          |
+      | —                       | test_user2          |
+      | —                       | test_user3          |
+      | —                       | test_user4          |
+      | 1_FullRights            | [No users assigned] |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | [No users assigned] |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
 
     ##SETUP Assign to roles
     When I click on the link labeled "test_user1 (Test User1)"
@@ -73,16 +73,16 @@ Scenario: C.3.26.200.100 - Limit user view and export access based on User Right
     And I click on the button labeled exactly "Assign"
     Then I should see "successfully ASSIGNED to the user role"
     Then I should see a table header and rows containing the following values in a table:
-        | Role name               | Username            |
-        | —                       | test_admin          |
-        | —                       | test_user2          |
-        | —                       | test_user3          |
-        | —                       | test_user4          |
-        | 1_FullRights            | test_user1          |
-        | 2_Edit_RemoveID         | [No users assigned] |
-        | 3_ReadOnly_Deidentified | [No users assigned] |
-        | 4_NoAccess_Noexport     | [No users assigned] |
-        | TestRole                | [No users assigned] |
+      | Role name               | Username            |
+      | —                       | test_admin          |
+      | —                       | test_user2          |
+      | —                       | test_user3          |
+      | —                       | test_user4          |
+      | 1_FullRights            | test_user1          |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | [No users assigned] |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
 
     When I click on the link labeled "test_user2 (Test User2)"
     And I click on the button labeled "Assign to role" on the tooltip
@@ -91,16 +91,16 @@ Scenario: C.3.26.200.100 - Limit user view and export access based on User Right
     And I click on the button labeled exactly "Assign"
     Then I should see "successfully ASSIGNED to the user role"
     Then I should see a table header and rows containing the following values in a table:
-        | Role name               | Username            |
-        | —                       | test_admin          |
-        | —                       | test_user3          |
-        | —                       | test_user4          |
-        | 1_FullRights            | test_user1          |
-        |                         | test_user2          |
-        | 2_Edit_RemoveID         | [No users assigned] |
-        | 3_ReadOnly_Deidentified | [No users assigned] |
-        | 4_NoAccess_Noexport     | [No users assigned] |
-        | TestRole                | [No users assigned] |
+      | Role name               | Username            |
+      | —                       | test_admin          |
+      | —                       | test_user3          |
+      | —                       | test_user4          |
+      | 1_FullRights            | test_user1          |
+      |                         | test_user2          |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | [No users assigned] |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
 
     When I click on the link labeled "test_user3 (Test User3)"
     And I click on the button labeled "Assign to role" on the tooltip
@@ -109,15 +109,15 @@ Scenario: C.3.26.200.100 - Limit user view and export access based on User Right
     And I click on the button labeled exactly "Assign"
     Then I should see "successfully ASSIGNED to the user role"
     Then I should see a table header and rows containing the following values in a table:
-        | Role name               | Username            |
-        | —                       | test_admin          |
-        | —                       | test_user4          |
-        | 1_FullRights            | test_user1          |
-        |                         | test_user2          |
-        | 2_Edit_RemoveID         | [No users assigned] |
-        | 3_ReadOnly_Deidentified | test_user3          |
-        | 4_NoAccess_Noexport     | [No users assigned] |
-        | TestRole                | [No users assigned] |
+      | Role name               | Username            |
+      | —                       | test_admin          |
+      | —                       | test_user4          |
+      | 1_FullRights            | test_user1          |
+      |                         | test_user2          |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | test_user3          |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
 
     When I click on the link labeled "test_user4 (Test User4)"
     And I click on the button labeled "Assign to role" on the tooltip
@@ -126,15 +126,15 @@ Scenario: C.3.26.200.100 - Limit user view and export access based on User Right
     And I click on the button labeled exactly "Assign"
     Then I should see "successfully ASSIGNED to the user role"
     Then I should see a table header and rows containing the following values in a table:
-        | Role name               | Username            |
-        | —                       | test_admin          |
-        | 1_FullRights            | test_user1          |
-        |                         | test_user2          |
-        | 2_Edit_RemoveID         | [No users assigned] |
-        | 3_ReadOnly_Deidentified | test_user3          |
-        |                         | test_user4          |
-        | 4_NoAccess_Noexport     | [No users assigned] |
-        | TestRole                | [No users assigned] |
+      | Role name               | Username            |
+      | —                       | test_admin          |
+      | 1_FullRights            | test_user1          |
+      |                         | test_user2          |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | test_user3          |
+      |                         | test_user4          |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
 
     #SETUP DAG: Assign User to DAG
     Given I click on the link labeled "Data Access Groups"
@@ -144,13 +144,13 @@ Scenario: C.3.26.200.100 - Limit user view and export access based on User Right
     And I click on the button labeled "Assign"
     Then I should see "has been assigned to Data Access Group"
     Then I should see a table header and rows containing the following values in a table:
-        | Data Access Groups        | Users in group      |
-        | TestGroup1                | test_user1          |
-        | TestGroup2                |                     |
-        | [Not assigned to a group] | test_admin          |
-        |                           | test_user2          |
-        |                           | test_user3          |
-        |                           | test_user4          |
+      | Data Access Groups        | Users in group |
+      | TestGroup1                | test_user1     |
+      | TestGroup2                |                |
+      | [Not assigned to a group] | test_admin     |
+      |                           | test_user2     |
+      |                           | test_user3     |
+      |                           | test_user4     |
 
     When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
     When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
@@ -158,24 +158,24 @@ Scenario: C.3.26.200.100 - Limit user view and export access based on User Right
     And I click on the button labeled "Assign"
     Then I should see "has been assigned to Data Access Group"
     Then I should see a table header and rows containing the following values in a table:
-        | Data Access Groups        | Users in group      |
-        | TestGroup1                | test_user1          |
-        | TestGroup2                | test_user2          |
-        | [Not assigned to a group] | test_admin          |
-        |                           | test_user3          |
-        |                           | test_user4          |
+      | Data Access Groups        | Users in group |
+      | TestGroup1                | test_user1     |
+      | TestGroup2                | test_user2     |
+      | [Not assigned to a group] | test_admin     |
+      |                           | test_user3     |
+      |                           | test_user4     |
 
     When I select "test_user3 (Test User3)" on the dropdown field labeled "Assign user"
     And I select "TestGroup1" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
     Then I should see "has been assigned to Data Access Group"
     Then I should see a table header and rows containing the following values in a table:
-        | Data Access Groups        | Users in group      |
-        | TestGroup1                | test_user1          |
-        |                           | test_user3          |
-        | TestGroup2                | test_user2          |
-        | [Not assigned to a group] | test_admin          |
-        |                           | test_user4          |
+      | Data Access Groups        | Users in group |
+      | TestGroup1                | test_user1     |
+      |                           | test_user3     |
+      | TestGroup2                | test_user2     |
+      | [Not assigned to a group] | test_admin     |
+      |                           | test_user4     |
 
     #"Test_User4" is not assigned to a DAG
 
@@ -210,86 +210,86 @@ Scenario: C.3.26.200.100 - Limit user view and export access based on User Right
 
 #FUNCTIONAL_REQUIREMENT
 #ACTION Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
-Scenario: C.3.26.200.100-B
+  Scenario: C.3.26.200.100-B
 
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        |
-        | Data Export Files           |
-        | PDF Survey Archive          |
-        | Recycle Bin                 |
-        | TestGroup1_Folder           |
-        | Role1_Folder                |
+      | Name               |
+      | Data Export Files  |
+      | PDF Survey Archive |
+      | Recycle Bin        |
+      | TestGroup1_Folder  |
+      | Role1_Folder       |
 
     # And I wait for 5 seconds
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
-        |/import_files/user list for project 1.csv|
+      | /import_files/user list for project 1.csv |
 
     ##VERIFY file uploaded in folder
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | TestGroup1_Folder           |                  |                         |
-        | Role1_Folder                |                  |                         |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | TestGroup1_Folder           |                  |                         |
+      | Role1_Folder                |                  |                         |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION Upload to top tier file repo (all users will see file) - using the Select files to upload button
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        |
-        | Data Export Files           |
-        | PDF Survey Archive          |
-        | Recycle Bin                 |
-        | TestGroup1_Folder           |
-        | Role1_Folder                |
+      | Name               |
+      | Data Export Files  |
+      | PDF Survey Archive |
+      | Recycle Bin        |
+      | TestGroup1_Folder  |
+      | Role1_Folder       |
 
     # And I wait for 5 seconds
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
-      |/import_files/testusers_bulkupload.csv|
+      | /import_files/testusers_bulkupload.csv |
 
     ##VERIFY file uploaded in folder
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                     | Time Uploaded    | Comments                |
-        | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                     | Time Uploaded    | Comments                |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-#FUNCTIONAL_REQUIREMENT
-##ACTION Upload to DAG folder
-Scenario: C.3.26.200.100-C
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Upload to DAG folder
+  Scenario: C.3.26.200.100-C
 
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        |
-        | Data Export Files           |
-        | PDF Survey Archive          |
-        | Recycle Bin                 |
-        | TestGroup1_Folder           |
-        | Role1_Folder                |
+      | Name               |
+      | Data Export Files  |
+      | PDF Survey Archive |
+      | Recycle Bin        |
+      | TestGroup1_Folder  |
+      | Role1_Folder       |
 
     When I click on the link labeled "TestGroup1_Folder"
     Then I should see "All Files/TestGroup1_Folder"
     And I should see "DAG-Restricted:TestGroup1"
     And I should see a table row containing the following values in the file repository table:
-        | No files or sub-folders exist in this folder |
+      | No files or sub-folders exist in this folder |
 
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
-        |/import_files/testusers_bulk_upload.csv|
+      | /import_files/testusers_bulk_upload.csv |
 
     ##VERIFY uploaded in subfolder
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                      | Time Uploaded    | Comments                |
+      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION Upload to Role folder
-Scenario: C.3.26.200.100-D
+  Scenario: C.3.26.200.100-D
 
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        |
-        | Data Export Files           |
-        | PDF Survey Archive          |
-        | Recycle Bin                 |
-        | TestGroup1_Folder           |
-        | Role1_Folder                |
+      | Name               |
+      | Data Export Files  |
+      | PDF Survey Archive |
+      | Recycle Bin        |
+      | TestGroup1_Folder  |
+      | Role1_Folder       |
 
     And I should see "Data Export Files"
     And I click on the link labeled "Role1_Folder"
@@ -297,28 +297,28 @@ Scenario: C.3.26.200.100-D
 
     #C.3.26.400.100 #Upload more than one file at the same time using the select files to upload button
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
-      | /import_files/File_Upload.docx            |
-      | /import_files/instrument_designation.csv  |
+      | /import_files/File_Upload.docx           |
+      | /import_files/instrument_designation.csv |
 
     #VERIFY uploaded in subfolder
     # And I wait for 5 seconds
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                       | Time Uploaded    | Comments                |
-        | File_Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | instrument_designation.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                       | Time Uploaded    | Comments                |
+      | File_Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | instrument_designation.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION Auto-archive file in DAG TestGroup1
-Scenario: C.3.26.200.100-E
+  Scenario: C.3.26.200.100-E
 
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        |
-        | Data Export Files           |
-        | PDF Survey Archive          |
-        | Recycle Bin                 |
-        | TestGroup1_Folder           |
-        | Role1_Folder                |
+      | Name               |
+      | Data Export Files  |
+      | PDF Survey Archive |
+      | Recycle Bin        |
+      | TestGroup1_Folder  |
+      | Role1_Folder       |
 
     Given I click on the link labeled "PDF Survey Archive"
     Then I should see "TestGroup1"
@@ -355,34 +355,34 @@ Scenario: C.3.26.200.100-E
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION Unable to access DAG folder
-Scenario: C.3.26.200.100-F
+  Scenario: C.3.26.200.100-F
 
     When I click on the link labeled "File Repository"
     # And I wait for 2 seconds
 
     ##VERIFY See file uploaded by Test_User1
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        |
-        | Data Export Files           |
-        | PDF Survey Archive          |
-        | Recycle Bin                 |
-        | Role1_Folder                |
-        | user list for project 1.csv |
-        | testusers_bulkupload.csv    |
+      | Name                        |
+      | Data Export Files           |
+      | PDF Survey Archive          |
+      | Recycle Bin                 |
+      | Role1_Folder                |
+      | user list for project 1.csv |
+      | testusers_bulkupload.csv    |
 
     And I should NOT see "TestGroup1_Folder"
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION Interact in Role folder
-Scenario: C.3.26.200.100-G
+  Scenario: C.3.26.200.100-G
 
 #    And I want to export a snapshot of this feature here
     Given I click on the link labeled "Role1_Folder"
     Then I should see "All Files/Role1_Folder"
     And I should see a table header and rows containing the following values in the file repository table:
-        | Name                       | Time Uploaded    | Comments                |
-        | File Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | instrument_designation.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                       | Time Uploaded    | Comments                |
+      | File Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | instrument_designation.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     # And I wait for 2 seconds
     #Download file previously uploaded by test_user1
@@ -391,16 +391,16 @@ Scenario: C.3.26.200.100-G
 
     ##ACTION Upload to Role folder
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
-      |/import_files/user list for project 1.csv|
+      | /import_files/user list for project 1.csv |
 
      # And I wait for 2 seconds
 
     ##VERIFY uploaded in subfolder
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user2. |
-        | File Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | instrument designation.csv  | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user2. |
+      | File Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | instrument designation.csv  | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup2
@@ -411,8 +411,8 @@ Scenario: C.3.26.200.100-G
     #Don't see consent created by testgroup1
 
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Record          | Survey                           | Survey Completion Time | Type      |
-        | 2-1 TestGroup2  | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+      | Record         | Survey                           | Survey Completion Time | Type      |
+      | 2-1 TestGroup2 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
 
     But I should NOT see "TestGroup1"
     And I should NOT see "1-1"
@@ -427,12 +427,12 @@ Scenario: C.3.26.200.100-G
     ##VERIFY See file uploaded by Test_User1
 
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | Data Export Files           |                  |                         |
-        | PDF Survey Archive          |                  |                         |
-        | Recycle Bin                 |                  |                         |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | Data Export Files           |                  |                         |
+      | PDF Survey Archive          |                  |                         |
+      | Recycle Bin                 |                  |                         |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     And I should NOT see "Role1_Folder"
 
@@ -463,8 +463,8 @@ Scenario: C.3.26.200.100-G
     #Don't see consent created by testgroup2
     # Cannot use the table format as we cannot determine the filename
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Record         | Survey                           | Survey Completion Time | Type      |
-        | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+      | Record         | Survey                           | Survey Completion Time | Type      |
+      | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
 
     But I should NOT see "TestGroup2"
     And I should NOT see "2-1"
@@ -473,23 +473,23 @@ Scenario: C.3.26.200.100-G
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION Download to top tier file
-Scenario: C.3.26.200.100-H
+  Scenario: C.3.26.200.100-H
 
     Given I login to REDCap with the user "Test_User4"
-    And I click on the link labeled "My Projects"  
-    And I click on the link labeled "C.3.26.200.100"  
+    And I click on the link labeled "My Projects"
+    And I click on the link labeled "C.3.26.200.100"
     When I click on the link labeled "File Repository"
     ##ACTION Unable to access Role folder 
     ##VERIFY See file uploaded by Test_User1 & Test_User2
 
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | Data Export Files           |                  |                         |
-        | PDF Survey Archive          |                  |                         |
-        | Recycle Bin                 |                  |                         |
-        | TestGroup1_Folder           |                  |                         |
-        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | Data Export Files           |                  |                         |
+      | PDF Survey Archive          |                  |                         |
+      | Recycle Bin                 |                  |                         |
+      | TestGroup1_Folder           |                  |                         |
+      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     And I should NOT see "Role1_Folder"
 
@@ -503,8 +503,8 @@ Scenario: C.3.26.200.100-H
     ##ACTION Access DAG folder
     When I click on the link labeled "TestGroup1_Folder"
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     When I download a file by clicking on the link labeled "user list for project 1.csv"
     ##VERIFY Download another users file in subfolder
@@ -515,13 +515,13 @@ Scenario: C.3.26.200.100-H
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Record | Survey                           | Survey Completion Time | Type      |
-        | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
-        | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+      | Record | Survey                           | Survey Completion Time | Type      |
+      | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+      | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION C.3.26.500.100 Delete folders - unable to delete with file in folder
-Scenario: C.3.26.200.100-I
+  Scenario: C.3.26.200.100-I
 
     When I click on the link labeled "File Repository"
     And I check the checkbox labeled "TestGroup1_Folder"
@@ -536,20 +536,20 @@ Scenario: C.3.26.200.100-I
     And I should see a dialog containing the following text: "Sorry, but the folder below cannot be deleted because it still has files in it."
     When I click on the button labeled "Close" in the dialog box
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | Data Export Files           |                  |                         |
-        | PDF Survey Archive          |                  |                         |
-        | Recycle Bin                 |                  |                         |
-        | TestGroup1_Folder           |                  |                         |
-        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | Data Export Files           |                  |                         |
+      | PDF Survey Archive          |                  |                         |
+      | Recycle Bin                 |                  |                         |
+      | TestGroup1_Folder           |                  |                         |
+      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION Cancel Remove files from folder
     When I click on the link labeled "TestGroup1_Folder"
     Then I should see "All Files/TestGroup1_Folder"
     And I should see a table header and rows containing the following values in the file repository table:
-        | Name                      | Time Uploaded    | Comments                |
-        | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                      | Time Uploaded    | Comments                |
+      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     # And I wait for 4 seconds
     And I check the checkbox labeled "testusers_bulk_upload.csv"
@@ -558,8 +558,8 @@ Scenario: C.3.26.200.100-I
     And I click on the button labeled "Cancel" in the dialog box
     ##VERIFY file still in folder
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                      | Time Uploaded    | Comments                |
-        | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                      | Time Uploaded    | Comments                |
+      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION Delete/Remove files from folder
     When I check the checkbox labeled "testusers_bulk_upload.csv"
@@ -570,9 +570,9 @@ Scenario: C.3.26.200.100-I
     Then I should see a dialog containing the following text: "SUCCESS!"
     And I click on the button labeled "Close" in the dialog box
     Then I should see a table row containing the following values in the file repository table:
-        | No files or sub-folders exist in this folder |
+      | No files or sub-folders exist in this folder |
 
-    ##ACTION C.3.26.500.100 Delete folders - Cancel deletion 
+    ##ACTION C.3.26.500.100 Delete folders - Cancel deletion
     When I click on the link labeled "File Repository"
     And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
 
@@ -580,13 +580,13 @@ Scenario: C.3.26.200.100-I
     Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
     When I click on the button labeled "Cancel" in the dialog box
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | Data Export Files           |                  |                         |
-        | PDF Survey Archive          |                  |                         |
-        | Recycle Bin                 |                  |                         |
-        | TestGroup1_Folder           |                  |                         |
-        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | Data Export Files           |                  |                         |
+      | PDF Survey Archive          |                  |                         |
+      | Recycle Bin                 |                  |                         |
+      | TestGroup1_Folder           |                  |                         |
+      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION C.3.26.500.100 Delete folders
     And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
@@ -594,12 +594,12 @@ Scenario: C.3.26.200.100-I
     Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
     When I click on the button labeled "Delete" in the dialog box
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | Data Export Files           |                  |                         |
-        | PDF Survey Archive          |                  |                         |
-        | Recycle Bin                 |                  |                         |
-        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | Data Export Files           |                  |                         |
+      | PDF Survey Archive          |                  |                         |
+      | Recycle Bin                 |                  |                         |
+      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     Given I click on the link labeled "File Repository"
     Then I should NOT see "TestGroup1_Folder"
