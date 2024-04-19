@@ -28,14 +28,12 @@ Feature: User Interface: The system shall support the storage, organization, and
     When I click on the link labeled "File Repository"
     Then I should see "Data Export Files"
     And I click on the link labeled "Data Export Files"
-
-    # Then I verify I see the csv file
     And I should see "Data export file created by test_admin on"
 
-Scenario: C.3.26.300.200 Automatic uploading of e-Consent Framework PDFs
+  Scenario: C.3.26.300.200 Automatic uploading of e-Consent Framework PDFs
     # REDUNDANT
 
-Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
+  Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
 
     #SETUP 
     Given I login to REDCap with the user "Test_Admin"
@@ -49,10 +47,13 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
     And I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
       |import_files/testusers_bulkupload.csv|
 
-    ##VERIFY_FiRe file uploaded in folder
-    Then I should see "100% uploaded"
-    Then I should see "testusers_bulkupload.csv"
-
+    ##VERIFY file uploaded in folder
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | Data Export Files        |                  |                         |
+      | PDF Survey Archive       |                  |                         |
+      | Recycle Bin              |                  |                         |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Delete file
@@ -69,15 +70,17 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Cancel Restore deleted file
     When I click on the link labeled "Recycle Bin"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
-    Then I should see "testusers_bulkupload.csv"
     When I click on the Restore icon for the File Repository file named "testusers_bulkupload.csv"
-    # When I click on the image "Restore deleted file?" link for the row containing "testusers_bulkupload.csv"
-    # When I click on the link labeled "Restore deleted file?"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Cancel" in the dialog box
     ##VERIFY file still in recycle folder
-    Then I should see "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Restore deleted file
@@ -85,7 +88,9 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Cancel" in the dialog box
     ##VERIFY file still in recycle folder
-   Then I should see "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Restore deleted file
@@ -96,11 +101,15 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
     And I click on the button labeled "Close" in the dialog box
     ##VERIFY file in File Repository
     When I click on the link labeled "File Repository"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | Data Export Files        |                  |                         |
+      | PDF Survey Archive       |                  |                         |
+      | Recycle Bin              |                  |                         |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
-    Then I should see "testusers_bulkupload.csv"
     ##VERIFY file not in recycle folder
     When I click on the link labeled "Recycle Bin"
-
     Then I should NOT see "testusers_bulkupload.csv"
 
     #FUNCTIONAL_REQUIREMENT
