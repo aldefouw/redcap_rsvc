@@ -5,206 +5,206 @@ Feature: User Interface: The system shall support limiting file repository user 
 
   Scenario: C.3.26.200.100 - Limit user view and export access based on User Rights and DAG
 
-#    #SETUP
-#    Given I login to REDCap with the user "Test_Admin"
-#    When I create a new project named "C.3.26.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
-#    And I click on the link labeled "My Projects"
-#    And I click on the link labeled "C.3.26.200.100"
-#
-#    ##SETUP auto-archive
-#    And I click on the link labeled "Designer"
-#    And I click on the "Survey settings" button for the instrument row labeled "Consent"
-#    And I click on the radio labeled "Auto-Archiver + e-Consent Framework"
-#    Then I click on the button labeled "Save Changes"
-#
-#    ##SETUP File Repository
-#    And I click on the link labeled "File Repository"
-#
-#    #Create DAG limited folder
-#    And I click on the button labeled "Create folder"
-#    And I enter "TestGroup1_Folder" into the input field labeled "New folder name:"
-#    And I select "TestGroup1" on the dropdown field labeled "Limit access by Data Access Group?"
-#    And I click on the button labeled "Create folder" in the dialog box
-#    Then I should see "TestGroup1_Folder"
-#
-#    #Create role limited folder
-#    And I click on the button labeled "Create folder"
-#    And I enter "Role1_Folder" into the input field labeled "New folder name"
-#    And I select "1_FullRights" on the dropdown field labeled "Limit access by User Role?"
-#    And I click on the button labeled "Create folder" in the dialog box
-#    Then I should see "Role1_Folder"
-#
-#    ##SETUP User Rights:
-#    When I click on the link labeled "User Rights"
-#    And I click on the button labeled "Upload or download users, roles, and assignments"
-#    And I click on the link labeled "Upload users (CSV)"
-#    Then I upload a "csv" format file located at "/import_files/user list for project 1.csv", by clicking the button near "Select your CSV file of users and their user rights to be added/modified:" to browse for the file, and clicking the button labeled "Upload" to upload the file
-#    Then I should see a dialog containing the following text: "Upload users (CSV) - Confirm"
-#    And I should see a table header and rows containing the following values in a table:
-#      | username   |
-#      | test_admin |
-#      | test_user1 |
-#      | test_user2 |
-#      | test_user3 |
-#      | test_user4 |
-#
-#    Given I click on the button labeled "Upload" in the dialog box
-#    Then I should see a dialog containing the following text: "SUCCESS!"
-#    And I click on the button labeled "Close" in the dialog box
-#
-#    Then I should see a table header and rows containing the following values in a table:
-#      | Role name               | Username            |
-#      | —                       | test_admin          |
-#      | —                       | test_user1          |
-#      | —                       | test_user2          |
-#      | —                       | test_user3          |
-#      | —                       | test_user4          |
-#      | 1_FullRights            | [No users assigned] |
-#      | 2_Edit_RemoveID         | [No users assigned] |
-#      | 3_ReadOnly_Deidentified | [No users assigned] |
-#      | 4_NoAccess_Noexport     | [No users assigned] |
-#      | TestRole                | [No users assigned] |
-#
-#    ##SETUP Assign to roles
-#    When I click on the link labeled "test_user1 (Test User1)"
-#    And I click on the button labeled "Assign to role" on the tooltip
-#    And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
-#    And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
-#    And I click on the button labeled exactly "Assign"
-#    Then I should see "successfully ASSIGNED to the user role"
-#    Then I should see a table header and rows containing the following values in a table:
-#      | Role name               | Username            |
-#      | —                       | test_admin          |
-#      | —                       | test_user2          |
-#      | —                       | test_user3          |
-#      | —                       | test_user4          |
-#      | 1_FullRights            | test_user1          |
-#      | 2_Edit_RemoveID         | [No users assigned] |
-#      | 3_ReadOnly_Deidentified | [No users assigned] |
-#      | 4_NoAccess_Noexport     | [No users assigned] |
-#      | TestRole                | [No users assigned] |
-#
-#    When I click on the link labeled "test_user2 (Test User2)"
-#    And I click on the button labeled "Assign to role" on the tooltip
-#    And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
-#    And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
-#    And I click on the button labeled exactly "Assign"
-#    Then I should see "successfully ASSIGNED to the user role"
-#    Then I should see a table header and rows containing the following values in a table:
-#      | Role name               | Username            |
-#      | —                       | test_admin          |
-#      | —                       | test_user3          |
-#      | —                       | test_user4          |
-#      | 1_FullRights            | test_user1          |
-#      |                         | test_user2          |
-#      | 2_Edit_RemoveID         | [No users assigned] |
-#      | 3_ReadOnly_Deidentified | [No users assigned] |
-#      | 4_NoAccess_Noexport     | [No users assigned] |
-#      | TestRole                | [No users assigned] |
-#
-#    When I click on the link labeled "test_user3 (Test User3)"
-#    And I click on the button labeled "Assign to role" on the tooltip
-#    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
-#    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
-#    And I click on the button labeled exactly "Assign"
-#    Then I should see "successfully ASSIGNED to the user role"
-#    Then I should see a table header and rows containing the following values in a table:
-#      | Role name               | Username            |
-#      | —                       | test_admin          |
-#      | —                       | test_user4          |
-#      | 1_FullRights            | test_user1          |
-#      |                         | test_user2          |
-#      | 2_Edit_RemoveID         | [No users assigned] |
-#      | 3_ReadOnly_Deidentified | test_user3          |
-#      | 4_NoAccess_Noexport     | [No users assigned] |
-#      | TestRole                | [No users assigned] |
-#
-#    When I click on the link labeled "test_user4 (Test User4)"
-#    And I click on the button labeled "Assign to role" on the tooltip
-#    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
-#    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
-#    And I click on the button labeled exactly "Assign"
-#    Then I should see "successfully ASSIGNED to the user role"
-#    Then I should see a table header and rows containing the following values in a table:
-#      | Role name               | Username            |
-#      | —                       | test_admin          |
-#      | 1_FullRights            | test_user1          |
-#      |                         | test_user2          |
-#      | 2_Edit_RemoveID         | [No users assigned] |
-#      | 3_ReadOnly_Deidentified | test_user3          |
-#      |                         | test_user4          |
-#      | 4_NoAccess_Noexport     | [No users assigned] |
-#      | TestRole                | [No users assigned] |
-#
-#    #SETUP DAG: Assign User to DAG
-#    Given I click on the link labeled "Data Access Groups"
-#    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-#    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-#    And I select "TestGroup1" on the dropdown field labeled "to"
-#    And I click on the button labeled "Assign"
-#    Then I should see "has been assigned to Data Access Group"
-#    Then I should see a table header and rows containing the following values in a table:
-#      | Data Access Groups        | Users in group |
-#      | TestGroup1                | test_user1     |
-#      | TestGroup2                |                |
-#      | [Not assigned to a group] | test_admin     |
-#      |                           | test_user2     |
-#      |                           | test_user3     |
-#      |                           | test_user4     |
-#
-#    When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
-#    When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
-#    And I select "TestGroup2" on the dropdown field labeled "to"
-#    And I click on the button labeled "Assign"
-#    Then I should see "has been assigned to Data Access Group"
-#    Then I should see a table header and rows containing the following values in a table:
-#      | Data Access Groups        | Users in group |
-#      | TestGroup1                | test_user1     |
-#      | TestGroup2                | test_user2     |
-#      | [Not assigned to a group] | test_admin     |
-#      |                           | test_user3     |
-#      |                           | test_user4     |
-#
-#    When I select "test_user3 (Test User3)" on the dropdown field labeled "Assign user"
-#    And I select "TestGroup1" on the dropdown field labeled "to"
-#    And I click on the button labeled "Assign"
-#    Then I should see "has been assigned to Data Access Group"
-#    Then I should see a table header and rows containing the following values in a table:
-#      | Data Access Groups        | Users in group |
-#      | TestGroup1                | test_user1     |
-#      |                           | test_user3     |
-#      | TestGroup2                | test_user2     |
-#      | [Not assigned to a group] | test_admin     |
-#      |                           | test_user4     |
-#
-#    #"Test_User4" is not assigned to a DAG
-#
-#    And I logout
-#
-#    ##SETUP Record: Create record while in DAG through eConsent framework
-#    Given I login to REDCap with the user "Test_User1"
-#    And I click on the link labeled "My Projects"
-#    And I click on the link labeled "C.3.26.200.100"
-#    When I click on the link labeled "Add / Edit Records"
-#    And I click on the button labeled "Add new record for the arm selected above"
-#    And I click the bubble to add a record for the "Consent" longitudinal instrument on event "Event 1" and click on the bubble
-#    Then I should see "Adding new Record ID"
-#    When I click on the button labeled "Save & Exit Form"
-#    And I should see "successfully added."
-#
-#    Then I click the bubble to add a record for the "Consent" longitudinal instrument on event "Event 1" and click on the bubble
-#    And I click on the button labeled "Survey options"
-#    And I click on the survey option label containing "Open survey" label
-#    And I click on the button labeled "Next Page"
-#    When I check the checkbox labeled "I certify that all of my information in the document above is correct."
-#    And I click on the button labeled "Submit"
-#    When I click on the button labeled "Close survey"
-#    Then I should see "You may now close this tab/window"
-#    Then I return to the REDCap page I opened the survey from
-#    When I click on the link labeled "Record Status Dashboard"
-#    And I click on the link labeled "1-1"
-#    Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
-#    And I should see "TestGroup1"
+    #SETUP
+    Given I login to REDCap with the user "Test_Admin"
+    When I create a new project named "C.3.26.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+    And I click on the link labeled "My Projects"
+    And I click on the link labeled "C.3.26.200.100"
+
+    ##SETUP auto-archive
+    And I click on the link labeled "Designer"
+    And I click on the "Survey settings" button for the instrument row labeled "Consent"
+    And I click on the radio labeled "Auto-Archiver + e-Consent Framework"
+    Then I click on the button labeled "Save Changes"
+
+    ##SETUP File Repository
+    And I click on the link labeled "File Repository"
+
+    #Create DAG limited folder
+    And I click on the button labeled "Create folder"
+    And I enter "TestGroup1_Folder" into the input field labeled "New folder name:"
+    And I select "TestGroup1" on the dropdown field labeled "Limit access by Data Access Group?"
+    And I click on the button labeled "Create folder" in the dialog box
+    Then I should see "TestGroup1_Folder"
+
+    #Create role limited folder
+    And I click on the button labeled "Create folder"
+    And I enter "Role1_Folder" into the input field labeled "New folder name"
+    And I select "1_FullRights" on the dropdown field labeled "Limit access by User Role?"
+    And I click on the button labeled "Create folder" in the dialog box
+    Then I should see "Role1_Folder"
+
+    ##SETUP User Rights:
+    When I click on the link labeled "User Rights"
+    And I click on the button labeled "Upload or download users, roles, and assignments"
+    And I click on the link labeled "Upload users (CSV)"
+    Then I upload a "csv" format file located at "/import_files/user list for project 1.csv", by clicking the button near "Select your CSV file of users and their user rights to be added/modified:" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    Then I should see a dialog containing the following text: "Upload users (CSV) - Confirm"
+    And I should see a table header and rows containing the following values in a table:
+      | username   |
+      | test_admin |
+      | test_user1 |
+      | test_user2 |
+      | test_user3 |
+      | test_user4 |
+
+    Given I click on the button labeled "Upload" in the dialog box
+    Then I should see a dialog containing the following text: "SUCCESS!"
+    And I click on the button labeled "Close" in the dialog box
+
+    Then I should see a table header and rows containing the following values in a table:
+      | Role name               | Username            |
+      | —                       | test_admin          |
+      | —                       | test_user1          |
+      | —                       | test_user2          |
+      | —                       | test_user3          |
+      | —                       | test_user4          |
+      | 1_FullRights            | [No users assigned] |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | [No users assigned] |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
+
+    ##SETUP Assign to roles
+    When I click on the link labeled "test_user1 (Test User1)"
+    And I click on the button labeled "Assign to role" on the tooltip
+    And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I click on the button labeled exactly "Assign"
+    Then I should see "successfully ASSIGNED to the user role"
+    Then I should see a table header and rows containing the following values in a table:
+      | Role name               | Username            |
+      | —                       | test_admin          |
+      | —                       | test_user2          |
+      | —                       | test_user3          |
+      | —                       | test_user4          |
+      | 1_FullRights            | test_user1          |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | [No users assigned] |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
+
+    When I click on the link labeled "test_user2 (Test User2)"
+    And I click on the button labeled "Assign to role" on the tooltip
+    And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I click on the button labeled exactly "Assign"
+    Then I should see "successfully ASSIGNED to the user role"
+    Then I should see a table header and rows containing the following values in a table:
+      | Role name               | Username            |
+      | —                       | test_admin          |
+      | —                       | test_user3          |
+      | —                       | test_user4          |
+      | 1_FullRights            | test_user1          |
+      |                         | test_user2          |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | [No users assigned] |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
+
+    When I click on the link labeled "test_user3 (Test User3)"
+    And I click on the button labeled "Assign to role" on the tooltip
+    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I click on the button labeled exactly "Assign"
+    Then I should see "successfully ASSIGNED to the user role"
+    Then I should see a table header and rows containing the following values in a table:
+      | Role name               | Username            |
+      | —                       | test_admin          |
+      | —                       | test_user4          |
+      | 1_FullRights            | test_user1          |
+      |                         | test_user2          |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | test_user3          |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
+
+    When I click on the link labeled "test_user4 (Test User4)"
+    And I click on the button labeled "Assign to role" on the tooltip
+    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
+    And I click on the button labeled exactly "Assign"
+    Then I should see "successfully ASSIGNED to the user role"
+    Then I should see a table header and rows containing the following values in a table:
+      | Role name               | Username            |
+      | —                       | test_admin          |
+      | 1_FullRights            | test_user1          |
+      |                         | test_user2          |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | test_user3          |
+      |                         | test_user4          |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
+
+    #SETUP DAG: Assign User to DAG
+    Given I click on the link labeled "Data Access Groups"
+    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    And I select "TestGroup1" on the dropdown field labeled "to"
+    And I click on the button labeled "Assign"
+    Then I should see "has been assigned to Data Access Group"
+    Then I should see a table header and rows containing the following values in a table:
+      | Data Access Groups        | Users in group |
+      | TestGroup1                | test_user1     |
+      | TestGroup2                |                |
+      | [Not assigned to a group] | test_admin     |
+      |                           | test_user2     |
+      |                           | test_user3     |
+      |                           | test_user4     |
+
+    When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
+    When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
+    And I select "TestGroup2" on the dropdown field labeled "to"
+    And I click on the button labeled "Assign"
+    Then I should see "has been assigned to Data Access Group"
+    Then I should see a table header and rows containing the following values in a table:
+      | Data Access Groups        | Users in group |
+      | TestGroup1                | test_user1     |
+      | TestGroup2                | test_user2     |
+      | [Not assigned to a group] | test_admin     |
+      |                           | test_user3     |
+      |                           | test_user4     |
+
+    When I select "test_user3 (Test User3)" on the dropdown field labeled "Assign user"
+    And I select "TestGroup1" on the dropdown field labeled "to"
+    And I click on the button labeled "Assign"
+    Then I should see "has been assigned to Data Access Group"
+    Then I should see a table header and rows containing the following values in a table:
+      | Data Access Groups        | Users in group |
+      | TestGroup1                | test_user1     |
+      |                           | test_user3     |
+      | TestGroup2                | test_user2     |
+      | [Not assigned to a group] | test_admin     |
+      |                           | test_user4     |
+
+    #"Test_User4" is not assigned to a DAG
+
+    And I logout
+
+    ##SETUP Record: Create record while in DAG through eConsent framework
+    Given I login to REDCap with the user "Test_User1"
+    And I click on the link labeled "My Projects"
+    And I click on the link labeled "C.3.26.200.100"
+    When I click on the link labeled "Add / Edit Records"
+    And I click on the button labeled "Add new record for the arm selected above"
+    And I click the bubble to add a record for the "Consent" longitudinal instrument on event "Event 1" and click on the bubble
+    Then I should see "Adding new Record ID"
+    When I click on the button labeled "Save & Exit Form"
+    And I should see "successfully added."
+
+    Then I click the bubble to add a record for the "Consent" longitudinal instrument on event "Event 1" and click on the bubble
+    And I click on the button labeled "Survey options"
+    And I click on the survey option label containing "Open survey" label
+    And I click on the button labeled "Next Page"
+    When I check the checkbox labeled "I certify that all of my information in the document above is correct."
+    And I click on the button labeled "Submit"
+    When I click on the button labeled "Close survey"
+    Then I should see "You may now close this tab/window"
+    Then I return to the REDCap page I opened the survey from
+    When I click on the link labeled "Record Status Dashboard"
+    And I click on the link labeled "1-1"
+    Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
+    And I should see "TestGroup1"
 
   #FUNCTIONAL_REQUIREMENT
   #ACTION Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
@@ -220,7 +220,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Role1_Folder       |
 
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
-      | /import_files/user list for project 1.csv |
+      | /import_files/user_list_for_project_1.csv |
 
     ##VERIFY file uploaded in folder
     Then I should see a table header and rows containing the following values in the file repository table:
