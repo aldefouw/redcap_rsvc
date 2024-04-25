@@ -385,7 +385,7 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     ##ACTION Upload to Role folder
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
-      | /import_files/user_list_for_project_1.csv |
+      | /import_files/user list for project 1.csv |
 
     ##VERIFY uploaded in subfolder
     Given I see "All Files/Role1_Folder"
@@ -423,13 +423,13 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Data Export Files           |                  |                         |
       | PDF Survey Archive          |                  |                         |
       | Recycle Bin                 |                  |                         |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     And I should NOT see "Role1_Folder"
 
     ##ACTION Download to top tier file imported by user 1 & user 2
-    When I download a file by clicking on the link labeled "user list for project 1.csv"
+    When I download a file by clicking on the link labeled "user_list_for_project_1.csv"
     #Note the underscores below - REDCap adds them automatically onto the filename when downloading
     Then I should see a downloaded file named "user_list_for_project_1.csv"
     When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
@@ -438,11 +438,11 @@ Feature: User Interface: The system shall support limiting file repository user 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
     When I click on the link labeled "TestGroup1_Folder"
-    Then I should see the link labeled "user list for project 1.csv"
+    Then I should see the link labeled "testusers_bulk_upload.csv"
 
-    When I download a file by clicking on the link labeled "user list for project 1.csv"
+    When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
     ##VERIFY Download another users file in subfolder
-    Then I should see a downloaded file named "user_list_for_project_1.csv"
+    Then I should see a downloaded file named "testusers_bulk_upload.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup1
@@ -477,12 +477,12 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Recycle Bin                 |                  |                         |
       | TestGroup1_Folder           |                  |                         |
       | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     And I should NOT see "Role1_Folder"
 
     ##ACTION Download to top tier file imported by user 1 & user 2
-    When I download a file by clicking on the link labeled "user list for project 1.csv"
+    When I download a file by clicking on the link labeled "user_list_for_project_1.csv"
     Then I should see a downloaded file named "user_list_for_project_1.csv"
     When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
     Then I should see a downloaded file named "testusers_bulkupload.csv"
