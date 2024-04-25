@@ -207,7 +207,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I click on the link labeled exactly "1-1"
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
     And I should see "TestGroup1"
-    
+
   #FUNCTIONAL_REQUIREMENT
   #ACTION Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
   Scenario: C.3.26.200.100-B
@@ -304,8 +304,8 @@ Feature: User Interface: The system shall support limiting file repository user 
       | File_Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | instrument_designation.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-#FUNCTIONAL_REQUIREMENT
-##ACTION Auto-archive file in DAG TestGroup1
+  #FUNCTIONAL_REQUIREMENT
+  ##ACTION Auto-archive file in DAG TestGroup1
   Scenario: C.3.26.200.100-E
 
     When I click on the link labeled "File Repository"
@@ -349,8 +349,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
     And I should see "TestGroup2"
 
-#FUNCTIONAL_REQUIREMENT
-##ACTION Unable to access DAG folder
+  #FUNCTIONAL_REQUIREMENT
+  ##ACTION Unable to access DAG folder
   Scenario: C.3.26.200.100-F
 
     When I click on the link labeled "File Repository"
@@ -367,8 +367,8 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     And I should NOT see "TestGroup1_Folder"
 
-#FUNCTIONAL_REQUIREMENT
-##ACTION Interact in Role folder
+  #FUNCTIONAL_REQUIREMENT
+  ##ACTION Interact in Role folder
   Scenario: C.3.26.200.100-G
 
 #    And I want to export a snapshot of this feature here
@@ -391,8 +391,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     Given I see "All Files/Role1_Folder"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                        | Time Uploaded    | Comments                |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user2. |
       | File Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user2. |
       | instrument designation.csv  | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     #FUNCTIONAL_REQUIREMENT
