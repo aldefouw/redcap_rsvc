@@ -20,8 +20,8 @@ When I click on the link labeled "User Rights"
 And I click on the link labeled "test_admin"
 And I click on the button labeled "Edit user privileges"
 Then I should see 'Editing existing user "test_admin"'
-Then  I check the User Right named "Data Quality - Create & edit rules"
-Then  I check the User Right named "Data Quality - Execute rules"
+Then I check the User Right named "Data Quality - Create & edit rules"
+Then I check the User Right named "Data Quality - Execute rules"
 And I click on the button labeled "Save Changes" 
 Then I should see 'User "test_admin" was successfully edited'
 
@@ -63,7 +63,7 @@ Then I should see a table header and rows containing the following values in a t
 When I click on the link labeled "User Rights"  
 And I click on the link labeled "test_admin (Admin User)"
 And I click on the button labeled "Edit user privileges"
-Then  I uncheck the User Right named "Data Quality - Create & edit rules"
+Then I uncheck the User Right named "Data Quality - Create & edit rules"
 And I click on the button labeled "Save Changes" 
 Then I should see 'User "test_admin" was successfully edited'
 
@@ -96,8 +96,8 @@ Then I should see a table header and rows containing the following values in a t
 When I click on the link labeled "User Rights"  
 And I click on the link labeled "test_admin (Admin User)"
 And I click on the button labeled "Edit user privileges"
-Then  I check the User Right named "Data Quality - Create & edit rules"
-Then  I uncheck the User Right named "Data Quality - Execute rules"
+Then I check the User Right named "Data Quality - Create & edit rules"
+Then I uncheck the User Right named "Data Quality - Execute rules"
 And I click on the button labeled "Save Changes" 
 Then I should see 'User "test_admin" was successfully edited'
 

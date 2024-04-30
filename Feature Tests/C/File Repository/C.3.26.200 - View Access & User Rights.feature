@@ -66,6 +66,7 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
         | TestRole                | [No users assigned] |
 
     ##SETUP Assign to roles
+    Given I click on the link labeled "User Rights"   
     When I click on the link labeled "test_user1 (Test User1)" 
     And I click on the button labeled "Assign to role" on the tooltip
     And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
@@ -84,6 +85,7 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
         | 4_NoAccess_Noexport     | [No users assigned] |
         | TestRole                | [No users assigned] |
 
+    Given I click on the link labeled "User Rights"  
     When I click on the link labeled "test_user2 (Test User2)" 
     And I click on the button labeled "Assign to role" on the tooltip 
     And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
@@ -102,6 +104,7 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
         | 4_NoAccess_Noexport     | [No users assigned] |
         | TestRole                | [No users assigned] |
 
+    Given I click on the link labeled "User Rights"  
     When I click on the link labeled "test_user3 (Test User3)" 
     And I click on the button labeled "Assign to role" on the tooltip 
     And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
@@ -119,6 +122,7 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
         | 4_NoAccess_Noexport     | [No users assigned] |
         | TestRole                | [No users assigned] |
 
+    Given I click on the link labeled "User Rights"  
     When I click on the link labeled "test_user4 (Test User4)" 
     And I click on the button labeled "Assign to role" on the tooltip 
     And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
