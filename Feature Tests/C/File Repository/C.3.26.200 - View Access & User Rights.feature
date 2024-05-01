@@ -178,10 +178,9 @@ Feature: User Interface: The system shall support limiting file repository user 
       |                           | test_user4     |
 
     #"Test_User4" is not assigned to a DAG
-
     And I logout
 
-    ##SETUP Record: Create record while in DAG through eConsent framework
+    #SETUP Record: Create record while in DAG through eConsent framework
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.3.26.200.100"
@@ -208,10 +207,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
     And I should see "TestGroup1"
 
-  #FUNCTIONAL_REQUIREMENT
-  #ACTION Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
-  Scenario: C.3.26.200.100-B
-
+    #FUNCTIONAL_REQUIREMENT
+    #ACTION Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               |
@@ -249,22 +246,22 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Name                     | Time Uploaded    | Comments                |
       | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  #FUNCTIONAL_REQUIREMENT
-  ##ACTION Upload to DAG folder
-  Scenario: C.3.26.200.100-C
-
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Upload to DAG folder
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
-      | Name               |
-      | Data Export Files  |
-      | PDF Survey Archive |
-      | Recycle Bin        |
-      | TestGroup1_Folder  |
-      | Role1_Folder       |
+      | Name                        |
+      | Data Export Files           |
+      | PDF Survey Archive          |
+      | Recycle Bin                 |
+      | TestGroup1_Folder           |
+      | Role1_Folder                |
+      | testusers_bulkupload.csv    |
+      | user_list_for_project_1.csv |
 
-    When I click on the link labeled "TestGroup1_Folder"
-    Then I should see "All Files/TestGroup1_Folder"
-    And I should see "DAG-Restricted:TestGroup1"
+    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
+    Then I should see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
+    And I should see "DAG-Restricted:TestGroup1" in the File Repository breadcrumb
     And I should see a table row containing the following values in the file repository table:
       | No files or sub-folders exist in this folder |
 
@@ -276,10 +273,8 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Name                      | Time Uploaded    | Comments                |
       | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  #FUNCTIONAL_REQUIREMENT
-  ##ACTION Upload to Role folder
-  Scenario: C.3.26.200.100-D
-
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Upload to Role folder
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               |
@@ -290,8 +285,8 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Role1_Folder       |
 
     And I should see "Data Export Files"
-    And I click on the link labeled "Role1_Folder"
-    Then I should see "All Files/Role1_Folder"
+    And I click on the link labeled "Role1_Folder" in the File Repository table
+    Then I should see "All Files/Role1_Folder" in the File Repository breadcrumb
 
     #C.3.26.400.100 #Upload more than one file at the same time using the select files to upload button
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
@@ -304,10 +299,8 @@ Feature: User Interface: The system shall support limiting file repository user 
       | File_Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | instrument_designation.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  #FUNCTIONAL_REQUIREMENT
-  ##ACTION Auto-archive file in DAG TestGroup1
-  Scenario: C.3.26.200.100-E
-
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Auto-archive file in DAG TestGroup1
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               |
@@ -317,7 +310,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | TestGroup1_Folder  |
       | Role1_Folder       |
 
-    Given I click on the link labeled "PDF Survey Archive"
+    Given I click on the link labeled "PDF Survey Archive" in the File Repository table
     Then I should see a table header and rows containing the following values in the file repository table:
       | Record         | Survey                           | Survey Completion Time | Type      |
       | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
@@ -349,10 +342,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
     And I should see "TestGroup2"
 
-  #FUNCTIONAL_REQUIREMENT
-  ##ACTION Unable to access DAG folder
-  Scenario: C.3.26.200.100-F
-
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Unable to access DAG folder
     When I click on the link labeled "File Repository"
 
     ##VERIFY See file uploaded by Test_User1
@@ -367,13 +358,10 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     And I should NOT see "TestGroup1_Folder"
 
-  #FUNCTIONAL_REQUIREMENT
-  ##ACTION Interact in Role folder
-  Scenario: C.3.26.200.100-G
-
-#    And I want to export a snapshot of this feature here
-    Given I click on the link labeled "Role1_Folder"
-    Then I should see "All Files/Role1_Folder"
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Interact in Role folder
+    Given I click on the link labeled "Role1_Folder" in the File Repository table
+    Then I should see "All Files/Role1_Folder" in the File Repository breadcrumb
     And I should see a table header and rows containing the following values in the file repository table:
       | Name                       | Time Uploaded    | Comments                |
       | File Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
@@ -398,7 +386,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup2
     When I click on the link labeled "File Repository"
-    And I click on the link labeled "PDF Survey Archive"
+    And I click on the link labeled "PDF Survey Archive" in the File Repository table
     #See consent just created in testgroup2
     #Don't see consent created by testgroup1
 
@@ -447,7 +435,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup1
     When I click on the link labeled "File Repository"
-    And I click on the link labeled "PDF Survey Archive"
+    And I click on the link labeled "PDF Survey Archive" in the File Repository table
 
     #Don't see consent created by testgroup2
     Then I should see a table header and rows containing the following values in the file repository table:
@@ -459,15 +447,13 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     And I logout
 
-#FUNCTIONAL_REQUIREMENT
-##ACTION Download to top tier file
-  Scenario: C.3.26.200.100-H
-
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION Download to top tier file
     Given I login to REDCap with the user "Test_User4"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.3.26.200.100"
     When I click on the link labeled "File Repository"
-    ##ACTION Unable to access Role folder 
+    ##ACTION Unable to access Role folder
     ##VERIFY See file uploaded by Test_User1 & Test_User2
 
     Then I should see a table header and rows containing the following values in the file repository table:
@@ -489,8 +475,8 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
-    When I click on the link labeled "TestGroup1_Folder"
-    Given I see "All Files/TestGroup1_Folder"
+    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
+    Given I see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                      | Time Uploaded    | Comments                |
       | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
@@ -508,10 +494,8 @@ Feature: User Interface: The system shall support limiting file repository user 
       | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
       | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
 
-#FUNCTIONAL_REQUIREMENT
-##ACTION C.3.26.500.100 Delete folders - unable to delete with file in folder
-  Scenario: C.3.26.200.100-I
-
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION C.3.26.500.100 Delete folders - unable to delete with file in folder
     When I click on the link labeled "File Repository"
     And I check the checkbox labeled "TestGroup1_Folder"
     And I click on the button labeled "Delete"
@@ -534,8 +518,8 @@ Feature: User Interface: The system shall support limiting file repository user 
       | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION Cancel Remove files from folder
-    When I click on the link labeled "TestGroup1_Folder"
-    Then I should see "All Files/TestGroup1_Folder"
+    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
+    Then I should see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
     And I should see a table header and rows containing the following values in the file repository table:
       | Name                      | Time Uploaded    | Comments                |
       | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
@@ -589,12 +573,4 @@ Feature: User Interface: The system shall support limiting file repository user 
       | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-    Given I click on the link labeled "File Repository"
-    Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                        | Time Uploaded    | Comments                |
-      | Data Export Files           |                  |                         |
-      | PDF Survey Archive          |                  |                         |
-      | Recycle Bin                 |                  |                         |
-      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
     And I should NOT see "TestGroup1_Folder"
