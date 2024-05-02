@@ -44,7 +44,13 @@ Feature: User Interface: The system shall support the storage, organization, and
     
     ##ACTION Upload to top tier file repo 
     When I click on the link labeled "File Repository"
-    And I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | Data Export Files        |                  |                         |
+      | PDF Survey Archive       |                  |                         |
+      | Recycle Bin              |                  |                         |
+
+    Given I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
       |import_files/testusers_bulkupload.csv|
 
     ##VERIFY file uploaded in folder
