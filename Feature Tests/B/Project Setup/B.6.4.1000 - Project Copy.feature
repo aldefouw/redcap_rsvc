@@ -129,7 +129,7 @@ Feature: User Interface: General: The system shall support the ability to copy t
     And I click on the link labeled "Other Functionality"
     And I click on the button labeled "Move to Analysis/Cleanup status"
     And I click on the button labeled "YES, Move to Analysis/Cleanup Status"
-    #Then I should see "The project has now been set to ANALYSIS/CLEANUP" in an alert box
+    Then I should see an alert box with the following text: "The project has now been set to ANALYSIS/CLEANUP"
     And I should see Project status: "Analysis/Cleanup"
 
     #FUNCTIONAL REQUIREMENT
