@@ -11,42 +11,43 @@ And I create a new project named "C.2.19.600.100" by clicking on "New Project" i
 
 #SETUP_PRODUCTION 
 When I click on the link labeled "Project Setup" 
-And I click on the button labeled "Move project to production"  
+When I click on the button labeled "Move project to production"
 And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
-And I click on the button labeled "YES, Move to Production Status" in the dialog box 
-Then I should see "Project status: Production" 
+And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
+Then I should see Project status:  "Production"
 
 #USER_RIGHTS
 When I click on the link labeled "User Rights"  
 And I enter "Test_User1" into the input field labeled "Add with custom rights" 
 And I click on the button labeled "Add with custom rights" 
-Then I should see "Adding new user "test_user1"" 
+Then I should see 'Adding new user "Test_User1"' 
 
-When I click on the checkbox for the field labeled "Record Locking Customization"
-And I click on the radio labeled "Locking / Unlocking with E-signature authority" for the field labeled "Lock / Unlock Records (instrument level)"
+When I check the User Right named "Record Locking Customization"
+And I select the User Right named "Lock/Unlock Records" and choose "Locking / Unlocking with E-signature authority"
 And I click on the button labeled "Close" in the dialog box
-And I click on the checkbox for the field labeled "Lock/Unlock *Entire* Records (record level)"
+And I check the User Right named "Lock/Unlock *Entire* Records (record level)"
+# And I click on the checkbox for the field labeled "Lock/Unlock *Entire* Records (record level)"
 And I click on the button labeled "Add user"
-Then I should see "User "test_user1" was successfully added"
+Then I should see "was successfully added"
 
 ##VERIFY_LOG
 When I click on the link labeled "Logging"
-Then I should see a table header and rows including the following values in the logging table:
+Then I should see a table header and rows containing the following values in the logging table:
 | Username   |        Action                 | List of Data Changes OR Fields Exported |
-| test_admin | Add user test_user1 | user = 'test_user1'|
-
+| test_admin | Add user   | user = 'Test_User1'|
+|            | Test_User1 |                    |
 
 #FUNCTIONAL REQUIREMENT
 ##ACTION Navigate to record
 When I click on the link labeled "Customize & Manage Locking/E-signatures"
 And I click on the button labeled "I understand. Let me make changes" in the dialog box
 And I click on the link labeled "E-signature and Locking Management"
-Then I should see a table header and rows including the following values in the E-signature and Locking Management table:
+Then I should see a table header and rows containing the following values in a table:
 | Record|  Form Name     |                                 |
 |     3      | Text Validation |      View record     |
 
 When I click on the link labeled "View record" for the form labeled "Text Validation" for record "3"
 ##VERIFY
 Then I should see "Text Validation"
-And I should see the checkbox for the field labeled "Lock this instrument?"
+And I should see a checkbox labeled "Lock this instrument?" that is unchecked
 
