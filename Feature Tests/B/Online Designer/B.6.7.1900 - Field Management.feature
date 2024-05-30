@@ -66,7 +66,7 @@ Then I should see the field labeled "Add Field"
 And I drag the field variable named "add" below the field variable named "identifier"
 
 ##VERIFY
-Then I should see the field labeled "Add Field" before the field labeled "Identifier"
+Then I should see the field named "Add Field" before field named "Identifier"
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: move field to another instrument
