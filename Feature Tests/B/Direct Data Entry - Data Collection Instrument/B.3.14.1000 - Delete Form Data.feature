@@ -36,7 +36,7 @@ Feature: Deleting Data: The system shall allow users to delete all data on the c
     ##ACTION
     When I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Survey" instrument on event "Event Three" for record ID "1" and click on the bubble
-    Then I should see "Name" in the field labeled "Name"
+    Then I should see "Name" the data entry form field "Name"
     And I should see a button labeled "Delete data for THIS FORM only"
 
     #FUNCTIONAL_REQUIREMENT
