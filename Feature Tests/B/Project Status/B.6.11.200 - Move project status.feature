@@ -45,7 +45,7 @@ Feature: User Interface: The system shall support the ability for a user to chan
     ##ACTION: move to production
     When I click on the link labeled "Other Functionality"
     And I click on the button labeled "Move back to Production status"
-    And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
+    And I click on the button labeled "YES, Move to Production Status" in the dialog box
     ##VERIFY
     Then I should see Project status: "Production"
 
