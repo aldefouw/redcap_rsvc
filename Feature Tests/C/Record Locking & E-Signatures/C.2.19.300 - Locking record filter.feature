@@ -20,9 +20,9 @@ Feature: User Interface: The tool shall support the filtering the record list:
         When I click on the link labeled "Record Status Dashboard"
         And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "3" and click on the bubble
         Then I should see "Text Validation"
-        And I should see the checkbox for the field labeled "Lock this instrument?"
+        And I should see a checkbox labeled "Lock this instrument?" that is unchecked
 
-        And I check the checkbox labeled "Lock this instrument?"
+        Given I check the checkbox labeled "Lock this instrument?"
         And I click on the button labeled "Save & Exit Form"
         Then I should see "Record Home Page"
         And I should see "Record ID 3 successfully edited."
