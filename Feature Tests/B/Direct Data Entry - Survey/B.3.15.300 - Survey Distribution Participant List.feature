@@ -27,7 +27,7 @@ Feature: The system shall allow creation of a participant list automatically usi
 
     ##VERIFY_SETUP
     Given I click on the link labeled "Project Setup"
-    Then I should see a button labeled "Disable" for the field labeled "Designate an email field"
+    Then I should see a button labeled "Disable" in the "Designate an email field for communications (including survey invitations and alerts)" row in the "Enable optional modules and customizations" section
     And I should see "Field currently designated: email"
 
     #SETUP_SURVEY enable survey in first position
@@ -40,7 +40,7 @@ Feature: The system shall allow creation of a participant list automatically usi
     ##ACTION Verify Survey Distribution Tool
     When I click on the link labeled "Survey Distribution Tools"
     And I click on the tab labeled "Participant List"
-    Then I should see the option labeled '[Initial survey] "Text Validation" - Event 1 (Arm 1: Arm 1)' selected on the field labeled "Participant List"
+    Then I should see the dropdown field labeled "belonging to" with the option '[Initial survey] "Text Validation" - Event 1 (Arm 1: Arm 1)' selected
     And I should see a table header and rows containing the following values in the participant list table:
       | Email              | Record | Participant Identifier| Responded | Invitation Scheduled? | Invitation Sent ? | Link   | Survey Access Code |
       | email@test.edu     |   1    | Disabled              | [icon]    | -                     | [icon]            | [icon] | [icon]             |
