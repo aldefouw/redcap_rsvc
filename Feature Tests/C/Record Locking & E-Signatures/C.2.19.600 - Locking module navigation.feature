@@ -49,5 +49,5 @@ Then I should see a table header and rows containing the following values in a t
 When I click on the link labeled "View record" for the form labeled "Text Validation" for record "3"
 ##VERIFY
 Then I should see "Text Validation"
-And I should see a checkbox labeled "Lock this instrument?" that is unchecked
+And I verify the checkbox for the field labeled "Lock this instrument?" is "unchecked"
 
