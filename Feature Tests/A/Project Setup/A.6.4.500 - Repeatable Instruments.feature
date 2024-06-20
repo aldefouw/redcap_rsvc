@@ -54,7 +54,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I click on the link labeled "Project Setup"
     Then I should see "Repeating instruments and events"
 
-    When I open the dialog box for the Repeatable Instruments and Events module
+    When I click on the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
     Then I should see a dialog containing the following text: "WARNING"
 
     Given I click on the button labeled "Close" in the dialog box
@@ -102,7 +102,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Given I click on the link labeled "Project Setup"
     Then I should see "Repeating instruments and events"
 
-    When I open the dialog box for the Repeatable Instruments and Events module
+    When I click on the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
     Then I should see a dialog containing the following text: "WARNING"
 
     Given I click on the button labeled "Close" in the dialog box
@@ -140,7 +140,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I should NOT see "MyOtherName"
 
     When I click on the link labeled "Project Setup"
-    And I open the dialog box for the Repeatable Instruments and Events module
+    And I click on the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
     Then I should see a dialog containing the following text: "WARNING"
 
     Given I click on the button labeled "Close" in the dialog box
@@ -175,7 +175,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I should see "My repeat event name"
 
     When I click on the link labeled "Project Setup"
-    And I open the dialog box for the Repeatable Instruments and Events module
+    And I click on the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
     Then I should see a dialog containing the following text: "WARNING"
 
     Given I click on the button labeled "Close" in the dialog box
