@@ -101,9 +101,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings
       | test_user1 | Manage/Design | Arm 2: Arm 2                                                     |
       | test_user1 | Manage/Design | Create event                                                     |
       | test_user1 | Manage/Design | Event: Event 4, Arm: Arm 1, Days Offset: 4, Offset Range: -0/+0  |
-
-    #Scenario: A.6.4.600.100.1
-
+      
     When I click on the link labeled "Record Status Dashboard"
     Then I should see "Arm 3: Arm 3"
     And I should see "Arm 2: Arm 2"
