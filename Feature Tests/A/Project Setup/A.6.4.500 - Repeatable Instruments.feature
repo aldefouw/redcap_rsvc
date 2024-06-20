@@ -184,7 +184,8 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I click on the button labeled "Save"
     Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
 
-    Given I click on the button labeled "Close" in the dialog box
+    #ATS: We do not need to click this because the window automatically closes.  Causes problems because sometimes we click it fast enough and other times we do not.
+    #Given I click on the button labeled "Close" in the dialog box
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Given I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
