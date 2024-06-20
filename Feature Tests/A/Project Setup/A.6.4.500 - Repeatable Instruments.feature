@@ -183,14 +183,15 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
     And I click on the button labeled "Save"
     Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
+    And I click on the button labeled "Close" in the dialog box
 
-    #ATS: We do not need to click this because the window automatically closes.  Causes problems because sometimes we click it fast enough and other times we do not.
-    #Given I click on the button labeled "Close" in the dialog box
-    When I click on the link labeled "Data Exports, Reports, and Stats"
-    Given I see a table row containing the following values in the reports table:
+    Given I see the link labeled "Data Exports, Reports, and Stats"
+    And I click on the link labeled "Data Exports, Reports, and Stats"
+    Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
-    And I click on the button labeled "View Report"
-    And I should see a "1" within the "Event 2 (Arm 1: Arm 1)" row of the column labeled "Repeat Instance" of the Reports table
+
+    Given I click on the button labeled "View Report"
+    Then I should see a "1" within the "Event 2 (Arm 1: Arm 1)" row of the column labeled "Repeat Instance" of the Reports table
     And I should see "" within the "Event Three (Arm 1: Arm 1)" row of the column labeled "Repeat Instance" of the Reports table
     And I should NOT see "My repeat event name"
 
