@@ -210,6 +210,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     #FUNCTIONAL_REQUIREMENT
     #ACTION Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
     When I click on the link labeled "File Repository"
+    Then I should NOT see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
+    And I should see "All Files" in the File Repository breadcrumb
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               |
       | Data Export Files  |
@@ -230,6 +232,8 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     ##ACTION Upload to top tier file repo (all users will see file) - using the Select files to upload button
     When I click on the link labeled "File Repository"
+    Then I should NOT see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
+    And I should see "All Files" in the File Repository breadcrumb
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               |
       | Data Export Files  |
@@ -249,6 +253,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Upload to DAG folder
     When I click on the link labeled "File Repository"
+    Then I should NOT see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
+    And I should see "All Files" in the File Repository breadcrumb
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                        |
       | Data Export Files           |
@@ -276,6 +282,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Upload to Role folder
     When I click on the link labeled "File Repository"
+    Then I should NOT see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
+    And I should see "All Files" in the File Repository breadcrumb
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               |
       | Data Export Files  |
@@ -302,6 +310,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup1
     When I click on the link labeled "File Repository"
+    Then I should NOT see "All Files/Role1_Folder" in the File Repository breadcrumb
+    And I should see "All Files" in the File Repository breadcrumb
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               |
       | Data Export Files  |
@@ -345,6 +355,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Unable to access DAG folder
     When I click on the link labeled "File Repository"
+    And I should see "All Files" in the File Repository breadcrumb
 
     ##VERIFY See file uploaded by Test_User1
     Then I should see a table header and rows containing the following values in the file repository table:
@@ -376,7 +387,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | /import_files/user list for project 1.csv |
 
     ##VERIFY uploaded in subfolder
-    Given I see "All Files/Role1_Folder"
+    Given I should see "All Files/Role1_Folder" in the File Repository breadcrumb
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                        | Time Uploaded    | Comments                |
       | File Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
