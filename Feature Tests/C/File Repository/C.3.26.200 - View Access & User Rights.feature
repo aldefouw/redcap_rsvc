@@ -388,13 +388,13 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     ##ACTION Upload to Role folder
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
-      | /import_files/user list for project 1.csv |
+      | /import_files/user_list_for_project_1.csv |
 
     ##VERIFY uploaded in subfolder
     Given I no longer see "Please do not leave the page while files are uploading"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                        | Time Uploaded    | Comments                |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user2. |
+      | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user2. |
       | File Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | instrument designation.csv  | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
