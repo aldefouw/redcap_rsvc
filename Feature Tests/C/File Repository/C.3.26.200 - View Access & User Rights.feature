@@ -390,8 +390,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     Given I should see "All Files/Role1_Folder" in the File Repository breadcrumb
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                        | Time Uploaded    | Comments                |
-      | File Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user2. |
+      | File Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | instrument designation.csv  | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     #FUNCTIONAL_REQUIREMENT
