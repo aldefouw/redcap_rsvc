@@ -386,6 +386,10 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I download a file by clicking on the link labeled "instrument_designation.csv"
     Then I should see a downloaded file named "instrument_designation.csv"
 
+    Given I click on the link labeled "All Files" in the File Repository breadcrumb
+    And I click on the link labeled "Role1_Folder" in the File Repository table
+    Then I should see "All Files/Role1_Folder" in the File Repository breadcrumb
+
     ##ACTION Upload to Role folder
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
       | /import_files/user-list-for-project-1.csv |
