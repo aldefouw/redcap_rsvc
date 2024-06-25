@@ -20,6 +20,7 @@ Feature: A.2.3.300 Assign administrators and account managers
     And I click on the link labeled "Administrator Privileges"
     Then I should see "Set administrator privileges"
     And I enable the Administrator Privilege "Manage user accounts" for the administrator "Test_User1"
+    And I enable the Administrator Privilege "Set administrator privileges" for the administrator "Test_User1"
     And I enable the Administrator Privilege "Modify system configuration pages" for the administrator "Test_User1"
     Given I logout
 
@@ -30,6 +31,7 @@ Feature: A.2.3.300 Assign administrators and account managers
     And I should see a link labeled "Browse Users"
     And I should see a link labeled "Multi-Language Management"
     And I should see a link labeled "General Configuration"
+    And I should see a link labeled "Administrator Privileges"
     Given I logout
 
     Given I login to REDCap with the user "Test_Admin"
@@ -44,4 +46,11 @@ Feature: A.2.3.300 Assign administrators and account managers
     And I logout
     And I login to REDCap with the user "Test_User1"
     Then I should see a link labeled "Control Center"
+    When I click on the link labeled "Control Center"
+    Then I should see "Control Center Home"
+    And I should NOT see a link labeled "Browse Projects"
+    And I should NOT see a link labeled "Browse Users"
+    And I should NOT see a link labeled "Multi-Language Management"
+    And I should NOT see a link labeled "Administrator Privileges"
+    Given I logout
     
