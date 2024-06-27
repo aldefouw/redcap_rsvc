@@ -28,7 +28,7 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
     Given I click on the button labeled "Upload" in the dialog box
     Then I should see a dialog containing the following text: "SUCCESS!"
 
-    When I close the popup
+    When I click on the button labeled "Close" in the dialog box
     Then I should see a table header and rows containing the following values in a table:
       |Role name                | Username            |
       | —                       | test_admin          |
@@ -66,6 +66,8 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
     ##ACTION: Assign to role
     When I click on the link labeled "Test User1"
     And I click on the button labeled "Assign to role" on the tooltip
+    # I have to select this twice. Not sure why
+    And I select "TestRole" on the dropdown field labeled "Select Role"
     And I select "TestRole" on the dropdown field labeled "Select Role"
     And I click on the button labeled exactly "Assign"
 
@@ -85,6 +87,8 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
     ##ACTION: Re-assign to role
     When I click on the link labeled "Test User1"
     And I click on the button labeled "Re-assign to role" on the tooltip
+    # I have to select this twice. Not sure why
+    And I select "1_FullRights" on the dropdown field labeled "Select Role"
     And I select "1_FullRights" on the dropdown field labeled "Select Role"
     And I click on the button labeled exactly "Assign"
 
@@ -92,10 +96,10 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
     Then I should see a table header and rows containing the following values in a table:
       |Role name                | Username            |
       | —                       | test_admin          |
-      | —                       | test_user1          |
       | —                       | test_user2          |
       | —                       | test_user3          |
       | —                       | test_user4          |
+      | 1_FullRights            | test_user1          |
       | 2_Edit_RemoveID         | [No users assigned] |
       | 3_ReadOnly_Deidentified | [No users assigned] |
       | 4_NoAccess_Noexport     | [No users assigned] |
@@ -120,4 +124,4 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
       | TestRole                | [No users assigned] |
 
     And I should see a dialog containing the following text: "User's privileges will remain the same"
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
