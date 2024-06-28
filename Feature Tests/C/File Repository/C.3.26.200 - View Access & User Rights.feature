@@ -224,7 +224,6 @@ Feature: User Interface: The system shall support limiting file repository user 
       | /import_files/user_list_for_project_1.csv |
 
     ##VERIFY file uploaded in folder
-    Given I no longer see "Please do not leave the page while files are uploading"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                        | Time Uploaded    | Comments                |
       | TestGroup1_Folder           |                  |                         |
@@ -247,7 +246,6 @@ Feature: User Interface: The system shall support limiting file repository user 
       | /import_files/testusers_bulkupload.csv |
 
     ##VERIFY file uploaded in folder
-    Given I no longer see "Please do not leave the page while files are uploading"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                     | Time Uploaded    | Comments                |
       | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
@@ -277,7 +275,6 @@ Feature: User Interface: The system shall support limiting file repository user 
       | /import_files/testusers_bulk_upload.csv |
 
     ##VERIFY uploaded in subfolder
-    Given I no longer see "Please do not leave the page while files are uploading"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                      | Time Uploaded    | Comments                |
       | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
@@ -305,7 +302,6 @@ Feature: User Interface: The system shall support limiting file repository user 
       | /import_files/instrument_designation.csv |
 
     #VERIFY uploaded in subfolder
-    Given I no longer see "Please do not leave the page while files are uploading"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                       | Time Uploaded    | Comments                |
       | File_Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
@@ -395,7 +391,6 @@ Feature: User Interface: The system shall support limiting file repository user 
       | /import_files/user-list-for-project-1.csv |
 
     ##VERIFY uploaded in subfolder
-    Given I no longer see "Please do not leave the page while files are uploading"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                        | Time Uploaded    | Comments                |
       | user-list-for-project-1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user2. |
