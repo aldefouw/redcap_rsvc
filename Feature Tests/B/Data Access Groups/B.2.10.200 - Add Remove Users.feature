@@ -28,7 +28,7 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
     Given I click on the button labeled "Upload" in the dialog box
     Then I should see a dialog containing the following text: "SUCCESS!"
 
-    When I close the popup
+    When I click on the button labeled "Close" in the dialog box
     Then I should see a table header and rows containing the following values in a table:
       | Role name               | Username            |
       | —                       | test_admin          |
@@ -48,6 +48,8 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
     #FUNCTIONAL REQUIREMENT
     ##ACTION: Assign User to DAG
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "TestGroup1" on the dropdown field labeled "to"
     When I select "TestGroup1" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
@@ -59,7 +61,7 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
     ##VERIFY_LOG:
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action           | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | Assign user to data access group        |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | user = 'test_user1'                     |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | group = 'TestGroup1'                    |
@@ -93,6 +95,8 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
 
     ##ACTION: Remove DAG
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "[No Assignment]" on the dropdown field labeled "to"
     When I select "[No Assignment]" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
@@ -124,3 +128,14 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
       | 2         |
       | 3         |
       | 4         |
+
+    ##VERIFY_LOG:
+    When I click on the link labeled "Logging"
+    Then I should see a table header and rows containing the following values in the logging table:
+      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | Remove user from data access group      |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | user = 'test_user1'                     |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | group = 'TestGroup1'                    |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | Assign user to data access group        |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | user = 'test_user1'                     |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | group = 'TestGroup1'                    |
