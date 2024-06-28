@@ -34,6 +34,56 @@ Feature: B.2.10.100 Data Access Groups-DAGs User Interface: The system shall all
       | TestGroup2              |
       | RenameGroup3            |
 
+    #FUNCTIONAL REQUIREMENT - Cannot delete DAG with User
+    ##ACTION: Add User with Basic custom rights
+    When I click on the link labeled "User Rights"
+    And I enter "Test_User1" into the input field labeled "Add with custom rights"
+    And I click on the button labeled "Add with custom rights"
+    Then I should see a dialog containing the following text: "Adding new user"
+    And I save changes within the context of User Rights
+    
+    ##ACTION: Assign User to DAG
+    Given I click on the link labeled "DAGs"
+    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    And I select "RenameGroup3" on the dropdown field labeled "to"
+    And I select "RenameGroup3" on the dropdown field labeled "to"
+    And I click on the button labeled "Assign"
+
+    ##VERIFY
+    Then I should see a table header and rows containing the following values in data access groups table:
+      | Data Access Groups      | Users in group          |
+      | TestGroup1              |                         |
+      | TestGroup2              |                         |
+      | RenameGroup3            | test_user1 (Test User1) |
+        
+    ##ACTION: Cannot Delete DAG with User
+    Given I click the X to delete the data access group named "RenameGroup3"
+    Then I should see a dialog containing the following text: "Delete group?"
+    When I click on the button labeled "Delete" on the dialog box
+    Then I should see "The group could not be deleted because users or roles are still assigned to it."
+
+    ##VERIFY
+    And I should see a table header and rows containing the following values in data access groups table:
+      | Data Access Groups      | Users in group          |
+      | TestGroup1              |                         |
+      | TestGroup2              |                         |
+      | RenameGroup3            | test_user1 (Test User1) |
+
+    ##ACTION: Remove User from DAG
+    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "[No Assignment]" on the dropdown field labeled "to"
+    When I select "[No Assignment]" on the dropdown field labeled "to"
+    And I click on the button labeled "Assign"
+
+    ##VERIFY
+    Then I should see a table header and rows containing the following values in data access groups table:
+      | Data Access Groups      | Users in group          |
+      | TestGroup1              |                         |
+      | TestGroup2              |                         |
+      | RenameGroup3            |                         |
+
     ##ACTION: Delete DAG
     Given I click the X to delete the data access group named "RenameGroup3"
     Then I should see a dialog containing the following text: "Delete group?"
