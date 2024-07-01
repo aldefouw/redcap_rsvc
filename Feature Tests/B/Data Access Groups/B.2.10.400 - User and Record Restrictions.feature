@@ -32,7 +32,8 @@ Feature: B.2.10.400 Data Access Groups-DAGs User Interface: The system shall pro
         Given I click on the button labeled "Upload" in the dialog box
         Then I should see a dialog containing the following text: "SUCCESS!"
 
-        When I close the popup
+        When I click on the button labeled "Close"
+        # When I close the popup
         Then I should see a table header and rows containing the following values in a table:
             |Role name                | Username            |
             | —                       | test_admin          |
