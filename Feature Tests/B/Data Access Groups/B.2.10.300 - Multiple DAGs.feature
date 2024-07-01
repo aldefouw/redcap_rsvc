@@ -48,6 +48,8 @@ Feature: B.2.10.300 Data Access Groups-DAGs User Interface: The system shall all
     #FUNCTIONAL REQUIREMENT
     ##ACTION: Assign DAG
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "TestGroup1" on the dropdown field labeled "to"
     When I select "TestGroup1" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
@@ -59,6 +61,8 @@ Feature: B.2.10.300 Data Access Groups-DAGs User Interface: The system shall all
 
     ##ACTION: Assign DAG
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
+    When I select "TestGroup2" on the dropdown field labeled "to"
     When I select "TestGroup2" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
