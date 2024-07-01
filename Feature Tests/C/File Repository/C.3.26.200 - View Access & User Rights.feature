@@ -180,8 +180,6 @@ Feature: User Interface: The system shall support limiting file repository user 
     #"Test_User4" is not assigned to a DAG
     And I logout
 
-  Scenario: C.3.26.200.2
-
     #SETUP Record: Create record while in DAG through eConsent framework
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "My Projects"
@@ -209,7 +207,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
     And I should see "TestGroup1"
 
-  Scenario: C.3.26.200.3
+  Scenario: C.3.26.200.2
 
     #FUNCTIONAL_REQUIREMENT
     #ACTION Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
@@ -254,7 +252,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Name                     | Time Uploaded    | Comments                |
       | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  Scenario: C.3.26.200.4
+  Scenario: C.3.26.200.3
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Upload to DAG folder
@@ -285,7 +283,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Name                      | Time Uploaded    | Comments                |
       | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  Scenario: C.3.26.200.5
+  Scenario: C.3.26.200.4
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Upload to Role folder
@@ -315,7 +313,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | File_Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | instrument_designation.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  Scenario: C.3.26.200.6
+  Scenario: C.3.26.200.5
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup1
@@ -362,7 +360,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
     And I should see "TestGroup2"
 
-  Scenario: C.3.26.200.7
+  Scenario: C.3.26.200.6
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Unable to access DAG folder
@@ -381,7 +379,7 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     And I should NOT see "TestGroup1_Folder"
 
-  Scenario: C.3.26.200.8
+  Scenario: C.3.26.200.7
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Interact in Role folder
@@ -411,7 +409,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | File Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | instrument designation.csv  | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  Scenario: C.3.26.200.9
+  Scenario: C.3.26.200.8
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup2
@@ -428,7 +426,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I should NOT see "1-1"
     And I logout
 
-  Scenario: C.3.26.200.10
+  Scenario: C.3.26.200.9
 
     #FUNCTIONAL_REQUIREMENT
     Given I login to REDCap with the user "Test_User3"
@@ -455,7 +453,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
     Then I should see a downloaded file named "testusers_bulkupload.csv"
 
-  Scenario: C.3.26.200.11
+  Scenario: C.3.26.200.10
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
@@ -466,7 +464,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##VERIFY Download another users file in subfolder
     Then I should see a downloaded file named "testusers_bulk_upload.csv"
 
-  Scenario: C.3.26.200.12
+  Scenario: C.3.26.200.11
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup1
@@ -483,7 +481,7 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     And I logout
 
-  Scenario: C.3.26.200.13
+  Scenario: C.3.26.200.12
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Download to top tier file
@@ -511,7 +509,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
     Then I should see a downloaded file named "testusers_bulkupload.csv"
 
-  Scenario: C.3.26.200.14
+  Scenario: C.3.26.200.13
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
@@ -525,7 +523,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##VERIFY Download another users file in subfolder
     Then I should see a downloaded file named "testusers_bulk_upload.csv"
 
-  Scenario: C.3.26.200.15
+  Scenario: C.3.26.200.14
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive access all file
@@ -536,7 +534,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
       | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
 
-  Scenario: C.3.26.200.16
+  Scenario: C.3.26.200.15
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION C.3.26.500.100 Delete folders - unable to delete with file in folder
