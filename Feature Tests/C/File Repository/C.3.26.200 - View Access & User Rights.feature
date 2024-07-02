@@ -20,6 +20,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##SETUP File Repository
     And I click on the link labeled "File Repository"
 
+  Action: SETUP Create DAG limited folder
     #Create DAG limited folder
     And I click on the button labeled "Create folder"
     And I enter "TestGroup1_Folder" into the input field labeled "New folder name:"
@@ -27,6 +28,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I click on the button labeled "Create folder" in the dialog box
     Then I should see "TestGroup1_Folder"
 
+  Action: SETUP Create role limited folder
     #Create role limited folder
     And I click on the button labeled "Create folder"
     And I enter "Role1_Folder" into the input field labeled "New folder name"
@@ -34,7 +36,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I click on the button labeled "Create folder" in the dialog box
     Then I should see "Role1_Folder"
 
-    ##SETUP User Rights:
+  Action: SETUP User Rights
+      ##SETUP User Rights:
     When I click on the link labeled "User Rights"
     And I click on the button labeled "Upload or download users, roles, and assignments"
     And I click on the link labeled "Upload users (CSV)"
@@ -65,6 +68,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | 4_NoAccess_Noexport     | [No users assigned] |
       | TestRole                | [No users assigned] |
 
+  Action: SETUP Assign to roles
     ##SETUP Assign to roles
     When I click on the link labeled "test_user1 (Test User1)"
     And I click on the button labeled "Assign to role" on the tooltip
@@ -136,6 +140,8 @@ Feature: User Interface: The system shall support limiting file repository user 
       | 4_NoAccess_Noexport     | [No users assigned] |
       | TestRole                | [No users assigned] |
 
+  Action: Assign User to DAG
+
     #SETUP DAG: Assign User to DAG
     Given I click on the link labeled "Data Access Groups"
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
@@ -180,6 +186,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     #"Test_User4" is not assigned to a DAG
     And I logout
 
+  Action: Create record while in DAG through eConsent framework
     #SETUP Record: Create record while in DAG through eConsent framework
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "My Projects"
