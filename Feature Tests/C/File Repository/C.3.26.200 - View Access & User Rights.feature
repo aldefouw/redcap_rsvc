@@ -458,7 +458,7 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
-    When I click on the link labeled "TestGroup1_Folder"
+    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
     Then I should see the link labeled "testusers_bulk_upload.csv"
 
     When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
