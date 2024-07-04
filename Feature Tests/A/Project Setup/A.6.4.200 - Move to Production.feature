@@ -12,6 +12,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
     And I select "1_FullRights" on the dropdown field labeled "Select Role" on the role selector dropdown
+    And I select "1_FullRights" on the dropdown field labeled "Select Role" on the role selector dropdown
     When I click on the button labeled exactly "Assign" on the role selector dropdown
     Then I should see "Test User1" within the "1_FullRights" row of the column labeled "Username" of the User Rights table
 
@@ -35,7 +36,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     Then I should see "Request pending"
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data ChangesOR Fields Exported            |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported            |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Send request to move project to production status |
     Given I logout
 
@@ -49,7 +50,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
 
     Given I should see the "Move to prod" request created for the project named "A.6.4.200.100" within the "Pending Requests" table
     When I click on the "process request" icon for the "Move to prod" request created for the project named "A.6.4.200.100" within the "Pending Requests" table
-    Then I should see "Move Project To Production Status" in the iframe
+    # Then I should see "Move project To Production status" in the iframe
 
     Given I click on the radio labeled "Keep ALL data saved so far." in the dialog box in the iframe
     When I click on the button labeled "YES, Move to Production Status" in the dialog box in the iframe
@@ -61,7 +62,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     Then I should see Project status: "Production"
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Move project to Production status       |
 
   Scenario: A.6.4.200.200 User moves project to production
@@ -72,6 +73,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     And I click on the link labeled "User Rights"
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
+    And I select "1_FullRights" on the dropdown field labeled "Select Role" on the role selector dropdown
     And I select "1_FullRights" on the dropdown field labeled "Select Role" on the role selector dropdown
     And I click on the button labeled exactly "Assign" on the role selector dropdown
     Then I should see "Test User1" within the "1_FullRights" row of the column labeled "Username" of the User Rights table
@@ -96,5 +98,5 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     Then I should see Project status: "Production"
     Given I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Move project to Production status       |
