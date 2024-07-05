@@ -86,7 +86,7 @@ Feature: User Interface: The system shall support text validation for text field
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
         | Record ID | Repeat Instrument | date YMD   | Datetime         | Datetime YMD HMSS   | Integer | Number |
-        | 5         | Date Types        | 2023-08-02 | 2023-09-02 01:03 | 2023-09-02 01:03:01 | 99      | 4      |
+        | 5         | Data Types        | 2023-08-02 | 2023-09-02 01:03 | 2023-09-02 01:03:01 | 99      | 4      |
 
     Then I should see a table header and rows containing the following values in the report data table:
         | Record ID | Repeat Instrument | Number Decimal | Number Comma | Time HH:MM | Time MM:SS | Time HH:MM:SS |
@@ -98,7 +98,8 @@ Feature: User Interface: The system shall support text validation for text field
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION - Verify field validation with out of range values (works)
-    When I click on thelink labeled "Add/Edit Records"
+    When I click on the link labeled "Add / Edit Records"
+    And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
     Then I should see "Adding new Record ID 6"
 
@@ -148,19 +149,18 @@ Feature: User Interface: The system shall support text validation for text field
 
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
-    And I click on the button labeled "Save changes and leave" in the dialog box
     Then I should see a table header and rows containing the following values in the logging table:
         | Username   | Action          | List of Data Changes OR Fields Exported   |
-        | Test_admin | Create record 6 | date_ymd = '2023-09-01'                   |
-        | Test_admin | Create record 6 | datetime_ymd_hm = '2023-08-02 01:03'      |
-        | Test_admin | Create record 6 | datetime_ymd_hmss = '2023-10-02 01:03:01' |
-        | Test_admin | Create record 6 | integer = '101'                           |
-        | Test_admin | Create record 6 | number = '6'                              |
-        | Test_admin | Create record 6 | number_dec = '5.1'                        |
-        | Test_admin | Create record 6 | num_comma = '5,1'                         |
-        | Test_admin | Create record 6 | time_hhmm = '07:05'                       |
-        | Test_admin | Create record 6 | time_mm_ss = '01:59'                      |
-        | Test_admin | Create record 6 | time_hhmmss = '07:59:59'                  |
+        | test_admin | Create record 6 | date_ymd = '2023-09-01'                   |
+        | test_admin | Create record 6 | datetime_ymd_hm = '2023-08-02 01:03'      |
+        | test_admin | Create record 6 | datetime_ymd_hmss = '2023-10-02 01:03:01' |
+        | test_admin | Create record 6 | integer = '101'                           |
+        | test_admin | Create record 6 | number = '6'                              |
+        | test_admin | Create record 6 | number_dec = '5.1'                        |
+        | test_admin | Create record 6 | num_comma = '5,1'                         |
+        | test_admin | Create record 6 | time_hhmm = '07:05'                       |
+        | test_admin | Create record 6 | time_mm_ss = '01:59'                      |
+        | test_admin | Create record 6 | time_hhmmss = '07:59:59'                  |
 
     ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
@@ -170,7 +170,7 @@ Feature: User Interface: The system shall support text validation for text field
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
         | Record ID | Repeat Instrument | date YMD   | Datetime         | Datetime YMD HMSS   | Integer | Number |
-        | 6         | Date Types        | 2023-09-01 | 2023-08-02 01:03 | 2023-10-02 01:03:01 | 101     | 6      |
+        | 6         | Data Types        | 2023-09-01 | 2023-08-02 01:03 | 2023-10-02 01:03:01 | 101     | 6      |
 
     And I should see a table header and rows containing the following values in the report data table:
         | Record ID | Repeat Instrument | Number Decimal | Number Comma | Time HH:MM | Time MM:SS | Time HH:MM:SS |
@@ -178,68 +178,74 @@ Feature: User Interface: The system shall support text validation for text field
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION - Verify field validation with characters (will not work)
-    When I click on the link labeled "Add/Edit Records"
+    When I click on the link labeled "Add / Edit Records"
+    And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
     Then I should see "Adding new Record ID 7."
 
     When I enter "TEST" into the data entry form field labeled "date YMD"
-    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again. Required format: Date (Y-M-D)"
+    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Date (Y-M-D)"
     And I click on the button labeled "Close" in the dialog box
 
+    When I clear field and enter "" into the data entry form field labeled "date YMD"
     And I clear field and enter "TEST" into the data entry form field labeled "Datetime"
-    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again. Required format: Date (Y-M-D H:M)"
+    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Date (Y-M-D H:M)"
     And I click on the button labeled "Close" in the dialog box
 
-    When I clear field and enter "TEST" into the data entry form field labeled "Datetime"
-    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again. Required format: Date (Y-M-D H:M:S)"
+    When I clear field and enter "" into the data entry form field labeled "Datetime"
+    When I clear field and enter "Test" into the data entry form field labeled "Datetime YMD HMSS"
+    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Date (Y-M-D H:M:S)"
     And I click on the button labeled "Close" in the dialog box
 
-    When I clear field and enter "TEST" into the data entry form field labeled "Datetime YMD HMSS"
-    And I should see "This value you provided is not an integer. Please try again." in the dialog box
-    And I click on the button labeled "Close" in the dialog box
-
+    When I clear field and enter "" into the data entry form field labeled "Datetime YMD HMSS"
     When I clear field and enter "TEST" into the data entry form field labeled "Integer"
-    And I should see "This value you provided is not a number. Please try again." in the dialog box
+    And I should see a dialog containing the following text: "This value you provided is not an integer. Please try again."
     And I click on the button labeled "Close" in the dialog box
 
+    When I clear field and enter "" into the data entry form field labeled "Integer"
     When I clear field and enter "TEST" into the data entry form field labeled "Number"
-    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again. Required format: Number (1 decimal place)"
+    And I should see a dialog containing the following text: "This value you provided is not a number. Please try again."
     And I click on the button labeled "Close" in the dialog box
 
+    When I clear field and enter "" into the data entry form field labeled "Number"
     When I clear field and enter "TEST" into the data entry form field labeled "Number Decimal"
-    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again. Required format: Number (1 decimal place - comma as decimal)"
+    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Number (1 decimal place)"
     And I click on the button labeled "Close" in the dialog box
 
+    When I clear field and enter "" into the data entry form field labeled "Number Decimal"
     When I clear field and enter "TEST" into the data entry form field labeled "Number Comma"
-    And I should see "The value entered must be a time value in the following format HH:MM within the range 00:00-23:59 (e.g., 04:32 or 23:19)." in the dialog box
+    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Number (1 decimal place - comma as decimal)"
     And I click on the button labeled "Close" in the dialog box
 
+    When I clear field and enter "" into the data entry form field labeled "Number Comma"
     When I clear field and enter "TEST" into the data entry form field labeled "Time HH:MM"
-    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again. Required format: Time (HH:MM)"
+    And I should see a dialog containing the following text: "The value entered must be a time value in the following format HH:MM within the range 00:00-23:59 (e.g., 04:32 or 23:19)."
     And I click on the button labeled "Close" in the dialog box
 
+    When I clear field and enter "" into the data entry form field labeled "Time HH:MM"
     When I clear field and enter "TEST" into the data entry form field labeled "Time MM:SS"
-    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again. Required format: Time (MM:SS)"
+    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Time (MM:SS)"
     And I click on the button labeled "Close" in the dialog box
 
+    When I clear field and enter "" into the data entry form field labeled "Time MM:SS"
     When I clear field and enter "TEST" into the data entry form field labeled "Time HH:MM:SS"
-    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again. Required format: Time (HH:MM:SS)"
+    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Time (HH:MM:SS)"
     And I click on the button labeled "Close" in the dialog box
 
+    When I clear field and enter "" into the data entry form field labeled "Time HH:MM:SS"
     And I enter "TEST" into the data entry form field labeled "Email"
     And I should see a dialog containing the following text: "This field must be a valid email address (like joe@user.com). Please re-enter it now."
     And I click on the button labeled "Close" in the dialog box
 
     ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
-    And I click on the button labeled "Save changes and leave" in the dialog box
     Then I should see a table row containing the following values in the reports table:
         | A | All data (all records and fields) |
 
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
         | Record ID | Repeat Instrument | date YMD | Datetime | Datetime YMD HMSS | Integer | Number |
-        | 7         | Date Types        |          |          |                   |         |        |
+        | 7         | Data Types        |          |          |                   |         |        |
 
     Then I should see a table header and rows containing the following values in the report data table:
         | Record ID | Repeat Instrument | Number Decimal | Number Comma | Time HH:MM | Time MM:SS | Time HH:MM:SS |
