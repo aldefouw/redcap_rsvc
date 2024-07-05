@@ -50,11 +50,14 @@ Feature: Design forms Using Data Dictionary and Online Designer
     Then I should see "The data collection instrument and all its fields have been successfully deleted"
 
     #This establishes what instruments are here now
+    When I click on the link labeled "Designer"
     Then I should see a table header and rows containing the following values in a table:
       | Instrument name   | Fields |
-      | Data Types        | 45     |
+      | Data Types        | 46     |
       | Survey            | 2      |
       | Consent           | 4      |
+
+    And I should NOT see "Text Validation"
 
     When I click on the button labeled "Submit Changes for Review"
     And I click on the button labeled "Submit" in the dialog box
@@ -68,5 +71,5 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        | List of Data ChangesOR Fields Exported |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
       | test_admin | Manage/Design | Delete data collection instrument |
