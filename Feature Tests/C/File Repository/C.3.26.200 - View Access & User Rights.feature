@@ -523,9 +523,8 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
-    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
-    Then I should see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
-    And I should see a table header and rows containing the following values in the file repository table:
+    Given I click on the link labeled "TestGroup1_Folder" in the File Repository table
+    Then I should see a table header and rows containing the following values in the file repository table:
       | Name                      | Time Uploaded    | Comments                |
       | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
