@@ -189,12 +189,12 @@ Feature: User Interface: The system shall support text validation for text field
 
     When I clear field and enter "" into the data entry form field labeled "date YMD"
     And I clear field and enter "TEST" into the data entry form field labeled "Datetime"
-    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Date (Y-M-D H:M)"
+    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Datetime (Y-M-D H:M)"
     And I click on the button labeled "Close" in the dialog box
 
     When I clear field and enter "" into the data entry form field labeled "Datetime"
     When I clear field and enter "Test" into the data entry form field labeled "Datetime YMD HMSS"
-    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Date (Y-M-D H:M:S)"
+    And I should see a dialog containing the following text: "The value you provided could not be validated because it does not follow the expected format. Please try again.Required format: Datetime w/ seconds (Y-M-D H:M:S)"
     And I click on the button labeled "Close" in the dialog box
 
     When I clear field and enter "" into the data entry form field labeled "Datetime YMD HMSS"
@@ -236,9 +236,11 @@ Feature: User Interface: The system shall support text validation for text field
     And I enter "TEST" into the data entry form field labeled "Email"
     And I should see a dialog containing the following text: "This field must be a valid email address (like joe@user.com). Please re-enter it now."
     And I click on the button labeled "Close" in the dialog box
+    When I clear field and enter "" into the data entry form field labeled "Email"
 
     ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
+    And I click on the button labeled "Leave without saving changes" in the dialog box
     Then I should see a table row containing the following values in the reports table:
         | A | All data (all records and fields) |
 
