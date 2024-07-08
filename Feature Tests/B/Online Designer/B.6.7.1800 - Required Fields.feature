@@ -33,7 +33,9 @@ And I enter "Required 2" into the Field Label of the open "Add New Field" dialog
 And I enter "required_2" into the Variable Name of the open "Add New Field" dialog box
 And I mark the field required
 And I click on the button labeled "Save" in the "Add New Field" dialog box
-Then I should see "*must provide value" on the next Text Box field labeled "Required 2"
+## Below step not working
+# And I should see "*must provide value" within the field with variable name "required_2"
+And I should see "*must provide value" on the next Text Box field labeled "Required 2"
 
 ##SETUP_PRODUCTION
 When I click on the button labeled "Submit Changes for Review"
@@ -49,7 +51,7 @@ Then I should see a table row containing the following values in the codebook ta
 ##VERIFY_LOG
 When I click on the link labeled "Logging"
 Then I should see a table header and rows containing the following values in the logging table:
-  | Username   | Action        | List of Data ChangesOR Fields Exported |
+  | Username   | Action        | List of Data Changes OR Fields Exported |
   | test_admin | Manage/Design | Create project field                   |
 
 Scenario: B.6.7.1800.200 Designating field as required through Data Dictionary upload
