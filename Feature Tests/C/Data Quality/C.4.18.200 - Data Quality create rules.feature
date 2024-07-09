@@ -86,8 +86,8 @@ Feature: User Interface: The system shall support data quality rule creation.
         And I click on the button labeled "Update & Close Editor" in the dialog box
         And I click on the button labeled "Save"
         Then I should see a table header and rows containing the following values in a table:
-            | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) |  |
-            | 4      | Integer   | [integer]='1'                            |  |
+            | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
+            | 4      | Integer   | [integer]='1'                            | 18                  |
         #M: refresh browser page
 
         #VERIFY
@@ -109,9 +109,9 @@ Feature: User Interface: The system shall support data quality rule creation.
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-            | Username   | Action        | List of Data ChangesOR Fields Exported |
-            | test_admin | Manage/Design | Delete data quality rule               |
-            | test_admin | Manage/Design | Edit data quality rule                 |
-            | test_admin | Manage/Design | Execute data quality rule(s)           |
-            | test_admin | Manage/Design | Upload Data Quality Rules              |
-            | test_admin | Manage/Design | Create data quality rule               |
+            | Username   | Action        | List of Data Changes OR Fields Exported |
+            | test_admin | Manage/Design | Delete data quality rule                |
+            | test_admin | Manage/Design | Edit data quality rule                  |
+            | test_admin | Manage/Design | Execute data quality rule(s)            |
+            | test_admin | Manage/Design | Upload Data Quality Rules               |
+            | test_admin | Manage/Design | Create data quality rule                |
