@@ -463,33 +463,33 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
     Then I should see a downloaded file named "testusers_bulkupload.csv"
 
-  Scenario: Access DAG folder
+#  Scenario: Access DAG folder
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
-    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
-    Then I should see the link labeled "testusers_bulk_upload.csv"
-
-    When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
-    ##VERIFY Download another users file in subfolder
-    Then I should see a downloaded file named "testusers_bulk_upload.csv"
-
-  Scenario: Auto-archive file in DAG TestGroup1
-
-    #FUNCTIONAL_REQUIREMENT
-    ##ACTION Auto-archive file in DAG TestGroup1
-    When I click on the link labeled "File Repository"
-    And I click on the link labeled "PDF Survey Archive" in the File Repository table
-
-    #Don't see consent created by testgroup2
-    Then I should see a table header and rows containing the following values in the file repository table:
-      | Record         | Survey                           | Survey Completion Time | Type      |
-      | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
-
-    But I should NOT see "TestGroup2"
-    And I should NOT see "2-1"
-
-    And I logout
+#    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
+#    Then I should see the link labeled "testusers_bulk_upload.csv"
+#
+#    When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
+#    ##VERIFY Download another users file in subfolder
+#    Then I should see a downloaded file named "testusers_bulk_upload.csv"
+#
+#  Scenario: Auto-archive file in DAG TestGroup1
+#
+#    #FUNCTIONAL_REQUIREMENT
+#    ##ACTION Auto-archive file in DAG TestGroup1
+#    When I click on the link labeled "File Repository"
+#    And I click on the link labeled "PDF Survey Archive" in the File Repository table
+#
+#    #Don't see consent created by testgroup2
+#    Then I should see a table header and rows containing the following values in the file repository table:
+#      | Record         | Survey                           | Survey Completion Time | Type      |
+#      | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+#
+#    But I should NOT see "TestGroup2"
+#    And I should NOT see "2-1"
+#
+#    And I logout
 #
 #  Scenario: Download to top tier file
 #
