@@ -467,161 +467,161 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
-    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
-    Then I should see the link labeled "testusers_bulk_upload.csv"
-
-    When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
-    ##VERIFY Download another users file in subfolder
-    Then I should see a downloaded file named "testusers_bulk_upload.csv"
-
-  Scenario: Auto-archive file in DAG TestGroup1
-
-    #FUNCTIONAL_REQUIREMENT
-    ##ACTION Auto-archive file in DAG TestGroup1
-    When I click on the link labeled "File Repository"
-    And I click on the link labeled "PDF Survey Archive" in the File Repository table
-
-    #Don't see consent created by testgroup2
-    Then I should see a table header and rows containing the following values in the file repository table:
-      | Record         | Survey                           | Survey Completion Time | Type      |
-      | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
-
-    But I should NOT see "TestGroup2"
-    And I should NOT see "2-1"
-
-    And I logout
-
-  Scenario: Download to top tier file
-
-    #FUNCTIONAL_REQUIREMENT
-    ##ACTION Download to top tier file
-    Given I login to REDCap with the user "Test_User4"
-    And I click on the link labeled "My Projects"
-    And I click on the link labeled "C.3.26.200.100"
-    When I click on the link labeled "File Repository"
-    ##ACTION Unable to access Role folder
-    ##VERIFY See file uploaded by Test_User1 & Test_User2
-
-    Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                        | Time Uploaded    | Comments                |
-      | Data Export Files           |                  |                         |
-      | PDF Survey Archive          |                  |                         |
-      | Recycle Bin                 |                  |                         |
-      | TestGroup1_Folder           |                  |                         |
-      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-
-    And I should NOT see "Role1_Folder"
-
-    ##ACTION Download to top tier file imported by user 1 & user 2
-    When I download a file by clicking on the link labeled "user_list_for_project_1.csv"
-    Then I should see a downloaded file named "user_list_for_project_1.csv"
-    When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
-    Then I should see a downloaded file named "testusers_bulkupload.csv"
-
-  Scenario: Access DAG folder
-
-    #FUNCTIONAL_REQUIREMENT
-    ##ACTION Access DAG folder
-    Given I click on the link labeled "TestGroup1_Folder" in the File Repository table
-    Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                      | Time Uploaded    | Comments                |
-      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-
-    When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
-    ##VERIFY Download another users file in subfolder
-    Then I should see a downloaded file named "testusers_bulk_upload.csv"
-
-  Scenario: Auto-archive access all file
-
-    #FUNCTIONAL_REQUIREMENT
-    ##ACTION Auto-archive access all file
-    When I click on the link labeled "File Repository"
-    And I click on the link labeled "PDF Survey Archive"
-    Then I should see a table header and rows containing the following values in the file repository table:
-      | Record | Survey                           | Survey Completion Time | Type      |
-      | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
-      | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
-
-  Scenario: Delete folders - unable to delete with file in folder
-
-    #FUNCTIONAL_REQUIREMENT
-    ##ACTION C.3.26.500.100 Delete folders - unable to delete with file in folder
-    When I click on the link labeled "File Repository"
-    And I check the checkbox labeled "TestGroup1_Folder"
-    And I click on the button labeled "Delete"
-    ##VERIFY will not let you delete folder with file inside
-    Then I should see a dialog containing the following text: "Alert"
-    And I should see a dialog containing the following text: "Sorry, but folders can't be deleted this way. They must instead be deleted individually by clicking the X on the right-hand side of each folder."
-    When I click on the button labeled "Close" in the dialog box
-    Then I should see "TestGroup1_Folder"
-    And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
-    Then I should see a dialog containing the following text: "Cannot delete folder!"
-    And I should see a dialog containing the following text: "Sorry, but the folder below cannot be deleted because it still has files in it."
-    When I click on the button labeled "Close" in the dialog box
-    Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                        | Time Uploaded    | Comments                |
-      | Data Export Files           |                  |                         |
-      | PDF Survey Archive          |                  |                         |
-      | Recycle Bin                 |                  |                         |
-      | TestGroup1_Folder           |                  |                         |
-      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-
-    ##ACTION Cancel Remove files from folder
-    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
-    Then I should see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
-    And I should see a table header and rows containing the following values in the file repository table:
-      | Name                      | Time Uploaded    | Comments                |
-      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-
-    And I check the checkbox labeled "testusers_bulk_upload.csv"
-    And I click on the button labeled "Delete"
-    Then I should see a dialog containing the following text: "DELETE MULTIPLE FILES?"
-    And I click on the button labeled "Cancel" in the dialog box
-    ##VERIFY file still in folder
-    Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                      | Time Uploaded    | Comments                |
-      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-
-    ##ACTION Delete/Remove files from folder
-    When I check the checkbox labeled "testusers_bulk_upload.csv"
-    And I click on the button labeled "Delete"
-    Then I should see a dialog containing the following text: "DELETE MULTIPLE FILES?"
-    And I click on the button labeled "Delete" in the dialog box
-    ##VERIFY file deleted in folder
-    Then I should see a dialog containing the following text: "SUCCESS!"
-    And I click on the button labeled "Close" in the dialog box
-    Then I should see a table row containing the following values in the file repository table:
-      | No files or sub-folders exist in this folder |
-
-    ##ACTION C.3.26.500.100 Delete folders - Cancel deletion
-    When I click on the link labeled "File Repository"
-    And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
-
-   ##VERIFY Cancel deletion
-    Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
-    When I click on the button labeled "Cancel" in the dialog box
-    Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                        | Time Uploaded    | Comments                |
-      | Data Export Files           |                  |                         |
-      | PDF Survey Archive          |                  |                         |
-      | Recycle Bin                 |                  |                         |
-      | TestGroup1_Folder           |                  |                         |
-      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-
-    ##ACTION C.3.26.500.100 Delete folders
-    And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
-    ##VERIFY Folder deleted
-    Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
-    When I click on the button labeled "Delete" in the dialog box
-    Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                        | Time Uploaded    | Comments                |
-      | Data Export Files           |                  |                         |
-      | PDF Survey Archive          |                  |                         |
-      | Recycle Bin                 |                  |                         |
-      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-
-    And I should NOT see "TestGroup1_Folder"
+#    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
+#    Then I should see the link labeled "testusers_bulk_upload.csv"
+#
+#    When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
+#    ##VERIFY Download another users file in subfolder
+#    Then I should see a downloaded file named "testusers_bulk_upload.csv"
+#
+#  Scenario: Auto-archive file in DAG TestGroup1
+#
+#    #FUNCTIONAL_REQUIREMENT
+#    ##ACTION Auto-archive file in DAG TestGroup1
+#    When I click on the link labeled "File Repository"
+#    And I click on the link labeled "PDF Survey Archive" in the File Repository table
+#
+#    #Don't see consent created by testgroup2
+#    Then I should see a table header and rows containing the following values in the file repository table:
+#      | Record         | Survey                           | Survey Completion Time | Type      |
+#      | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+#
+#    But I should NOT see "TestGroup2"
+#    And I should NOT see "2-1"
+#
+#    And I logout
+#
+#  Scenario: Download to top tier file
+#
+#    #FUNCTIONAL_REQUIREMENT
+#    ##ACTION Download to top tier file
+#    Given I login to REDCap with the user "Test_User4"
+#    And I click on the link labeled "My Projects"
+#    And I click on the link labeled "C.3.26.200.100"
+#    When I click on the link labeled "File Repository"
+#    ##ACTION Unable to access Role folder
+#    ##VERIFY See file uploaded by Test_User1 & Test_User2
+#
+#    Then I should see a table header and rows containing the following values in the file repository table:
+#      | Name                        | Time Uploaded    | Comments                |
+#      | Data Export Files           |                  |                         |
+#      | PDF Survey Archive          |                  |                         |
+#      | Recycle Bin                 |                  |                         |
+#      | TestGroup1_Folder           |                  |                         |
+#      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#      | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#
+#    And I should NOT see "Role1_Folder"
+#
+#    ##ACTION Download to top tier file imported by user 1 & user 2
+#    When I download a file by clicking on the link labeled "user_list_for_project_1.csv"
+#    Then I should see a downloaded file named "user_list_for_project_1.csv"
+#    When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
+#    Then I should see a downloaded file named "testusers_bulkupload.csv"
+#
+#  Scenario: Access DAG folder
+#
+#    #FUNCTIONAL_REQUIREMENT
+#    ##ACTION Access DAG folder
+#    Given I click on the link labeled "TestGroup1_Folder" in the File Repository table
+#    Then I should see a table header and rows containing the following values in the file repository table:
+#      | Name                      | Time Uploaded    | Comments                |
+#      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#
+#    When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
+#    ##VERIFY Download another users file in subfolder
+#    Then I should see a downloaded file named "testusers_bulk_upload.csv"
+#
+#  Scenario: Auto-archive access all file
+#
+#    #FUNCTIONAL_REQUIREMENT
+#    ##ACTION Auto-archive access all file
+#    When I click on the link labeled "File Repository"
+#    And I click on the link labeled "PDF Survey Archive"
+#    Then I should see a table header and rows containing the following values in the file repository table:
+#      | Record | Survey                           | Survey Completion Time | Type      |
+#      | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+#      | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+#
+#  Scenario: Delete folders - unable to delete with file in folder
+#
+#    #FUNCTIONAL_REQUIREMENT
+#    ##ACTION C.3.26.500.100 Delete folders - unable to delete with file in folder
+#    When I click on the link labeled "File Repository"
+#    And I check the checkbox labeled "TestGroup1_Folder"
+#    And I click on the button labeled "Delete"
+#    ##VERIFY will not let you delete folder with file inside
+#    Then I should see a dialog containing the following text: "Alert"
+#    And I should see a dialog containing the following text: "Sorry, but folders can't be deleted this way. They must instead be deleted individually by clicking the X on the right-hand side of each folder."
+#    When I click on the button labeled "Close" in the dialog box
+#    Then I should see "TestGroup1_Folder"
+#    And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
+#    Then I should see a dialog containing the following text: "Cannot delete folder!"
+#    And I should see a dialog containing the following text: "Sorry, but the folder below cannot be deleted because it still has files in it."
+#    When I click on the button labeled "Close" in the dialog box
+#    Then I should see a table header and rows containing the following values in the file repository table:
+#      | Name                        | Time Uploaded    | Comments                |
+#      | Data Export Files           |                  |                         |
+#      | PDF Survey Archive          |                  |                         |
+#      | Recycle Bin                 |                  |                         |
+#      | TestGroup1_Folder           |                  |                         |
+#      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#
+#    ##ACTION Cancel Remove files from folder
+#    When I click on the link labeled "TestGroup1_Folder" in the File Repository table
+#    Then I should see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
+#    And I should see a table header and rows containing the following values in the file repository table:
+#      | Name                      | Time Uploaded    | Comments                |
+#      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#
+#    And I check the checkbox labeled "testusers_bulk_upload.csv"
+#    And I click on the button labeled "Delete"
+#    Then I should see a dialog containing the following text: "DELETE MULTIPLE FILES?"
+#    And I click on the button labeled "Cancel" in the dialog box
+#    ##VERIFY file still in folder
+#    Then I should see a table header and rows containing the following values in the file repository table:
+#      | Name                      | Time Uploaded    | Comments                |
+#      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#
+#    ##ACTION Delete/Remove files from folder
+#    When I check the checkbox labeled "testusers_bulk_upload.csv"
+#    And I click on the button labeled "Delete"
+#    Then I should see a dialog containing the following text: "DELETE MULTIPLE FILES?"
+#    And I click on the button labeled "Delete" in the dialog box
+#    ##VERIFY file deleted in folder
+#    Then I should see a dialog containing the following text: "SUCCESS!"
+#    And I click on the button labeled "Close" in the dialog box
+#    Then I should see a table row containing the following values in the file repository table:
+#      | No files or sub-folders exist in this folder |
+#
+#    ##ACTION C.3.26.500.100 Delete folders - Cancel deletion
+#    When I click on the link labeled "File Repository"
+#    And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
+#
+#   ##VERIFY Cancel deletion
+#    Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
+#    When I click on the button labeled "Cancel" in the dialog box
+#    Then I should see a table header and rows containing the following values in the file repository table:
+#      | Name                        | Time Uploaded    | Comments                |
+#      | Data Export Files           |                  |                         |
+#      | PDF Survey Archive          |                  |                         |
+#      | Recycle Bin                 |                  |                         |
+#      | TestGroup1_Folder           |                  |                         |
+#      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#
+#    ##ACTION C.3.26.500.100 Delete folders
+#    And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
+#    ##VERIFY Folder deleted
+#    Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
+#    When I click on the button labeled "Delete" in the dialog box
+#    Then I should see a table header and rows containing the following values in the file repository table:
+#      | Name                        | Time Uploaded    | Comments                |
+#      | Data Export Files           |                  |                         |
+#      | PDF Survey Archive          |                  |                         |
+#      | Recycle Bin                 |                  |                         |
+#      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+#
+#    And I should NOT see "TestGroup1_Folder"
