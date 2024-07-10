@@ -84,7 +84,9 @@ Feature: User Interface: The system shall support data quality rule creation.
         And I click the element containing the following text: "[integer]<>'1999'"
         And I clear field and enter "[integer]='1'" in the textarea field labeled "Logic Editor" in the dialog box
         And I click on the button labeled "Update & Close Editor" in the dialog box
-        And I click on the button labeled "Save"
+        And I click on the button labeled "Save" on the active Data Quality rule
+        Then I should see "[integer]='1'"
+
         Then I should see a table header and rows containing the following values in a table:
             | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
             | 4      | Integer   | [integer]='1'                            | 18                  |
