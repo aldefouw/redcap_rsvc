@@ -19,7 +19,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings
     Then I should see "Test User1" within the "1_FullRights" row of the column labeled "Username" of the User Rights table
     Given I logout
 
-    Scenario: A.6.4.600.100.1
+    #Scenario: A.6.4.600.100.1
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
@@ -168,7 +168,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings
     Then I should see a Data Collection Instrument named "Consent" for the Event named "Event 1"
     Given I logout
 
-    Scenario: A.6.4.600.100.2
+    #Scenario: A.6.4.600.100.2
 
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
@@ -187,7 +187,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings
     Then I should see "Your system configuration values have now been changed!"
     Given I logout
 
-    Scenario: A.6.4.600.100.3
+    #Scenario: A.6.4.600.100.3
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
@@ -214,7 +214,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings
     But I should NOT see "Upload instrument-event mappings (CSV)"
     Given I logout
 
-    Scenario: A.6.4.600.100.4
+    #Scenario: A.6.4.600.100.4
 
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -225,7 +225,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings
     Then I should see "Your system configuration values have now been changed!"
     Given I logout
 
-    Scenario: A.6.4.600.100.5
+    #Scenario: A.6.4.600.100.5
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
@@ -317,7 +317,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings
     Then I should see a Data Collection Instrument named "Consent" for the Event named "Event 1"
     And I logout
 
-    Scenario: A.6.4.600.100.6
+    #Scenario: A.6.4.600.100.6
 
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
