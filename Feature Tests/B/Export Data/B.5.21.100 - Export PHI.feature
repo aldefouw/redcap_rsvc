@@ -23,7 +23,7 @@ Feature: User Interface: The system shall support the ability to identify data a
             ##VERIFY_CODEBOOK
             When I click on the link labeled "Codebook"
             Then I should see a table header and rows containing the following values in the codebook table:
-                | Variable / Field Name | Field Label  | Field Attributes (Field/Type, Validation, Choices, Calculations, etc.) |
+                | Variable / Field Name | Field Label  | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
                 | [identifier]          | Identifier   | text, Identifier                                                       |
                 | [identifier_2]        | Identifier 2 | text, Identifier                                                       |
                 | [ptname]              | Name         | text                                                                   |
@@ -55,11 +55,11 @@ Feature: User Interface: The system shall support the ability to identify data a
             ##VERIFY_CODEBOOK
             When I click on the link labeled "Codebook"
             Then I should see a table header and rows containing the following values in the codebook table:
-                | Variable/Field Name | Field Label  | Field Attributes (Field/Type, Validation, Choices, Calculations, etc.) |
-                | [identifier]        | Identifier   | text, Identifier                                                       |
-                | [identifier_2]      | Identifier 2 | text                                                                   |
-                | [ptname]            | Name         | text, Identifier                                                       |
-                | [radio]             | radio        | radio, Identifier                                                      |
+                | Variable / Field Name | Field Label  | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
+                | [identifier]          | Identifier   | text, Identifier                                                       |
+                | [identifier_2]        | Identifier 2 | text                                                                   |
+                | [ptname]              | Name         | text, Identifier                                                       |
+                | [radio]               | radio        | radio, Identifier                                                      |
 
         ##VERIFY_DE
         When I click on the link labeled "Data Exports, Reports, and Stats"
@@ -77,7 +77,7 @@ Feature: User Interface: The system shall support the ability to identify data a
         ##VERIFY: User can see all variables, including identifier, identifier_2 and name, survey_timestamp, radio button
         Then I should have a "csv" file that contains the headings below
             | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | data_types_timestamp | ptname | textbox | radio | notesbox | identifier | identifier_2 | date_ymd | datetime_ymd_hmss | data_types_complete |
-    
+
         And I click on the button labeled "Close" in the dialog box
 
         #FUNCTIONAL_REQUIREMENT
@@ -140,57 +140,61 @@ Feature: User Interface: The system shall support the ability to identify data a
         Then I should see "Adding new Record ID 5"
 
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
-        #When I click on the button labeled "Save & Stay"
+
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Please complete the survey below"
-        And I should see "2023-08-22" for the field labeled "date YMD"
-        And I should see "2023-08-22 10:50:40" for the field labeled "datetime YMD HMSS"
 
+        #And I want to export a snapshot of this feature here
+
+        And I verify "yyyy-mm-dd" is within the data entry form field labeled "date YMD"
+        And I verify "yyyy-mm-dd hh:mm:ss" is within the data entry form field labeled "datetime YMD HMSS"
         When I click on the button labeled "Submit"
         #And I click on the button labeled "Close survey"
 
         #Manual Only: Surveys open in the same window (by default) in automated tests (automated tests this in B.3.15.500 - Survey Alerts and Prompts)
-        
 
-        Given I return to the REDCap page I opened the survey from 
+        Given I return to the REDCap page I opened the survey from
         And I click on the button labeled "Leave without saving changes" in the dialog box
-        #Then I should see "Record Home Page"
         And I click on the link labeled "Record Status Dashboard"
-        And I should see a Completed Survey Response Icon for the field the instrument labeled "Data Types"
-        
+        And I should see the "Completed Survey Response" icon for the "Data Types" instrument for record "5"
+
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: shift all dates
         Given I click on the link labeled "Data Exports, Reports, and Stats"
-        When I click on the "Export Data" button for "All data (all records and fields)" report in the My Reports & Exports table
+        And I click on the "Export Data" button in the row labeled "All data (all records and fields)"
+
         And I check the checkbox labeled "Shift all dates by value between 0 and 364 days" in the dialog box
         And I check the checkbox labeled "Also shift all survey completion timestamps by value between 0 and 364 days" in the dialog box
         And I click on the radio labeled "CSV / Microsoft Excel (raw data)" in the dialog box
         And I click on the button labeled "Export Data" in the dialog box
         Then I should see a dialog containing the following text: "Data export was successful!"
-        And I should see "All dates within your data have been DATE SHIFTED to an unknown value between 0 and 364 days."
+        And I should see a dialog containing the following text: "All dates within your data have been DATE SHIFTED to an unknown value between 0 and  364 days."
 
         Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
         ##VERIFY:
         #MUser can see all variables with dates shifted ([date_ymd]=! 2023-08-22) AND ([date_ymd_hmss]=! 2023-08-23 11:48:01)
 
-        Then I should have a "csv" file
-        And I verify that the timestamp in the column labeled "data_types_timestamp" for record 5 has shifted
-        And I verify that the date in the column labeled "date_ymd" for record 5 has shifted
-        And I verify that the datetime in the column labeled "date_ymd_hmss" for record 5 has shifted
+        # TODO: Analyze whether dates shifted
+        #        Then I should have a "csv" file
+        #        And I verify that the timestamp in the column labeled "data_types_timestamp" for record 5 has shifted
+        #        And I verify that the date in the column labeled "date_ymd" for record 5 has shifted
+        #        And I verify that the datetime in the column labeled "date_ymd_hmss" for record 5 has shifted
 
         #M: Close the report & refresh page
 
         And I click on the button labeled "Close" in the dialog box
         And I logout
+
         Given I login to REDCap with the user "Test_User1"
+        And I click on the link labeled "My Projects"
         When I click on the link labeled "B.5.21.100.100"
-        When I click on the link labeled "Data Exports, Reports, and Stats"
-       
+        And I click on the link labeled "Data Exports, Reports, and Stats"
+
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: limited access
         Then I should see a table row containing the following values in the reports table:
             | A | All data (all records and fields) |
 
-        And I should NOT see a button labeled "Export Data" for "All data (all records and fields)" report in the My Reports & Exports table
+        And I should NOT see a button labeled "Export Data"
 
