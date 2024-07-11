@@ -145,8 +145,6 @@ Feature: User Interface: The system shall support the ability to identify data a
         And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Please complete the survey below"
 
-        #And I want to export a snapshot of this feature here
-
         And I verify "yyyy-mm-dd" is within the data entry form field labeled "date YMD"
         And I verify "yyyy-mm-dd hh:mm:ss" is within the data entry form field labeled "datetime YMD HMSS"
         When I click on the button labeled "Submit"
