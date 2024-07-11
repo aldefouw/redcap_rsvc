@@ -4,62 +4,62 @@ Feature: User Interface: The system shall support the ability to identify data a
     I want to see that export data is functioning as expected
 
     Scenario: B.5.21.100.100 Limit identified data export
-            #SETUP
-            Given I login to REDCap with the user "Test_Admin"
-            And I create a new project named "B.5.21.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_5.21.xml", and clicking the "Create Project" button
+        #SETUP
+        Given I login to REDCap with the user "Test_Admin"
+        And I create a new project named "B.5.21.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_5.21.xml", and clicking the "Create Project" button
 
-            #SETUP_USER_RIGHTS
-            When I click on the link labeled "User Rights"
-            And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
-            And I click on the button labeled "Assign to role"
-            Then I should see "Assign To DAG" on the role selector dropdown
+        #SETUP_USER_RIGHTS
+        When I click on the link labeled "User Rights"
+        And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
+        And I click on the button labeled "Assign to role"
+        Then I should see "Assign To DAG" on the role selector dropdown
 
-            When I select "4_NoAccess_Noexport" on the dropdown field labeled "Select Role" on the role selector dropdown
-            And I click on the button labeled exactly "Assign" on the role selector dropdown
-            Then I should see a table header and rows containing the following values in a table:
-                | Role name           | Username   |
-                | 4_NoAccess_Noexport | test_user1 |
+        When I select "4_NoAccess_Noexport" on the dropdown field labeled "Select Role" on the role selector dropdown
+        And I click on the button labeled exactly "Assign" on the role selector dropdown
+        Then I should see a table header and rows containing the following values in a table:
+            | Role name           | Username   |
+            | 4_NoAccess_Noexport | test_user1 |
 
-            ##VERIFY_CODEBOOK
-            When I click on the link labeled "Codebook"
-            Then I should see a table header and rows containing the following values in the codebook table:
-                | Variable / Field Name | Field Label  | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
-                | [identifier]          | Identifier   | text, Identifier                                                       |
-                | [identifier_2]        | Identifier 2 | text, Identifier                                                       |
-                | [ptname]              | Name         | text                                                                   |
-                | [radio]               | radio        | radio, Identifier                                                      |
+        ##VERIFY_CODEBOOK
+        When I click on the link labeled "Codebook"
+        Then I should see a table header and rows containing the following values in the codebook table:
+            | Variable / Field Name | Field Label  | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
+            | [identifier]          | Identifier   | text, Identifier                                                       |
+            | [identifier_2]        | Identifier 2 | text, Identifier                                                       |
+            | [ptname]              | Name         | text                                                                   |
+            | [radio]               | radio        | radio, Identifier                                                      |
 
 
-            ##ACTION: change identifier status
-            When I click on the link labeled "Project Setup"
-            Then I should see "Design your data collection instruments & enable your surveys"
+        ##ACTION: change identifier status
+        When I click on the link labeled "Project Setup"
+        Then I should see "Design your data collection instruments & enable your surveys"
 
-            When I click on the link labeled "Check For Identifiers"
-            Then I should see a table header and rows containing the following values in a table:
-                | Variable Name | Field Label   | Identifier? |
-                | identifier    | Identifier    | [✓]         |
-                | identifier_2  | Identifier  2 | [✓]         |
-                | ptname        | Name          | [ ]         |
-                | radio         | radio         | [✓]         |
+        When I click on the link labeled "Check For Identifiers"
+        Then I should see a table header and rows containing the following values in a table:
+            | Variable Name | Field Label   | Identifier? |
+            | identifier    | Identifier    | [✓]         |
+            | identifier_2  | Identifier  2 | [✓]         |
+            | ptname        | Name          | [ ]         |
+            | radio         | radio         | [✓]         |
 
-            When I uncheck the checkbox labeled "identifier_2"
-            And I check the checkbox labeled "ptname"
-            And I click on the button labeled "Update Identifiers"
-            Then I should see a table header and rows containing the following values in a table:
-                | Variable Name | Field Label  | Identifier? |
-                | identifier    | Identifier   | [✓]         |
-                | identifier_2  | Identifier 2 |             |
-                | ptname        | Name         | [✓]         |
-                | radio         | radio        | [✓]         |
+        When I uncheck the checkbox labeled "identifier_2"
+        And I check the checkbox labeled "ptname"
+        And I click on the button labeled "Update Identifiers"
+        Then I should see a table header and rows containing the following values in a table:
+            | Variable Name | Field Label  | Identifier? |
+            | identifier    | Identifier   | [✓]         |
+            | identifier_2  | Identifier 2 |             |
+            | ptname        | Name         | [✓]         |
+            | radio         | radio        | [✓]         |
 
-            ##VERIFY_CODEBOOK
-            When I click on the link labeled "Codebook"
-            Then I should see a table header and rows containing the following values in the codebook table:
-                | Variable / Field Name | Field Label  | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
-                | [identifier]          | Identifier   | text, Identifier                                                       |
-                | [identifier_2]        | Identifier 2 | text                                                                   |
-                | [ptname]              | Name         | text, Identifier                                                       |
-                | [radio]               | radio        | radio, Identifier                                                      |
+        ##VERIFY_CODEBOOK
+        When I click on the link labeled "Codebook"
+        Then I should see a table header and rows containing the following values in the codebook table:
+            | Variable / Field Name | Field Label  | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
+            | [identifier]          | Identifier   | text, Identifier                                                       |
+            | [identifier_2]        | Identifier 2 | text                                                                   |
+            | [ptname]              | Name         | text, Identifier                                                       |
+            | [radio]               | radio        | radio, Identifier                                                      |
 
         ##VERIFY_DE
         When I click on the link labeled "Data Exports, Reports, and Stats"
