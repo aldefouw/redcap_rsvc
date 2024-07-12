@@ -171,13 +171,13 @@ Feature: User Interface: The system shall support the ability to identify data a
 
         Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
         ##VERIFY:
-        #MUser can see all variables with dates shifted ([date_ymd]=! 2023-08-22) AND ([date_ymd_hmss]=! 2023-08-23 11:48:01)
+        #MUser can see all variables with dates shifted ([data_types_timestamp]=! today) AND ([date_ymd]=! today) AND ([date_ymd_hmss]=! today)
 
-        # TODO: Analyze whether dates shifted
-        #        Then I should have a "csv" file
-        #        And I verify that the timestamp in the column labeled "data_types_timestamp" for record 5 has shifted
-        #        And I verify that the date in the column labeled "date_ymd" for record 5 has shifted
-        #        And I verify that the datetime in the column labeled "date_ymd_hmss" for record 5 has shifted
+        Then I should see the latest downloaded "csv" file containing the headings below
+            | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | data_types_timestamp | ptname | textbox | radio | notesbox | identifier | identifier_2 | date_ymd | datetime_ymd_hmss | data_types_complete |
+        And I verify the timestamp in column labeled "data_types_timestamp" for record "5" has shifted today's date in the latest downloaded "csv"
+        And I verify the date in column labeled "date_ymd" for record "5" has shifted today's date in the latest downloaded "csv"
+        And I verify the datetime in column labeled "datetime_ymd_hmss" for record "5" has shifted today's date in the latest downloaded "csv"
 
         #M: Close the report & refresh page
 
