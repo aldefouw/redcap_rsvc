@@ -48,7 +48,7 @@ Feature: User Interface: The system shall support the ability to identify data a
         Then I should see a table header and rows containing the following values in a table:
             | Variable Name | Field Label  | Identifier? |
             | identifier    | Identifier   | [✓]         |
-            | identifier_2  | Identifier 2 |             |
+            | identifier_2  | Identifier 2 | [ ]         |
             | ptname        | Name         | [✓]         |
             | radio         | radio        | [✓]         |
 
