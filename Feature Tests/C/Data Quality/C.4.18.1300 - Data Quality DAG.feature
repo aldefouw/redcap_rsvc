@@ -5,7 +5,6 @@ Feature: User Interface: The system shall support limiting rule viewing to a Dat
 
     Scenario: C.4.18.1300.100 DAG limits rule viewing
 
-
         #SETUP
         Given I login to REDCap with the user "Test_Admin"
         And I create a new project named "C.4.18.1300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project418.xml", and clicking the "Create Project" button
