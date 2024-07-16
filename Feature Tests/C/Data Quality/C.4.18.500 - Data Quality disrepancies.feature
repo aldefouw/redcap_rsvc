@@ -5,7 +5,7 @@ Feature: User Interface: The system shall support viewing discrepancies found in
 
     Scenario: C.4.18.500.100 View discrepancies
 
-        #SETUP
+        SETUP
         Given I login to REDCap with the user "Test_Admin"
         And I create a new project named "C.4.18.500.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project418.xml", and clicking the "Create Project" button
         #SETUP_PRODUCTION
@@ -17,6 +17,8 @@ Feature: User Interface: The system shall support viewing discrepancies found in
 
         ##ACTION executing all rules.
         When I click on the link labeled "Data Quality"
+
+
         And I click on the button labeled exactly "All"
         Then I should see a table header and rows containing the following values in a table:
             | Rule # | Rule Name                                     | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
@@ -34,19 +36,20 @@ Feature: User Interface: The system shall support viewing discrepancies found in
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: verify ability to view discrepancies
-        When I click on the third link labeled "view"
-        
 
+        When I click on the view link for Data Quality Rule # "C"
         #When I click on the link labeled "view" for the Rule Name labeled "Field validation errors (incorrect data type)"
         Then I should see "Rule: Field validation errors (incorrect data type)" in the dialog box
         And I should see "Discrepancies found: 1" in the dialog box
-        And I should see a table header and rows including the following values in the report table:
-            | Record                     | Discrepant fields with their values | Status           | Exclude |
-            | 6  Event 1 (Arm 1: Arm 1_) | email = HelloWorld                  | Validation error | exclude |
+        And I should see a table header and rows containing the following values in a table:
+            | Record                    | Discrepant fields with their values | Status           | Exclude |
+            | 6  Event 1 (Arm 1: Arm 1) | email = HelloWorld                  | Validation error | exclude |
+        And I click on the button labeled "Close" in the dialog box
 
         #FUNCTIONAL_REQUIREMENT
-        ##ACTION: verify ability to export discrepancies
-        When I click on the button labeled "Export results (CSV)" in the dialog box
-        Then I should have a csv file with a table header and rows including the following values in the report table:
+
+
+        And the downloaded CSV with filename "C418500100_DataQualityDiscrepancies_FieldValidationErrorsIncorrect_yyyy-mm-dd.csv" has the header and rows below
             | record_id | result-status    | email      |
             | 6         | Validation error | HelloWorld |
+
