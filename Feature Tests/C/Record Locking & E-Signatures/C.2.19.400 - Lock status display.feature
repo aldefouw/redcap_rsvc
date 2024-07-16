@@ -32,7 +32,6 @@ Feature: User Interface: The tool shall display locked status of forms for all r
         Then I should see a table header and rows containing the following values in the logging table:
             | Username   | Action              | List of Data Changes OR Fields Exported |
             | test_admin | Add user Test_user1 | user = 'Test_user1'                     |
-
         And I logout
 
         Given I login to REDCap with the user "Test_User1"
@@ -44,17 +43,17 @@ Feature: User Interface: The tool shall display locked status of forms for all r
         When I click on the link labeled "Record Status Dashboard"
         And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "3" and click on the bubble
         Then I should see "Text Validation"
-        And I should see the checkbox for the field labeled "Lock this instrument?"
+        And I should see a checkbox labeled "Lock this instrument?" that is unchecked
 
         When I check the checkbox labeled "Lock this instrument?"
         And I click on the button labeled "Save & Exit Form"
         Then I should see "Record Home Page"
+
         And I should see "Record ID 3 successfully edited."
         ##VERIFY_RH
         Then I should see a table header and rows containing the following values in a table:
             | Data Collection Instrument | Event 1     | Event 2 | Event Three |
             | Text Validation            | [lock icon] |         |             |
-        #And I should see the lock icon for the Data Instrument labeled "Text Validation" for event "Event 1"
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
@@ -76,13 +75,15 @@ Feature: User Interface: The tool shall display locked status of forms for all r
         And I click on the link labeled "3"
         Then I should see "Record Home Page"
         When I click on the span element labeled "Choose action for record"
-        #When I click on the dropdown option labeled "Lock entire record" from the dropdown button with the placeholder text of "Choose action for record"
         And I click on the link labeled "Lock entire record"
         And I click on the button labeled "Lock entire record" in the dialog box
         Then I should see 'Record "3" is now LOCKED' in the dialog box
         ##VERIFY_RH
 
         ##VERIFY_LOG
+        When I no longer see 'Record "3" is now LOCKED' in the dialog box
+        Then I should see the lock image for Record ID "3"
+
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in a table:
             | Username   | Action      | List of Data Changes OR Fields Exported |
@@ -105,11 +106,13 @@ Feature: User Interface: The tool shall display locked status of forms for all r
         When I click on the span element labeled "Choose action for record"
         And I click on the link labeled "Unlock entire record"
         And I click on the button labeled "Unlock entire record"
-        #Then I should see "Record "3" is now UNLOCKED"
+        Then I should see 'Record "3" is now UNLOCKED' in the dialog box
         ##VERIFY_RH
-        #And I should NOT see the lock image for "Record ID 3"
 
         ##VERIFY_LOG
+        When I no longer see 'Record "3" is now UNLOCKED' in the dialog box
+        Then I should NOT see the lock image for Record ID "3"
+
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in a table:
             | Username   | Action      | List of Data Changes OR Fields Exported |
@@ -134,13 +137,13 @@ Feature: User Interface: The tool shall display locked status of forms for all r
 
         When I click on the button labeled "Close" in the dialog box
         Then I should see "Text Validation"
-        And I should see the checkbox for the field labeled "Lock this instrument?"
+        And I should see a checkbox labeled "Lock this instrument?" that is unchecked
 
         When I click on the button labeled "Save & Exit Form"
         Then I should see "Record Home Page"
         And I should see "Record ID 3 successfully edited."
         ##VERIFY_RH
-        #And I should NOT see the lock image for the Data Instrument labeled "Text Validation" for event "Event 1"
+        And I should NOT see the lock image on the Record Home Page for the Data Collection Instrument labeled "Text Validation" for event "Event 1"
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
