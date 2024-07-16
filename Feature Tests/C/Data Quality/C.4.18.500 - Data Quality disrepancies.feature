@@ -5,7 +5,7 @@ Feature: User Interface: The system shall support viewing discrepancies found in
 
     Scenario: C.4.18.500.100 View discrepancies
 
-        SETUP
+        #SETUP
         Given I login to REDCap with the user "Test_Admin"
         And I create a new project named "C.4.18.500.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project418.xml", and clicking the "Create Project" button
         #SETUP_PRODUCTION
@@ -17,8 +17,6 @@ Feature: User Interface: The system shall support viewing discrepancies found in
 
         ##ACTION executing all rules.
         When I click on the link labeled "Data Quality"
-
-
         And I click on the button labeled exactly "All"
         Then I should see a table header and rows containing the following values in a table:
             | Rule # | Rule Name                                     | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
@@ -37,7 +35,7 @@ Feature: User Interface: The system shall support viewing discrepancies found in
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: verify ability to view discrepancies
 
-        When I click on the view link for Data Quality Rule # "C"
+        When I click on the "view" link for Data Quality Rule # "C"
         #When I click on the link labeled "view" for the Rule Name labeled "Field validation errors (incorrect data type)"
         Then I should see "Rule: Field validation errors (incorrect data type)" in the dialog box
         And I should see "Discrepancies found: 1" in the dialog box
@@ -47,9 +45,6 @@ Feature: User Interface: The system shall support viewing discrepancies found in
         And I click on the button labeled "Close" in the dialog box
 
         #FUNCTIONAL_REQUIREMENT
-
-
         And the downloaded CSV with filename "C418500100_DataQualityDiscrepancies_FieldValidationErrorsIncorrect_yyyy-mm-dd.csv" has the header and rows below
             | record_id | result-status    | email      |
             | 6         | Validation error | HelloWorld |
-
