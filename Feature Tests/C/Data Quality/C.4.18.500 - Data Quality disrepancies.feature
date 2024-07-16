@@ -42,9 +42,10 @@ Feature: User Interface: The system shall support viewing discrepancies found in
         And I should see a table header and rows containing the following values in a table:
             | Record                    | Discrepant fields with their values | Status           | Exclude |
             | 6  Event 1 (Arm 1: Arm 1) | email = HelloWorld                  | Validation error | exclude |
-        And I click on the button labeled "Close" in the dialog box
 
         #FUNCTIONAL_REQUIREMENT
+        Given I click on the button labeled "Export results (CSV)" in the dialog box
+        Then I should see "SUCCESS! The data quality results were successfully downloaded."
         And the downloaded CSV with filename "C418500100_DataQualityDiscrepancies_FieldValidationErrorsIncorrect_yyyy-mm-dd.csv" has the header and rows below
             | record_id | result-status    | email      |
             | 6         | Validation error | HelloWorld |
