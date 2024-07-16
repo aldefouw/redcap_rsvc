@@ -20,14 +20,12 @@ Feature: User Interface: The tool shall display locked status of forms for all r
         And I enter "Test_user1" into the input field labeled "Add with custom rights"
         And I click on the button labeled "Add with custom rights"
         Then I should see a dialog containing the following text: "Adding new user"
-       
 
         When I check the User Right named "Record Locking Customization"
         And I select the User Right named "Lock/Unlock Records" and choose "Locking / Unlocking"
         And I check the User Right named "Lock/Unlock *Entire* Records (record level)"
         And I check the User Right named "Logging"
         And I save changes within the context of User Rights
-        
 
         #VERIFY_LOG
         When I click on the link labeled "Logging"
@@ -69,9 +67,9 @@ Feature: User Interface: The tool shall display locked status of forms for all r
         And I click on the button labeled "I understand. Let me make changes" in the dialog box
         And I click on the link labeled "E-signature and Locking Management"
         Then I should see a table header and rows containing the following values in a table:
-            | Record  |Event Name                 | Form Name       | Locked?    |
-            | 3       | Event 1 (Arm 1: Arm 1)    | Text Validation | [lock icon] |
-            | 3       |	Event 1 (Arm 1: Arm 1)    | Consent         |            |
+            | Record | Event Name             | Form Name       | Locked?     |
+            | 3      | Event 1 (Arm 1: Arm 1) | Text Validation | [lock icon] |
+            | 3      | Event 1 (Arm 1: Arm 1) | Consent         |             |
 
         ##ACTION Lock icon for event
         When I click on the link labeled "Record Status Dashboard"
@@ -79,47 +77,46 @@ Feature: User Interface: The tool shall display locked status of forms for all r
         Then I should see "Record Home Page"
         When I click on the span element labeled "Choose action for record"
         #When I click on the dropdown option labeled "Lock entire record" from the dropdown button with the placeholder text of "Choose action for record"
-        And I click on the link labeled "Lock entire record" 
+        And I click on the link labeled "Lock entire record"
         And I click on the button labeled "Lock entire record" in the dialog box
         Then I should see 'Record "3" is now LOCKED' in the dialog box
         ##VERIFY_RH
-        
+
         And I wait for 5 seconds
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in a table:
-            | Username   | Action               | List of Data Changes OR Fields Exported|
-            | test_user1 | Lock/Unlock          | Action: Lock entire record |
-            |             | Record              |   Record: 3 - Arm 1: Arm 1  |
-            |             |   3                 |                              |
+            | Username   | Action      | List of Data Changes OR Fields Exported |
+            | test_user1 | Lock/Unlock | Action: Lock entire record              |
+            |            | Record      | Record: 3 - Arm 1: Arm 1                |
+            |            | 3           |                                         |
 
         ##VERIFY_LOCK_ESIG: record locked
         When I click on the link labeled "Customize & Manage Locking/E-signatures"
         And I click on the button labeled "I understand. Let me make changes" in the dialog box
         And I click on the link labeled "E-signature and Locking Management"
         Then I should see a table header and rows containing the following values in a table:
-            | Record                           | Form Name | Locked?    |
-            | 3 (Arm 1: Arm 1)                 |           | [lock icon]|
-            | (entire record)                  |           |           |
+            | Record           | Form Name | Locked?     |
+            | 3 (Arm 1: Arm 1) |           | [lock icon] |
+            | (entire record)  |           |             |
         ##ACTION : unlock record 3
         When I click on the link labeled "Record Status Dashboard"
         And I click on the link labeled "3"
         Then I should see "Record Home Page"
         When I click on the span element labeled "Choose action for record"
         And I click on the link labeled "Unlock entire record"
-        And I click on the button labeled "Unlock entire record" 
+        And I click on the button labeled "Unlock entire record"
         #Then I should see "Record "3" is now UNLOCKED"
         ##VERIFY_RH
         #And I should NOT see the lock image for "Record ID 3"
         And I wait for 5 seconds
-       
+
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in a table:
-            | Username   | Action               | List of Data Changes OR Fields Exported                |
-            | test_user1 | Lock/Unlock          | Action: Lock entire record                             |      
-            | test_user1 |  Record 3            | Record: 3 - Arm 1: Arm 1                               |
-            
+            | Username   | Action      | List of Data Changes OR Fields Exported |
+            | test_user1 | Lock/Unlock | Action: Lock entire record              |
+            | test_user1 | Record 3    | Record: 3 - Arm 1: Arm 1                |
 
         ##VERIFY_LOCK_ESIG: record locked
         When I click on the link labeled "Customize & Manage Locking/E-signatures"
@@ -161,4 +158,3 @@ Feature: User Interface: The tool shall display locked status of forms for all r
             | Record | Form Name       | Locked? |
             | 3      | Text Validation |         |
             | 3      | Consent         |         |
-
