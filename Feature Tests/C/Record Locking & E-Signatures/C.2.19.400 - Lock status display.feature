@@ -82,7 +82,6 @@ Feature: User Interface: The tool shall display locked status of forms for all r
         Then I should see 'Record "3" is now LOCKED' in the dialog box
         ##VERIFY_RH
 
-        And I wait for 5 seconds
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in a table:
@@ -109,7 +108,6 @@ Feature: User Interface: The tool shall display locked status of forms for all r
         #Then I should see "Record "3" is now UNLOCKED"
         ##VERIFY_RH
         #And I should NOT see the lock image for "Record ID 3"
-        And I wait for 5 seconds
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
