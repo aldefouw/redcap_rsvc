@@ -40,7 +40,7 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data ChangesOR Fields Exported    |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Upload data dictionary                    |
 
     ##ACTION: Upload data dictionary with removed form and Reordered form (#B.6.7.500.200 & B.6.7.600.200)
@@ -60,7 +60,7 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data ChangesOR Fields Exported    |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Upload data dictionary                    |
 
     ##ACTION: Unable to upload data dictionary with Errors
@@ -75,5 +75,5 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data ChangesOR Fields Exported    |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Upload data dictionary                    |

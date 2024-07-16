@@ -35,7 +35,7 @@ Feature: B.2.6.300 The system shall allow instrument level data export rights to
 
     Given I click on the button labeled "Upload" in the dialog box
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
     And I logout
 
     Given I login to REDCap with the user "Test_User1"
@@ -64,7 +64,7 @@ Feature: B.2.6.300 The system shall allow instrument level data export rights to
     ##VERIFY_LOG:
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action      | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_user1 | Data export | Download exported data file (CSV raw)   |
       | mm/dd/yyyy hh:mm | test_admin | Add user    | user = 'test_user1'                     |
 

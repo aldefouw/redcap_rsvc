@@ -17,7 +17,7 @@ Feature: User Interface: The system shall support editing of user defined rules.
     Then I should see Project status:  "Production"
     #USER_RIGHTS  
     When I click on the link labeled "User Rights"  
-     And I enter "Test_User1" into the input field labeled "Add with custom rights"
+    And I enter "Test_User1" into the input field labeled "Add with custom rights"
     And I click on the button labeled "Add with custom rights"
     Then I should see a dialog containing the following text: 'Adding new user "Test_User1"'
     And I check the User Right named "User Rights"
@@ -58,19 +58,19 @@ Feature: User Interface: The system shall support editing of user defined rules.
     ##ACTION executing rule 
     When I click on the button labeled exactly "All"
     Then I should see a table header and rows containing the following values in a table:
-        | Rule # |      Rule Name     |       Rule Logic (Show discrepancy only if...) 		|  Total Discrepancies| 
-        |   A    |  Blank values*                                                    |  -                 	 	|  377  |
-        |   B    |  Blank values* (required fields only)              |  -                 	 	|  2  |
-        |   C    |  Field validation errors (incorrect data type)|  -                 	 	|  1  |
-        |   D    | Field validation errors (out of range)             |  -                  		|  4  |
-        |   E    | Outliers for numerical fields  |  -                  | 2   |
-        |   F    |  Hidden fields that contain values***           |  -                   		|  1  |
-        |   G    | Multiple choice fields with invalid values     |  -                  		 |  1  |
-        |   H    | Incorrect values for calculated fields             |  -                   		|  26  |
-        |   I    | Fields containing "missing data codes"          |  -                      |  4  |
-        |   1    |  [radio]=9.9     |             [radio]='9..9'                           |      1    |
-        |   2    |  [ptname]<>[name]   |   [ptname]<>[name]   |  8  |
-        |   3    |  Integer   |   [integer]='1'      	|  6  |
+      | Rule # | Rule Name                                     | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
+      | A      | Blank values*                                 | -                                        | 377                 |
+      | B      | Blank values* (required fields only)          | -                                        | 2                   |
+      | C      | Field validation errors (incorrect data type) | -                                        | 1                   |
+      | D      | Field validation errors (out of range)        | -                                        | 4                   |
+      | E      | Outliers for numerical fields                 | -                                        | 2                   |
+      | F      | Hidden fields that contain values***          | -                                        | 1                   |
+      | G      | Multiple choice fields with invalid values    | -                                        | 1                   |
+      | H      | Incorrect values for calculated fields        | -                                        | 26                  |
+      | I      | Fields containing "missing data codes"        | -                                        | 4                   |
+      | 1      | [radio]=9.9                                   | [radio]='9..9'                           | 1                   |
+      | 2      | [ptname]<>[name]                              | [ptname]<>[name]                         | 8                   |
+      | 3      | Integer                                       | [integer]='1'                            | 6                   |
 
     #USER_RIGHTS
     ##ACTION: change rights-cannot create rules  
@@ -90,20 +90,19 @@ Feature: User Interface: The system shall support editing of user defined rules.
 
     When I click on the button labeled exactly "All"
     Then I should see a table header and rows containing the following values in a table:
-        | Rule # |      Rule Name     |       Rule Logic (Show discrepancy only if...) 		|  Total Discrepancies| 
-        |   A    |  Blank values*                                                    |  -                 	 	|  377  |
-        |   B    |  Blank values* (required fields only)              |  -                 	 	|  2  |
-        |   C    |  Field validation errors (incorrect data type)|  -                 	 	|  1  |
-        |   D    | Field validation errors (out of range)             |  -                  		|  4  |
-        |   E    | Outliers for numerical fields  |  -                  | 2   |
-        |   F    |  Hidden fields that contain values***           |  -                   		|  1  |
-        |   G    | Multiple choice fields with invalid values     |  -                  		 |  1  |
-        |   H    | Incorrect values for calculated fields             |  -                   		|  26  |
-        |   I    | Fields containing "missing data codes"          |  -                      |  4  |
-        |   1    |  [radio]=9.9     |             [radio]='9..9'                           |      1    |
-        |   2    |  [ptname]<>[name]   |   [ptname]<>[name]   |  8  |
-        |   3    |  Integer   |   [integer]='1'      	|  6  |
-
+      | Rule # | Rule Name                                     | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
+      | A      | Blank values*                                 | -                                        | 377                 |
+      | B      | Blank values* (required fields only)          | -                                        | 2                   |
+      | C      | Field validation errors (incorrect data type) | -                                        | 1                   |
+      | D      | Field validation errors (out of range)        | -                                        | 4                   |
+      | E      | Outliers for numerical fields                 | -                                        | 2                   |
+      | F      | Hidden fields that contain values***          | -                                        | 1                   |
+      | G      | Multiple choice fields with invalid values    | -                                        | 1                   |
+      | H      | Incorrect values for calculated fields        | -                                        | 26                  |
+      | I      | Fields containing "missing data codes"        | -                                        | 4                   |
+      | 1      | [radio]=9.9                                   | [radio]='9..9'                           | 1                   |
+      | 2      | [ptname]<>[name]                              | [ptname]<>[name]                         | 8                   |
+      | 3      | Integer                                       | [integer]='1'                            | 6                   |
 
     #USER_RIGHTS
     ##ACTION: change rights - cannot execute rules  

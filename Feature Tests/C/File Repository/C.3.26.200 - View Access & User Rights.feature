@@ -490,4 +490,3 @@ Scenario: C.3.26.200.100 Limit user view and export access based on User Rights 
     When I click on the button labeled "Delete" in the dialog box
     And I wait for 5 seconds
     Then I should NOT see "TestGroup1_Folder"
-

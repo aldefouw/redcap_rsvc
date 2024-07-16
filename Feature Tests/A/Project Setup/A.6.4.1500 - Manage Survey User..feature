@@ -46,5 +46,5 @@ Then I should see a button labeled "Enable" in the "Use surveys in this project?
 Given I click on the link labeled "Logging"
 Then I should see "This module lists all changes made to this project"
 And I should see a table header and rows containing the following values in the logging table:
- | Username   | Action        | List of Data ChangesOR Fields Exported |
+ | Username   | Action        | List of Data Changes OR Fields Exported |
  | test_admin | Manage/Design | Modify project settings                |

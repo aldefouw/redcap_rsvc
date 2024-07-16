@@ -58,7 +58,7 @@ Feature: Creating a Record and Entering Data: The system shall support data entr
     ###VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action           | List of Data ChangesOR Fields Exported |
+      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_user1 | Create record7   | radio = '9..9'                         |
       | mm/dd/yyyy hh:mm | test_user1 | Create record7   | multiple_dropdown_manual_2 = '6'       |
       | mm/dd/yyyy hh:mm | test_user1 | Create record7   | notesbox2 = 'Notes box'                |

@@ -50,8 +50,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
 
     Given I should see the "Move to prod" request created for the project named "A.6.4.200.100" within the "Pending Requests" table
     When I click on the "process request" icon for the "Move to prod" request created for the project named "A.6.4.200.100" within the "Pending Requests" table
-    # Then I should see "Move project To Production status" in the iframe
-
+   
     Given I click on the radio labeled "Keep ALL data saved so far." in the dialog box in the iframe
     When I click on the button labeled "YES, Move to Production Status" in the dialog box in the iframe
     And I close the iframe window
@@ -99,4 +98,4 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     Given I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported  |
-      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Move project to Production status       |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Move project to Production status        |

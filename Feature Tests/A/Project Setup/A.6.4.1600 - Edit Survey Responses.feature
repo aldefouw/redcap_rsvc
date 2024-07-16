@@ -90,6 +90,6 @@ Then I should see "Record ID 1 successfully edited."
 When I click on the link labeled "Logging"
 Then I should see "This module lists all changes"
 And I should see a table header and rows containing the following values in the logging table:
- | Time / Date      | Username            | Action          | List of Data ChangesOR Fields Exported |
+ | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported |
  | mm/dd/yyyy hh:mm | test_admin          | Update record   | name_survey = 'EDITED SURVEY RESPONSE' |
  | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | name_survey = 'SURVEY RESPONSE'        |

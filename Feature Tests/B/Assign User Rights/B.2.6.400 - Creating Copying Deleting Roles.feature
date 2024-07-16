@@ -32,7 +32,7 @@ Feature: B.2.6.400 Assign user rights Project Level:  The system shall allow for
     Given I click on the link labeled "Logging"
 
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action           | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_admin | Create user role | role = 'TestRole2'                      |
 
 

@@ -67,7 +67,7 @@ Then I should see the field labeled "Add Field"
 And I drag the field variable named "add" below the field variable named "identifier"
 
 ##VERIFY
-Then I should see the field labeled "Add Field" before the field labeled "Identifier"
+Then I should see the field named "Add Field" before field named "Identifier"
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: move field to another instrument
@@ -173,7 +173,7 @@ Then I should see a table header and rows containing the following values in the
 ##VERIFY_LOG
 When I click on the link labeled "Logging"
 Then I should see a table header and rows containing the following values in the logging table:
-  | Username   | Action        | List of Data ChangesOR Fields Exported |
+  | Username   | Action        | List of Data Changes OR Fields Exported |
   | test_user  | Manage/Design | Delete project field                   |
   | test_user  | Manage/Design | Copy project field                     |
   | test_user  | Manage/Design | Edit project field                     |

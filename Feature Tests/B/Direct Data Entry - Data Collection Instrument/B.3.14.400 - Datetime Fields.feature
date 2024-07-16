@@ -41,7 +41,7 @@ Feature: Creating a Record and Entering Data: The system shall support the abili
     And I click on the button labeled "Done" in the open date picker widget
 
     ##VERIFY
-    Then I should see the date "2023-08-01 00:00:00" in the field labeled "datetime YMD HMSS"
+    Then I should see the date and time "2023-08-01 00:00:00" in the field labeled "datetime YMD HMSS"
 
     ##ACTION: Now button
     When I click on the "Now" button for the field labeled "time HH:MM:SS"

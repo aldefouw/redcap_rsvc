@@ -36,7 +36,7 @@ Feature: B.2.6.200 Assign user rights Project Level:  The system shall allow dat
 
     Given I click on the button labeled "Upload" in the dialog box
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
 
     And I should see a table header and rows containing the following values in a table:
       |Role name                | Username            |
@@ -63,7 +63,7 @@ Feature: B.2.6.200 Assign user rights Project Level:  The system shall allow dat
     ##VERIFY_LOG: Verify Update user rights
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action   | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username   | Action   | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_admin | Add user | user = 'test_user1'                     |
 
     ##ACTION #CROSS-FEATURE B.2.23.100: Verify Logging Filter by user name
@@ -71,7 +71,7 @@ Feature: B.2.6.200 Assign user rights Project Level:  The system shall allow dat
 
     ##VERIFY_LOG #CROSS-FEATURE: Verify Logging Filter by user name
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action      | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                     |
     And I logout
 

@@ -40,7 +40,8 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
     ##VERIFY_SDT: verifying survey link and return codes are available
     Given I click on the link labeled "Survey Distribution Tools"
     And I click on the tab labeled "Participant List"
-    Then I should see the dropdown field labeled "Participant List" with the options below
+    Then I should see a button labeled "Add participants"
+    And I should see the dropdown field labeled "Participant List" with the options below
       | [Initial survey] "Text Validation" - Event 1 (Arm 1: Arm 1) |
       | "Consent" - Event 1 (Arm 1: Arm 1)                          |
       | "Text Validation" - Event 2 (Arm 1: Arm 1)                  |
@@ -78,7 +79,7 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
       | Record ID  | Event Name             | Repeat Instrument | Repeat Instance | Data Access Group | Survey Identifier | Survey Timestamp | Name            |
-      | 1          | Event 1 (Arm 1: Arm 1) |                   |                 |                   |                   | mm/dd/yyyy hh:mm | B.3.15.1200.100 |
+      | 1          | Event 1 (Arm 1: Arm 1) |                   |                 |                   |                   | mm-dd-yyyy hh:mm | B.3.15.1200.100 |
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION
@@ -100,7 +101,9 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
       | Record ID  | Event Name             | Repeat Instrument | Repeat Instance | Data Access Group | Survey Identifier | Name            |
       | 1          | Event 1 (Arm 1: Arm 1) |                   |                 |                   |                   | B.3.15.1200.100 |
 
-    And I should NOT see "Survey Timestamp"
+    #MANUAL: Note that "text_validation_timestamp" is the column VARIABLE name used if Text Validation instrument was enabled as survey.
+    # Cannot look for "Survey Timestamp" because that same LABEL is used for all survey timestamp columns.
+    And I should NOT see "text_validation_timestamp"
 
     ##VERIFY_SDT: verifying survey link and return codes are NOT available
     Given I click on the link labeled "Survey Distribution Tools"

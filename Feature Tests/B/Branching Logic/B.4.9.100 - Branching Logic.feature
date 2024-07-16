@@ -11,11 +11,10 @@ Feature: User Interface: The system shall support branching logic for data entry
     ##VERIFY: Branching logic
     When I click on the link labeled "Designer"
     And I click on the instrument labeled "Data Types"
-    Then I should see "Branching logic: [record_id] = '999'" for the variable "ptname"
-    And I should see "Branching logic: [record_id] = '999'" for the variable "textbox"
-    And I should see "Branching logic: [record_id] = '999'" for the variable "text2"
-    And I should see "Branching logic: [record_id] = '999'" for the variable "notesbox"
-
+    Then I should see "Branching logic: [record_id] = '999'" within the field with variable name "ptname"
+    Then I should see "Branching logic: [record_id] = '999'" within the field with variable name "textbox"
+    Then I should see "Branching logic: [record_id] = '999'" within the field with variable name "text2"
+    Then I should see "Branching logic: [record_id] = '999'" within the field with variable name "notesbox"
 
     #FUNCTIONAL_REQUIREMENT: survey mode
     When I click on the link labeled "Survey Distribution Tools"
@@ -36,10 +35,14 @@ Feature: User Interface: The system shall support branching logic for data entry
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
 
     #MANUAL: These confirmation windows are automatically accepted on automated side
-    #And I click the button labeled "OK" in the pop-up box
-    #And I click the button labeled "OK" in the pop-up box
-    #And I click the button labeled "OK" in the pop-up box
-    #And I click the button labeled "OK" in the pop-up box
+    Then I should see an alert box with the following text: 'ERASE THE VALUE OF THE FIELD "ptname" ?'
+    #And I click the button labeled "OK" in the alert box
+    Then I should see an alert box with the following text: 'ERASE THE VALUE OF THE FIELD "textbox" ?'
+    #And I click the button labeled "OK" in the alert box
+    Then I should see an alert box with the following text: 'ERASE THE VALUE OF THE FIELD "text2" ?'
+    #And I click the button labeled "OK" in the alert box
+    Then I should see an alert box with the following text: 'ERASE THE VALUE OF THE FIELD "notesbox" ?'
+    #And I click the button labeled "OK" in the alert box
 
     Then I should NOT see the field labeled "Name"
     And I should NOT see the field labeled "Text2"
@@ -60,7 +63,7 @@ Feature: User Interface: The system shall support branching logic for data entry
     And I click on the button labeled "Save" in the dialog box
     Then I should see a dialog containing the following text: "Also edit Branching Logic for OTHER fields?"
     And I click on the button labeled "No" in the dialog box
-    Then I should see "Branching logic: [record_id] <> '999'" on the field labeled "Name"
+    Then I should see "Branching logic: [record_id] <> '999'" within the field with variable name "ptname"
 
     ##ACTION: change branching logic
     When I click on the Branching Logic icon for the variable "text2"
@@ -70,7 +73,7 @@ Feature: User Interface: The system shall support branching logic for data entry
     And I click on the button labeled "Save" in the dialog box
     Then I should see a dialog containing the following text: "Also edit Branching Logic for OTHER fields?"
     And I click on the button labeled "Yes" in the dialog box
-    Then I should see "Branching logic: [record_id] <> '999'" on the field labeled "Text2"
+    Then I should see "Branching logic: [record_id] <> '999'" within the field with variable name "text2"
 
     #FUNCTIONAL_REQUIREMENT: survey mode
     When I click on the link labeled "Survey Distribution Tools"
@@ -108,7 +111,7 @@ Feature: User Interface: The system shall support branching logic for data entry
 
     Given I drag the field choice labeled "radio_button_manual = Choice101 (101)" to the box labeled "Show the field ONLY if..."
     And I click on the button labeled "Save" in the Add/Edit Branching Logic dialog box
-    Then I should see "Branching logic: [radio_button_manual] = '101'" on the field labeled "Descriptive Text with File"
+    Then I should see "Branching logic: [radio_button_manual] = '101'" within the field with variable name "descriptive_text_file"
 
     Given I click on the Branching Logic icon for the variable "required"
     And I click on the radio labeled exactly "Drag-N-Drop Logic Builder" in the dialog box
@@ -116,7 +119,7 @@ Feature: User Interface: The system shall support branching logic for data entry
 
     Given I drag the field choice labeled "checkbox = Checkbox3 (3)" to the box labeled "Show the field ONLY if..."
     And I click on the button labeled "Save" in the Add/Edit Branching Logic dialog box
-    Then I should see "Branching logic: [checkbox(3)] = '1'" on the field labeled "Required"
+    Then I should see "Branching logic: [checkbox(3)] = '1'" within the field with variable name "required"
 
     #FUNCTIONAL_REQUIREMENT: survey mode
     When I click on the link labeled "Survey Distribution Tools"
@@ -138,7 +141,7 @@ Feature: User Interface: The system shall support branching logic for data entry
     Given I return to the REDCap page I opened the survey from
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username            | Action          | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_admin          | Manage/Design   | Add/edit branching logic                |
 
 

@@ -43,7 +43,7 @@ Feature: Creating a Record and Entering Data: The system shall support the abili
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action           | List of Data ChangesOR Fields Exported  |
+      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported  |
       | mm/dd/yyyy hh:mm | test_user1 | Update record7   | radio = ''                              |
       | mm/dd/yyyy hh:mm | test_user1 | Create record7   | radio = '9..9'                          |
 
