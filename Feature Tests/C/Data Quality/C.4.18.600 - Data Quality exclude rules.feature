@@ -34,8 +34,7 @@ Feature: User Interface: The system shall support excluding discrepancies found 
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: verify ability to exclude a discrepancy
-        When I click on the link labeled "view" for Rule "D"
-        # When I click on the link labeled "view" for the Rule Name labeled "Field validation errors (out of range)"
+        When I click on the "view" link for Data Quality Rule # "D"
         Then I should see "Rule: Field validation errors (out of range)" in the dialog box
         And I should see "Discrepancies found: 4" in the dialog box
         And I should see a table header and rows containing the following values in a table:
@@ -45,7 +44,7 @@ Feature: User Interface: The system shall support excluding discrepancies found 
             | 5 (#1) | number_1_period = 4.2               | Out of range | exclude |
             | 5 (#1) | number = 10.000                     | Out of range | exclude |
 
-        When I click on the link labeled "exclude" for the discrepant field labeled "Integer"
+        When I click on the "exclude" link for the Discrepant field labeled "Integer"
         Then I should see a table header and rows containing the following values in a table:
             | Record | Discrepant fields with their values | Status       | Exclude          |
             | 5 (#1) | integer = 1111111111                | Out of range | remove exclusion |
@@ -62,7 +61,7 @@ Feature: User Interface: The system shall support excluding discrepancies found 
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: verify ability to add back excluded discrepancy
-        When I click on the link labeled "view" for Rule "D"
+        When I click on the "view" link for Data Quality Rule # "D"
         Then I should see "Rule: Field validation errors (out of range)" in the dialog box
         And I should see "Discrepancies found: 3" in the dialog box
         And I should see a link labeled "view" in the dialog box
@@ -77,7 +76,7 @@ Feature: User Interface: The system shall support excluding discrepancies found 
             | 5 (#1) | number_1_period = 4.2               | Out of range | exclude          |
             | 5 (#1) | number = 10.000                     | Out of range | exclude          |
 
-        When I click on the link labeled "remove exclusion" for the discrepant field labeled "Integer"
+        When I click on the "remove exclusion" link for the Discrepant field labeled "Integer"
         And I should see a table header and rows containing the following values in a table:
             | Record | Discrepant fields with their values | Status       | Exclude |
             | 5 (#1) | integer = 1111111111                | Out of range | exclude |
