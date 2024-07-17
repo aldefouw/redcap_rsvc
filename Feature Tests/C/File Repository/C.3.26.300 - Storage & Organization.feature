@@ -1,9 +1,9 @@
 Feature: User Interface: The system shall support the storage, organization, and sharing of project files for permanent folders: (Data Export | e-Consent PDFs | Recycle Bin | Custom Create folder / Sub-folder)
 
-As a REDCap end user
-I want to see that file repository is functioning as expected
+  As a REDCap end user
+  I want to see that file repository is functioning as expected
 
-Scenario: C.3.26.300.100 Automatic uploading of data export logs into the data export folder
+  Scenario: C.3.26.300.100 Automatic uploading of data export logs into the data export folder
 
     #SETUP 
     Given I login to REDCap with the user "Test_Admin"
@@ -26,17 +26,14 @@ Scenario: C.3.26.300.100 Automatic uploading of data export logs into the data e
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Export data automatically placed in file repo
     When I click on the link labeled "File Repository"
-    # And I wait for 2 seconds
     Then I should see "Data Export Files"
     And I click on the link labeled "Data Export Files"
-
-    # Then I verify I see the csv file 
     And I should see "Data export file created by test_admin on"
 
-Scenario: C.3.26.300.200 Automatic uploading of e-Consent Framework PDFs
+  Scenario: C.3.26.300.200 Automatic uploading of e-Consent Framework PDFs
     # REDUNDANT
 
-Scenario: C.3.26.300.300 Recycle bin function - permanently force delete 
+  Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
 
     #SETUP 
     Given I login to REDCap with the user "Test_Admin"
@@ -47,13 +44,22 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
     
     ##ACTION Upload to top tier file repo 
     When I click on the link labeled "File Repository"
-    And I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | Data Export Files        |                  |                         |
+      | PDF Survey Archive       |                  |                         |
+      | Recycle Bin              |                  |                         |
+
+    Given I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
       |import_files/testusers_bulkupload.csv|
 
-    ##VERIFY_FiRe file uploaded in folder
-    Then I should see "100% uploaded"
-    Then I should see "testusers_bulkupload.csv"
-    And I wait for 5 seconds
+    ##VERIFY file uploaded in folder
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | Data Export Files        |                  |                         |
+      | PDF Survey Archive       |                  |                         |
+      | Recycle Bin              |                  |                         |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Delete file
@@ -64,95 +70,121 @@ Scenario: C.3.26.300.300 Recycle bin function - permanently force delete
 
     ##VERIFY file deleted in folder
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I close the popup
-    Then I should NOT see "testusers_bulkupload.csv"
+    And I click on the button labeled "Close" in the dialog box
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Size                    |
+      | Data Export Files        |                  | 0 Files                 |
+      | PDF Survey Archive       |                  | 0 Files                 |
+      | Recycle Bin              |                  | 1 Files                 |
+    And I should NOT see "testusers_bulkupload.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Cancel Restore deleted file
     When I click on the link labeled "Recycle Bin"
-    And I wait for 5 seconds
-    Then I should see "testusers_bulkupload.csv"
-    When I click on the "Restore deleted file?" image for the file "testusers_bulkupload.csv" in File Repository
-    # When I click on the image "Restore deleted file?" link for the row containing "testusers_bulkupload.csv"
-    # When I click on the link labeled "Restore deleted file?"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
+
+    When I click on the Restore icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Cancel" in the dialog box
     ##VERIFY file still in recycle folder
-    Then I should see "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
+
+    ## Below steps are duplicate of above
+    # #FUNCTIONAL_REQUIREMENT
+    # ##ACTION Restore deleted file
+    # When I click on the Restore icon for the File Repository file named "testusers_bulkupload.csv"
+    # Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
+    # When I click on the button labeled "Cancel" in the dialog box
+    # ##VERIFY file still in recycle folder
+    # Then I should see a table header and rows containing the following values in the file repository table:
+    #   | Name                     | Time Uploaded    | Comments                |
+    #   | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Restore deleted file
-    When I click on the "Restore deleted file?" image for the file "testusers_bulkupload.csv" in File Repository
-    Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
-    When I click on the button labeled "Cancel" in the dialog box
-    ##VERIFY file still in recycle folder
-   Then I should see "testusers_bulkupload.csv"
-
-    #FUNCTIONAL_REQUIREMENT
-    ##ACTION Restore deleted file
-    When I click on the "Restore deleted file?" image for the file "testusers_bulkupload.csv" in File Repository
+    When I click on the Restore icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Restore" in the dialog box
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I close the popup
+    And I click on the button labeled "Close" in the dialog box
     ##VERIFY file in File Repository
     When I click on the link labeled "File Repository"
-    And I wait for 2 seconds
-    Then I should see "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | Data Export Files        |                  |                         |
+      | PDF Survey Archive       |                  |                         |
+      | Recycle Bin              |                  |                         |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
+
     ##VERIFY file not in recycle folder
     When I click on the link labeled "Recycle Bin"
-    And I wait for 5 seconds
     Then I should NOT see "testusers_bulkupload.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Delete file
     When I click on the link labeled "File Repository"
-    And I wait for 2 seconds
+
     When I check the checkbox labeled "testusers_bulkupload.csv"
     And I click on the button labeled "Delete"
     Then I should see a dialog containing the following text: "Are you sure you wish to delete all the files currently selected on the page? Total files to be deleted: 1."
     And I click on the button labeled "Delete" in the dialog box
     ##VERIFY file deleted in folder
     Then I should see a dialog containing the following text: "SUCCESS!"
-    And I close the popup
-    When I click on the link labeled "File Repository"    
-    And I wait for 2 seconds
-    Then I should NOT see "testusers_bulkupload.csv"
+    And I click on the button labeled "Close" in the dialog box
+    When I click on the link labeled "File Repository"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Size                    |
+      | Data Export Files        |                  | 0 Files                 |
+      | PDF Survey Archive       |                  | 0 Files                 |
+      | Recycle Bin              |                  | 1 Files                 |
+    And I should NOT see "testusers_bulkupload.csv"
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Cancel Permanently deleted file
     When I click on the link labeled "Recycle Bin"
-    Then I should see "testusers_bulkupload.csv"
-    When I click on the "Permanently delete file?" image for the file "testusers_bulkupload.csv" in File Repository
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
+    When I click on the Delete Permanently icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Cancel" in the dialog box
     ##VERIFY file still in recycle folder
-    Then I should see "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Comments                |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Permanently deleted file
-    When I click on the "Permanently delete file?" image for the file "testusers_bulkupload.csv" in File Repository
+    When I click on the Delete Permanently icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see a dialog containing the following text: "File: testusers_bulkupload.csv"
     When I click on the button labeled "Delete" in the dialog box
     ##VERIFY file deleted in recycle folder
     Then I should see a dialog containing the following text: "File was successfully deleted!"
     And I click on the button labeled "OK"
     When I click on the link labeled "File Repository"
-    And I wait for 2 seconds
-    Then I should NOT see "testusers_bulkupload.csv"
+    Then I should see a table header and rows containing the following values in the file repository table:
+      | Name                     | Time Uploaded    | Size                    |
+      | Data Export Files        |                  | 0 Files                 |
+      | PDF Survey Archive       |                  | 0 Files                 |
+      | Recycle Bin              |                  | 0 Files                 |
+    And I should NOT see "testusers_bulkupload.csv"
+
     ##VERIFY file deleted in recycle folder
     When I click on the link labeled "Recycle Bin"
-    And I wait for 5 seconds
-    Then I should NOT see "testusers_bulkupload.csv"
+    Then I should see "No files or sub-folders exist in this folder."
 
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username  | Action        | List of Data Changes OR Fields Exported |
-      |test_admin | Manage/Design | Permanently delete file from File Repository|
-      |test_admin | Manage/Design | Delete file from File Repository |
-      |test_admin | Manage/Design | Restore file in File Repository |
-      |test_admin | Manage/Design | Delete file from File Repository |
+      | Username   | Action        | List of Data Changes OR Fields Exported      |
+      | test_admin | Manage/Design | Permanently delete file from File Repository |
+      | test_admin | Manage/Design | Delete file from File Repository             |
+      | test_admin | Manage/Design | Restore file in File Repository              |
+      | test_admin | Manage/Design | Delete file from File Repository             |
 
     Scenario: C.3.26.300.400 Custom folder / sub-folder
     # REDUNDANT with C.3.26.200
