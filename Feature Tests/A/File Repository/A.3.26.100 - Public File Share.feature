@@ -9,12 +9,14 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
     And I create a new project named "A.3.26.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     And I click on the link labeled "My Projects"
     And I click on the link labeled "A.3.26.100.100"
-    And I click on the link labeled "Designer"
 
-    And I click on the "Survey settings" button for the instrument row labeled "Consent"
+   ##Below steps are not required
+   #  And I click on the link labeled "Designer"
 
-    And I click on the radio labeled "Auto-Archiver + e-Consent Framework"
-    Then I click on the button labeled "Save Changes"
+   #  And I click on the "Survey settings" button for the instrument row labeled "Consent"
+
+   #  And I click on the radio labeled "Auto-Archiver + e-Consent Framework"
+   #  Then I click on the button labeled "Save Changes"
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
