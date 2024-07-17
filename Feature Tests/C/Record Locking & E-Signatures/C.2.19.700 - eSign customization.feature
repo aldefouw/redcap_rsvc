@@ -5,39 +5,42 @@ Feature: User Interface: The Record Locking Customization module shall allow the
 
     Scenario: C.2.19.700.100 Customize Record Locking display and text
         #SETUP
-#        Given I login to REDCap with the user "Test_Admin"
-#        And I create a new project named "C.2.19.700.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+        Given I login to REDCap with the user "Test_Admin"
+        And I create a new project named "C.2.19.700.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 #
 #        #SETUP_PRODUCTION
-#        When I click on the link labeled "Project Setup"
-#        And I click on the button labeled "Move project to production"
-#        And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
-#        And I click on the button labeled "YES, Move to Production Status" in the dialog box
-#        Then I should see Project status: "Production"
-#
-#        #FUNCTIONAL REQUIREMENT
-#        ##ACTION Lock Record Custom Text
-#        When I click on the link labeled "Customize & Manage Locking/E-signatures"
-        And I click on the button labeled "I understand. Let me make changes" in the dialog box
-        And I wait for another 5 seconds
-        #Then I should see a link labeled "Record Locking Customization"
-#
-#        And I want to export a snapshot of this feature here
+        When I click on the link labeled "Project Setup"
+        And I click on the button labeled "Move project to production"
+        And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
+        And I click on the button labeled "YES, Move to Production Status" in the dialog box
+        Then I should see Project status: "Production"
 
-        When for the Column Name "Display the Lock option for this instrument?", I uncheck the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Survey"
-        And for the Column Name "Display the Lock option for this instrument?", I uncheck the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
+        #FUNCTIONAL REQUIREMENT
+        ##ACTION Lock Record Custom Text
+
+        When I click on the link labeled "Customize & Manage Locking/E-signatures"
+        Then I should see a dialog containing the following text: "WARNING"
+
+        Given I click on the button labeled "I understand. Let me make changes" in the dialog box
+        Then I should see "Record Locking Customization"
+
+        Given for the Column Name "Display the Lock option for this instrument?", I check the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Survey"
+        And for the Column Name "Display the Lock option for this instrument?", I check the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
         And for the Column Name "Also display E-signature option on instrument?", I check the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Survey"
         And for the Column Name "Also display E-signature option on instrument?", I check the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
+        And I enter "Test custom text" into the textarea field within the Lock Record Custom Text column for Data Collection instrument row labeled "Text Validation"
 
-        And I want to pause
-
-        When I deselect the checkbox labeled "Display the Lock option for this instrument?" for the instrument labeled "Survey"
-        And I verify the checkbox labeled "Display the Lock option for this instrument?" is selected for the instrument labeled "Text Validation"
-        And I check the checkbox labeled "Also display E-signature option on instrument?" for the instrument labeled "Text Validation"
-        And I enter "Test custom text" in the notes box field for the Data Collection Instrument labeled "Text Validation"
         And I click on the button labeled "Save"
-        And I verify the checkbox labeled "Display the Lock option for this instrument?" is selected for the instrument labeled "Data Types"
-        And I enter "Test custom text" in the notes box field for the Data Collection Instrument labeled "Data Types"
+        Then I should see a table header and rows containing the following values in a table:
+            | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
+            | [✓]                                          | Text Validation            | [✓]                                            | Test custom text        |
+            | [✓]                                          | Data Types                 | [ ]                                            |                         |
+            | [✓]                                          | Survey                     | [✓]                                            |                         |
+            | [✓]                                          | Consent                    | [ ]                                            |                         |
+
+
+        And for the Column Name "Display the Lock option for this instrument?", I check the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
+        And I enter "Test custom text" into the textarea field within the Lock Record Custom Text column for Data Collection instrument row labeled "Data Types"
         And I click on the button labeled "Save"
 
         #FUNCTIONAL REQUIREMENT
@@ -45,8 +48,9 @@ Feature: User Interface: The Record Locking Customization module shall allow the
         Then I should see a table header and rows containing the following values in a table:
             | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
             | [✓]                                          | Text Validation            | [✓]                                            | Test custom text        |
-            | [✓]                                          | Data Types                 |                                                | Test custom text        |
-            |                                              | Survey                     |                                                | [blank]                 |
+            | [✓]                                          | Data Types                 | [ ]                                            | Test custom text        |
+            | [✓]                                          | Survey                     | [✓]                                            |                         |
+            | [✓]                                          | Consent                    | [ ]                                            |                         |
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
