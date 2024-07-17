@@ -66,15 +66,15 @@ Feature: User Interface: The Record Locking Customization module shall allow the
         And I should see "Test custom text"
         And I should see a checkbox labeled "E-Signature" that is checked
 
-        When I check the checkbox labeled "Test custom text"
-        And I check the checkbox labeled "E-signature"
-        And I click on the button labeled "Save & Stay"
-        Then I should see "E-signature: Username/password verification" in the dialog box
+        Given I check the checkbox labeled exactly "Lock"
+        And I check the checkbox labeled exactly "E-signature"
+        And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+        Then I should see a dialog containing the following text: "E-signature: Username/password verification"
 
         Given I enter "Test_Admin" into the input field labeled "Username"
         And I enter "Tesing123" into the input field labeled "Password"
         Then I should see "E-signed by test_admin"
-        And I should see "Instrument locked by test_admim"
+        And I should see "Instrument locked by test_admin"
 
         When I click on the link labeled "Data Types"
         Then I should see "Data Types"
@@ -103,8 +103,19 @@ Feature: User Interface: The Record Locking Customization module shall allow the
         Then I should see a table header and rows containing the following values in a table:
             | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
             | [✓]                                          | Text Validation            | [✓]                                            | Edit Test custom text   |
-            | [✓]                                          | Data Types                 |                                                | [blank]                 |
-            |                                              | Survey                     |                                                | [blank]                 |
+            | [✓]                                          | Data Types                 | [ ]                                            | Test custom text        |
+            | [ ]                                          | Survey                     | [ ]                                            |                         |
+            | [✓]                                          | Consent                    | [ ]                                            |                         |
+
+        When I click on the Edit icon within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
+        And I clear field and enter "Edit Test custom text" into the textarea field within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
+        And I click on the "Save" button within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
+        Then I should see a table header and rows containing the following values in a table:
+            | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
+            | [✓]                                          | Text Validation            | [✓]                                            | Edit Test custom text   |
+            | [✓]                                          | Data Types                 | [ ]                                            | Edit Test custom text   |
+            | [ ]                                          | Survey                     | [ ]                                            |                         |
+            | [✓]                                          | Consent                    | [ ]                                            |                         |
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
@@ -114,31 +125,29 @@ Feature: User Interface: The Record Locking Customization module shall allow the
 
         ##VERIFY_RECORD
         When I click on the link labeled "Record Status Dashboard"
-        And I click the bubble for the instrument labeled "Text Validation" for record "3" for event "Event 1"
+        And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "3" and click on the bubble
         Then I should see "Text Validation"
         And I should see "Edit Test custom text"
-        And I should see a checkbox for the field labeled "E-signature"
+        And I should see a checkbox labeled exactly "E-signature" that is unchecked
 
-        When I check the checkbox labeled "Edit Test custom text"
-        And I check the checkbox labeled "E-signature"
-        And I click on the button labeled "Save & Stay"
+        Given I check the checkbox labeled exactly "Lock"
+        And I check the checkbox labeled exactly "E-signature"
+        And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         Then I should see "E-signature: Username/password verification" in the dialog box
 
         Given I enter "Test_Admin" into the input field labeled "Username"
         And I enter "Tesing123" into the input field labeled "Password"
         Then I should see "E-signed by test_admin"
-        And I should see "Instrument locked by test_admim"
+        And I should see "Instrument locked by test_admin"
 
         When I click on the link labeled "Data Types"
         Then I should see "Data Types"
-        And I should see "Lock this instrument?"
-        And I should NOT see a checkbox for the field labeled "E-signature"
+        And I should see a checkbox labeled exactly "Lock" that is unchecked
+        And I should NOT see a checkbox labeled "E-signature"
 
         When I click on the link labeled "Record Status Dashboard"
         And I click on the button labeled "Leave without saving changes" in the dialog box
-        And I click the bubble for the instrument labeled "Survey" for event "Event Three" for record "1"
-        Then I should NOT see the checkbox for the field labeled "Lock this instrument?"
-        And I should NOT see a checkbox for the field labeled "E-signature"
-        And I should NOT see a signature field
-
-
+        And I locate the bubble for the "Survey" instrument on event "Event Three" for record ID "1" and click on the bubble
+        Then I should see "Survey"
+        And I should NOT see a checkbox labeled "Lock"
+        And I should NOT see a checkbox labeled "E-signature"
