@@ -22,7 +22,7 @@ Feature: User Interface: The tool shall only display forms that are designated t
         And I click on the button labeled "I understand. Let me make changes" in the dialog box
         And I should see "Lock Record Custom Text"
         Then I should see a table header and rows containing the following values in a table:
-            | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? |                           
+            | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? |
             | [✓]                                          | Text Validation            | [ ]                                            |
             | [✓]                                          | Data Types                 | [ ]                                            |
             | [✓]                                          | Survey                     | [ ]                                            |
@@ -32,15 +32,15 @@ Feature: User Interface: The tool shall only display forms that are designated t
         #FUNCTIONAL REQUIREMENT
         ##ACTION Lock Record Custom Text
         When I enter "Test custom text" into the textarea field labeled "Text Validation"
-         And I click on the first button labeled "Save" 
+        And I click on the first button labeled "Save"
         And I enter "Test custom text" into the textarea field labeled "Data Types"
-        And I click on the first button labeled "Save" 
+        And I click on the first button labeled "Save"
         Then I should see a table header and rows containing the following values in a table:
             | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
-            | [✓]                                          | Text Validation            | [ ]                                      | Test custom text             |
-            | [✓]                                          | Data Types                  | [ ]                                      | Test custom text             |
-            | [✓]                                          | Survey                     | [ ]                                      |                              |
-            | [✓]                                          | Consent                    | [ ]                                      |                              |
+            | [✓]                                          | Text Validation            | [ ]                                            | Test custom text        |
+            | [✓]                                          | Data Types                 | [ ]                                            | Test custom text        |
+            | [✓]                                          | Survey                     | [ ]                                            |                         |
+            | [✓]                                          | Consent                    | [ ]                                            |                         |
 
 
         ##VERIFY_LOG
@@ -67,13 +67,13 @@ Feature: User Interface: The tool shall only display forms that are designated t
         And I click on the Edit icon within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
         And I enter "New custom text" into the textarea field labeled "Text Validation"
         And I click on the first button labeled "Save"
-        And I click on the Delete icon within the Record Locking Customization table for the Data Collection Instrument named "Data Types" 
-         Then I should see a table header and rows containing the following values in a table:
-            | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text      |
-            | [✓]                                          | Text Validation            | [ ]                                            | New custom text             |
-            | [✓]                                          | Data Type                  | [ ]                                            |                             |
-            | [✓]                                          | Survey                     | [ ]                                            |                             |
-            | [✓]                                          | Consent                    | [ ]                                            |                             |
+        And I click on the Delete icon within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
+        Then I should see a table header and rows containing the following values in a table:
+            | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
+            | [✓]                                          | Text Validation            | [ ]                                            | New custom text         |
+            | [✓]                                          | Data Type                  | [ ]                                            |                         |
+            | [✓]                                          | Survey                     | [ ]                                            |                         |
+            | [✓]                                          | Consent                    | [ ]                                            |                         |
 
 
         ##VERIFY_LOG
