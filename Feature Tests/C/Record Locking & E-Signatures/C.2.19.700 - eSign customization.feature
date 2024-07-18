@@ -17,7 +17,6 @@ Feature: User Interface: The Record Locking Customization module shall allow the
 
         #FUNCTIONAL REQUIREMENT
         ##ACTION Lock Record Custom Text
-
         When I click on the link labeled "Customize & Manage Locking/E-signatures"
         Then I should see a dialog containing the following text: "WARNING"
 
@@ -85,7 +84,6 @@ Feature: User Interface: The Record Locking Customization module shall allow the
         And I locate the bubble for the "Survey" instrument on event "Event 1" for record ID "1" and click on the bubble
         And I should NOT see a checkbox labeled "E-Signature"
         And I should NOT see a checkbox labeled "Lock"
-#        And I should NOT see a signature field
 
         #FUNCTIONAL REQUIREMENT
         ##ACTION Edit and Delete Lock Record Custom Text
