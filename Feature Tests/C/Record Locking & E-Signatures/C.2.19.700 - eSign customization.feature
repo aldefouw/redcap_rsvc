@@ -23,7 +23,7 @@ Feature: User Interface: The Record Locking Customization module shall allow the
         Given I click on the button labeled "I understand. Let me make changes" in the dialog box
         Then I should see "Record Locking Customization"
 
-        Given for the Column Name "Display the Lock option for this instrument?", I uncheck the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Survey"
+        Given the Column Name "Display the Lock option for this instrument?", I uncheck the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Survey"
         And for the Column Name "Also display E-signature option on instrument?", I uncheck the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Survey"
         And for the Column Name "Display the Lock option for this instrument?", I check the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
         And for the Column Name "Also display E-signature option on instrument?", I check the checkbox within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
