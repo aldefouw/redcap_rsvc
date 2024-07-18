@@ -114,13 +114,13 @@ Feature: User Interface: General: The system shall support the ability to delete
 
     Given I should see the "Delete project" request created for the project named "B.6.4.1200.300.PROD" within the "Pending Requests" table
     When I click on the "process request" icon for the "Delete project" request created for the project named "B.6.4.1200.300.PROD" within the "Pending Requests" table
-    Then I should see "Permanently delete this project?" in the iframe
+    Then I should see "Permanently delete this project?" in the dialog box in the iframe
 
     ##ACTION Delete project
     Given I enter "DELETE" into the input field labeled 'TYPE "DELETE" BELOW' in the iframe
     And I click on the button labeled "Delete the project" in the dialog box in the iframe
     And I click on the button labeled "Yes, delete the project" in the dialog box in the iframe
-    Then I should see "Project successfully deleted!" in the iframe
+    Then I should see "Project successfully deleted!" in the dialog box in the iframe
 
     ##VERIFY
     And I close the iframe window
