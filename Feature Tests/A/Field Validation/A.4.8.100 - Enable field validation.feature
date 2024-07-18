@@ -46,9 +46,6 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
     When I click on the button labeled "Disable" in the validation row labeled "Time (HH:MM)"
     Then I should see the "disabled icon" in the validation row labeled "Time (HH:MM)"
 
-    When I click on the button labeled "Disable" in the validation row labeled "Time (HH:MM:SS)"
-    Then I should see the "disabled icon" in the validation row labeled "Time (HH:MM:SS)"
-
 
     ##VERIFY: options not available on validation dropdown field
     When I click on the link labeled "My Projects"
@@ -78,6 +75,7 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
       | Datetime w/ seconds (D-M-Y H:M:S) |
       | Datetime w/ seconds (M-D-Y H:M:S) |
       | Phone (North America)             |
+      | Time (HH:MM:SS)                   |
       | Zipcode (U.S.)                    |
     And I click on the button labeled "Cancel" on the dialog box
 
@@ -109,10 +107,6 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
 
     When I click on the button labeled "Enable" in the validation row labeled "Time (HH:MM)"
     Then I should see the "checkmark icon" in the validation row labeled "Time (HH:MM)"
-    
-    When I click on the button labeled "Enable" in the validation row labeled "Time (HH:MM:SS)"
-    Then I should see the "checkmark icon" in the validation row labeled "Time (HH:MM:SS)"
-
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION - Verify field validation Enable
