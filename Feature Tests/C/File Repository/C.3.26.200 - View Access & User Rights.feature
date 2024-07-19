@@ -20,7 +20,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##SETUP File Repository
     And I click on the link labeled "File Repository"
 
-  #Scenario: SETUP Create DAG limited folder
+    #Scenario: SETUP Create DAG limited folder
     #Create DAG limited folder
     And I click on the button labeled "Create folder"
     And I enter "TestGroup1_Folder" into the input field labeled "New folder name:"
@@ -28,7 +28,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I click on the button labeled "Create folder" in the dialog box
     Then I should see "TestGroup1_Folder"
 
-  #Scenario: SETUP Create role limited folder
+    #Scenario: SETUP Create role limited folder
     #Create role limited folder
     And I click on the button labeled "Create folder"
     And I enter "Role1_Folder" into the input field labeled "New folder name"
@@ -36,8 +36,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I click on the button labeled "Create folder" in the dialog box
     Then I should see "Role1_Folder"
 
-  #Scenario: SETUP User Rights
-      ##SETUP User Rights:
+    #Scenario: SETUP User Rights
+    ##SETUP User Rights:
     When I click on the link labeled "User Rights"
     And I click on the button labeled "Upload or download users, roles, and assignments"
     And I click on the link labeled "Upload users (CSV)"
@@ -68,7 +68,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | 4_NoAccess_Noexport     | [No users assigned] |
       | TestRole                | [No users assigned] |
 
-  #Scenario: SETUP Assign to roles
+    #Scenario: SETUP Assign to roles
     ##SETUP Assign to roles
     When I click on the link labeled "test_user1 (Test User1)"
     And I click on the button labeled "Assign to role" on the tooltip
@@ -140,7 +140,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | 4_NoAccess_Noexport     | [No users assigned] |
       | TestRole                | [No users assigned] |
 
-  #Scenario: Assign User to DAG
+    #Scenario: Assign User to DAG
 
     #SETUP DAG: Assign User to DAG
     Given I click on the link labeled "Data Access Groups"
@@ -186,7 +186,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     #"Test_User4" is not assigned to a DAG
     And I logout
 
-  #Scenario: Create record while in DAG through eConsent framework
+    #Scenario: Create record while in DAG through eConsent framework
     #SETUP Record: Create record while in DAG through eConsent framework
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "My Projects"
@@ -214,7 +214,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
     And I should see "TestGroup1"
 
-  #Scenario: Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
+    #Scenario: Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
 
     #FUNCTIONAL_REQUIREMENT
     #ACTION Upload to top tier file repo (all users will see file) - using the Drag and drop files here to upload button
@@ -259,7 +259,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Name                     | Time Uploaded    | Comments                |
       | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  #Scenario: Upload to DAG folder
+    #Scenario: Upload to DAG folder
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Upload to DAG folder
@@ -290,7 +290,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Name                      | Time Uploaded    | Comments                |
       | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  #Scenario: Upload to Role folder
+    #Scenario: Upload to Role folder
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Upload to Role folder
@@ -320,7 +320,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | File_Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | instrument_designation.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  #Scenario: Auto-archive file in DAG TestGroup1
+    #Scenario: Auto-archive file in DAG TestGroup1
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup1
@@ -370,7 +370,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
     And I should see "TestGroup2"
 
-  #Scenario: Unable to access DAG folder
+    #Scenario: Unable to access DAG folder
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Unable to access DAG folder
@@ -389,7 +389,7 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     And I should NOT see "TestGroup1_Folder"
 
-  #Scenario: Interact in Role folder
+    #Scenario: Interact in Role folder
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Interact in Role folder
@@ -419,7 +419,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | File Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | instrument designation.csv  | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
-  #Scenario: Auto-archive file in DAG TestGroup2
+    #Scenario: Auto-archive file in DAG TestGroup2
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup2
@@ -436,7 +436,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I should NOT see "1-1"
     And I logout
 
-  #Scenario: Unable to access Role folder
+    #Scenario: Unable to access Role folder
 
     #FUNCTIONAL_REQUIREMENT
     Given I login to REDCap with the user "Test_User3"
@@ -464,7 +464,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see a downloaded file named "testusers_bulkupload.csv"
 
 
-#  Scenario: Access DAG folder
+    #  Scenario: Access DAG folder
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
@@ -475,7 +475,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##VERIFY Download another users file in subfolder
     Then I should see a downloaded file named "testusers_bulk_upload.csv"
 
-  #Scenario: Auto-archive file in DAG TestGroup1
+    #Scenario: Auto-archive file in DAG TestGroup1
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup1
@@ -492,7 +492,7 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     And I logout
 
-  #Scenario: Download to top tier file
+    #Scenario: Download to top tier file
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Download to top tier file
@@ -520,7 +520,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
     Then I should see a downloaded file named "testusers_bulkupload.csv"
 
-  #Scenario: Access DAG folder
+    #Scenario: Access DAG folder
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
@@ -536,7 +536,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##VERIFY Download another users file in subfolder
     Then I should see a downloaded file named "testusers_bulk_upload.csv"
 
-  #Scenario: Auto-archive access all file
+    #Scenario: Auto-archive access all file
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive access all file
@@ -547,7 +547,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
       | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
 
-  #Scenario: Delete folders - unable to delete with file in folder
+    #Scenario: Delete folders - unable to delete with file in folder
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION C.3.26.500.100 Delete folders - unable to delete with file in folder
@@ -603,7 +603,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I click on the link labeled "File Repository"
     And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
 
-   ##VERIFY Cancel deletion
+    ##VERIFY Cancel deletion
     Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
     When I click on the button labeled "Cancel" in the dialog box
     Then I should see a table header and rows containing the following values in the file repository table:
