@@ -31,13 +31,13 @@ Feature: User Interface: The system shall support the ability to limit access to
         And I should see the link labeled "Customize and Manage the Record Locking and E-signature Functionality"
 
         ##ACTION verify Record Locking Customization module enabled in Dev
-        Open Customize & Manage Locking/E-signatures
+        # Open Customize & Manage Locking/E-signatures
         ##VERIFY
         When I click on the link labeled "Customize and Manage the Record Locking and E-signature Functionality"
         Then I should see "Customize and Manage the Record Locking and E-signature Functionality"
 
         ##USER_RIGHTS
-        Check Record Locking Customization module disabled
+        # Check Record Locking Customization module disabled
         When I click on the link labeled "User Rights"
         And I click on the link labeled "Test_User1"
         And I click on the button labeled "Edit user privileges"
@@ -76,7 +76,7 @@ Feature: User Interface: The system shall support the ability to limit access to
 
         #FUNCTIONAL REQUIREMENT
         ##USER_RIGHTS
-        Check Record Locking Customization module disabled
+        # Check Record Locking Customization module disabled
         When I click on the link labeled "User Rights"
         And I click on the link labeled "Test_User1"
         And I click on the button labeled "Edit user privileges"
@@ -100,5 +100,5 @@ Feature: User Interface: The system shall support the ability to limit access to
             | test_user1 | Update user test_user1 | user = 'test_user1'                     |
 
         ##ACTION verify Record Locking Customization module enabled in prod
-        Open Customize & Manage Locking/E-signatures
+        # Open Customize & Manage Locking/E-signatures
         And I should see the link labeled "Customize and Manage the Record Locking and E-signature Functionality"
