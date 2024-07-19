@@ -163,10 +163,10 @@ Feature: B.2.6.100 Assign user rights Project Level:  The system shall allow the
 
     ##VERIFY_LOG: Verify Expire User
     And I click on the link labeled "Logging"
-    #ATS: There is ZERO mention in the logs of anything related to expiration.  It just says Update user in the logs.
+    #ATS: No mention in the logs of anything related to expiration.  It just says Update user in the logs.
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported  |
-      | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                     |
+      | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                      |
 
     And I logout
 
@@ -187,10 +187,10 @@ Feature: B.2.6.100 Assign user rights Project Level:  The system shall allow the
     ##VERIFY_LOG: Verify Update user Expiration
     And I click on the link labeled "Logging"
 
-    #ATS: ZERO mention in the logs of anything related to expiration.  It just says 'Update user' in the logs.
+    #ATS: No mention in the logs of anything related to expiration.  It just says Update user in the logs.
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported  |
-      | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                     |
+      | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                      |
 
     And I logout
 
