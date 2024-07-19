@@ -37,7 +37,6 @@ Feature: User Interface: The Record Locking Customization module shall allow the
             | [ ]                                          | Survey                     | [ ]                                            |                         |
             | [✓]                                          | Consent                    | [ ]                                            |                         |
 
-
         Given I enter "Test custom text" into the textarea field within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
         And I click on the "Save" button within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
 
@@ -69,8 +68,7 @@ Feature: User Interface: The Record Locking Customization module shall allow the
         And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         Then I should see a dialog containing the following text: "E-signature: Username/password verification"
 
-        Given I enter "Test_Admin" into the input field labeled "Username:" in the dialog box
-        And I enter "Testing123" into the password field labeled "Password:" in the dialog box
+        Given I provide E-Signature credentials for the user "Test_Admin"
         And I click on the button labeled "Save" in the dialog box
         Then I should see "E-signed by test_admin"
         And I should see "Instrument locked by test_admin"
@@ -129,7 +127,7 @@ Feature: User Interface: The Record Locking Customization module shall allow the
         And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         Then I should see "E-signature: Username/password verification" in the dialog box
 
-        Given I enter "Testing123" into the password field labeled "Password:" in the dialog box
+        Given I provide E-Signature credentials for the user "Test_Admin"
         And I click on the button labeled "Save" in the dialog box
         Then I should see "E-signed by test_admin"
         And I should see "Instrument locked by test_admin"

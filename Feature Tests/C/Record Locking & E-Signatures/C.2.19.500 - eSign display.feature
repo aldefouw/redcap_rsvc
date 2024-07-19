@@ -51,7 +51,6 @@ Feature: User Interface: The tool shall display e-signature status of forms for 
             | [✓]                                          | Text Validation            | [✓]                                            |
             | [✓]                                          | Consent                    |                                                |
 
-
         ##ACTION
         When I click on the link labeled "Record Status Dashboard"
         And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "3" and click on the bubble
@@ -63,15 +62,14 @@ Feature: User Interface: The tool shall display e-signature status of forms for 
         And I click on the checkbox labeled exactly "E-signature"
         Given I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see a dialog containing the following text: "E-signature: Username/password verification"
-        
-        #        Given I enter Test_User login credentials
-        Given I enter "Test_User1" into the input field labeled "Username:" in the dialog box
-        And I enter "Testing123" into the password field labeled "Password:" in the dialog box
-        And I click on the button labeled "Save" in the dialog box
 
+        Given I provide E-Signature credentials for the user "Test_Admin"
+        And I click on the button labeled "Save" in the dialog box
         Then I should see "Record Home Page"
-        #And I should see a lock image for the Data Collection Instrument labeled "Text Validation" for event "Event 1"
-        #And I should see an e-signature image for the Data Collection Instrument labeled "Text Validation" for event "Event 1"
+        And I should see a table header and rows containing the following values in the record home page table:
+            | Data Collection Instrument | Event 1         |
+            | Text Validation            | [lock icon]     |
+            | Text Validation            | [e-signed icon] |
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
