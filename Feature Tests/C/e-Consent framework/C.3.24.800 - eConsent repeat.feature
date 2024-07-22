@@ -38,7 +38,7 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 1."
 
-        When I click on the button labeled "Save & Stay"
+        When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
@@ -58,7 +58,7 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: instance 2 for event 1
         When I click the "+" for the Data Collection Instrument labeled "Consent" for event "Event 1"
-        And I click on the button labeled "Save & Stay"
+        And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
@@ -79,7 +79,7 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: instance 1 for event 3
         When I click the bubble for the Data Collection Instrument labeled "Consent" for event "Event 3"
-        And I click on the button labeled "Save & Stay"
+        And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
 And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
@@ -100,7 +100,7 @@ And I click on the survey option label containing "Open survey" label and will l
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: instance 2 for event 3
         When I click the "+" for the Data Collection Instrument labeled "Consent" for event "Event 3"
-        And I click on the button labeled "Save & Stay"
+        And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
 And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project

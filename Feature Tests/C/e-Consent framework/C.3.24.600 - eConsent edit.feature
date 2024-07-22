@@ -29,7 +29,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 5."
 
-        When I click on the button labeled "Save & Stay"
+        When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         And I enter "Consent Name" in the field labeled "Name"

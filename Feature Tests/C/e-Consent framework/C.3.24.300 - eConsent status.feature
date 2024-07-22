@@ -37,7 +37,7 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 1."
 
-        When I click on the button labeled "Save & Stay"
+        When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
@@ -62,7 +62,7 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
         Then I should see a Completed Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1"
 
         When I click the "+" for the Data Collection Instrument labeled "Consent" for event "Event 1"
-        And I click on the button labeled "Save & Stay"
+        And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
