@@ -20,8 +20,8 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
         When I click on the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
         Then I should see a dialog containing the following text: "WARNING"
         And I click on the button labeled "Close" in the dialog box
-        And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event Three (Arm 1: Arm 1)"
-        And for the Event Name "Event Three (Arm 1: Arm 1)", I check the checkbox labeled "Consent" in the dialog box
+        And I select "Repeat Instruments (repeat independently of each other)" on the dropdown field labeled "Event 1 (Arm 1: Arm 1)"
+        And for the Event Name "Event 1 (Arm 1: Arm 1)", I check the checkbox labeled "Consent" in the dialog box
         And I click on the button labeled "Save" on the dialog box for the Repeatable Instruments and Events module
         Then I should see "Successfully saved!"
 
@@ -70,13 +70,17 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
 
         Given I return to the REDCap page I opened the survey from
         ##VERIFY_RSD
-        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
+        And I click on the link labeled exactly "Record Status Dashboard"
+        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "1"
 
-        When I click the "+" for the Data Collection Instrument labeled "Consent" for event "Event 1"
-        And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
+        When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "1" and click the new instance link
+        Then I should see "Editing existing Record ID 1.(Instance #2)"
+
+        Given I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
-        And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+
+        When I click on the button labeled "Survey options"
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
