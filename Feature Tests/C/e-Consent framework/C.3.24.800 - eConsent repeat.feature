@@ -53,6 +53,7 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
         When I click on the button labeled "Close survey"
         And I click on the button labeled "Leave without saving changes" in the dialog box
         ##VERIFY_RSD
+        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see a Completed Survey Response icon for the Data Collection Instrument labeled "Consent" for instance "1" for event "Event 1" for record "1"
 
         #FUNCTIONAL_REQUIREMENT

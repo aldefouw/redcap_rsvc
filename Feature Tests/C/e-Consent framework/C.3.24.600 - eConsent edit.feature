@@ -40,7 +40,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
         And I click on the button labeled "Submit"
         And I click on the button labeled "Close survey"
         And I click on the button labeled "Leave without saving changes"
-        Then I should see a Completed Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1"
+        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
