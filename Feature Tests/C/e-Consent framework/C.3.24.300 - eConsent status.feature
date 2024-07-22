@@ -112,15 +112,19 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
         Then I should see "Erase your signature(s) in this survey?"
         And I click on the button labeled "Erase my signature(s) and go to earlier page" in the dialog box
         Then I should see "Consent"
-        And I should NOT see a signature in the field labeled "5) Signature"
-        And I should NOT see "signature_consent_2" in the field labeled "6) Signature"
-        And I should NOT see "signature_consent_3" in the field labeled "7) Signature"
-        And I should NOT see a signature in the field labeled "8) Signature"
-        And I should NOT see "signature_consent_5" in the field labeled "9) Signature"
+
+        #If there is no "Remove signature" link, there are no E-signatures present
+        Then I should NOT see a link labeled "Remove signature"
+
+        #These values are blank now
+        And I should see "" in the data entry form field "6) Signature"
+        And I should see "" in the data entry form field "7) Signature"
+        And I should see "" in the data entry form field "9) Signature"
         #M: Close browser page
 
-        When I click on the button labeled "Leave without saving changes" in the dialog box
-        And I click the bubble for the Data Collection Instrument labeled "Consent" for instance "2" for event "Event 1"
+        Given I return to the REDCap page I opened the survey from
+        When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "1" and click the repeating instrument bubble for the second instance
+        Then I should see "Editing existing Record ID 1.(Instance #2)"
         And I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
@@ -128,20 +132,33 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
         And I should see "You have partially completed this survey."
 
         When I click on the button labeled "Start Over"
-        And I click on the button labeled "OK" in the pop-up box
+        And I click on the button labeled "OK" in the dialog box
+
         Then I should see "Consent"
-        And I verify I see "Name" in the field labeled "1) Name"
-        And I verify I see "Name" in the field labeled "2) Name"
-        And I verify I see "email@test.edu" in the field labeled "3) Email"
-        And I verify I see "2023-09-04" in the field labeled "4) DOB"
-        And I enter a signature in the field labeled "5) Signature"
-        And I verify I see "signature_consent_2" in the field labeled "6) Signature"
-        And I verify I see "signature_consent_3" in the field labeled "7) Signature"
-        And I enter a signature in the field labeled "8) Signature"
-        And I verify I see "signature_consent_5" in the field labeled "9) Signature"
+        And I should see "Name" in the data entry form field "1) Name"
+        And I should see "Name" in the data entry form field "2) Name"
+        And I should see "email@test.edu" in the data entry form field "3) Email"
+        And I should see "2023-09-04" in the data entry form field "4) DOB"
+        And I should see "signature_consent_2" in the data entry form field "6) Signature"
+        And I should see "signature_consent_3" in the data entry form field "7) Signature"
+        And I should see "signature_consent_5" in the data entry form field "9) Signature"
+
+        When I click on the "Add signature" link for the field labeled "5) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
+        When I click on the "Add signature" link for the field labeled "8) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+
         #M: Close browser page
+        Given I return to the REDCap page I opened the survey from
 
         When I click on the button labeled "Leave without saving changes" in the dialog box
+        And I click on the link labeled exactly "Record Status Dashboard"
         ##VERIFY_RSD
         Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
         And I should see the "Partial Survey Response" icon for the Data Collection Instrument labeled "Consent" for instance "2" for event "Event 1"
