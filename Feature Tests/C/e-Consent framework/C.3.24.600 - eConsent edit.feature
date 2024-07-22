@@ -10,7 +10,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
         And I create a new project named " C.3.24.600.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
         #SETUP_PRODUCTION
-        When I click on the button labeled "Project Setup"
+        When I click on the link labeled "Project Setup"
         And I click on the button labeled "Move project to production"
         And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
         And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
