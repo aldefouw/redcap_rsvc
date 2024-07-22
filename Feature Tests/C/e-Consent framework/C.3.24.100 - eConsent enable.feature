@@ -32,15 +32,18 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
         Then I should see "Adding new Record ID 5."
 
         When I click on the button labeled "Save & Stay"
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         ##VERIFY
         Then I should see "Consent"
-        And I should NOT see a checkbox for the field labeled "I certify that all of my information in the document above is correct."
+
+        And I check the checkbox labeled "I certify that all of my information in the document above is correct"
+        And I should NOT see a checkbox labeled "I certify that all of my information in the document above is correct."
 
         When I click on the button labeled "Submit"
         And I click on the button labeled "Close survey"
         And I click on the button labeled "Leave without saving changes" in the dialog box
-        Then I should see a Completed Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1"
+        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
 
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
@@ -66,15 +69,17 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
         Then I should see "Adding new Record ID 6."
 
         When I click on the button labeled "Save & Stay"
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         ##VERIFY
         Then I should see "Consent"
-        And I should NOT see a checkbox for the field labeled "I certify that all of my information in the document above is correct."
+        And I should NOT see a checkbox labeled "I certify that all of my information in the document above is correct."
 
         When I click on the button labeled "Submit"
         And I click on the button labeled "Close survey"
         And I click on the button labeled "Leave without saving changes" in the dialog box
-        Then I should see a Completed Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1"
+
+        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
 
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
@@ -102,16 +107,19 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
         Then I should see "Adding new Record ID 7."
 
         When I click on the button labeled "Save & Stay"
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         And I click on the button labeled "Next Page"
-        Then I should see a checkbox for the field labeled "I certify that all of my information in the document above is correct."
 
-        When I click on the checkbox for the field labeled "I certify that all of my information in the document above is correct."
+        Then I should see a checkbox labeled "I certify that all of my information in the document above is correct."
+
+        When I check the checkbox labeled "I certify that all of my information in the document above is correct."
         And I click on the button labeled "Submit"
         And I click on the button labeled "Close survey"
         And I click on the button labeled "Leave without saving changes" in the dialog box
-        Then I should see a Completed Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1"
 
+        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
+        
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
         Then I should see "2 Files" for the field labeled "PDF Survey Archive"

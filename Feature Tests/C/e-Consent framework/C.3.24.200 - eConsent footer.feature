@@ -41,7 +41,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
         And I verify I see "Name" in the field labeled "1) Name"
         And I verify I see "Name" in the field labeled "2) Name"
@@ -83,7 +84,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
         And I verify I see "Name" in the field labeled "1) Name"
         And I verify I see "Name" in the field labeled "2) Name"
@@ -125,7 +127,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
         And I verify I see "Name" in the field labeled "1) Name"
         And I verify I see "Name" in the field labeled "2) Name"
@@ -159,7 +162,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
         And I verify I see "Name" in the field labeled "1) Name"
         And I verify I see "Name" in the field labeled "2) Name"
@@ -193,7 +197,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
         And I verify I see "Name" in the field labeled "1) Name"
         And I verify I see "Name" in the field labeled "2) Name"
@@ -227,7 +232,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
         And I verify I see "Name" in the field labeled "1) Name"
         And I verify I see "Name" in the field labeled "2) Name"
@@ -261,7 +267,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
 
         When I clear the field labeled "1) Name"
@@ -322,7 +329,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
 
         When I verify I see "Name" in the field labeled "1) Name"
@@ -371,7 +379,8 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
         And I verify I see "Name" in the field labeled "1) Name"
         And I verify I see "Name" in the field labeled "2) Name"

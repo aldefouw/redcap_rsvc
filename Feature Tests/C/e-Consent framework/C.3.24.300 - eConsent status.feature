@@ -39,7 +39,8 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
 
         When I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
 
         When I enter a signature in the field labeled "5) Signature"
@@ -63,7 +64,8 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
         When I click the "+" for the Data Collection Instrument labeled "Consent" for event "Event 1"
         And I click on the button labeled "Save & Stay"
         And I click on the button labeled "Okay" in the dialog box
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
 
         When I enter a signature in the field labeled "5) Signature"
@@ -95,7 +97,8 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
 
         When I click on the button labeled "Leave without saving changes" in the dialog box
         And I click the bubble for the Data Collection Instrument labeled "Consent" for instance "2" for event "Event 1"
-        And I select the dropdown option labeled "Open survey" from the dropdown button with the placeholder text of "Survey options"
+        And I click on the button labeled "Survey options"
+And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
         Then I should see "Consent"
         ##VERIFY: partial survey completion not accepted
         And I should see "You have partially completed this survey."
