@@ -18,7 +18,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         #SETUP_eConsent
         When I click on the button labeled "Designer"
-        And I click on the button labeled "Survey settings" for the instrument labeled "Consent"
+        And I click on the "Survey settings" button for the instrument row labeled "Consent"
         And I click on the radio labeled "Auto-Archiver + e-Consent Framework" for the field labeled "e-Consent Framework"
         And I verify I see "version test" in the field labeled "e-Consent version:"
         And I verify I see "fname "Name"" in the field labeled "First name field:"
@@ -299,7 +299,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         #SETUP_eConsent_change field
         When I click on the button labeled "Designer"
-        And I click on the button labeled "Survey settings" for the instrument labeled "Consent"
+        And I click on the "Survey settings" button for the instrument row labeled "Consent"
         And I click on the radio labeled "Auto-Archiver + e-Consent Framework" for the field labeled "e-Consent Framework"
         And I enter "UPDATED VERSION TEST" in the field labeled "e-Consent version:"
         And I verify I see "fname "Name"" in the field labeled "First name field:"
@@ -358,7 +358,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         #SETUP_eConsent_change field
         When I click on the button labeled "Designer"
-        And I click on the button labeled "Survey settings" for the instrument labeled "Consent"
+        And I click on the "Survey settings" button for the instrument row labeled "Consent"
         And I click on the radio labeled "Auto-Archiver enabled" for the field labeled "e-Consent Framework"
         And I click on the button labeled "Save Changes"
         Then I should see "Your survey settings were successfully saved!"

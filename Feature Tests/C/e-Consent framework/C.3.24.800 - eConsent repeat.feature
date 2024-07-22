@@ -26,7 +26,7 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
 
         #SETUP_eConsent
         When I click on the button labeled "Designer"
-        And I click on the button labeled "Survey settings" for the instrument labeled "Consent"
+        And I click on the "Survey settings" button for the instrument row labeled "Consent"
         And I click on the radio labeled "Auto-Archiver + e-Consent Framework" for the field labeled "e-Consent Framework"
         And I click on the button labeled "Save Changes"
         Then I should see "Your survey settings were successfully saved!"
