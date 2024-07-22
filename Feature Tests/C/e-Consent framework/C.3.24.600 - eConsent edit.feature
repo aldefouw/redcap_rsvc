@@ -43,7 +43,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
-        Then I should see a table header and rows including the following values in the logging table:
+        Then I should see a table header and rows containing the following values in the logging table:
             | Username            | Action            | List of Data Changes OR Fields Exported |
             | [survey respondent] | Update Response 5 | consent_complete = '2'                  |
             | [survey respondent] | Update Response 5 | name_consent = 'Consent Name'           |
@@ -69,7 +69,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
-        Then I should see a table header and rows including the following values in the logging table:
+        Then I should see a table header and rows containing the following values in the logging table:
             | Username   | Action          | List of Data Changes OR Fields Exported |
             | test_admin | Update record 5 | name_consent = 'Consent 2 Name'         |
 
@@ -96,7 +96,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
-        Then I should see a table header and rows including the following values in the logging table:
+        Then I should see a table header and rows containing the following values in the logging table:
             | Username   | Action        | List of Data Changes OR Fields Exported |
             | test_admin | Manage/Design | Modify survey info                      |
 
