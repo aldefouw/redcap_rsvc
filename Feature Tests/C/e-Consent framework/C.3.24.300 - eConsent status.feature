@@ -123,6 +123,7 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
         #M: Close browser page
 
         Given I return to the REDCap page I opened the survey from
+        And I click on the link labeled exactly "Record Status Dashboard"
         When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "1" and click the repeating instrument bubble for the second instance
         Then I should see "Editing existing Record ID 1.(Instance #2)"
         And I click on the button labeled "Survey options"
@@ -131,8 +132,8 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
         ##VERIFY: partial survey completion not accepted
         And I should see "You have partially completed this survey."
 
-        When I click on the button labeled "Start Over"
-        And I click on the button labeled "OK" in the dialog box
+        When I click on the button labeled "Start Over" and accept the confirmation window
+        Then I see an alert box with the following text: "ERASE YOUR RESPONSES?"
 
         Then I should see "Consent"
         And I should see "Name" in the data entry form field "1) Name"
