@@ -35,7 +35,7 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
         ##ACTION: instance 1 for event 1
         When I click on the link labeled "Add/Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
-        And I click on the bubble labeled "Consent" for event "Event 1"
+        Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 1."
 
         When I click on the button labeled "Save & Stay"

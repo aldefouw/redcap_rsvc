@@ -36,7 +36,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##ACTION: add record
         When I click on the link labeled "Add/Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
-        And I click on the bubble labeled "Consent" for event "Event 1"
+        Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 1."
 
         When I click on the button labeled "Save & Stay"
@@ -78,7 +78,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##ACTION: add record_missing sig_1
         When I click on the link labeled "Add/Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
-        And I click on the bubble labeled "Consent" for event "Event 1"
+        Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 2."
 
         When I click on the button labeled "Save & Stay"
@@ -120,7 +120,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##ACTION: add record_missing sig_2
         When I click on the link labeled "Add/Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
-        And I click on the bubble labeled "Consent" for event "Event 1"
+        Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 3."
 
         When I click on the button labeled "Save & Stay"
@@ -154,7 +154,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##ACTION: add record_missing sig_3
         When I click on the link labeled "Add/Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
-        And I click on the bubble labeled "Consent" for event "Event 1"
+        Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 4."
 
         When I click on the button labeled "Save & Stay"
@@ -188,7 +188,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##ACTION: add record_missing sig_4
         When I click on the link labeled "Add/Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
-        And I click on the bubble labeled "Consent" for event "Event 1"
+        Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 5."
 
         When I click on the button labeled "Save & Stay"
@@ -222,7 +222,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##ACTION: add record_missing sig_5
         When I click on the link labeled "Add/Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
-        And I click on the bubble labeled "Consent" for event "Event 1"
+        Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 6."
 
         When I click on the button labeled "Save & Stay"
@@ -256,7 +256,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##ACTION: add record_missing sig_5
         When I click on the link labeled "Add/Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
-        And I click on the bubble labeled "Consent" for event "Event 1"
+        Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 7."
 
         When I click on the button labeled "Save & Stay"
@@ -317,7 +317,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##ACTION: add record
         When I click on the link labeled "Add/Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
-        And I click on the bubble labeled "Consent" for event "Event 1"
+        Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 8."
 
         When I click on the button labeled "Save & Stay"
@@ -366,7 +366,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##ACTION: add record
         When I click on the link labeled "Add/Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
-        And I click on the bubble labeled "Consent" for event "Event 1"
+        Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 9."
 
         When I click on the button labeled "Save & Stay"
