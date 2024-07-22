@@ -19,7 +19,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
         ##ACTION: e-consent survey settings - auto-archive and e-consent
         When I click on the link labeled "Designer"
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
-        And I click on the radio labeled "Auto-Archiver + e-Consent Framework" for the field labeled "e-Consent Framework"
+        And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
         And I click on the button labeled "Save Changes"
         Then I should see "Your survey settings were successfully saved!"
 
