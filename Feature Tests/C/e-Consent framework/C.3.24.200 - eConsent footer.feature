@@ -359,7 +359,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         #SETUP_eConsent_change field
         When I click on the button labeled "Designer"
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
-        And I click on the radio labeled "Auto-Archiver enabled" for the field labeled "e-Consent Framework"
+        And I select "Auto-Archiver enabled" on the radio field labeled "e-Consent Framework"
         And I click on the button labeled "Save Changes"
         Then I should see "Your survey settings were successfully saved!"
 
