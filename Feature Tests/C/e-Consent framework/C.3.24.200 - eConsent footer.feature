@@ -34,7 +34,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         Then I should see "Your survey settings were successfully saved!"
 
         ##ACTION: add record
-        When I click on the link labeled "Add/Edit Records"
+        When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 1."
@@ -77,7 +77,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         #M: Close document
 
         ##ACTION: add record_missing sig_1
-        When I click on the link labeled "Add/Edit Records"
+        When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 2."
@@ -120,7 +120,7 @@ And I click on the survey option label containing "Open survey" label and will l
         Then I should NOT see a PDF link for record "2"
 
         ##ACTION: add record_missing sig_2
-        When I click on the link labeled "Add/Edit Records"
+        When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 3."
@@ -155,7 +155,7 @@ And I click on the survey option label containing "Open survey" label and will l
         Then I should NOT see a PDF link for record "3"
 
         ##ACTION: add record_missing sig_3
-        When I click on the link labeled "Add/Edit Records"
+        When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 4."
@@ -190,7 +190,7 @@ And I click on the survey option label containing "Open survey" label and will l
         Then I should NOT see a PDF link for record "4"
 
         ##ACTION: add record_missing sig_4
-        When I click on the link labeled "Add/Edit Records"
+        When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 5."
@@ -225,7 +225,7 @@ And I click on the survey option label containing "Open survey" label and will l
         Then I should NOT see a PDF link for record "5"
 
         ##ACTION: add record_missing sig_5
-        When I click on the link labeled "Add/Edit Records"
+        When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 6."
@@ -260,7 +260,7 @@ And I click on the survey option label containing "Open survey" label and will l
         Then I should NOT see a PDF link for record "6"
 
         ##ACTION: add record_missing sig_5
-        When I click on the link labeled "Add/Edit Records"
+        When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 7."
@@ -322,7 +322,7 @@ And I click on the survey option label containing "Open survey" label and will l
         Then I should see "Your survey settings were successfully saved!"
 
         ##ACTION: add record
-        When I click on the link labeled "Add/Edit Records"
+        When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 8."
@@ -372,7 +372,7 @@ And I click on the survey option label containing "Open survey" label and will l
         Then I should see "Your survey settings were successfully saved!"
 
         ##ACTION: add record
-        When I click on the link labeled "Add/Edit Records"
+        When I click on the link labeled "Add / Edit Records"
         And I click on the button labeled "Add new record for the arm selected above"
         Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
         Then I should see "Adding new Record ID 9."
