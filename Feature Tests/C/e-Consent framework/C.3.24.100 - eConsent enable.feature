@@ -47,7 +47,11 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
 
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
-        Then I should see "0 Files" for the field labeled "PDF Survey Archive"
+        Then I should see a table header and rows containing the following values in the file repository table:
+            | Name                     | Time Uploaded    | Size                    |
+            | Data Export Files        |                  | 0 Files                 |
+            | PDF Survey Archive       |                  | 0 Files                 |
+            | Recycle Bin              |                  | 0 Files                 |
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
@@ -83,7 +87,11 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
 
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
-        Then I should see "1 File" for the field labeled "PDF Survey Archive"
+        Then I should see a table header and rows containing the following values in the file repository table:
+            | Name                     | Time Uploaded    | Size                    |
+            | Data Export Files        |                  | 0 Files                 |
+            | PDF Survey Archive       |                  | 1 File                  |
+            | Recycle Bin              |                  | 0 Files                 |
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
@@ -119,10 +127,14 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
         And I click on the button labeled "Leave without saving changes" in the dialog box
 
         Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
-        
+
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
-        Then I should see "2 Files" for the field labeled "PDF Survey Archive"
+        Then I should see a table header and rows containing the following values in the file repository table:
+            | Name                     | Time Uploaded    | Size                    |
+            | Data Export Files        |                  | 0 Files                 |
+            | PDF Survey Archive       |                  | 2 Files                 |
+            | Recycle Bin              |                  | 0 Files                 |
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
