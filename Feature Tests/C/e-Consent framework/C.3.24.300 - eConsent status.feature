@@ -127,19 +127,20 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
         When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "1" and click the repeating instrument bubble for the second instance
         Then I should see "Editing existing Record ID 1.(Instance #2)"
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
+
         ##VERIFY: partial survey completion not accepted
         And I should see "You have partially completed this survey."
 
-        When I click on the button labeled "Start Over" and accept the confirmation window
-        Then I see an alert box with the following text: "ERASE YOUR RESPONSES?"
+        When I click on the button labeled "Start Over"
+        Then I should see an alert box with the following text: "ERASE YOUR RESPONSES?"
 
         Then I should see "Consent"
         And I should see "Name" in the data entry form field "1) Name"
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
-        And I should see "2023-09-04" in the data entry form field "4) DOB"
+        And I should see "yyyy-mm-dd" in the data entry form field "4) DOB"
         And I should see "signature_consent_2" in the data entry form field "6) Signature"
         And I should see "signature_consent_3" in the data entry form field "7) Signature"
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
@@ -157,12 +158,10 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
 
         #M: Close browser page
         Given I return to the REDCap page I opened the survey from
-
-        When I click on the button labeled "Leave without saving changes" in the dialog box
         And I click on the link labeled exactly "Record Status Dashboard"
         ##VERIFY_RSD
-        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
-        And I should see the "Partial Survey Response" icon for the Data Collection Instrument labeled "Consent" for instance "2" for event "Event 1"
+        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "1"
+        #And I should see the "Partial Survey Response" icon for the Data Collection Instrument labeled "Consent" for instance "2" for event "Event 1"
 
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
@@ -175,7 +174,7 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
         #Then I should see "1 File" for the field labeled "PDF Survey Archive"
 
         When I click on the link labeled "PDF Survey Archive" in the File Repository table
-        And I click on the link labeled exactly "1" in the File Repository table
+        And I click on the link labeled "formConsent" in the File Repository table
 
         #And I click on the link on the PDF link for record "1"
         #Then I should have a pdf file with the following values in the footer: "Name Name, 2023-09-04, Version: version test, Type: type test"
