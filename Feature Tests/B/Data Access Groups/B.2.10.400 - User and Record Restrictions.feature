@@ -32,20 +32,20 @@ Feature: B.2.10.400 Data Access Groups-DAGs User Interface: The system shall pro
     Given I click on the button labeled "Upload" in the dialog box
     Then I should see a dialog containing the following text: "SUCCESS!"
 
-    When I click on the button labeled "Close"
+    When I click on the button labeled "Close" in the dialog box
     # When I close the popup
     Then I should see a table header and rows containing the following values in a table:
-        |Role name                | Username            |
-        | —                       | test_admin          |
-        | —                       | test_user1          |
-        | —                       | test_user2          |
-        | —                       | test_user3          |
-        | —                       | test_user4          |
-        | 1_FullRights            | [No users assigned] |
-        | 2_Edit_RemoveID         | [No users assigned] |
-        | 3_ReadOnly_Deidentified | [No users assigned] |
-        | 4_NoAccess_Noexport     | [No users assigned] |
-        | TestRole                | [No users assigned] |
+      |Role name                | Username            |
+      | —                       | test_admin          |
+      | —                       | test_user1          |
+      | —                       | test_user2          |
+      | —                       | test_user3          |
+      | —                       | test_user4          |
+      | 1_FullRights            | [No users assigned] |
+      | 2_Edit_RemoveID         | [No users assigned] |
+      | 3_ReadOnly_Deidentified | [No users assigned] |
+      | 4_NoAccess_Noexport     | [No users assigned] |
+      | TestRole                | [No users assigned] |
 
 
     #This will give Test_User3 elevated privileges for this test
