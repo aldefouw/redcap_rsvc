@@ -158,24 +158,32 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
 
         #M: Close browser page
         Given I return to the REDCap page I opened the survey from
-        And I click on the link labeled exactly "Record Status Dashboard"
+        And I click on the link labeled exactly "Record ID 1"
         ##VERIFY_RSD
-        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "1"
-        #And I should see the "Partial Survey Response" icon for the Data Collection Instrument labeled "Consent" for instance "2" for event "Event 1"
+        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument for instance 1 on event "Event 1"
+        Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument for instance 2 on event "Event 1"
 
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
         Then I should see a table header and rows containing the following values in the file repository table:
-            | Name                     | Time Uploaded    | Size                    |
-            | Data Export Files        |                  | 0 Files                 |
-            | PDF Survey Archive       |                  | 1 File                  |
-            | Recycle Bin              |                  | 0 Files                 |
-
-        #Then I should see "1 File" for the field labeled "PDF Survey Archive"
+            | Name               | Time Uploaded | Size    |
+            | Data Export Files  |               | 0 Files |
+            | PDF Survey Archive |               | 1 File  |
+            | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive" in the File Repository table
         And I click on the link labeled "formConsent" in the File Repository table
+        Then I should see the following values in the most recently downloaded PDF file:
+            | Response was added on mm/dd/yyyy                              |                     |
+            | 1)Name                                                        | Name                |
+            | 2)Name                                                        | Name                |
+            | 3)Email                                                       | email@test.edu      |
+            | 4)DOB                                                         | yyyy-mm-dd          |
+            | 5)Signature                                                   |                     |
+            | 6)Signature                                                   | signature_consent_2 |
+            | 7)Signature                                                   | signature_consent_3 |
+            | 8)Signature                                                   |                     |
+            | 9)Signature                                                   | signature_consent_5 |
+            | Name Name, yyyy-mm-dd, Version: version test, Type: type test |                     |
 
-        #And I click on the link on the PDF link for record "1"
-        #Then I should have a pdf file with the following values in the footer: "Name Name, 2023-09-04, Version: version test, Type: type test"
 #M: Close document
