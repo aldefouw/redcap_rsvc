@@ -31,15 +31,17 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
-        And I enter "Consent Name" in the field labeled "Name"
+        And I click on the survey option label containing "Open survey" label
+        And I clear field and enter "Consent Name" into the data entry form field labeled "Name"
         And I click on the button labeled "Next Page"
-        Then I should see a checkbox labeled "I certify that all of my information in the document above is correct."
+        Then I should see a checkbox labeled "I certify that all of my information in the document above is correct." that is unchecked
 
         When I check the checkbox labeled "I certify that all of my information in the document above is correct."
         And I click on the button labeled "Submit"
         And I click on the button labeled "Close survey"
-        And I click on the button labeled "Leave without saving changes"
+
+        Given I return to the REDCap page I opened the survey from
+        And I click on the link labeled exactly "Record ID 5"
         Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
 
         ##VERIFY_LOG
@@ -51,21 +53,26 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
-        Then I should see "1 File" for the field labeled "PDF Survey Archive"
+        Then I should see a table header and rows containing the following values in the file repository table:
+            | Name               | Time Uploaded | Size    |
+            | Data Export Files  |               | 0 Files |
+            | PDF Survey Archive |               | 1 File  |
+            | Recycle Bin        |               | 0 Files |
 
-        When I click on the link labeled "PDF Survey Archive"
-        And I click on the link on the PDF link for record "5"
-        Then I should have a pdf file with the following values in the report: "1) Name" is "Consent Name"
+        When I click on the link labeled "PDF Survey Archive" in the File Repository table
+        And I click on the link labeled "formConsent" in the File Repository table
+        Then I should see the following values in the most recently downloaded PDF file:
+            | 1)Name  | Consent Name  |
         #M: Close document
 
         ##ACTION: edit survey response
         When I click on the link labeled "Record Status Dashboard"
-        And I click on the bubble for the instrument labeled "Consent" for event "Event 1" for record "5"
+        When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "5" and click on the bubble
         And I click on the button labeled "Edit response"
         Then I should see "Survey response is editable (now editing)"
 
-        When I enter "Consent 2 Name" in the field labeled "Name"
-        And I click on the button labeled "Save & Exit Form"
+        When I enter "Consent 2 Name" into the input field labeled "Name"
+        When I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 5 successfully edited."
 
         ##VERIFY_LOG
@@ -76,11 +83,17 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
-        Then I should see "1 File" for the field labeled "PDF Survey Archive"
+        Then I should see a table header and rows containing the following values in the file repository table:
+            | Name               | Time Uploaded | Size    |
+            | Data Export Files  |               | 0 Files |
+            | PDF Survey Archive |               | 1 File  |
+            | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive"
-        And I click on the link on the PDF link for record "5"
-        Then I should have a pdf file with the following values in the report: I should NOT see "1) Name" is "Consent 2 Name"
+        And I click on the link labeled "formConsent" in the File Repository table
+        Then I should see the following values in the most recently downloaded PDF file:
+            | 1)Name  | Consent 2 Name  |
+
         #M: Close document
 
         ##ACTION: disable e-consent survey settings - auto-archive and e-consent
@@ -92,7 +105,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         ##VERIFY: cannot edit survey response
         When I click on the link labeled "Record Status Dashboard"
-        And I click on the bubble for the instrument labeled "Consent" for event "Event 1" for record "5"
+        When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "5" and click on the bubble
         Then I should see "Survey responses is read-only because it was complete via the e-Consent Framework."
 
         ##VERIFY_LOG
