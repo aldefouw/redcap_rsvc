@@ -69,9 +69,10 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
         When I click on the link labeled "Record Status Dashboard"
         When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "5" and click on the bubble
         And I click on the button labeled "Edit response"
-        Then I should see "Survey response is editable (now editing)"
+        Then I should see "Survey response is editable"
+        And I should see "(now editing)"
 
-        When I enter "Consent 2 Name" into the input field labeled "Name"
+        When I clear field and enter "Consent 2 Name" into the input field labeled "Name"
         When I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
         Then I should see "Record ID 5 successfully edited."
 
@@ -91,8 +92,9 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         When I click on the link labeled "PDF Survey Archive"
         And I click on the link labeled "formConsent" in the File Repository table
+        #The PDF stays the same as before; eConsent changes only apply when you fill out via survey
         Then I should see the following values in the most recently downloaded PDF file:
-            | 1)Name  | Consent 2 Name  |
+            | 1)Name  | Consent Name  |
 
         #M: Close document
 
