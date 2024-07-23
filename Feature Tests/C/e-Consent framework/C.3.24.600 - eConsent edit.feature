@@ -108,7 +108,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
         ##VERIFY: cannot edit survey response
         When I click on the link labeled "Record Status Dashboard"
         When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "5" and click on the bubble
-        Then I should see "Survey responses is read-only because it was complete via the e-Consent Framework."
+        Then I should see "Survey response is read-only because it was completed via the e-Consent Framework."
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
