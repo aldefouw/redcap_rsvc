@@ -101,7 +101,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
         ##ACTION: disable e-consent survey settings - auto-archive and e-consent
         When I click on the link labeled "Designer"
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
-        And I deselect the checkbox labeled "Allow e-Consent responses to be edited by users?"
+        And I uncheck the checkbox labeled "Allow e-Consent responses to be edited by users?"
         And I click on the button labeled "Save Changes"
         Then I should see "Your survey settings were successfully saved!"
 
