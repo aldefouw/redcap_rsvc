@@ -20,16 +20,19 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I click on the button labeled "Designer"
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
         And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
-        And I should see "version test" in the data entry form field "e-Cons ent version:"
-        And I should see "fname 'Name'" in the data entry form field "First name field:"
-        And I should see "lname 'Name'" in the data entry form field "Last name field:"
+      
+        And I should see "version test" in the data entry form field "e-Consent version:"
+        Then I should see the dropdown field labeled "First name field:" with the option "fname 'Name'" selected
+        And I should see the dropdown field labeled "Last name field:" with the option "lname 'Name'" selected
         And I should see "type test" in the data entry form field "e-Consent type:"
-        And I should see "dob 'DOB'" in the data entry form field "Date of birth field:"
-        And I should see "signature_consent 'Signature'" in the data entry form field "Signature field #1:"
-        And I should see "signature_consent_2 'Signature'" in the data entry form field "Signature field #2:"
-        And I should see "signature_consent_3 'Signature'" in the data entry form field "Signature field #3:"
-        And I should see "signature_consent_4 'Signature'" in the data entry form field "Signature field #4:"
-        And I should see "signature_consent_5 'Signature'" in the data entry form field "Signature field #5:"
+        And I should see the dropdown field labeled "Date of birth field:" with the option "dob 'DOB'" selected
+
+        And I should see the dropdown field labeled "Signature field #1:" with the option "signature_consent 'Signature'" selected
+        And I should see the dropdown field labeled "Signature field #2:" with the option "signature_consent_2 'Signature'" selected
+        And I should see the dropdown field labeled "Signature field #3:" with the option "signature_consent_3 'Signature'" selected
+        And I should see the dropdown field labeled "Signature field #4:" with the option "signature_consent_4 'Signature'" selected
+        And I should see the dropdown field labeled "Signature field #5:" with the option "signature_consent_5 'Signature'" selected
+
         And I click on the button labeled "Save Changes"
         Then I should see "Your survey settings were successfully saved!"
 
@@ -89,7 +92,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I click on the link labeled "PDF Survey Archive" in the File Repository table
         And I click on the link labeled "formConsent" in the File Repository table
         Then I should see the following values in the most recently downloaded PDF file:
-          | Name Name, yyyy-mm-dd, Version: version test, Type: type test |                     |
+          | Name Name, yyyy-mm-dd, Version: version test, Type: type test |
 
         #M: Close document
 
@@ -131,10 +134,13 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "1"
 
         When I click on the Partial Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1"
-        And I select the dropdown option "Open survey" from the dropdown field labeled "Survey Options"
+
+        And I click on the button labeled "Survey options"
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
-        And I should see "You have not completed the entire survey, and your responses are thus considered only partially complete. For security reasons, you will not be allowed to continue taking the survey from the place where you stopped."
-        And I should see the button labeled "Start Over"
+
+        Given I see "You have not completed the entire survey, and your responses are thus considered only partially complete. For security reasons, you will not be allowed to continue taking the survey from the place where you stopped."
+        Then I should see the button labeled "Start Over"
         #M: Close browser page
         And I click on the button labeled "Leave without saving changes" in the dialog box
 
@@ -484,7 +490,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
         And I should see "2023-09-03" in the data entry form field "4) DOB"
-      
+
         When I click on the "Add signature" link for the field labeled "5) Signature"
         And I see a dialog containing the following text: "Add signature"
         And I draw a signature in the signature field area
