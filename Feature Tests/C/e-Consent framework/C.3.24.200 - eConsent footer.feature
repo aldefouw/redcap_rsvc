@@ -7,7 +7,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         #SETUP
         Given I login to REDCap with the user "Test_Admin"
-        And I create a new project named " C.3.24.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Consent.xml", and clicking the "Create Project" button
+        And I create a new project named "C.3.24.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Consent.xml", and clicking the "Create Project" button
 
         #SETUP_PRODUCTION
         When I click on the link labeled "Project Setup"
@@ -48,10 +48,21 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
         And I should see "2023-09-03" in the data entry form field "4) DOB"
-        And I enter a signature in the data entry form field "5) Signature"
+
+        When I click on the "Add signature" link for the field labeled "5) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I should see "signature_consent_2" in the data entry form field "6) Signature"
         And I should see "signature_consent_3" in the data entry form field "7) Signature"
-        And I enter a signature in the data entry form field "8) Signature"
+
+        When I click on the "Add signature" link for the field labeled "8) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
 
         When I click on the button labeled "Next Page"
@@ -97,10 +108,17 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
         And I should see "2023-09-03" in the data entry form field "DOB"
-        And I DO NOT enter a signature in the data entry form field "5) Signature"
+
+        #No signature entered for 5) Signature field this time
+
         And I should see "signature_consent_2" in the data entry form field "6) Signature"
         And I should see "signature_consent_3" in the data entry form field "7) Signature"
-        And I enter a signature in the data entry form field "8) Signature"
+
+        When I click on the "Add signature" link for the field labeled "8) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
 
         When I click on the button labeled "Next Page"
@@ -110,7 +128,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         #M: Close browser page
         And I click on the button labeled "Leave without saving changes" in the dialog box
         ##VERIFY_RSD
-        Then I should see a Partial Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1" for record "1"
+        Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "1"
 
         When I click on the Partial Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1"
         And I select the dropdown option "Open survey" from the dropdown field labeled "Survey Options"
@@ -140,10 +158,21 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
         And I should see "2023-09-03" in the data entry form field "DOB"
-        And I enter a signature in the data entry form field "5) Signature"
+
+        When I click on the "Add signature" link for the field labeled "5) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I clear the field labeled "6) Signature"
         And I should see "signature_consent_3" in the data entry form field "7) Signature"
-        And I enter a signature in the data entry form field "8) Signature"
+
+        When I click on the "Add signature" link for the field labeled "8) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
 
         When I click on the button labeled "Next Page"
@@ -175,10 +204,21 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
         And I should see "2023-09-03" in the data entry form field "DOB"
-        And I enter a signature in the data entry form field "5) Signature"
+
+        When I click on the "Add signature" link for the field labeled "5) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I should see "signature_consent_2" in the data entry form field "6) Signature"
         And I clear the field labeled "7) Signature"
-        And I enter a signature in the data entry form field "8) Signature"
+
+        When I click on the "Add signature" link for the field labeled "8) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
 
         When I click on the button labeled "Next Page"
@@ -210,10 +250,18 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
         And I should see "2023-09-03" in the data entry form field "DOB"
-        And I enter a signature in the data entry form field "5) Signature"
+
+        When I click on the "Add signature" link for the field labeled "5) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I should see "signature_consent_2" in the data entry form field "6) Signature"
         And I should see "signature_consent_3" in the data entry form field "7) Signature"
-        And I DO NOT enter a signature in the data entry form field "8) Signature"
+
+        #No signature entered for 8) Signature field this time
+
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
 
         When I click on the button labeled "Next Page"
@@ -245,10 +293,22 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
         And I should see "2023-09-03" in the data entry form field "DOB"
-        And I enter a signature in the data entry form field "5) Signature"
+
+        When I click on the "Add signature" link for the field labeled "5) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I should see "signature_consent_2" in the data entry form field "6) Signature"
         And I should see "signature_consent_3" in the data entry form field "7) Signature"
-        And I enter a signature in the data entry form field "8) Signature"
+
+        When I click on the "Add signature" link for the field labeled "8) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I clear the field labeled "9) Signature"
 
         When I click on the button labeled "Next Page"
@@ -281,10 +341,22 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I clear the field labeled "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
         And I clear the field labeled "DOB"
-        And I enter a signature in the data entry form field "5) Signature"
+
+        When I click on the "Add signature" link for the field labeled "5) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I should see "signature_consent_2" in the data entry form field "6) Signature"
         And I should see "signature_consent_3" in the data entry form field "7) Signature"
-        And I enter a signature in the data entry form field "8) Signature"
+
+        When I click on the "Add signature" link for the field labeled "8) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
         And I click on the button labeled "Next Page"
         Then I should see "Consent"
@@ -302,7 +374,11 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
-        Then I should see "2 Files" for the field labeled "PDF Survey Archive"
+        Then I should see a table header and rows containing the following values in the file repository table:
+          | Name               | Time Uploaded | Size    |
+          | Data Export Files  |               | 0 Files |
+          | PDF Survey Archive |               | 2 Files  |
+          | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive"
         And I click on the link on the PDF link for record "7"
@@ -314,7 +390,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I click on the button labeled "Designer"
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
         And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
-        And I enter "UPDATED VERSION TEST" in the data entry form field "e-Consent version:"
+        And I clear field and enter "UPDATED VERSION TEST" in the data entry form field "e-Consent version:"
         And I should see "fname 'Name'" in the data entry form field "First name field:"
         And I should see "lname 'Name'" in the data entry form field "Last name field:"
         And I should see "type test" in the data entry form field "e-Consent type:"
@@ -343,10 +419,22 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
         And I should see "2023-09-03" in the data entry form field "DOB"
-        And I enter a signature in the data entry form field "5) Signature"
+
+        When I click on the "Add signature" link for the field labeled "5) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I should see "signature_consent_2" in the data entry form field "6) Signature"
         And I should see "signature_consent_3" in the data entry form field "7) Signature"
-        And I enter a signature in the data entry form field "8) Signature"
+
+        When I click on the "Add signature" link for the field labeled "8) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
         And I click on the button labeled "Next Page"
         Then I should see "Displayed below is a read-only copy of your survey responses."
@@ -396,10 +484,22 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
         And I should see "2023-09-03" in the data entry form field "4) DOB"
-        And I enter a signature in the data entry form field "5) Signature"
+      
+        When I click on the "Add signature" link for the field labeled "5) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I should see "signature_consent_2" in the data entry form field "6) Signature"
         And I should see "signature_consent_3" in the data entry form field "7) Signature"
-        And I enter a signature in the data entry form field "8) Signature"
+
+        When I click on the "Add signature" link for the field labeled "8) Signature"
+        And I see a dialog containing the following text: "Add signature"
+        And I draw a signature in the signature field area
+        When I click on the button labeled "Save signature" in the dialog box
+        Then I should see a link labeled "Remove signature"
+
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
 
         When I click on the button labeled "Submit"
