@@ -19,14 +19,14 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         #SETUP_eConsent
         When I click on the button labeled "Designer"
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
+        Then I should see 'Modify survey settings for data collection instrument "Consent"'
         And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
-      
-        And I should see "version test" in the data entry form field "e-Consent version:"
-        Then I should see the dropdown field labeled "First name field:" with the option "fname 'Name'" selected
-        And I should see the dropdown field labeled "Last name field:" with the option "lname 'Name'" selected
-        And I should see "type test" in the data entry form field "e-Consent type:"
-        And I should see the dropdown field labeled "Date of birth field:" with the option "dob 'DOB'" selected
 
+        And I verify "version test" is within the input field labeled "e-Consent version:"
+        Then I should see the dropdown field labeled "First name field" with the option "fname 'Name'" selected
+        And I should see the dropdown field labeled "Last name field" with the option "lname 'Name'" selected
+        And I verify "type test" is within the input field labeled "e-Consent type:"
+        And I should see the dropdown field labeled "Date of birth field" with the option "dob 'DOB'" selected
         And I should see the dropdown field labeled "Signature field #1:" with the option "signature_consent 'Signature'" selected
         And I should see the dropdown field labeled "Signature field #2:" with the option "signature_consent_2 'Signature'" selected
         And I should see the dropdown field labeled "Signature field #3:" with the option "signature_consent_3 'Signature'" selected
@@ -45,12 +45,12 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
         And I should see "Name" in the data entry form field "1) Name"
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
-        And I should see "2023-09-03" in the data entry form field "4) DOB"
+        And I should see "yyyy-mm-dd" in the data entry form field "4) DOB"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
         And I see a dialog containing the following text: "Add signature"
@@ -70,15 +70,16 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Next Page"
         Then I should see "Displayed below is a read-only copy of your survey responses."
-        And I should see a checkbox for the field labeled "I certify that all of my information in the document above is correct."
+        And I should see a checkbox for the field labeled "I certify that all of my information in the document above is correct." that is unchecked
 
         When I check the checkbox labeled "I certify that all of my information in the document above is correct."
         And I click on the button labeled "Submit"
         Then I should see "Thank you for taking the survey."
 
         When I click on the button labeled "Close survey"
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        Given I return to the REDCap page I opened the survey from
         ##VERIFY_RSD
+        And I click on the link labeled "Record Status Dashboard"
         Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "1"
 
         ##VERIFY_FiRe
@@ -105,12 +106,12 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
         And I should see "Name" in the data entry form field "1) Name"
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
-        And I should see "2023-09-03" in the data entry form field "DOB"
+        And I should see "yyyy-mm-dd" in the data entry form field "DOB"
 
         #No signature entered for 5) Signature field this time
 
@@ -129,20 +130,21 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Okay" in the dialog box
         #M: Close browser page
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        Given I return to the REDCap page I opened the survey from
         ##VERIFY_RSD
-        Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "1"
+        And I click on the link labeled "Record Status Dashboard"
+        Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "2"
+        When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "2" and click on the bubble
+        Then I should see "Survey response is editable"
 
-        When I click on the Partial Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1"
-
-        And I click on the button labeled "Survey options"
+        When I click on the button labeled "Survey options"
         And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
 
         Given I see "You have not completed the entire survey, and your responses are thus considered only partially complete. For security reasons, you will not be allowed to continue taking the survey from the place where you stopped."
         Then I should see the button labeled "Start Over"
         #M: Close browser page
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        Given I return to the REDCap page I opened the survey from
 
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
@@ -158,12 +160,12 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
         And I should see "Name" in the data entry form field "1) Name"
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
-        And I should see "2023-09-03" in the data entry form field "DOB"
+        And I should see "yyyy-mm-dd" in the data entry form field "DOB"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
         And I see a dialog containing the following text: "Add signature"
@@ -171,7 +173,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I click on the button labeled "Save signature" in the dialog box
         Then I should see a link labeled "Remove signature"
 
-        And I clear the field labeled "6) Signature"
+        And I clear field and enter "" into the data entry form field labeled "6) Signature"
         And I should see "signature_consent_3" in the data entry form field "7) Signature"
 
         When I click on the "Add signature" link for the field labeled "8) Signature"
@@ -186,8 +188,9 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Okay" in the dialog box
         #M: Close browser page
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        Given I return to the REDCap page I opened the survey from
         ##VERIFY_RSD
+        And I click on the link labeled "Record Status Dashboard"
         Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "3"
 
         ##VERIFY_FiRe
@@ -204,12 +207,12 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
         And I should see "Name" in the data entry form field "1) Name"
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
-        And I should see "2023-09-03" in the data entry form field "DOB"
+        And I should see "yyyy-mm-dd" in the data entry form field "DOB"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
         And I see a dialog containing the following text: "Add signature"
@@ -232,8 +235,9 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Okay" in the dialog box
         #M: Close browser page
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        Given I return to the REDCap page I opened the survey from
         ##VERIFY_RSD
+        And I click on the link labeled "Record Status Dashboard"
         Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "4"
 
         ##VERIFY_FiRe
@@ -250,12 +254,12 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
         And I should see "Name" in the data entry form field "1) Name"
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
-        And I should see "2023-09-03" in the data entry form field "DOB"
+        And I should see "yyyy-mm-dd" in the data entry form field "DOB"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
         And I see a dialog containing the following text: "Add signature"
@@ -275,8 +279,9 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Okay" in the dialog box
         #M: Close browser page
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        Given I return to the REDCap page I opened the survey from
         ##VERIFY_RSD
+        And I click on the link labeled "Record Status Dashboard"
         Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "5"
 
         ##VERIFY_FiRe
@@ -293,12 +298,12 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
         And I should see "Name" in the data entry form field "1) Name"
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
-        And I should see "2023-09-03" in the data entry form field "DOB"
+        And I should see "yyyy-mm-dd" in the data entry form field "DOB"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
         And I see a dialog containing the following text: "Add signature"
@@ -322,8 +327,9 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         When I click on the button labeled "Okay" in the dialog box
         #M: Close browser page
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        Given I return to the REDCap page I opened the survey from
         ##VERIFY_RSD
+        And I click on the link labeled "Record Status Dashboard"
         Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "6"
 
         ##VERIFY_FiRe
@@ -340,7 +346,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
 
         When I clear the field labeled "1) Name"
@@ -367,15 +373,16 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I click on the button labeled "Next Page"
         Then I should see "Consent"
         And I should see "Displayed below is a read-only copy of your survey responses."
-        And I should see a checkbox for the field labeled "I certify that all of my information in the document above is correct."
+        And I should see a checkbox for the field labeled "I certify that all of my information in the document above is correct." that is unchecked
 
         When I check the checkbox labeled "I certify that all of my information in the document above is correct."
         And I click on the button labeled "Submit"
         Then I should see "Thank you for taking the survey."
 
         When I click on the button labeled "Close survey"
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        Given I return to the REDCap page I opened the survey from
         ##VERIFY_RSD
+        And I click on the link labeled "Record Status Dashboard"
         Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "7"
 
         ##VERIFY_FiRe
@@ -387,16 +394,17 @@ Feature: The e-Consent framework shall support the automatic insertion of select
           | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive"
-        And I click on the link on the PDF link for record "7"
-        #M: Verify name and dob missing from footer
-        Then I should have a pdf file with the following values in the footer: "Version: version test, Type: type test"
+        When I click on the link labeled "PDF Survey Archive" in the File Repository table
+        And I click on the link labeled "formConsent" in the File Repository table
+        Then I should see the following values in the most recently downloaded PDF file:
+            | Version: version test, Type: type test |
         #M: Close document
 
         #SETUP_eConsent_change field
         When I click on the button labeled "Designer"
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
         And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
-        And I clear field and enter "UPDATED VERSION TEST" in the data entry form field "e-Consent version:"
+        And I clear field and enter "UPDATED VERSION TEST" into the data entry form field labeled "e-Consent version:"
         And I should see "fname 'Name'" in the data entry form field "First name field:"
         And I should see "lname 'Name'" in the data entry form field "Last name field:"
         And I should see "type test" in the data entry form field "e-Consent type:"
@@ -418,13 +426,13 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
 
         When I should see "Name" in the data entry form field "1) Name"
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
-        And I should see "2023-09-03" in the data entry form field "DOB"
+        And I should see "yyyy-mm-dd" in the data entry form field "DOB"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
         And I see a dialog containing the following text: "Add signature"
@@ -444,15 +452,16 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
         And I click on the button labeled "Next Page"
         Then I should see "Displayed below is a read-only copy of your survey responses."
-        And I should see a checkbox for the field labeled "I certify that all of my information in the document above is correct."
+        And I should see a checkbox for the field labeled "I certify that all of my information in the document above is correct." that is unchecked
 
         When I check the checkbox labeled "I certify that all of my information in the document above is correct."
         And I click on the button labeled "Submit"
         Then I should see "Thank you for taking the survey."
 
         When I click on the button labeled "Close survey"
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        Given I return to the REDCap page I opened the survey from
         ##VERIFY_RSD
+        And I click on the link labeled "Record Status Dashboard"
         Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "8"
 
         ##VERIFY_FiRe
@@ -464,8 +473,11 @@ Feature: The e-Consent framework shall support the automatic insertion of select
           | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive"
-        And I click on the link on the PDF link for record "8"
-        Then I should have a pdf file with the following values in the footer: "Name Name, 2023-09-03, Version: UPDATED VERSION TEST, Type: type test"
+
+        When I click on the link labeled "PDF Survey Archive" in the File Repository table
+        And I click on the link labeled "formConsent" in the File Repository table
+        Then I should see the following values in the most recently downloaded PDF file:
+            | Name Name, yyyy-mm-dd, Version: UPDATED VERSION TEST, Type: type test |
         #M: Close document
 
         #SETUP_eConsent_change field
@@ -484,12 +496,12 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
         And I should see "Name" in the data entry form field "1) Name"
         And I should see "Name" in the data entry form field "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
-        And I should see "2023-09-03" in the data entry form field "4) DOB"
+        And I should see "yyyy-mm-dd" in the data entry form field "4) DOB"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
         And I see a dialog containing the following text: "Add signature"
@@ -512,8 +524,9 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         Then I should see "Thank you for taking the survey."
 
         When I click on the button labeled "Close survey"
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        Given I return to the REDCap page I opened the survey from
         ##VERIFY_RSD
+        And I click on the link labeled "Record Status Dashboard"
         Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "9"
 
         ##VERIFY_FiRe_no eConsent
@@ -525,7 +538,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
           | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive"
-        And I click on the link on the PDF link for record "9"
-        Then I should have a pdf file
-        And I should NOT see the following values in the footer: "Name Name, 2023-09-03, Version: UPDATED VERSION TEST, Type: type test"
+        And I click on the link labeled "formConsent" in the File Repository table
+        Then I should see the following values in the most recently downloaded PDF file:
+            | Name Name, yyyy-mm-dd, Version: UPDATED VERSION TEST, Type: type test |
 #M: Close document
