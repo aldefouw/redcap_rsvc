@@ -123,7 +123,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
         And I click on the link labeled "PDF Survey Archive"
-        Then I should NOT see a PDF link for record "2"
+        Then I should NOT see a link labeled exactly "2" in the File Repository table
 
         ##ACTION: add record_missing sig_2
         When I click on the link labeled "Add / Edit Records"
@@ -158,7 +158,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
         And I click on the link labeled "PDF Survey Archive"
-        Then I should NOT see a PDF link for record "3"
+        Then I should NOT see a link labeled exactly "3" in the File Repository table
 
         ##ACTION: add record_missing sig_3
         When I click on the link labeled "Add / Edit Records"
@@ -193,7 +193,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
         And I click on the link labeled "PDF Survey Archive"
-        Then I should NOT see a PDF link for record "4"
+        Then I should NOT see a link labeled exactly "4" in the File Repository table
 
         ##ACTION: add record_missing sig_4
         When I click on the link labeled "Add / Edit Records"
@@ -228,7 +228,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
         And I click on the link labeled "PDF Survey Archive"
-        Then I should NOT see a PDF link for record "5"
+        Then I should NOT see a link labeled exactly "5" in the File Repository table
 
         ##ACTION: add record_missing sig_5
         When I click on the link labeled "Add / Edit Records"
@@ -263,7 +263,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         ##VERIFY_FiRe
         When I click on the link labeled "File Repository"
         And I click on the link labeled "PDF Survey Archive"
-        Then I should NOT see a PDF link for record "6"
+        Then I should NOT see a link labeled exactly "6" in the File Repository table
 
         ##ACTION: add record_missing sig_5
         When I click on the link labeled "Add / Edit Records"
