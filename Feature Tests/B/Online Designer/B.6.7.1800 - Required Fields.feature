@@ -33,9 +33,7 @@ Feature: Field Creation: The system shall support marking a data entry field as 
     And I enter "required_2" into the Variable Name of the open "Add New Field" dialog box
     And I mark the field required
     And I click on the button labeled "Save" in the "Add New Field" dialog box
-    ## Below step not working
-    # And I should see "*must provide value" within the field with variable name "required_2"
-    And I should see "*must provide value" on the next Text Box field labeled "Required 2"
+    And I should see "must provide value" within the field with variable name "required_2"
 
     ##SETUP_PRODUCTION
     When I click on the button labeled "Submit Changes for Review"
