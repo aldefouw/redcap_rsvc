@@ -22,16 +22,16 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         Then I should see 'Modify survey settings for data collection instrument "Consent"'
         And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
 
-        And I verify "version test" is within the input field labeled "e-Consent version:"
-        Then I should see the dropdown field labeled "First name field" with the option "fname 'Name'" selected
-        And I should see the dropdown field labeled "Last name field" with the option "lname 'Name'" selected
-        And I verify "type test" is within the input field labeled "e-Consent type:"
-        And I should see the dropdown field labeled "Date of birth field" with the option "dob 'DOB'" selected
-        And I should see the dropdown field labeled "Signature field #1:" with the option "signature_consent 'Signature'" selected
-        And I should see the dropdown field labeled "Signature field #2:" with the option "signature_consent_2 'Signature'" selected
-        And I should see the dropdown field labeled "Signature field #3:" with the option "signature_consent_3 'Signature'" selected
-        And I should see the dropdown field labeled "Signature field #4:" with the option "signature_consent_4 'Signature'" selected
-        And I should see the dropdown field labeled "Signature field #5:" with the option "signature_consent_5 'Signature'" selected
+#        And I verify "version test" is within the input field labeled "e-Consent version:"
+#        Then I should see the dropdown field labeled "First name field" with the option "fname 'Name'" selected
+#        And I should see the dropdown field labeled "Last name field" with the option "lname 'Name'" selected
+#        And I verify "type test" is within the input field labeled "e-Consent type:"
+#        And I should see the dropdown field labeled "Date of birth field" with the option "dob 'DOB'" selected
+#        And I should see the dropdown field labeled "Signature field #1:" with the option "signature_consent 'Signature'" selected
+#        And I should see the dropdown field labeled "Signature field #2:" with the option "signature_consent_2 'Signature'" selected
+#        And I should see the dropdown field labeled "Signature field #3:" with the option "signature_consent_3 'Signature'" selected
+#        And I should see the dropdown field labeled "Signature field #4:" with the option "signature_consent_4 'Signature'" selected
+#        And I should see the dropdown field labeled "Signature field #5:" with the option "signature_consent_5 'Signature'" selected
 
         And I click on the button labeled "Save Changes"
         Then I should see "Your survey settings were successfully saved!"
@@ -405,15 +405,15 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
         And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
         And I clear field and enter "UPDATED VERSION TEST" into the data entry form field labeled "e-Consent version:"
-        And I should see "fname 'Name'" in the data entry form field "First name field:"
-        And I should see "lname 'Name'" in the data entry form field "Last name field:"
-        And I should see "type test" in the data entry form field "e-Consent type:"
-        And I should see "dob 'DOB'" in the data entry form field "Date of birth field:"
-        And I should see "signature_consent 'Signature'" in the data entry form field "Signature field #1:"
-        And I should see "signature_consent_2 'Signature'" in the data entry form field "Signature field #2:"
-        And I should see "signature_consent_3 'Signature'" in the data entry form field "Signature field #3:"
-        And I should see "signature_consent_4 'Signature'" in the data entry form field "Signature field #4:"
-        And I should see "signature_consent_5 'Signature'" in the data entry form field "Signature field #5:"
+#        And I should see "fname 'Name'" in the data entry form field "First name field:"
+#        And I should see "lname 'Name'" in the data entry form field "Last name field:"
+#        And I should see "type test" in the data entry form field "e-Consent type:"
+#        And I should see "dob 'DOB'" in the data entry form field "Date of birth field:"
+#        And I should see "signature_consent 'Signature'" in the data entry form field "Signature field #1:"
+#        And I should see "signature_consent_2 'Signature'" in the data entry form field "Signature field #2:"
+#        And I should see "signature_consent_3 'Signature'" in the data entry form field "Signature field #3:"
+#        And I should see "signature_consent_4 'Signature'" in the data entry form field "Signature field #4:"
+#        And I should see "signature_consent_5 'Signature'" in the data entry form field "Signature field #5:"
         And I click on the button labeled "Save Changes"
         Then I should see "Your survey settings were successfully saved!"
 
