@@ -33,7 +33,6 @@ Feature: B.2.10.400 Data Access Groups-DAGs User Interface: The system shall pro
     Then I should see a dialog containing the following text: "SUCCESS!"
 
     When I click on the button labeled "Close" in the dialog box
-    # When I close the popup
     Then I should see a table header and rows containing the following values in a table:
       |Role name                | Username            |
       | —                       | test_admin          |
@@ -265,7 +264,7 @@ Feature: B.2.10.400 Data Access Groups-DAGs User Interface: The system shall pro
     And I should see "Please complete the survey below."
 
     Given I click on the button labeled "Next Page"
-    And I wait for 2 seconds
+    And I should see "Consent"
     Then I should see "Displayed below is a read-only copy of your survey responses."
     And I check the checkbox labeled "I certify"
     When I click on the button labeled "Submit"
