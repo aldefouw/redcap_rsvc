@@ -91,7 +91,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
           | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive" in the File Repository table
-        And I click on the link labeled "formConsent" in the File Repository table
+        And I click on the link labeled "_formConsent_id1_" in the File Repository table
         Then I should see the following values in the most recently downloaded PDF file:
           | Name Name, yyyy-mm-dd, Version: version test, Type: type test |
 
@@ -394,7 +394,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
           | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive" in the File Repository table
-        And I click on the link labeled "formConsent" in the File Repository table
+        And I click on the link labeled "_formConsent_id7_" in the File Repository table
         Then I should see the following values in the most recently downloaded PDF file:
             | Version: version test, Type: type test |
         #M: Close document
@@ -472,7 +472,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
           | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive" in the File Repository table
-        And I click on the link labeled "formConsent" in the File Repository table
+        And I click on the link labeled "_formConsent_id8_" in the File Repository table
         Then I should see the following values in the most recently downloaded PDF file:
             | Name Name, yyyy-mm-dd, Version: UPDATED VERSION TEST, Type: type test |
         #M: Close document
@@ -535,7 +535,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
           | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive" in the File Repository table
-        And I click on the link labeled "formConsent" in the File Repository table
+        And I click on the link labeled "_formConsent_id9_" in the File Repository table
         Then I should see the following values in the most recently downloaded PDF file:
             | Name Name, yyyy-mm-dd, Version: UPDATED VERSION TEST, Type: type test |
 #M: Close document
