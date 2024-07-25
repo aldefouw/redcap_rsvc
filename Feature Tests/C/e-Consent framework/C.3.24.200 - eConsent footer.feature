@@ -17,7 +17,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         Then I should see Project status: "Production"
 
         #SETUP_eConsent
-        When I click on the button labeled "Designer"
+        When I click on the link labeled "Designer"
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
         Then I should see 'Modify survey settings for data collection instrument "Consent"'
         And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
@@ -400,7 +400,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         #M: Close document
 
         #SETUP_eConsent_change field
-        When I click on the button labeled "Designer"
+        When I click on the link labeled "Designer"
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
         And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
         And I clear field and enter "UPDATED VERSION TEST" into the data entry form field labeled "e-Consent version:"
