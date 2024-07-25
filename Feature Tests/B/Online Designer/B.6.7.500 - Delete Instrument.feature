@@ -49,6 +49,15 @@ Feature: Design forms Using Data Dictionary and Online Designer
     And I click on the button labeled "Yes, delete it" in the dialog box
     Then I should see "The data collection instrument and all its fields have been successfully deleted"
 
+    When I click on the button labeled "Submit Changes for Review"
+    And I click on the button labeled "Submit" in the dialog box
+
+    Given I should see "As an Administrator, you may review and approve changes made to the project. To do so, navigate to the Project Modification Module."
+    And I click on the button labeled "Project Modification Module"
+    And I click on the button labeled "COMMIT CHANGES"
+    Then I should see a dialog containing the following text: "COMMIT CHANGES TO PROJECT?"
+    And I click on the button labeled "COMMIT CHANGES" in the dialog box
+
     #This establishes what instruments are here now
     When I click on the link labeled "Designer"
     Then I should see a table header and rows containing the following values in a table:
@@ -59,17 +68,11 @@ Feature: Design forms Using Data Dictionary and Online Designer
 
     And I should NOT see "Text Validation"
 
-    When I click on the button labeled "Submit Changes for Review"
-    And I click on the button labeled "Submit" in the dialog box
-
-    Given I should see "As an Administrator, you may review and approve changes made to the project. To do so, navigate to the Project Modification Module."
-    And I click on the button labeled "Project Modification Module"
-    And I click on the button labeled "COMMIT CHANGES"
-    Then I should see a dialog containing the following text: "COMMIT CHANGES TO PROJECT?"
-    And I click on the button labeled "COMMIT CHANGES" in the dialog box
-
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_admin | Manage/Design | Delete data collection instrument |
+      | Username   | Action        | List of Data Changes OR Fields Exported               |
+      | test_admin | Manage/Design | Approve production project modifications              |
+      | test_admin | Manage/Design | Request approval for production project modifications |
+      | test_admin | Manage/Design | Delete data collection instrument                     |
+      | test_admin | Manage/Design | Enter draft mode                                      |
