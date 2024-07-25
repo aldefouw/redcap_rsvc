@@ -45,8 +45,6 @@ Feature: B.2.10.100 Data Access Groups-DAGs User Interface: The system shall all
     ##ACTION: Assign User to DAG
     Given I click on the link labeled "DAGs"
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    And I select "RenameGroup3" on the dropdown field labeled "to"
     And I select "RenameGroup3" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
@@ -72,8 +70,6 @@ Feature: B.2.10.100 Data Access Groups-DAGs User Interface: The system shall all
 
     ##ACTION: Remove User from DAG
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    When I select "[No Assignment]" on the dropdown field labeled "to"
     When I select "[No Assignment]" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 

@@ -13,7 +13,6 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
     And I select "1_FullRights" on the dropdown field labeled "Select Role" on the role selector dropdown
-    And I select "1_FullRights" on the dropdown field labeled "Select Role" on the role selector dropdown
     When I click on the button labeled exactly "Assign" on the role selector dropdown
     Then I should see "Test User1" within the "1_FullRights" row of the column labeled "Username" of the User Rights table
 
@@ -88,8 +87,6 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Then I should NOT see "Current instance:"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
-#    When I see a dialog containing the following text: "Save your changes?"
-#    Then I click on the button labeled "Leave without saving changes" in the dialog box
 
     Given I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -129,8 +126,6 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Then I see "Current instance:"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
-#    When I see a dialog containing the following text: "Save your changes?"
-#    Then I click on the button labeled "Leave without saving changes" in the dialog box
 
     Given I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |

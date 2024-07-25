@@ -68,7 +68,6 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
     And I click on the button labeled "Assign to role" on the tooltip
     # I have to select this twice. Not sure why
     And I select "TestRole" on the dropdown field labeled "Select Role"
-    And I select "TestRole" on the dropdown field labeled "Select Role"
     And I click on the button labeled exactly "Assign"
 
     ##VERIFY
@@ -88,7 +87,6 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
     When I click on the link labeled "Test User1"
     And I click on the button labeled "Re-assign to role" on the tooltip
     # I have to select this twice. Not sure why
-    And I select "1_FullRights" on the dropdown field labeled "Select Role"
     And I select "1_FullRights" on the dropdown field labeled "Select Role"
     And I click on the button labeled exactly "Assign"
 

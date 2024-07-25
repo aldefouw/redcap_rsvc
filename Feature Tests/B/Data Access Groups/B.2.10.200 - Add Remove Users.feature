@@ -48,8 +48,6 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
     #FUNCTIONAL REQUIREMENT
     ##ACTION: Assign User to DAG
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    When I select "TestGroup1" on the dropdown field labeled "to"
     When I select "TestGroup1" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
@@ -95,8 +93,6 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
 
     ##ACTION: Remove DAG
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    When I select "[No Assignment]" on the dropdown field labeled "to"
     When I select "[No Assignment]" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 

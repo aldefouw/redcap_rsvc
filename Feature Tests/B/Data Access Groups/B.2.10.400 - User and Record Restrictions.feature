@@ -100,8 +100,6 @@ Feature: B.2.10.400 Data Access Groups-DAGs User Interface: The system shall pro
     #FUNCTIONAL REQUIREMENT
     ##ACTION: Assign User to DAG
     When I select "test_user3 (Test User3)" on the dropdown field labeled "Assign user"
-    When I select "test_user3 (Test User3)" on the dropdown field labeled "Assign user"
-    When I select "TestGroup1" on the dropdown field labeled "to"
     When I select "TestGroup1" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
@@ -111,8 +109,6 @@ Feature: B.2.10.400 Data Access Groups-DAGs User Interface: The system shall pro
       | TestGroup1         | test_user3     |
 
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    When I select "TestGroup1" on the dropdown field labeled "to"
     When I select "TestGroup1" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
@@ -123,8 +119,6 @@ Feature: B.2.10.400 Data Access Groups-DAGs User Interface: The system shall pro
       | TestGroup1         | test_user1     |
 
     When I select "test_user4 (Test User4)" on the dropdown field labeled "Assign user"
-    When I select "test_user4 (Test User4)" on the dropdown field labeled "Assign user"
-    When I select "TestGroup2" on the dropdown field labeled "to"
     When I select "TestGroup2" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
@@ -136,8 +130,6 @@ Feature: B.2.10.400 Data Access Groups-DAGs User Interface: The system shall pro
       | TestGroup2         | test_user4     |
 
     When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
-    When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
-    When I select "TestGroup2" on the dropdown field labeled "to"
     When I select "TestGroup2" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
