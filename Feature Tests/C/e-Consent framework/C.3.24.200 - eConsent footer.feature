@@ -393,7 +393,6 @@ Feature: The e-Consent framework shall support the automatic insertion of select
           | PDF Survey Archive |               | 2 Files  |
           | Recycle Bin        |               | 0 Files |
 
-        When I click on the link labeled "PDF Survey Archive"
         When I click on the link labeled "PDF Survey Archive" in the File Repository table
         And I click on the link labeled "formConsent" in the File Repository table
         Then I should see the following values in the most recently downloaded PDF file:
@@ -472,8 +471,6 @@ Feature: The e-Consent framework shall support the automatic insertion of select
           | PDF Survey Archive |               | 3 Files |
           | Recycle Bin        |               | 0 Files |
 
-        When I click on the link labeled "PDF Survey Archive"
-
         When I click on the link labeled "PDF Survey Archive" in the File Repository table
         And I click on the link labeled "formConsent" in the File Repository table
         Then I should see the following values in the most recently downloaded PDF file:
@@ -537,7 +534,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
           | PDF Survey Archive |               | 4 Files |
           | Recycle Bin        |               | 0 Files |
 
-        When I click on the link labeled "PDF Survey Archive"
+        When I click on the link labeled "PDF Survey Archive" in the File Repository table
         And I click on the link labeled "formConsent" in the File Repository table
         Then I should see the following values in the most recently downloaded PDF file:
             | Name Name, yyyy-mm-dd, Version: UPDATED VERSION TEST, Type: type test |
