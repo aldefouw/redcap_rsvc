@@ -349,10 +349,10 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
 
-        When I clear the field labeled "1) Name"
-        And I clear the field labeled "2) Name"
+        When I clear field and enter "" into the data entry form field labeled "1) Name"
+        And I clear field and enter "" into the data entry form field labeled "2) Name"
         And I should see "email@test.edu" in the data entry form field "3) Email"
-        And I clear the field labeled "DOB"
+        And I clear field and enter "" into the data entry form field labeled "DOB"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
         And I see a dialog containing the following text: "Add signature"
