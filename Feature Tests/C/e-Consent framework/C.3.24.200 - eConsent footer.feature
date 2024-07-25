@@ -403,7 +403,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I click on the link labeled "Designer"
         And I click on the "Survey settings" button for the instrument row labeled "Consent"
         And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
-        And I clear field and enter "UPDATED VERSION TEST" into the data entry form field labeled "e-Consent version:"
+        And I clear field and enter "UPDATED VERSION TEST" into the input field labeled "e-Consent version:"
 #        And I should see "fname 'Name'" in the data entry form field "First name field:"
 #        And I should see "lname 'Name'" in the data entry form field "Last name field:"
 #        And I should see "type test" in the data entry form field "e-Consent type:"
@@ -517,7 +517,12 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
         And I should see "signature_consent_5" in the data entry form field "9) Signature"
 
-        When I click on the button labeled "Submit"
+        And I click on the button labeled "Next Page"
+        Then I should see "Displayed below is a read-only copy of your survey responses."
+        And I should see a checkbox for the field labeled "I certify that all of my information in the document above is correct." that is unchecked
+
+        When I check the checkbox labeled "I certify that all of my information in the document above is correct."
+        And I click on the button labeled "Submit"
         Then I should see "Thank you for taking the survey."
 
         When I click on the button labeled "Close survey"
