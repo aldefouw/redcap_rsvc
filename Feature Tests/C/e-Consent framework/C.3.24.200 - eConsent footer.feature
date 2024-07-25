@@ -221,7 +221,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         Then I should see a link labeled "Remove signature"
 
         And I should see "signature_consent_2" in the data entry form field "6) Signature"
-        And I clear the field labeled "7) Signature"
+        And I clear field and enter "" into the data entry form field labeled "7) Signature"
 
         When I click on the "Add signature" link for the field labeled "8) Signature"
         And I see a dialog containing the following text: "Add signature"
@@ -320,7 +320,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
         When I click on the button labeled "Save signature" in the dialog box
         Then I should see a link labeled "Remove signature"
 
-        And I clear the field labeled "9) Signature"
+        And I clear field and enter "" into the data entry form field labeled "9) Signature"
 
         When I click on the button labeled "Next Page"
         Then I should see "NOTE: Some fields are required!"
