@@ -83,6 +83,7 @@ Feature: User Interface: The system shall support editing of user defined rules.
     When I click on the link labeled "Data Quality"
     Then I should see "Data Quality Rules"
     And I should NOT see a button labeled "Add"
+    And I should see a button labeled "Execute"
 
     When I click on the button labeled exactly "All"
     Then I should see a table header and rows containing the following values in a table:
