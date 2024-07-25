@@ -42,7 +42,7 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
@@ -72,11 +72,13 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: instance 2 for event 1
-        When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "1" and click the repeating instrument bubble for the second instance
+        And I click on the link labeled "Record Status Dashboard"
+        Then I should see "Record Status Dashboard (all records)"
+        When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "1" and click the new instance link
         And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
@@ -106,11 +108,13 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: instance 1 for event 3
-        When I locate the bubble for the "Consent" instrument on event "Event 3" for record ID "1" and click the repeating instrument bubble for the first instance
+        Given I click on the link labeled "Record Status Dashboard"
+        Then I should see "Record Status Dashboard (all records)"
+        When I locate the bubble for the "Consent" instrument on event "Event Three" for record ID "1" and click on the bubble
         And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
@@ -136,16 +140,18 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
         ##VERIFY_RSD
         Given I return to the REDCap page I opened the survey from
         And I click on the link labeled exactly "Record ID 1"
-        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument for instance 3 on event "Event 1"
+        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument for instance 1 on event "Event 1"
 
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: instance 2 for event 3
-        When I locate the bubble for the "Consent" instrument on event "Event 3" for record ID "1" and click the repeating instrument bubble for the second instance
+        Given I click on the link labeled "Record Status Dashboard"
+        Then I should see "Record Status Dashboard (all records)"
+        When I locate the bubble for the "Consent" instrument on event "Event Three" for record ID "1" and click the new instance link
         And I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Okay" in the dialog box
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         Then I should see "Consent"
 
         When I click on the "Add signature" link for the field labeled "5) Signature"
@@ -171,7 +177,7 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
         ##VERIFY_RSD
         Given I return to the REDCap page I opened the survey from
         And I click on the link labeled exactly "Record ID 1"
-        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument for instance 2 on event "Event 3"
+        Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument for instance 2 on event "Event Three"
         ##VERIFY_LOG: Keeping here in case you change your mind and want to include something in logging. If you don't feel like its valuable, then delete
 
         ##VERIFY_FiRe
@@ -183,5 +189,10 @@ Feature: User Interface: The e-Consent framework shall support repeatable instru
             | Recycle Bin        |               | 0 Files |
 
         When I click on the link labeled "PDF Survey Archive" in the File Repository table
-        
-        #Then I should have 4 pdf files for record "1"
+        Then I should see a table header and rows containing the following values in the file repository table:
+            | Record | Survey                                  |
+            | 1      | Consent (Event Three (Arm 1: Arm 1)) #2 |
+            | 1      | Consent (Event Three (Arm 1: Arm 1)) #1 |
+            | 1      | Consent (Event 1 (Arm 1: Arm 1)) #2     |
+            | 1      | Consent (Event 1 (Arm 1: Arm 1)) #1     |
+        And I should see "Showing 1 to 4 of 4 entries"
