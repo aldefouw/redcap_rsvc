@@ -139,7 +139,8 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
-        Then I should see a table header and rows containing the following values in the logging table:
+        Then I should see "This module lists all changes made to this project"
+        And I should see a table header and rows containing the following values in the logging table:
             | Username            | Action            | List of Data Changes OR Fields Exported |
             | [survey respondent] | Update Response 7 | consent_complete = '2'                  |
 
