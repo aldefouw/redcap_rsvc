@@ -59,9 +59,9 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
             | PDF Survey Archive |               | 1 File  |
             | Recycle Bin        |               | 0 Files |
 
-        When I click on the link labeled "PDF Survey Archive" in the File Repository table
-        And I click on the link labeled "formConsent" in the File Repository table
-        Then I should see the following values in the most recently downloaded PDF file:
+        Given I click on the link labeled "PDF Survey Archive" in the File Repository table
+        When I download the PDF by clicking on the link for Record "5" and Survey "Consent (Event 1 (Arm 1: Arm 1))" in the File Repository table
+        Then I should see the following values in the downloaded PDF for Record "5" and Survey "Consent (Event 1 (Arm 1: Arm 1))"
             | 1)Name  | Consent Name  |
         #M: Close document
 
