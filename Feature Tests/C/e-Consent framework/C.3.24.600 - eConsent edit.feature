@@ -112,6 +112,7 @@ Feature: User Interface: The e-Consent framework shall support editing of respon
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
+        Then I should see "This module lists all changes made to this project"
         Then I should see a table header and rows containing the following values in the logging table:
             | Username   | Action        | List of Data Changes OR Fields Exported |
             | test_admin | Manage/Design | Modify survey info                      |
