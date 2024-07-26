@@ -171,9 +171,8 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
             | PDF Survey Archive |               | 1 File  |
             | Recycle Bin        |               | 0 Files |
 
-        When I click on the link labeled "PDF Survey Archive" in the File Repository table
-
-        Given I download the PDF by clicking on the link for Record "1" and Survey "Consent (Event 1 (Arm 1: Arm 1))" in the File Repository table
+        Given I click on the link labeled "PDF Survey Archive" in the File Repository table
+        When I download the PDF by clicking on the link for Record "1" and Survey "Consent (Event 1 (Arm 1: Arm 1))" in the File Repository table
         Then I should see the following values in the downloaded PDF for Record "1" and Survey "Consent (Event 1 (Arm 1: Arm 1))"
             | Response was added on mm/dd/yyyy                              |                     |
             | 1)Name                                                        | Name                |
