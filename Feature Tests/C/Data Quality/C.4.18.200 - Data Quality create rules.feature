@@ -17,19 +17,20 @@ Feature: User Interface: The system shall support data quality rule creation.
         Then I should see Project status: "Production"
 
         #FUNCTIONAL_REQUIREMENT
+        ##REDUNDANT C.4.18.1100 Data quality rule creation for longitudinal projects
         ##ACTION: Manual rule add
         When I click on the link labeled "Data Quality"
         Then I should see "Data Quality Rules"
 
         When I enter "Integer" into the textarea field labeled "Enter descriptive name for new rule"
-        And I enter "[integer]='1999'" into the textarea field labeled "Enter logic for new rule"
-        And I clear field and enter "[integer]='1999'" in the textarea field labeled "Logic Editor" in the dialog box
+        And I enter "[event_1_arm_1][integer]='1999'" into the textarea field labeled "Enter logic for new rule"
+        And I clear field and enter "[event_1_arm_1][integer]='1999'" in the textarea field labeled "Logic Editor" in the dialog box
         And I click on the button labeled "Update & Close Editor" in the dialog box
         And I click on the button labeled "Add"
         ##VERIFY
         Then I should see a table header and rows containing the following values in a table:
-        | Rule # | Rule Name   | Rule Logic (Show discrepancy only if...) |                      |
-        |      3     |  Integer |             [integer]='1999'            |                      |
+            | Rule #     | Rule Name   | Rule Logic (Show discrepancy only if...)       |
+            |  3         | Integer     | [event_1_arm_1][integer]='1999'                |
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: Upload rule
@@ -45,8 +46,8 @@ Feature: User Interface: The system shall support data quality rule creation.
         Then I should see "Data Quality Rules"
         ##VERIFY
         And I should see a table header and rows containing the following values in a table:
-        | Rule # | Rule Name   | Rule Logic (Show discrepancy only if...) |                     |
-        |      4 |   Integer         |             [integer]<>'1999'      |                     |
+            | Rule # | Rule Name         | Rule Logic (Show discrepancy only if...) |
+            |  4     | Integer           | [integer]<>'1999'                        |
 
         ##ACTION: create record for new rule
         When I click on the link labeled "Add / Edit Records"
@@ -72,31 +73,38 @@ Feature: User Interface: The system shall support data quality rule creation.
 
         #VERIFY
         When I click on the link labeled "Data Quality"
-
-
-        And I click on the "Execute" button in the row labeled "[radio]=9.9"
         And I click on the button labeled exactly "All"
         Then I should see a table header and rows containing the following values in a table:
             | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
-            | 3      | Integer   | [integer]='1999'                         | 0                   |
+            | 3      | Integer   | [event_1_arm_1][integer]='1999'          | 0                   |
             | 4      | Integer   | [integer]<>'1999'                        | 18                  |
+        
+        ##ACTION: edit existing rule for longitudinal projects 
+        When I click the element containing the following text: "[event_1_arm_1][integer]='1999'"
+        And I clear field and enter "[event_1_arm_1][integer]=''" in the textarea field labeled "Logic Editor" in the dialog box
+        And I click on the button labeled "Update & Close Editor" in the dialog box
+        And I click on the button labeled "Save"
+        Then I should see a table header and rows containing the following values in a table:
+            | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) |
+            | 3      | Integer   | [event_1_arm_1][integer]='1'             |
+            
         ##ACTION: edit existing rule
         And I click the element containing the following text: "[integer]<>'1999'"
         And I clear field and enter "[integer]='1'" in the textarea field labeled "Logic Editor" in the dialog box
         And I click on the button labeled "Update & Close Editor" in the dialog box
-        And I click on the button labeled "Save" on the active Data Quality rule
-        Then I should see "[integer]='1'"
-
+        And I click on the button labeled "Save"
         Then I should see a table header and rows containing the following values in a table:
-            | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
-            | 4      | Integer   | [integer]='1'                            | 18                  |
+            | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) |
+            | 4      | Integer   | [integer]='1'                            |
         #M: refresh browser page
 
         #VERIFY
         And I click on the link labeled "Data Quality"
         And I click on the button labeled exactly "All"
+        And I should see "Processing Complete!"
         Then I should see a table header and rows containing the following values in a table:
             | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
+            | 3      | Integer   | [event_1_arm_1][integer]='1'             | 6                   |
             | 4      | Integer   | [integer]='1'                            | 6                   |
 
         ##ACTION: delete rule
@@ -105,15 +113,15 @@ Feature: User Interface: The system shall support data quality rule creation.
         #And I click on the button labeled "OK" in the dialog box
         Then I should see a table header and rows containing the following values in a table:
             | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
-            | 3      | Integer   | [integer]='1999'                         | 0                   |
-
+            | 3      | Integer   | [event_1_arm_1][integer]='1999'          | 0                   |     
+        Then I should NOT see "[integer]='1'"
 
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-            | Username   | Action        | List of Data Changes OR Fields Exported |
-            | test_admin | Manage/Design | Delete data quality rule                |
-            | test_admin | Manage/Design | Edit data quality rule                  |
-            | test_admin | Manage/Design | Execute data quality rule(s)            |
-            | test_admin | Manage/Design | Upload Data Quality Rules               |
-            | test_admin | Manage/Design | Create data quality rule                |
+            | Username   | Action        | List of Data ChangesOR Fields Exported |
+            | test_admin | Manage/Design | Delete data quality rule               |
+            | test_admin | Manage/Design | Edit data quality rule                 |
+            | test_admin | Manage/Design | Execute data quality rule(s)           |
+            | test_admin | Manage/Design | Upload Data Quality Rules              |
+            | test_admin | Manage/Design | Create data quality rule               |

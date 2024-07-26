@@ -49,13 +49,6 @@ Feature: Design forms Using Data Dictionary and Online Designer
     And I click on the button labeled "Yes, delete it" in the dialog box
     Then I should see "The data collection instrument and all its fields have been successfully deleted"
 
-    #This establishes what instruments are here now
-    Then I should see a table header and rows containing the following values in a table:
-      | Instrument name   | Fields |
-      | Data Types        | 45     |
-      | Survey            | 2      |
-      | Consent           | 4      |
-
     When I click on the button labeled "Submit Changes for Review"
     And I click on the button labeled "Submit" in the dialog box
 
@@ -65,8 +58,21 @@ Feature: Design forms Using Data Dictionary and Online Designer
     Then I should see a dialog containing the following text: "COMMIT CHANGES TO PROJECT?"
     And I click on the button labeled "COMMIT CHANGES" in the dialog box
 
+    #This establishes what instruments are here now
+    When I click on the link labeled "Designer"
+    Then I should see a table header and rows containing the following values in a table:
+      | Instrument name   | Fields |
+      | Data Types        | 46     |
+      | Survey            | 2      |
+      | Consent           | 4      |
+
+    And I should NOT see "Text Validation"
+
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_admin | Manage/Design | Delete data collection instrument |
+      | Username   | Action        | List of Data Changes OR Fields Exported               |
+      | test_admin | Manage/Design | Approve production project modifications              |
+      | test_admin | Manage/Design | Request approval for production project modifications |
+      | test_admin | Manage/Design | Delete data collection instrument                     |
+      | test_admin | Manage/Design | Enter draft mode                                      |

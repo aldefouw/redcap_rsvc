@@ -32,11 +32,20 @@ Feature: User Interface: The system shall require changes made to data collectio
     And I click on the button labeled "Enter Draft Mode"
     Then I should see "The project is now in Draft Mode"
 
-    ##VERIFY: (look at a table that shows summary of changes)
+    #ACTION: Make changes to instrument
     When I click on the instrument labeled "Data Types"
     And I click on the Edit image for the field named "Radio Button Manual"
     And I enter Choices of "102, Choice102" into the open "Edit Field" dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
+
+    ##VERIFY INSTRUMENT
+    Given I click on the link labeled "Record Status Dashboard"
+    And I locate the bubble for the "Data Types" instrument on event "Event 2" for record ID "1" and click on the bubble
+    Then I should NOT see "Choice102"
+
+    ##VERIFY: (look at a table that shows summary of changes)
+    When I click on the link labeled "Designer"
+    And I click on the button labeled "Leave without saving changes"
     And I click on the link labeled "View detailed summary of all drafted changes"
     Then I should see a table header and rows containing the following values in a table:
       | Variable Name       | Section Header | Field Type | Field Label         | Choices or Calculations |
@@ -54,3 +63,8 @@ Feature: User Interface: The system shall require changes made to data collectio
     Then I should see a table header and row containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported  |
       | test_user1 | Manage/Design | Approve production project modifications |
+
+    ##VERIFY INSTRUMENT
+    Given I click on the link labeled "Record Status Dashboard"
+    And I locate the bubble for the "Data Types" instrument on event "Event 2" for record ID "1" and click on the bubble
+    Then I should see "Choice102"

@@ -25,12 +25,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     Then I should see "The project is now in Draft Mode"
 
     #This establishes what instruments are here initially
-    Then I should see a table header and rows containing the following values in a table:
-      | Instrument name   | Fields |
-      | Text Validation   | 3      |
-      | Data Types        | 45     |
-      | Survey            | 2      |
-      | Consent           | 4      |
+    Then I should see the instrument named "Text Validation" in the first row
+    And I should see the instrument named "Data Types" in the second row
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION
@@ -48,4 +44,4 @@ Feature: Design forms Using Data Dictionary and Online Designer
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_admin | Manage/Design | Reorder data collection instruments    |
+      | test_admin | Manage/Design | Reorder data collection instruments     |

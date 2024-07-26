@@ -87,8 +87,6 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Then I should NOT see "Current instance:"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
-#    When I see a dialog containing the following text: "Save your changes?"
-#    Then I click on the button labeled "Leave without saving changes" in the dialog box
 
     Given I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -128,8 +126,6 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Then I see "Current instance:"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
-#    When I see a dialog containing the following text: "Save your changes?"
-#    Then I click on the button labeled "Leave without saving changes" in the dialog box
 
     Given I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |

@@ -99,10 +99,10 @@ And I click on the button labeled "Save" in the "Edit Field" dialog box
 ##VERIFY
 Then I should see the field labeled "Radio Button Manual"
 And I should see the radio field labeled "Radio Button Manual" with the options below
-  |Choice99|
+  |Choice99 |
   |Choice100|
   |Choice101|
-  |Abc123|
+  |Abc123   |
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: copy field

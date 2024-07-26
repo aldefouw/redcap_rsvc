@@ -34,6 +34,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I click on the button labeled "Create folder" in the dialog box
     Then I should see "Role1_Folder"
 
+  #Scenario: SETUP User Rights
     ##SETUP User Rights:
     When I click on the link labeled "User Rights"
     And I click on the button labeled "Upload or download users, roles, and assignments"
@@ -69,7 +70,6 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I click on the link labeled "test_user1 (Test User1)"
     And I click on the button labeled "Assign to role" on the tooltip
     And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
-    And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
     And I click on the button labeled exactly "Assign"
     Then I should see "successfully ASSIGNED to the user role"
     Then I should see a table header and rows containing the following values in a table:
@@ -86,7 +86,6 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     When I click on the link labeled "test_user2 (Test User2)"
     And I click on the button labeled "Assign to role" on the tooltip
-    And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
     And I select "1_FullRights" on the dropdown field labeled "Select Role" in the role selector dropdown
     And I click on the button labeled exactly "Assign"
     Then I should see "successfully ASSIGNED to the user role"
@@ -105,7 +104,6 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I click on the link labeled "test_user3 (Test User3)"
     And I click on the button labeled "Assign to role" on the tooltip
     And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
-    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
     And I click on the button labeled exactly "Assign"
     Then I should see "successfully ASSIGNED to the user role"
     Then I should see a table header and rows containing the following values in a table:
@@ -121,7 +119,6 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     When I click on the link labeled "test_user4 (Test User4)"
     And I click on the button labeled "Assign to role" on the tooltip
-    And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
     And I select "3_ReadOnly_Deidentified" on the dropdown field labeled "Select Role" in the role selector dropdown
     And I click on the button labeled exactly "Assign"
     Then I should see "successfully ASSIGNED to the user role"
@@ -139,7 +136,6 @@ Feature: User Interface: The system shall support limiting file repository user 
     #SETUP DAG: Assign User to DAG
     Given I click on the link labeled "Data Access Groups"
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
-    When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
     And I select "TestGroup1" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
     Then I should see "has been assigned to Data Access Group"
@@ -152,7 +148,6 @@ Feature: User Interface: The system shall support limiting file repository user 
       |                           | test_user3     |
       |                           | test_user4     |
 
-    When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
     When I select "test_user2 (Test User2)" on the dropdown field labeled "Assign user"
     And I select "TestGroup2" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
@@ -228,7 +223,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Name                        | Time Uploaded    | Comments                |
       | TestGroup1_Folder           |                  |                         |
       | Role1_Folder                |                  |                         |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION Upload to top tier file repo (all users will see file) - using the Select files to upload button
     When I click on the link labeled "File Repository"
@@ -295,12 +290,14 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I should see "Data Export Files"
     And I click on the link labeled "Role1_Folder" in the File Repository table
     Then I should see "All Files/Role1_Folder" in the File Repository breadcrumb
+    And I should see a table row containing the following values in the file repository table:
+      | No files or sub-folders exist in this folder |
 
     #C.3.26.400.100 #Upload more than one file at the same time using the select files to upload button
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
       | /import_files/File_Upload.docx           |
       | /import_files/instrument_designation.csv |
-
+    
     #VERIFY uploaded in subfolder
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                       | Time Uploaded    | Comments                |
@@ -367,7 +364,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | PDF Survey Archive          |
       | Recycle Bin                 |
       | Role1_Folder                |
-      | user list for project 1.csv |
+      | user_list_for_project_1.csv |
       | testusers_bulkupload.csv    |
 
     And I should NOT see "TestGroup1_Folder"
@@ -378,7 +375,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see "All Files/Role1_Folder" in the File Repository breadcrumb
     And I should see a table header and rows containing the following values in the file repository table:
       | Name                       | Time Uploaded    | Comments                |
-      | File Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | File_Upload.docx           | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | instrument_designation.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     #Download file previously uploaded by test_user1
@@ -397,8 +394,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                        | Time Uploaded    | Comments                |
       | user-list-for-project-1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user2. |
-      | File Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | instrument designation.csv  | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | File_Upload.docx            | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | instrument_designation.csv  | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup2
@@ -428,6 +425,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Data Export Files           |                  |                         |
       | PDF Survey Archive          |                  |                         |
       | Recycle Bin                 |                  |                         |
+      | TestGroup1_Folder           |                  |                         |
       | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
       | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
@@ -440,8 +438,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
     Then I should see a downloaded file named "testusers_bulkupload.csv"
 
-
-    #  Scenario: Access DAG folder
+  #Scenario: Access DAG folder
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
@@ -452,6 +449,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##VERIFY Download another users file in subfolder
     Then I should see a downloaded file named "testusers_bulk_upload.csv"
 
+  #Scenario: Auto-archive file in DAG TestGroup1
+
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup1
     When I click on the link labeled "File Repository"
@@ -459,13 +458,15 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     #Don't see consent created by testgroup2
     Then I should see a table header and rows containing the following values in the file repository table:
-      | Record         | Survey                           | Survey Completion Time | Type      |
-      | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+        | Record         | Survey                           | Survey Completion Time | Type      |
+        | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
 
     But I should NOT see "TestGroup2"
     And I should NOT see "2-1"
 
     And I logout
+
+  #Scenario: Download to top tier file
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Download to top tier file
@@ -477,13 +478,13 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##VERIFY See file uploaded by Test_User1 & Test_User2
 
     Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                        | Time Uploaded    | Comments                |
-      | Data Export Files           |                  |                         |
-      | PDF Survey Archive          |                  |                         |
-      | Recycle Bin                 |                  |                         |
-      | TestGroup1_Folder           |                  |                         |
-      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+        | Name                        | Time Uploaded    | Comments                |
+        | Data Export Files           |                  |                         |
+        | PDF Survey Archive          |                  |                         |
+        | Recycle Bin                 |                  |                         |
+        | TestGroup1_Folder           |                  |                         |
+        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+        | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     And I should NOT see "Role1_Folder"
 
@@ -493,28 +494,31 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
     Then I should see a downloaded file named "testusers_bulkupload.csv"
 
+  #Scenario: Access DAG folder
+
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
-    Given I click on the link labeled "File Repository"
-    And I see "All Files" in the File Repository breadcrumb
-    And I click on the link labeled "TestGroup1_Folder" in the File Repository table
-    Then I should see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
-    And I should see a table header and rows containing the following values in the file repository table:
-      | Name                      | Time Uploaded    | Comments                |
-      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+    Given I click on the link labeled "TestGroup1_Folder" in the File Repository table
+    Then I should see a table header and rows containing the following values in the file repository table:
+        | Name                      | Time Uploaded    | Comments                |
+        | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
     ##VERIFY Download another users file in subfolder
     Then I should see a downloaded file named "testusers_bulk_upload.csv"
+
+  #Scenario: Auto-archive access all file
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive access all file
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should see a table header and rows containing the following values in the file repository table:
-      | Record | Survey                           | Survey Completion Time | Type      |
-      | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
-      | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+        | Record | Survey                           | Survey Completion Time | Type      |
+        | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+        | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+
+  #Scenario: Delete folders - unable to delete with file in folder
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION C.3.26.500.100 Delete folders - unable to delete with file in folder
@@ -531,20 +535,20 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I should see a dialog containing the following text: "Sorry, but the folder below cannot be deleted because it still has files in it."
     When I click on the button labeled "Close" in the dialog box
     Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                        | Time Uploaded    | Comments                |
-      | Data Export Files           |                  |                         |
-      | PDF Survey Archive          |                  |                         |
-      | Recycle Bin                 |                  |                         |
-      | TestGroup1_Folder           |                  |                         |
-      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+        | Name                        | Time Uploaded    | Comments                |
+        | Data Export Files           |                  |                         |
+        | PDF Survey Archive          |                  |                         |
+        | Recycle Bin                 |                  |                         |
+        | TestGroup1_Folder           |                  |                         |
+        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION Cancel Remove files from folder
     When I click on the link labeled "TestGroup1_Folder" in the File Repository table
     Then I should see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
     And I should see a table header and rows containing the following values in the file repository table:
-      | Name                      | Time Uploaded    | Comments                |
-      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+        | Name                      | Time Uploaded    | Comments                |
+        | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     And I check the checkbox labeled "testusers_bulk_upload.csv"
     And I click on the button labeled "Delete"
@@ -552,8 +556,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I click on the button labeled "Cancel" in the dialog box
     ##VERIFY file still in folder
     Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                      | Time Uploaded    | Comments                |
-      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+        | Name                      | Time Uploaded    | Comments                |
+        | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION Delete/Remove files from folder
     When I check the checkbox labeled "testusers_bulk_upload.csv"
@@ -564,7 +568,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see a dialog containing the following text: "SUCCESS!"
     And I click on the button labeled "Close" in the dialog box
     Then I should see a table row containing the following values in the file repository table:
-      | No files or sub-folders exist in this folder |
+        | No files or sub-folders exist in this folder |
 
     ##ACTION C.3.26.500.100 Delete folders - Cancel deletion
     When I click on the link labeled "File Repository"
@@ -574,13 +578,13 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
     When I click on the button labeled "Cancel" in the dialog box
     Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                        | Time Uploaded    | Comments                |
-      | Data Export Files           |                  |                         |
-      | PDF Survey Archive          |                  |                         |
-      | Recycle Bin                 |                  |                         |
-      | TestGroup1_Folder           |                  |                         |
-      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+        | Name                        | Time Uploaded    | Comments                |
+        | Data Export Files           |                  |                         |
+        | PDF Survey Archive          |                  |                         |
+        | Recycle Bin                 |                  |                         |
+        | TestGroup1_Folder           |                  |                         |
+        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION C.3.26.500.100 Delete folders
     And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
@@ -588,11 +592,11 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
     When I click on the button labeled "Delete" in the dialog box
     Then I should see a table header and rows containing the following values in the file repository table:
-      | Name                        | Time Uploaded    | Comments                |
-      | Data Export Files           |                  |                         |
-      | PDF Survey Archive          |                  |                         |
-      | Recycle Bin                 |                  |                         |
-      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+        | Name                        | Time Uploaded    | Comments                |
+        | Data Export Files           |                  |                         |
+        | PDF Survey Archive          |                  |                         |
+        | Recycle Bin                 |                  |                         |
+        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     And I should NOT see "TestGroup1_Folder"

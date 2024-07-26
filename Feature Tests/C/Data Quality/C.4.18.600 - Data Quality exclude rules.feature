@@ -93,4 +93,3 @@ Feature: User Interface: The system shall support excluding discrepancies found 
         Then I should see a table header and rows containing the following values in a table:
             | Rule # | Rule Name                              | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
             | D      | Field validation errors (out of range) | -                                        | 4                   |
-
