@@ -33,14 +33,14 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
 
         When I select the submit option labeled "Save & Stay" on the Data Collection Instrument
         And I click on the button labeled "Survey options"
-        And I click on the survey option label containing "Open survey" label and will leave the tab open when I return to the REDCap project
+        And I click on the survey option label containing "Open survey" label
         ##VERIFY
         Then I should see "Consent"
         And I should NOT see a checkbox labeled "I certify that all of my information in the document above is correct."
         When I click on the button labeled "Submit"
 
         Given I return to the REDCap page I opened the survey from
-        And I click on the button labeled "Leave without saving changes" in the dialog box
+        And I click on the link labeled exactly "Record ID 5"
         Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
 
         ##VERIFY_FiRe
@@ -83,6 +83,7 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
         And I click on the button labeled "Submit"
 
         Given I return to the REDCap page I opened the survey from
+        And I click on the link labeled exactly "Record ID 6"
         Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
 
         ##VERIFY_FiRe
@@ -127,6 +128,7 @@ Feature: Survey Settings: The system shall support the enabling/disabling of e-C
         And I click on the button labeled "Submit"
 
         Given I return to the REDCap page I opened the survey from
+        And I click on the link labeled exactly "Record ID 7"
         Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1"
 
         ##VERIFY_FiRe
