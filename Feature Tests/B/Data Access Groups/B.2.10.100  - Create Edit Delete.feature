@@ -84,6 +84,7 @@ Feature: B.2.10.100 Data Access Groups-DAGs User Interface: The system shall all
     Given I click the X to delete the data access group named "RenameGroup3"
     Then I should see a dialog containing the following text: "Delete group?"
     When I click on the button labeled "Delete" on the dialog box
+    Then I should see "has been deleted"
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
