@@ -81,9 +81,9 @@ Feature: User Interface: The system shall support data quality rule creation.
         
         ##ACTION: edit existing rule for longitudinal projects 
         When I click the element containing the following text: "[event_1_arm_1][integer]='1999'"
-        And I clear field and enter "[event_1_arm_1][integer]=''" in the textarea field labeled "Logic Editor" in the dialog box
+        And I clear field and enter "[event_1_arm_1][integer]='1'" in the textarea field labeled "Logic Editor" in the dialog box
         And I click on the button labeled "Update & Close Editor" in the dialog box
-        And I click on the button labeled "Save"
+        And I click on the button labeled "Save" on the active Data Quality rule
         Then I should see a table header and rows containing the following values in a table:
             | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) |
             | 3      | Integer   | [event_1_arm_1][integer]='1'             |
@@ -92,7 +92,8 @@ Feature: User Interface: The system shall support data quality rule creation.
         And I click the element containing the following text: "[integer]<>'1999'"
         And I clear field and enter "[integer]='1'" in the textarea field labeled "Logic Editor" in the dialog box
         And I click on the button labeled "Update & Close Editor" in the dialog box
-        And I click on the button labeled "Save"
+        And I click on the button labeled "Save" on the active Data Quality rule
+
         Then I should see a table header and rows containing the following values in a table:
             | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) |
             | 4      | Integer   | [integer]='1'                            |
@@ -119,9 +120,9 @@ Feature: User Interface: The system shall support data quality rule creation.
         ##VERIFY_LOG
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
-            | Username   | Action        | List of Data ChangesOR Fields Exported |
-            | test_admin | Manage/Design | Delete data quality rule               |
-            | test_admin | Manage/Design | Edit data quality rule                 |
-            | test_admin | Manage/Design | Execute data quality rule(s)           |
-            | test_admin | Manage/Design | Upload Data Quality Rules              |
-            | test_admin | Manage/Design | Create data quality rule               |
+            | Username   | Action        | List of Data Changes OR Fields Exported |
+            | test_admin | Manage/Design | Delete data quality rule                |
+            | test_admin | Manage/Design | Edit data quality rule                  |
+            | test_admin | Manage/Design | Execute data quality rule(s)            |
+            | test_admin | Manage/Design | Upload Data Quality Rules               |
+            | test_admin | Manage/Design | Create data quality rule                |
