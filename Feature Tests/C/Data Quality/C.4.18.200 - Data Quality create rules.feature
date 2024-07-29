@@ -81,7 +81,7 @@ Feature: User Interface: The system shall support data quality rule creation.
         
         ##ACTION: edit existing rule for longitudinal projects 
         When I click the element containing the following text: "[event_1_arm_1][integer]='1999'"
-        And I clear field and enter "[event_1_arm_1][integer]=''" in the textarea field labeled "Logic Editor" in the dialog box
+        And I clear field and enter "[event_1_arm_1][integer]='1'" in the textarea field labeled "Logic Editor" in the dialog box
         And I click on the button labeled "Update & Close Editor" in the dialog box
         And I click on the button labeled "Save" on the active Data Quality rule
         Then I should see a table header and rows containing the following values in a table:

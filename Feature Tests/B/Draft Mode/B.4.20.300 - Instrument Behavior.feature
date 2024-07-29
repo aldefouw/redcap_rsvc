@@ -61,8 +61,8 @@ Feature: User Interface: The system shall require changes made to data collectio
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and row containing the following values in the logging table:
-      | Username   | Action        | List of Data Changes OR Fields Exported  |
-      | test_user1 | Manage/Design | Approve production project modifications |
+      | Username   | Action        | List of Data Changes OR Fields Exported              |
+      | test_user1 | Manage/Design | Approve production project modifications (automatic) |
 
     ##VERIFY INSTRUMENT
     Given I click on the link labeled "Record Status Dashboard"
