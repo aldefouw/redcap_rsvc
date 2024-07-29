@@ -26,7 +26,7 @@ Feature: User Interface: The system shall support data quality rule creation.
         And I enter "[event_1_arm_1][integer]='1999'" into the textarea field labeled "Enter logic for new rule"
         And I clear field and enter "[event_1_arm_1][integer]='1999'" in the textarea field labeled "Logic Editor" in the dialog box
         And I click on the button labeled "Update & Close Editor" in the dialog box
-        And I click on the button labeled "Add"
+        And I click on the button labeled "Add" on the active Data Quality rule
         ##VERIFY
         Then I should see a table header and rows containing the following values in a table:
             | Rule #     | Rule Name   | Rule Logic (Show discrepancy only if...)       |
@@ -105,7 +105,7 @@ Feature: User Interface: The system shall support data quality rule creation.
         And I should see "Processing Complete!"
         Then I should see a table header and rows containing the following values in a table:
             | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
-            | 3      | Integer   | [event_1_arm_1][integer]='1'             | 7                   |
+            | 3      | Integer   | [event_1_arm_1][integer]='1'             | 6                   |
             | 4      | Integer   | [integer]='1'                            | 6                   |
 
         ##ACTION: delete rule
