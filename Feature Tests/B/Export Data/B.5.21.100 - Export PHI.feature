@@ -130,7 +130,7 @@ Feature: User Interface: The system shall support the ability to identify data a
         Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
         ##VERIFY: User can see all variables except for date and datetime fields
         Then I should have a "csv" file that contains the headings below
-            | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | data_types_timestamp | ptname | textbox | radio | notesbox | identifier | identifier_2 | data_types_complete |
+            | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | ptname | textbox | radio | notesbox | identifier | identifier_2 | data_types_complete |
 
         And I click on the button labeled "Close" in the dialog box
 
