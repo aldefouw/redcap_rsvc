@@ -9,12 +9,14 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
     And I create a new project named "A.3.26.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     And I click on the link labeled "My Projects"
     And I click on the link labeled "A.3.26.100.100"
-    And I click on the link labeled "Designer"
 
-    And I click on the "Survey settings" button for the instrument row labeled "Consent"
+   ##Below steps are not required
+   #  And I click on the link labeled "Designer"
 
-    And I click on the radio labeled "Auto-Archiver + e-Consent Framework"
-    Then I click on the button labeled "Save Changes"
+   #  And I click on the "Survey settings" button for the instrument row labeled "Consent"
+
+   #  And I click on the radio labeled "Auto-Archiver + e-Consent Framework"
+   #  Then I click on the button labeled "Save Changes"
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -25,9 +27,11 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
 
     #ACTION Upload to top tier file repo (all users will see file) - using the Select files to upload button
     When I click on the link labeled "File Repository"
+    Then I should see "All Files" in the File Repository breadcrumb
 
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
       |import_files/testusers_bulkupload.csv|
+
     ##VERIFY file uploaded in folder
     Then I should see a table header and rows containing the following values in the file repository table:
        | Name                     | Time Uploaded    | Comments                |

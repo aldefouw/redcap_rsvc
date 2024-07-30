@@ -85,7 +85,6 @@ Feature: B.2.6.300 The system shall allow instrument level data export rights to
 
     Given I click on the "Export Data" button for the "All data (all records and fields)" report in the My Reports & Exports table
     And I click on the radio labeled "CSV / Microsoft Excel (raw data)" in the dialog box
-    And I check the checkbox labeled "Remove All Identifier Fields"
     And I click on the button labeled "Export Data" in the dialog box
     Then I should see a dialog containing the following text: "Data export was successful!"
 
@@ -113,8 +112,6 @@ Feature: B.2.6.300 The system shall allow instrument level data export rights to
 
     Given I click on the "Export Data" button for the "All data (all records and fields)" report in the My Reports & Exports table
     And I click on the radio labeled "CSV / Microsoft Excel (raw data)" in the dialog box
-    And I check the checkbox labeled "Remove All Identifier Fields" in the dialog box
-    And I check the checkbox labeled "Hash the Record ID field" in the dialog box
     And I click on the button labeled "Export Data" in the dialog box
     Then I should see a dialog containing the following text: "Data export was successful!"
 

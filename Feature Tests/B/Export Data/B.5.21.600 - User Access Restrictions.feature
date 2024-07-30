@@ -46,4 +46,4 @@ Feature: User Interface: The system shall support the ability to restrict users 
       | A | All data (all records and fields) |
 
     #VERIFY: cannot see export
-    And I should NOT see a button labeled "Export data"
+    And I should NOT see a button labeled "Export Data"

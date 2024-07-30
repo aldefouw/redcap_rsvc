@@ -54,7 +54,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I click on the link labeled "Project Setup"
     Then I should see "Repeating instruments and events"
 
-    When I open the dialog box for the Repeatable Instruments and Events module
+    When I click on the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
     Then I should see a dialog containing the following text: "WARNING"
 
     Given I click on the button labeled "Close" in the dialog box
@@ -87,8 +87,6 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Then I should NOT see "Current instance:"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
-#    When I see a dialog containing the following text: "Save your changes?"
-#    Then I click on the button labeled "Leave without saving changes" in the dialog box
 
     Given I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -102,7 +100,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Given I click on the link labeled "Project Setup"
     Then I should see "Repeating instruments and events"
 
-    When I open the dialog box for the Repeatable Instruments and Events module
+    When I click on the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
     Then I should see a dialog containing the following text: "WARNING"
 
     Given I click on the button labeled "Close" in the dialog box
@@ -128,8 +126,6 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Then I see "Current instance:"
 
     Given I click on the link labeled "Data Exports, Reports, and Stats"
-#    When I see a dialog containing the following text: "Save your changes?"
-#    Then I click on the button labeled "Leave without saving changes" in the dialog box
 
     Given I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -140,7 +136,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I should NOT see "MyOtherName"
 
     When I click on the link labeled "Project Setup"
-    And I open the dialog box for the Repeatable Instruments and Events module
+    And I click on the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
     Then I should see a dialog containing the following text: "WARNING"
 
     Given I click on the button labeled "Close" in the dialog box
@@ -175,7 +171,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I should see "My repeat event name"
 
     When I click on the link labeled "Project Setup"
-    And I open the dialog box for the Repeatable Instruments and Events module
+    And I click on the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
     Then I should see a dialog containing the following text: "WARNING"
 
     Given I click on the button labeled "Close" in the dialog box
@@ -183,13 +179,15 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I select "Repeat Entire Event (repeat all instruments together)" on the dropdown field labeled "Event 2 (Arm 1: Arm 1)"
     And I click on the button labeled "Save"
     Then I should see a dialog containing the following text: "Your settings for repeating instruments and/or events have been successfully saved."
+    And I click on the button labeled "Close" in the dialog box
 
-    Given I click on the button labeled "Close" in the dialog box
-    When I click on the link labeled "Data Exports, Reports, and Stats"
-    Given I see a table row containing the following values in the reports table:
+    Given I see the link labeled "Data Exports, Reports, and Stats"
+    And I click on the link labeled "Data Exports, Reports, and Stats"
+    Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
-    And I click on the button labeled "View Report"
-    And I should see a "1" within the "Event 2 (Arm 1: Arm 1)" row of the column labeled "Repeat Instance" of the Reports table
+
+    Given I click on the button labeled "View Report"
+    Then I should see a "1" within the "Event 2 (Arm 1: Arm 1)" row of the column labeled "Repeat Instance" of the Reports table
     And I should see "" within the "Event Three (Arm 1: Arm 1)" row of the column labeled "Repeat Instance" of the Reports table
     And I should NOT see "My repeat event name"
 

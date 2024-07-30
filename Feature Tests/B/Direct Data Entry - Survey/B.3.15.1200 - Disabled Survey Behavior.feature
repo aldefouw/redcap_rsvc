@@ -40,7 +40,8 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
     ##VERIFY_SDT: verifying survey link and return codes are available
     Given I click on the link labeled "Survey Distribution Tools"
     And I click on the tab labeled "Participant List"
-    Then I should see the dropdown field labeled "Participant List" with the options below
+    Then I should see a button labeled "Add participants"
+    And I should see the dropdown field labeled "Participant List" with the options below
       | [Initial survey] "Text Validation" - Event 1 (Arm 1: Arm 1) |
       | "Consent" - Event 1 (Arm 1: Arm 1)                          |
       | "Text Validation" - Event 2 (Arm 1: Arm 1)                  |

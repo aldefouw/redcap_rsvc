@@ -21,7 +21,7 @@ Feature: User Interface: The system shall support the ability to download two ve
     Then I should see a downloaded file named "B316100100_ImportTemplate_yyyy-mm-dd.csv"
 
     ##VERIFY
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has the headings below
+    And the downloaded CSV with filename "B316100100_ImportTemplate_yyyy-mm-dd.csv" has the header below
       | record_id | name | email | text_validation_complete | ptname | bdate | role | notesbox | multiple_dropdown_auto | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox___1 | checkbox___2 | checkbox___3 | required | identifier_ssn | identifier_phone | slider | date_time_hh_mm | date_time_hh_mm_ss | data_types_complete | data_dictionary_form_complete | phone | demo_branching_complete |  |
     #M: close csv file
 
@@ -34,28 +34,30 @@ Feature: User Interface: The system shall support the ability to download two ve
     #M: close csv file
 
     ##VERIFY
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "record_id" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "name" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "email" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "text_validation_complete" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "ptname" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "bdate" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "role" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "notesbox" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "multiple_dropdown_auto" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "multiple_dropdown_manual" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "multiple_radio_auto" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "radio_button_manual" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "checkbox___1" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "checkbox___2" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "checkbox___3" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "required" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "identifier_ssn" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "identifier_phone" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "slider" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "date_time_hh_mm" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "date_time_hh_mm_ss" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "data_types_complete" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "data_dictionary_form_complete" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "phone" for column "Variable / Field Name"
-    And the CSV file at path "B316100100_ImportTemplate_yyyy-mm-dd.csv" has a value "demo_branching_complete" for column "Variable / Field Name"
+    And the downloaded CSV with filename "B316100100_ImportTemplate_yyyy-mm-dd.csv" has the header and rows below
+      | Variable / Field Name         | Record |
+      | record_id                     |        |
+      | name                          |        |
+      | email                         |        |
+      | text_validation_complete      |        |
+      | ptname                        |        |
+      | bdate                         |        |
+      | role                          |        |
+      | notesbox                      |        |
+      | multiple_dropdown_auto        |        |
+      | multiple_dropdown_manual      |        |
+      | multiple_radio_auto           |        |
+      | radio_button_manual           |        |
+      | checkbox___1                  |        |
+      | checkbox___2                  |        |
+      | checkbox___3                  |        |
+      | required                      |        |
+      | identifier_ssn                |        |
+      | identifier_phone              |        |
+      | slider                        |        |
+      | date_time_hh_mm               |        |
+      | date_time_hh_mm_ss            |        |
+      | data_types_complete           |        |
+      | data_dictionary_form_complete |        |
+      | phone                         |        |
+      | demo_branching_complete       |        |

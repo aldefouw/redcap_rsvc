@@ -82,7 +82,7 @@ Feature: User Interface: The system shall allow submitted survey responses to be
     #VERIFY_RSD
     When I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Survey" instrument on event "Event Three" for record ID "5" and click on the bubble
-    Then I should see the "Name_EDITRESPONSE" in the field labeled "Name"
+    Then I should see "Name_EDITRESPONSE" in the data entry form field "Name"
 
     ##USER_RIGHTS - 3_ReadOnly_Deidentified
     When I click on the link labeled "User Rights"

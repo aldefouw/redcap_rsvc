@@ -59,7 +59,7 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
     ##VERIFY_LOG:
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | Assign user to data access group        |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | user = 'test_user1'                     |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | group = 'TestGroup1'                    |
@@ -124,3 +124,14 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
       | 2         |
       | 3         |
       | 4         |
+
+    ##VERIFY_LOG:
+    When I click on the link labeled "Logging"
+    Then I should see a table header and rows containing the following values in the logging table:
+      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | Remove user from data access group      |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | user = 'test_user1'                     |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | group = 'TestGroup1'                    |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | Assign user to data access group        |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | user = 'test_user1'                     |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | group = 'TestGroup1'                    |

@@ -12,7 +12,7 @@ And I create a new project named "B.3.16.600.100" by clicking on "New Project" i
 #SETUP_PRODUCTION
 When I click on the button labeled "Move project to production"
 And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
-And I click on the button labeled "YES, Move to Production Status" in the dialog box
+And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
 Then I should see Project status: "Production"
 
 When I click on the link labeled "Data Import Tool"

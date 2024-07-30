@@ -80,3 +80,4 @@ Feature: Saving Data: The system shall support the prompt to save when a user at
     When I click on the button labeled "Stay on page" in the dialog box
     ##VERIFY
     Then I should see "Adding new Record ID 8"
+    And I should see a checkbox labeled "Checkbox1" that is checked

@@ -12,7 +12,7 @@ Feature: User Interface: The tool shall support the filtering the record list:
         When I click on the link labeled "Project Setup"
         And I click on the button labeled "Move project to production"
         And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
-        And I click on the button labeled "YES, Move to Production Status" in the dialog box
+         And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
         Then I should see Project status: "Production"
 
         #FUNCTIONAL REQUIREMENT
@@ -20,9 +20,9 @@ Feature: User Interface: The tool shall support the filtering the record list:
         When I click on the link labeled "Record Status Dashboard"
         And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "3" and click on the bubble
         Then I should see "Text Validation"
-        And I should see the checkbox for the field labeled "Lock this instrument?"
+        And I should see a checkbox labeled "Lock this instrument?" that is unchecked
 
-        And I check the checkbox labeled "Lock this instrument?"
+        Given I check the checkbox labeled "Lock this instrument?"
         And I click on the button labeled "Save & Exit Form"
         Then I should see "Record Home Page"
         And I should see "Record ID 3 successfully edited."
@@ -61,11 +61,11 @@ Feature: User Interface: The tool shall support the filtering the record list:
         And I should see "Show locked but not e-signed (excludes N/A)"
 
         When I click on the button labeled "Export all (CSV)" to download a file
-        Then the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "3" for column "Record"
-        Then  the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "Event 1 (Arm 1: Arm1)" for column "Event Name"
-        Then  the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "Text Validation" for column "Form Name"  
-        Then  the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value " " for column "Repeat Instance" 
-        Then  the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "MM/DD/YYYY" for column "Locked?" 
-        Then  the CSV file at path "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "N/A" for column "E-signed?" 
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "3" for column "Record"
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "Event 1 (Arm 1: Arm1)" for column "Event Name"
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "Text Validation" for column "Form Name"
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value " " for column "Repeat Instance"
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "MM/DD/YYYY" for column "Locked?"
+        Then the downloaded CSV with filename "C219300100_EsignLockMgmt_yyyy-mm-dd_hhmm.csv" has a value "N/A" for column "E-signed?"
            
 #M: Close file

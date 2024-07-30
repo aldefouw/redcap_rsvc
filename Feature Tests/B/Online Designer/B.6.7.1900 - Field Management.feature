@@ -66,7 +66,7 @@ Then I should see the field labeled "Add Field"
 And I drag the field variable named "add" below the field variable named "identifier"
 
 ##VERIFY
-Then I should see the field labeled "Add Field" before the field labeled "Identifier"
+Then I should see the field named "Add Field" before field named "Identifier"
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: move field to another instrument
@@ -99,10 +99,10 @@ And I click on the button labeled "Save" in the "Edit Field" dialog box
 ##VERIFY
 Then I should see the field labeled "Radio Button Manual"
 And I should see the radio field labeled "Radio Button Manual" with the options below
-  |Choice99|
+  |Choice99 |
   |Choice100|
   |Choice101|
-  |Abc123|
+  |Abc123   |
 
 #FUNCTIONAL_REQUIREMENT
 ##ACTION: copy field
