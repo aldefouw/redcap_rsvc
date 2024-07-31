@@ -1,7 +1,5 @@
 Variable / Field Name,Form Name,Section Header,Field Type,Field Label,"Choices, Calculations, OR Slider Labels",Field Note,Text Validation Type OR Show Slider Number,Text Validation Min,Text Validation Max,Identifier?,Branching Logic (Show field only if...),Required Field?,Custom Alignment,Question Number (surveys only),Matrix Group Name,Matrix Ranking?,Field Annotation
-record_id,text_validation,,text,Record ID,,,,,,,,,,,,,
-name,text_validation,,text,Name,,,,,,,,,,,,," @DEFAULT=""Name """
-email,text_validation,,text,Email,,,email,,,,,,,,,," @DEFAULT=""email@test.edu"""
+record_id,data_types,,text,Record ID,,,,,,,,,,,,,
 radio,data_types,,radio,radio,"9..9, Choice99 | 100, Choice100 | 101, Choice101",,,,,,,,,,,,
 multiple_dropdown_manual_2,data_types,,dropdown,Multiple Choice Dropdown Manual,"5, DDChoice5 | 7, DDChoice7 | 6, DDChoice6",,,,,,,,,,,,
 required_2,data_types,,checkbox,,"1,1",,,,,,,y,,,,,
@@ -52,12 +50,5 @@ zipcode_us,data_types,Postal codes,text,Zipcode (US),,,zipcode,,,,,,,,,, @DEFAUL
 postal_5,data_types,,text,Postal code 5 (France),,,postalcode_french,,,,,,,,,, @DEFAULT='69008'
 postal_code_australia,data_types,,text,Postal Code (Australia),,,postalcode_australia,,,,,,,,,, @DEFAULT='5000'
 postal_code_canada,data_types,,text,Postal Code (Canada),,,postalcode_canada,,,,,,,,,, @DEFAULT='A0A 0A0'
-name_survey,survey,,text,Name,,,,,,,,,,,,," @DEFAULT=""Name """
-email_survey,survey,,text,Email,,,email,,,,,,,,,," @DEFAULT=""email@test.edu"""
-name_consent,consent,,text,Name,,,,,,,,,,,,," @DEFAULT=""Name """
-email_consent,consent,,text,Email,,,email,,,,,,,,,," @DEFAULT=""email@test.edu"""
-dob,consent,,text,DOB,,,date_ymd,,,,,,,,,, @TODAY
-signature_consent,consent,,file,Signature ,,,signature,,,,,,,,,,
-dd_form,data_dictionary_form,,text,Testing dd upload,,,,,,,,,,,,,
-name_v2,text_validation_2,,text,Name,,,,,,,,,,,,," @DEFAULT=""Name """
-email_v2,text_validation_2,,text,Email,,,email,,,,,,,,,," @DEFAULT=""email@test.edu"""
+name,text_validation,,text,Name,,,,,,,,,,,,," @DEFAULT=""Name """
+email,text_validation,,text,Email,,,email,,,,,,,,,," @DEFAULT=""email@test.edu"""
