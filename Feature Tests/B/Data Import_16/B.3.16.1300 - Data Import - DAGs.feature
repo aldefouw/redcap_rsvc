@@ -4,9 +4,9 @@ Feature: User Interface: The system shall provide the ability to assign data ins
   I want to see that Data import is functioning as expected
 
   Scenario: B.3.16.1300.100 Data import assigns DAG
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.3.16.1300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.16.xml", and clicking the "Create Project" button
 
     When I click on the link labeled "DAGs"
@@ -24,7 +24,7 @@ Feature: User Interface: The system shall provide the ability to assign data ins
       | Username or users assigned to a role | Data Access Group |
       | test_user 1                          | Test_Group1       |
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     Given I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
@@ -62,7 +62,7 @@ Feature: User Interface: The system shall provide the ability to assign data ins
     And I click the button labeled "Import Data"
     Then I should see "Import Successful!"
 
-        #VERIFY_DE
+    #VERIFY_DE
     When I click the link labeled "Data Exports, Reports and Stats"
     And I click the button labeled "View Report"
     Then I should see a table row including the following values in in the logging table:

@@ -5,19 +5,19 @@ Feature: User Interface: The tool shall display e-signature status of forms for 
 
   Scenario: C.2.19.500.100 Display e-signature
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "C.2.19.500.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project status: Production"
 
-        #USER_RIGHTS
+    #USER_RIGHTS
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the input field labeled "Add with custom rights"
     And I click on the button labeled "Add with custom rights"
@@ -30,7 +30,7 @@ Feature: User Interface: The tool shall display e-signature status of forms for 
     And I click on the button labeled "Add user"
     Then I should see "User "test_user1" was successfully added"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows including the following values in the logging table:
       | Username   | Action              | List of Data Changes OR Fields Exported |
@@ -41,7 +41,7 @@ Feature: User Interface: The tool shall display e-signature status of forms for 
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.2.19.500.100"
-        #SETUP
+    #SETUP
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
     And I click on the button labeled "I understand. Let me make changes" in the dialog box
     And I verify the checkbox on the column labeled "Display the Lock option for this instrument?" for the Data Collection Instrument labeled "Text Validation" is selected
@@ -52,7 +52,7 @@ Feature: User Interface: The tool shall display e-signature status of forms for 
       | [✓]                                          | Consent                    |                                                |
 
 
-        ##ACTION
+    ##ACTION
     When I click on the link labeled "Record Status Dashboard"
     And I click the bubble for the instrument labeled "Text Validation" for record "3" for event "Event 1"
     Then I should see "Text Validation"
@@ -69,20 +69,20 @@ Feature: User Interface: The tool shall display e-signature status of forms for 
     And I should see a lock image for the Data Collection Instrument labeled "Text Validation" for event "Event 1"
     And I should see an e-signature image for the Data Collection Instrument labeled "Text Validation" for event "Event 1"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows including the following values in the logging table:
       | Username   | Action               | List of Data Changes OR Fields Exported                                    |
       | test_user1 | E-signature 3        | Action: Save e-signature, Record: 3, Form: Text Validation, Event: Event 1 |
       | test_user1 | Lock/Unlock Record 3 | Action: Lock instrument, Record: 3, Form: Text Validation, Event: Event 1  |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION Record lock and signature status
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION Record lock and signature status
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
     And I click on the button labeled "I understand. Let me make changes" in the dialog box
     And I click on the link labeled "E-signature and Locking Management"
 
-        ##VERIFY
+    ##VERIFY
     Then I should see a table header and rows including the following values in the E-signature and Locking Management table:
       | Record | Form Name       | Locked?    | E-signed?         |
       | 3      | Text Validation | lock image | e-signature image |

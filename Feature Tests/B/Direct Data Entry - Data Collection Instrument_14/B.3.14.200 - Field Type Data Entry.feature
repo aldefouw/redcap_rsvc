@@ -5,12 +5,12 @@ Feature: Creating a Record and Entering Data: The system shall support data entr
 
   Scenario: B.3.14.200.100 Appropriate data entry by field type
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_User1"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.3.14.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.14.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.3.14.200.100"
     And I click on the link labeled "Project Setup"
@@ -19,14 +19,14 @@ Feature: Creating a Record and Entering Data: The system shall support data entr
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project status: Production"
 
-        #SETUP
+    #SETUP
     Given I click the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble for the "Data Types" longitudinal instrument on event "Event 1"
     Then I should see "Adding new Record ID 7"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION: Data entry various field types
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION: Data entry various field types
     When I select the radio option labeled "Choice99" for the field labeled "radio"
     And I select the dropdown option labeled "DDChoice6" on the dropdown field labeled "Multiple Choice Dropdown Manual"
     And I enter "Notes box" for the field labeled "Notes box 2"
@@ -43,7 +43,7 @@ Feature: Creating a Record and Entering Data: The system shall support data entr
     And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 7 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see table rows containing the following values in the logging table:
       | Username   | Action          | List of Data Changes OR Fields Exported |
@@ -58,7 +58,7 @@ Feature: Creating a Record and Entering Data: The system shall support data entr
       | test_user1 | Create record 7 | yn = '0'                                |
       | test_user1 | Create record 7 | slider = '65'                           |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |

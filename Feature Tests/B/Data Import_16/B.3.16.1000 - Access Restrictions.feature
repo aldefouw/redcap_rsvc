@@ -5,19 +5,19 @@ Feature: User Interface: The system shall not allow a new record to be imported 
 
   Scenario: B.3.16.1000.100 Data import of new record limited by user rights
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.3.16.1000.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project Status: Production"
 
-        #USER_RIGHTS
+    #USER_RIGHTS
     When I click on the link labeled "User Rights"
     And I enter "Test_User3" into the field with the placeholder text of "Add with custom rights"
     And I click on the button labeled "Add with custom rights"
@@ -27,7 +27,7 @@ Feature: User Interface: The system shall not allow a new record to be imported 
     Then I should see "Test_User3 was successfully added"
     And I log out
 
-        #FUNCTIONAL_REQUIREMENT
+    #FUNCTIONAL_REQUIREMENT
     Given I login to REDCap with the user "Test_User3"
     When I click on the link labeled "Data Import Tool"
     And I click on the button labeled "Choose File"
@@ -50,11 +50,11 @@ Feature: User Interface: The system shall not allow a new record to be imported 
     When I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
 
-        ##VERIFY_RSD:
+    ##VERIFY_RSD:
     When I click the link labeled "Record Status Dashboard"
     Then I should see record "5"
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -64,7 +64,7 @@ Feature: User Interface: The system shall not allow a new record to be imported 
       | Record ID | Email          |
       | 5         | email@test.edu |
 
-        #VERIFY_LOG
+    #VERIFY_LOG
     When I click on the button labeled "Logging"
     Then I should see a table header and rows including the following values in the logging table:
       | Username   | Action                 | List of Data Changes OR Fields Exported |

@@ -5,23 +5,23 @@ Feature: User Interface: The system shall import only valid formats for text fie
 
   Scenario: B.3.16.400.100 Import valid formats for text fields
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.3.16.400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.16.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I see "Project status:  Production"
 
-        #VERIFY_RSD: no records exist
+    #VERIFY_RSD: no records exist
     When I click on the link labeled "Record Status Dashboard"
     Then I should see "No records exist yet"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION
     Given I click on the link labeled "Data Import Tool"
     When I click on the button labeled "Choose File"
     And I upload the file labeled "B.3.16.400_DataImport_Rows.csv"
@@ -30,13 +30,13 @@ Feature: User Interface: The system shall import only valid formats for text fie
     And I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
 
-        #VERIFY_RSD: 3 records
+    #VERIFY_RSD: 3 records
     When I click on the link labeled "Record Status Dashboard"
     Then I should see record "100" in the table
     And I should see record "200" in the table
     And I should see record "300" in the table
 
-        #VERIFY_LOG
+    #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and including the following values in the logging table:
       | Username   | Action                 | List of Data Changes OR Fields Exported |
@@ -45,8 +45,8 @@ Feature: User Interface: The system shall import only valid formats for text fie
       | test_admin | Create record (import) | record_id = '300'                       |
 
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION
     When I click on the link labeled "Data Import Tool"
     And I select the dropdown option labeled "Yes, blank values in the file will overwrite existing" in the dropdown field labeled "Allow blank values to overwrite existing saved values?"
     And I click the button labeled "Yes, I understand" in the dialogue box
@@ -62,8 +62,8 @@ Feature: User Interface: The system shall import only valid formats for text fie
 
 
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: Corrected format
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: Corrected format
 
     When I click the button labeled "Choose file"
     And I upload the file labeled "B.3.16.400_DataImport_rows Corrected.csv"
@@ -75,8 +75,8 @@ Feature: User Interface: The system shall import only valid formats for text fie
     When I click the button labeled "Import Data"
     Then I should "Import Successful! 3 records were created or modified during the import."
 
-        ##VERIFY_LOG
-        #verify import log
+    ##VERIFY_LOG
+    #verify import log
     When I click on the link labeled "Logging"
     Then I should see a table header and including the following values in the logging table:
       | Username   | Action | List of Data Changes OR Fields Exported |

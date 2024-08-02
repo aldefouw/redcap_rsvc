@@ -9,9 +9,9 @@ Feature: A.2.2.200 Add/Manage users
     And I click on the link labeled "Add Users (Table-based Only)"
     Then I should see "User Management for Table-based Authentication"
 
-        #SETUP_CYPRESS - add users
-        #NOTE: We are testing Suspend / Unsuspend - NOT bulk upload feature
-        # Bulk upload steps are concessions to make this functional if performed manually
+    #SETUP_CYPRESS - add users
+    #NOTE: We are testing Suspend / Unsuspend - NOT bulk upload feature
+    # Bulk upload steps are concessions to make this functional if performed manually
     When I click on the link labeled "Create users (bulk upload)"
     And I upload a "csv" format file located at "import_files/testusers_bulkupload.csv", by clicking the button near "Upload CSV file of new users" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "User was successfully added, and an email with login info was sent to user"
@@ -20,8 +20,8 @@ Feature: A.2.2.200 Add/Manage users
     And I should see "Test_User3"
     And I should see "Test_User4"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION Cancel Suspend user account
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION Cancel Suspend user account
     When I click on the link labeled "Browse Users"
     And I enter "Test_User1" into the input field labeled "User Search: Search for user by username, first name, last name, or primary email"
     And I click on the button labeled "Search"
@@ -32,14 +32,14 @@ Feature: A.2.2.200 Add/Manage users
 
     Given I logout
 
-        #VERIFY User not suspended
+    #VERIFY User not suspended
     Given I login to REDCap with the user "Test_User1"
     Then I should see "Home"
 
     When I logout
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION Suspend user account
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION Suspend user account
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Browse Users"
@@ -55,7 +55,7 @@ Feature: A.2.2.200 Add/Manage users
     Given I click on the button labeled "Close" in the dialog box
     Then I should see "unsuspend user"
 
-        #VERIFY_USER #Control Center - Verify user is on suspended list
+    #VERIFY_USER #Control Center - Verify user is on suspended list
     When I click on the link labeled "View User List By Criteria"
     And I select "Suspended users" on the dropdown field labeled "Display only:"
     And I click on the button labeled "Display User List"
@@ -65,14 +65,14 @@ Feature: A.2.2.200 Add/Manage users
 
     Given I logout
 
-        #VERIFY User suspended
+    #VERIFY User suspended
     Given I login to REDCap with the user "Test_User1"
     Then I should see "The following REDCap user account has been suspended:"
 
     Given I logout
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION Cancel unsuspend user account
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION Cancel unsuspend user account
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Browse Users"
@@ -87,14 +87,14 @@ Feature: A.2.2.200 Add/Manage users
 
     Given I logout
 
-        #VERIFY User suspended
+    #VERIFY User suspended
     Given I login to REDCap with the user "Test_User1"
     Then I should see "The following REDCap user account has been suspended:"
 
     When I logout
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION Unsuspend user account
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION Unsuspend user account
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Browse Users"
@@ -112,7 +112,7 @@ Feature: A.2.2.200 Add/Manage users
 
     When I logout
 
-        #VERIFY User access
+    #VERIFY User access
     Given I login to REDCap with the user "Test_User1"
     Then I should see "Home"
-        #End
+    #End

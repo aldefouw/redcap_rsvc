@@ -5,25 +5,25 @@ Feature: Field Creation: The system shall support the creation of Text box (Shor
 
   Scenario: B.6.7.700.100 Text box field creation in Online Designer
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named " B.6.7.700.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing "Empty project", and clicking the "Create Project" button
 
-        ##SETUP_DEV
+    ##SETUP_DEV
     When I click on the link labeled "Designer"
     Then I should see "Data Collection Instruments"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: Text box field creation
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: Text box field creation
     When I click on the instrument labeled "Form 1"
     And I click on the button labeled "Add Field"
     And I add a new Text Box field labeled "Text Box" with the variable name "textbox "
     And I click on the button labeled "Save" in the dialog box
-        #VERIFY
+    #VERIFY
     Then I should see the field labeled "Text Box"
 
-        ##ACTION: Edit variable name - numeric (unable)
+    ##ACTION: Edit variable name - numeric (unable)
     Given I click on the Edit image for the field labeled "Text Box"
     And I clear the field labeled "Variable Name"
     And I enter "2" into the field labeled "Variable Name"
@@ -35,17 +35,17 @@ Feature: Field Creation: The system shall support the creation of Text box (Shor
     When I clear the field labeled "Variable Name"
     And I enter "2ABC" into the field labeled "Variable Name"
     And I click on the button labeled "Save"
-        #VERIFY
+    #VERIFY
     Then I should see the variable labeled "abc"
 
-        ##ACTION: Add variable name - Alpha numeric
+    ##ACTION: Add variable name - Alpha numeric
     When I click on the button labeled "Add Field"
     And I add a new Text Box field labeled "ABC#2" with the variable name "ABC#2"
     And I click on the button labeled "Save" in the dialog box
-        #VERIFY
+    #VERIFY
     Then I should see the variable labeled "abc_2"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     And I click to Expand the "Text Validation" instrument
     Then I should see a table header and rows including the following values in the logging table:
@@ -54,12 +54,12 @@ Feature: Field Creation: The system shall support the creation of Text box (Shor
       | test_admin | Manage/Design | Create project field                    |
 
   Scenario: B.6.7.700.200 Text box field creation in Data Dictionary
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.6.7.700.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing "Empty project", and clicking the "Create Project" button
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: Upload data dictionary
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: Upload data dictionary
     When I click on the link labeled "Dictionary"
     And I click on the button labeled "Choose File"
     And I select the file labeled "Project1xml_DataDictionary.csv"
@@ -69,7 +69,7 @@ Feature: Field Creation: The system shall support the creation of Text box (Shor
     When I click on the button labeled "Commit Changes"
     Then I should see "Changes Made Successfully!"
 
-        ##VERIFY_CODEBOOK
+    ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     And I click to Expand the "Text Validation" instrument
     Then I should see a table row containing the following values in the codebook table:

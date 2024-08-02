@@ -6,18 +6,18 @@ Feature: User Interface: The system shall require the event name in the csv file
   Scenario: B.3.16.700.100 Import requires the event name
 
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.3.16.700.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project Status: Production"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION
     When I click on the link labeled "Data Import Tool"
     And I click on the tab labeled "CVS import"
     Then I should see the button labeled "Choose File"

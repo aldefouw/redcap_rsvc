@@ -5,17 +5,17 @@ Feature: User Interface: The system shall support excluding discrepancies found 
 
   Scenario: C.4.18.600.100 Exclude discrepancies
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "C.4.18.600.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project418.xml", and clicking the "Create Project" button
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
 
-        ##ACTION executing all rules.
+    ##ACTION executing all rules.
     When I click on the link labeled "Data Quality"
     And I click on the button labeled "All" in the Data Quality Rules controller box
     Then I should see a table header and rows containing the following values in the data quality report table:
@@ -32,8 +32,8 @@ Feature: User Interface: The system shall support excluding discrepancies found 
       | 1      | [radio]=9.9                                                               | [radio]= '9.9'                           | 1 export            | view |
       | 2      | [ptname]<>[name]                                                          | [ptname]<>[name]                         | 8 export            | view |
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: verify ability to exclude a discrepancy
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: verify ability to exclude a discrepancy
     When I click on the link labeled "view" for the Rule Name labeled "Field validation errors (out of range)"
     Then I should see "Rule: Field validation errors (out of range)" in the dialog box
     And I should see "Discrepancies found: 4" in the dialog box
@@ -50,16 +50,16 @@ Feature: User Interface: The system shall support excluding discrepancies found 
       | 5 (#1) | integer = 1111111111                | Out of range | remove exclusion |
 
     And I click on the button labeled "Close" in the dialog box
-        #M: refresh the page
+    #M: refresh the page
 
-        ##VERIFY
+    ##VERIFY
     When I click on the button labeled "All" in the Data Quality Rules controller box
     Then I should see a table header and rows containing the following values in the data quality report table:
       | Rule # | Rule Name                              | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
       | D      | Field validation errors (out of range) | -                                        | 3 export            | view |
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: verify ability to add back excluded discrepancy
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: verify ability to add back excluded discrepancy
     When I click on the link labeled "view" for the Rule Name labeled "Field validation errors (out of range)"
     Then I should see "Rule: Field validation errors (out of range)" in the dialog box
     And I should see "Discrepancies found: 3" in the dialog box
@@ -84,9 +84,9 @@ Feature: User Interface: The system shall support excluding discrepancies found 
       | 5 (#1) | number = 10.000                     | Out of range | exclude |
 
     And I click on the button labeled "Close" in the dialog box
-        #M: refresh the page
+    #M: refresh the page
 
-        ##VERIFY
+    ##VERIFY
     When I click on the button labeled "All" in the Data Quality Rules controller box
     Then I should see a table header and rows including the following values in the data quality table:
       | Rule # | Rule Name                              | Rule Logic (Show discrepancy only if...) | Total Discrepancies |

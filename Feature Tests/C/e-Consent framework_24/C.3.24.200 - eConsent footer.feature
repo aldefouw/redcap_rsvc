@@ -5,19 +5,19 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
   Scenario: C.3.24.200.100 e-Consent text validation
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named " C.3.24.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Consent.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the button labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project Status: Production"
 
-        #SETUP_eConsent
+    #SETUP_eConsent
     When I click on the button labeled "Designer"
     And I click on the button labeled "Survey settings" for the instrument labeled "Consent"
     And I click on the radio labeled "Auto-Archiver + e-Consent Framework" for the field labeled "e-Consent Framework"
@@ -34,7 +34,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
-        ##ACTION: add record
+    ##ACTION: add record
     When I click on the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click on the bubble labeled "Consent" for event "Event 1"
@@ -64,19 +64,19 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
     When I click on the button labeled "Close survey"
     And I click on the button labeled "Leave without saving changes" in the dialog box
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     Then I should see a Completed Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     Then I should see "1 File" for the field labeled "PDF Survey Archive"
 
     When I click on the link labeled "PDF Survey Archive"
     And I click on the link on the PDF link for record "1"
     Then I should have a pdf file with the following values in the footer: "Name Name, 2023-09-03, Version: version test, Type: type test"
-        #M: Close document
+    #M: Close document
 
-        ##ACTION: add record_missing sig_1
+    ##ACTION: add record_missing sig_1
     When I click on the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click on the bubble labeled "Consent" for event "Event 1"
@@ -100,9 +100,9 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "NOTE: Some fields are required!"
 
     When I click on the button labeled "Okay" in the dialog box
-        #M: Close browser page
+    #M: Close browser page
     And I click on the button labeled "Leave without saving changes" in the dialog box
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     Then I should see a Partial Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1" for record "1"
 
     When I click on the Partial Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1"
@@ -110,15 +110,15 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "Consent"
     And I should see "You have not completed the entire survey, and your responses are thus considered only partially complete. For security reasons, you will not be allowed to continue taking the survey from the place where you stopped."
     And I should see the button labeled "Start Over"
-        #M: Close browser page
+    #M: Close browser page
     And I click on the button labeled "Leave without saving changes" in the dialog box
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should NOT see a PDF link for record "2"
 
-        ##ACTION: add record_missing sig_2
+    ##ACTION: add record_missing sig_2
     When I click on the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click on the bubble labeled "Consent" for event "Event 1"
@@ -142,17 +142,17 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "NOTE: Some fields are required!"
 
     When I click on the button labeled "Okay" in the dialog box
-        #M: Close browser page
+    #M: Close browser page
     And I click on the button labeled "Leave without saving changes" in the dialog box
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     Then I should see a Partial Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1" for record "4"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should NOT see a PDF link for record "3"
 
-        ##ACTION: add record_missing sig_3
+    ##ACTION: add record_missing sig_3
     When I click on the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click on the bubble labeled "Consent" for event "Event 1"
@@ -176,17 +176,17 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "NOTE: Some fields are required!"
 
     When I click on the button labeled "Okay" in the dialog box
-        #M: Close browser page
+    #M: Close browser page
     And I click on the button labeled "Leave without saving changes" in the dialog box
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     Then I should see a Partial Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1" for record "4"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should NOT see a PDF link for record "4"
 
-        ##ACTION: add record_missing sig_4
+    ##ACTION: add record_missing sig_4
     When I click on the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click on the bubble labeled "Consent" for event "Event 1"
@@ -210,17 +210,17 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "NOTE: Some fields are required!"
 
     When I click on the button labeled "Okay" in the dialog box
-        #M: Close browser page
+    #M: Close browser page
     And I click on the button labeled "Leave without saving changes" in the dialog box
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     Then I should see a Partial Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1" for record "5"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should NOT see a PDF link for record "5"
 
-        ##ACTION: add record_missing sig_5
+    ##ACTION: add record_missing sig_5
     When I click on the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click on the bubble labeled "Consent" for event "Event 1"
@@ -244,17 +244,17 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "NOTE: Some fields are required!"
 
     When I click on the button labeled "Okay" in the dialog box
-        #M: Close browser page
+    #M: Close browser page
     And I click on the button labeled "Leave without saving changes" in the dialog box
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     Then I should see a Partial Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1" for record "6"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should NOT see a PDF link for record "6"
 
-        ##ACTION: add record_missing sig_5
+    ##ACTION: add record_missing sig_5
     When I click on the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click on the bubble labeled "Consent" for event "Event 1"
@@ -285,20 +285,20 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
     When I click on the button labeled "Close survey"
     And I click on the button labeled "Leave without saving changes" in the dialog box
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     Then I should see a Completed Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1" for record "7"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     Then I should see "2 Files" for the field labeled "PDF Survey Archive"
 
     When I click on the link labeled "PDF Survey Archive"
     And I click on the link on the PDF link for record "7"
-        #M: Verify name and dob missing from footer
+    #M: Verify name and dob missing from footer
     Then I should have a pdf file with the following values in the footer: "Version: version test, Type: type test"
-        #M: Close document
+    #M: Close document
 
-        #SETUP_eConsent_change field
+    #SETUP_eConsent_change field
     When I click on the button labeled "Designer"
     And I click on the button labeled "Survey settings" for the instrument labeled "Consent"
     And I click on the radio labeled "Auto-Archiver + e-Consent Framework" for the field labeled "e-Consent Framework"
@@ -315,7 +315,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
-        ##ACTION: add record
+    ##ACTION: add record
     When I click on the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click on the bubble labeled "Consent" for event "Event 1"
@@ -345,26 +345,26 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
     When I click on the button labeled "Close survey"
     And I click on the button labeled "Leave without saving changes" in the dialog box
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     Then I should see a Completed Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1" for record "8"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     Then I should see "3 Files" for the field labeled "PDF Survey Archive"
 
     When I click on the link labeled "PDF Survey Archive"
     And I click on the link on the PDF link for record "8"
     Then I should have a pdf file with the following values in the footer: "Name Name, 2023-09-03, Version: UPDATED VERSION TEST, Type: type test"
-        #M: Close document
+    #M: Close document
 
-        #SETUP_eConsent_change field
+    #SETUP_eConsent_change field
     When I click on the button labeled "Designer"
     And I click on the button labeled "Survey settings" for the instrument labeled "Consent"
     And I click on the radio labeled "Auto-Archiver enabled" for the field labeled "e-Consent Framework"
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
-        ##ACTION: add record
+    ##ACTION: add record
     When I click on the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click on the bubble labeled "Consent" for event "Event 1"
@@ -389,10 +389,10 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
     When I click on the button labeled "Close survey"
     And I click on the button labeled "Leave without saving changes" in the dialog box
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     Then I should see a Completed Survey Response icon for the Data Collection Instrument labeled "Consent" for event "Event 1" for record "9"
 
-        ##VERIFY_FiRe_no eConsent
+    ##VERIFY_FiRe_no eConsent
     When I click on the link labeled "File Repository"
     Then I should see "4 Files" for the field labeled "PDF Survey Archive"
 

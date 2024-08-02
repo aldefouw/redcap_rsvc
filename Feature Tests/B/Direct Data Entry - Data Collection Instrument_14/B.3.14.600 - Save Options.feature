@@ -5,34 +5,34 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
 
   Scenario: B.3.14.600.100 Save data options from data entry page
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_User1"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.3.14.600.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.14.xml", and clicking the "Create Project" button
-        #Manual: And I click "I Agree" to create the project.
+    #Manual: And I click "I Agree" to create the project.
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project status: Production"
 
-        #SETUP create record
+    #SETUP create record
     Given I click the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see "Adding new Record ID 7."
 
-        #FUNCTIONAL_REQUIREMENT:
-        ##ACTION: cancel data
+    #FUNCTIONAL_REQUIREMENT:
+    ##ACTION: cancel data
     Given I enter "CANCEL" in the field labeled "Name"
     And I click on the button labeled "Cancel"
     And I click on the button labeled "OK" in the pop-up box
-        ##VERIFY
+    ##VERIFY
     Then I should see "Record ID 7" data entry cancelled - not saved."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should  see table rows including the following values in the logging table:
       | Username   | Action        | OR Fields Exported                |
@@ -41,8 +41,8 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
       | Username   | Action          |
       | test_user1 | Create record 7 |
 
-        #FUNCTIONAL_REQUIREMENT:
-        ##ACTION: SAVE & STAY
+    #FUNCTIONAL_REQUIREMENT:
+    ##ACTION: SAVE & STAY
     Given I click the link labeled "Add/Edit Records"
     When I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble for the "Text Validation" longitudinal instrument on event "Event 1"
@@ -50,48 +50,48 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
 
     And I enter "SAVE & STAY" in the field labeled "Name"
     And I click on the button labeled "Save & Stay"
-        ##VERIFY
+    ##VERIFY
     Then I should see "Record ID 7 successfully edited."
 
-        #SETUP create record
+    #SETUP create record
     Given I click the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see "Adding new Record ID 8."
 
-        #FUNCTIONAL_REQUIREMENT:
-        ##ACTION  SAVE & Go To Next Form
+    #FUNCTIONAL_REQUIREMENT:
+    ##ACTION  SAVE & Go To Next Form
     When I enter "SAVE & GO TO NEXT FORM" in the field labeled "Name"
     And I select the dropdown option labeled "Save & Go To Next Form" on the dropdown field labeled "Save & Stay"
-        ##VERIFY
+    ##VERIFY
     Then I should see "Data Types"
 
-        #SETUP create record
+    #SETUP create record
     Given I click the link labeled "Add/Edit Records"
     And I click on the button labeled "Leave without saving changes" in the dialog box
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see "Adding new Record ID 9."
 
-        #FUNCTIONAL_REQUIREMENT:
-        ##ACTION Save & Exit Record
+    #FUNCTIONAL_REQUIREMENT:
+    ##ACTION Save & Exit Record
     Given I enter "SAVE & EXIT RECORD" in the field labeled "Name"
     And I select the dropdown option labeled "Save & Exit Record" on the dropdown field labeled "Save & Go To Next Form"
-        ##VERIFY
+    ##VERIFY
     Then I should see "choose an existing record ID"
 
-        #SETUP create record
+    #SETUP create record
     Given I click the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see "Adding new Record ID 10."
 
-        #FUNCTIONAL_REQUIREMENT:
-        ##ACTION Save & Go To Next Record (lands on add/edit records when there is no other record.)
+    #FUNCTIONAL_REQUIREMENT:
+    ##ACTION Save & Go To Next Record (lands on add/edit records when there is no other record.)
     Given I enter "SAVE & GO TO NEXT RECORD" in the field labeled "Name"
     And I click the link labeled "Add/Edit Records"
     And I click on the button labeled "Save changes and leave" in the dialog box
-        ##VERIFY
+    ##VERIFY
     Then I should see "choose an existing record ID"
     And I should see "Total records: 10"
 
@@ -99,18 +99,18 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
     And I  select the record number "10" from the dropdown
     And I click the bubble for the "Text Validation" longitudinal instrument on event "Event 1"
     And I select the dropdown option labeled "Save & Go to Next Record" on the dropdown field labeled "Save & Exit Record"
-        ##VERIFY
+    ##VERIFY
     Then I should see "Although you clicked 'Go To Next Record', there is no record listed that follows the one you just saved."
 
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble for the "Text Validation" longitudinal instrument on event "Event 1"
     Then I should see "Adding new Record ID 11."
 
-        #FUNCTIONAL_REQUIREMENT:
-        ##ACTION Save & Go To Next Record
+    #FUNCTIONAL_REQUIREMENT:
+    ##ACTION Save & Go To Next Record
     When I enter "NEXT RECORD" in the field labeled "Name"
     And I select the dropdown option labeled "Save & Stay" on the dropdown field labeled "Save & Go to Next Record"
-        ##VERIFY
+    ##VERIFY
     Then I should see "Record ID 11 successfully edited."
 
     Given I click the link labeled "Record Status Dashboard"
@@ -119,7 +119,7 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
     And I select the dropdown option labeled "Save & Go To Next Record" on the dropdown field labeled "Save & Exit Record"
     Then I should see "Now displaying the next record: Record ID 11"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see table rows including the following values in the logging table:
       | Username   | Action           | List of Data Changes OR Fields Exported |
@@ -130,7 +130,7 @@ Feature: Saving Data: The system shall support the ability to: (Save and stay | 
       | test_user1 | Create record 8  | name = 'SAVE & GO TO NEXT FORM'         |
       | test_user1 | Create record 7  | name = 'SAVE & STAY'                    |
 
-        ##VERIFY_DE:
+    ##VERIFY_DE:
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |

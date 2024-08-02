@@ -5,20 +5,20 @@ Feature: User Interface: The system shall provide default rules after installati
 
   Scenario: C.4.18.100.100 Default data quality rules
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "C.4.18.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_418.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project status: Production"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION
     When I click on the link labeled "Data Quality"
     Then I should see "Data Quality Rules"
     And I should see a table header and rows containing the following values in the Data Quality Rules table:

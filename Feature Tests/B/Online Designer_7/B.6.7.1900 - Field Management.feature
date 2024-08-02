@@ -5,12 +5,12 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
 
   Scenario: B.6.7.1900.100 Add, edit, copy, move and delete fields
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.6.7.1900.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_USER_RIGHTS
+    #SETUP_USER_RIGHTS
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
@@ -18,7 +18,7 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
     And I click on the button labeled exactly "Assign" on the role selector dropdown
     Then I should see "Test User1" within the "1_FullRights" row of the column labeled "Username" of the User Rights table
 
-        ##SETUP_PRODUCTION
+    ##SETUP_PRODUCTION
     When I click on the link on labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
@@ -36,30 +36,30 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
     When I click on the button labeled "Enter Draft Mode"
     Then I should see "The project is now in Draft Mode"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: add field
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: add field
     When I click on the instrument labeled "Data Types"
     And I click on the button labeled "Add Field" at the bottom of the instrument
     And I add a new Text Box field labeled "Add Field" with the variable name "add"
     And I click on the button labeled "Save"
-        ##VERIFY
+    ##VERIFY
     Then I should see the field labeled "Add Field"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: move field within instrument
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: move field within instrument
     When I drag the field labeled "Add Field" above the field labeled "Identifier"
-        ##VERIFY
+    ##VERIFY
     Then I should see the field labeled "Add Field " before the field labeled "Identifier"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: move field to another instrument
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: move field to another instrument
     When I click on the icon labeled "Move" on the field labeled "Required"
     Then I should see "Move field to another location"
     And I should see a dropdown field with the placeholder text of "select a field"
 
     When I select "email" from the dropdown field with the placeholder text of "select a field"
     And I click on the button labeled "Move field" in the dialog box
-        ##VERIFY
+    ##VERIFY
     Then I should see "Successfully moved"
     And I should see "The field was successfully moved to a new location on another data collection instrument named "Text Validation"
     And I click on the button labeled "Close" in the dialog box
@@ -68,8 +68,8 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
     And I click in the link labeled "Text Validation"
     Then I should see the field labeled "Required"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: edit field
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: edit field
     Given I click on the button labeled "Return to list of instruments"
     And I click in the link labeled "Data Types"
     When I click on the edit image for the field labeled "Radio Button Manual"
@@ -79,12 +79,12 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
     And I enter "101, Choice101" on the third row of the input field labeled "Choices (one choice per line)"
     And I enter "Abc123, Choice Abc123" on the fourth row of the input field labeled "Choices (one choice per line)"
     And I click on the button labeled "Save"
-        ##VERIFY
+    ##VERIFY
     Then I should see the field labeled "Radio Button Manual"
     And I should see the radio button options "Choice99","Choice100", "Choice101, Choice Abc123"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: copy field
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: copy field
     Given I see the field labeled "Notes box"
     And I click on the copy image for the field labeled "Notes box"
     And I click on the button labeled "Cancel" in the dialog box
@@ -93,18 +93,18 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
     Given I see the field labeled "Notes box"
     And I click on the copy image for the field labeled " Notes box "
     And I click on the button labeled "Copy field" in the dialog box
-        ##VERIFY
+    ##VERIFY
     Then I should see "notesbox_2"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: delete field
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: delete field
     Given I see the field labeled "Multiple Choice Dropdown Manual"
     And I click on the delete field image for the field labeled "Multiple Choice Dropdown Manual"
     And I click on the button labeled "Delete" in the dialog box
-        ##VERIFY
+    ##VERIFY
     Then I should NOT see "multiple_dropdown_manual"
 
-        ##VERIFY_DRAFT_CHANGES
+    ##VERIFY_DRAFT_CHANGES
     When I click on the link labeled "View detailed summary of all drafted changes"
     Then I should see "Fields to be ADDED:"
     And I should see "notesbox_2 "Notes box""
@@ -118,7 +118,7 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
       | radio_button_manual | 101, Choice101          |
       | radio_button_manual | Abc123, Choice Abc123   |
 
-        ##SETUP_PRODUCTION
+    ##SETUP_PRODUCTION
     When I click on the button labeled "Return to previous page"
     And I click on the button labeled "Submit Changes for Review"
     And I click on the button labeled "Submit" in the dialog box
@@ -132,7 +132,7 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
     Then I should see "Project Changes Committed/User Notified"
 
 
-        ##VERIFY_CODEBOOK
+    ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     And I click on the button labeled "Expand all instruments"
     Then I should see a table row including the following values in the codebook table:
@@ -141,7 +141,7 @@ Feature: Field Creation: The system shall support the ability to add, edit, copy
       | [radio_button_manual] | Radio Button Manual | Choice Abc123                                                          |
       | [notesbox_2]          | Notes box           | notes                                                                  |
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows including the following values in the logging table:
       | Username  | Action        | List of Data Changes OR Fields Exported |

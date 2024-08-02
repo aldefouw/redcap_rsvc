@@ -5,21 +5,21 @@ Feature: User Interface: The system shall support text validation for text field
 
   Scenario: B.4.8.200.100 Field validation type
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_User1"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.4.8.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_4.8.xml", and clicking the "Create Project" button
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.4.8.200.100"
 
-        #SETUP _PRODUCTION
+    #SETUP _PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
-        ##VERIFY_CODEBOOK
+    ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     And I click on the button labeled "Expand all instruments"
     Then I should see a table header and rows containing the following values in the codebook table:
@@ -36,13 +36,13 @@ Feature: User Interface: The system shall support text validation for text field
       | [time_mm_ss]          | Time MM:SS        | text (time_mm_ss, Min: 02:01, Max: 59:00)                                       |
       | [time_hhmmss]         | Time HH:MM:SS     | text (time_hh_mm_ss, Min: 8:01:01, Max: 23:00:00)                               |
 
-        ##ACTION:
+    ##ACTION:
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble labeled "Date Types" for event "Event 1"
     Then I should see "Adding new Record ID 5."
 
-        #FUNCTIONAL REQUIREMENT: field validation with accurate selection
+    #FUNCTIONAL REQUIREMENT: field validation with accurate selection
     When I enter "2023-08-02" for the field labeled "date YMD"
     And I enter "2023-09-02 01:03" for the field labeled "Datetime"
     And I enter "2023-09-02 01:03:01" for the field labeled "Datetime YMD HMSS"
@@ -63,7 +63,7 @@ Feature: User Interface: The system shall support text validation for text field
     And I click on the button labeled "Save & Stay"
     Then I should see "Record ID 5 successfully edited."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     And I click on the button labeled "Leave without saving changes" in the dialog box
     Then I should see a table header and rows including the following values in the logging table:
@@ -80,7 +80,7 @@ Feature: User Interface: The system shall support text validation for text field
       | test_user1 | Create record 5 | time_mm_ss = '02:05'                      |
       | test_user1 | Create record 5 | time_hhmmss = '08:59:59'                  |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -98,8 +98,8 @@ Feature: User Interface: The system shall support text validation for text field
       | Record ID | Email          |
       | 5         | email@test.edu |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation with out of range values (works)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation with out of range values (works)
     Given I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble labeled "Date Types" for event "Event 1"
@@ -168,7 +168,7 @@ Feature: User Interface: The system shall support text validation for text field
     And I click on the button labeled "Save & Exit Form"
     Then I should see "Record ID 6 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     And I click on the button labeled "Save changes and leave" in the dialog box
     Then I should see a table header and rows containing the following values in the logging table:
@@ -184,7 +184,7 @@ Feature: User Interface: The system shall support text validation for text field
       | test_user1 | Create record 6 | time_mm_ss = '01:59'                      |
       | test_user1 | Create record 6 | time_hhmmss = '07:59:59'                  |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -198,8 +198,8 @@ Feature: User Interface: The system shall support text validation for text field
       | Record ID | Repeat Instrument | Number Decimal | Number Comma | Time HH:MM | Time MM:SS | Time HH:MM:SS |
       | 6         | Data Types        | 5.1            | 5,1          | 07:05      | 01:59      | 07:59:59      |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation with characters (will not work)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation with characters (will not work)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble labeled "Date Types" for event "Event 1"
@@ -274,7 +274,7 @@ Feature: User Interface: The system shall support text validation for text field
     And I click on the button labeled "Close" in the dialog box
     And I click on the button labeled "Save & Exit Form"
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the button labeled "Save changes and leave" in the dialog box
     Then I should see a table row containing the following values in the reports table:

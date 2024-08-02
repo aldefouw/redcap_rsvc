@@ -5,19 +5,19 @@ Feature: User Interface: The system shall support the ability to assign the User
 
   Scenario: C.5.22.100.100 - MISSING SCENARIO TITLE
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "C.5.22.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project status: Production"
 
-        #SETUP: Assign record 1 to DAG1
+    #SETUP: Assign record 1 to DAG1
     When I click on the link labeled "Record Status Dashboard"
     And I click on record "1"
     And I select the dropdown option labeled "Assign to Data Access Group" from the dropdown button with the placeholder text of "Choose action for record"
@@ -25,7 +25,7 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I click on the button labeled "Assign to Data Access Group" in the dialog box
     Then I should see "Record ID 1 was successfully assigned to a Data Access Group1"
 
-        #SETUP: Assign record 2 to DAG2
+    #SETUP: Assign record 2 to DAG2
     When I click on the link labeled "Record Status Dashboard"
     And I click on record "2"
     And I select the dropdown option labeled "Assign to Data Access Group" from the dropdown button with the placeholder text of "Choose action for record"
@@ -33,7 +33,7 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I click on the button labeled "Assign to Data Access Group" in the dialog box
     Then I should see "Record ID 2 was successfully assigned to a Data Access Group2"
 
-        #USER_RIGHTS
+    #USER_RIGHTS
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
@@ -56,12 +56,12 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I uncheck the checkbox on the field labeled "Add/Edit/Organize Reports"
     And I click on the button labeled "Add user"
     Then I should see User "test_user3" was successfully added
-        #SETUP: Create report
+    #SETUP: Create report
     When I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the button labeled "Create New Report"
     And I enter "C.5.22.100.100 REPORT" in the field labeled "Name of Report:"
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION
     And I verify the radio button labeled "All users" is selected for the field labeled "View Access"
     And I verify the radio button labeled "All users" is selected for the field labeled "Edit Access"
     And I click on the button labeled "Save Report"
@@ -69,7 +69,7 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I click on the button labeled "Return to My Reports & Exports"
     And I logout
 
-        ##VERIFY: USER 1
+    ##VERIFY: USER 1
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.5.22.100.100"
@@ -84,11 +84,11 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I should NOT see record "2"
     And I should NOT see record "3"
     And I should NOT see record "4"
-        ##VERIFY: Edit Report button
+    ##VERIFY: Edit Report button
     And I should see a button labeled "Edit Report"
     And I logout
 
-        ##VERIFY: USER 2
+    ##VERIFY: USER 2
     Given I login to REDCap with the user "Test_User2"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.5.22.100.100"
@@ -103,18 +103,18 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I should NOT see record "1"
     And I should NOT see record "3"
     And I should NOT see record "4"
-        ##VERIFY: Edit Report button
+    ##VERIFY: Edit Report button
     And I should see a button labeled "Edit Report"
     And I logout
 
-        ##VERIFY: USER 3
+    ##VERIFY: USER 3
     Given I login to REDCap with the user "Test_User3"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.5.22.100.100"
     Then I should see the link labeled "C.5.22.100.100 REPORT" under the header labeled "Reports"
 
     When I click on the link labeled "Data Exports, Reports, and Stats"
-        ##VERIFY: cannot create report, edit, delete or copy report
+    ##VERIFY: cannot create report, edit, delete or copy report
     Then I should NOT see a button labeled "Edit"
     And I should NOT see a button labeled "Copy"
     And I should NOT see a button labeled "Delete"
@@ -127,7 +127,7 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I should see record "3"
     And I should see record "4"
 
-        ##VERIFY: Edit Report button
+    ##VERIFY: Edit Report button
     And I should NOT see a button labeled "Edit Report"
     And I logout
 
@@ -138,8 +138,8 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I click on the button labeled "Edit" for the field labeled "C.5.22.100.100 REPORT"
     Then I should see "Edit Existing Report: "C.5.22.100.100 REPORT"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION
     When I click on the radio button labeled "Custom user access" for the field labeled "View Access"
     And I select "test_user1" from the dropdown field labeled "Selected users"
     And I select "test_user2" from the dropdown field labeled "Selected users"
@@ -150,7 +150,7 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I click on the button labeled "Return to My Reports & Exports"
     And I logout
 
-        ##VERIFY: USER 3
+    ##VERIFY: USER 3
     Given I login to REDCap with the user "Test_User3"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.5.22.100.100"
@@ -160,7 +160,7 @@ Feature: User Interface: The system shall support the ability to assign the User
     Then I should NOT see "C.5.22.100.100 REPORT"
     And I logout
 
-        ##VERIFY: USER 2
+    ##VERIFY: USER 2
     Given I login to REDCap with the user "Test_User2"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.5.22.100.100"
@@ -181,11 +181,11 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I should NOT see record "1"
     And I should NOT see record "3"
     And I should NOT see record "4"
-        ##VERIFY: Edit Report button
+    ##VERIFY: Edit Report button
     And I should NOT see a button labeled "Edit Report"
     And I logout
 
-        ##VERIFY: USER 1
+    ##VERIFY: USER 1
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.5.22.100.100"
@@ -206,7 +206,7 @@ Feature: User Interface: The system shall support the ability to assign the User
     And I should NOT see record "2"
     And I should NOT see record "3"
     And I should NOT see record "4"
-        ##VERIFY: Edit Report button
+    ##VERIFY: Edit Report button
     And I should see a button labeled "Edit Report"
     And I logout
 #END

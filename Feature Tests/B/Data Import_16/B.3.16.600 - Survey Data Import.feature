@@ -5,12 +5,12 @@ Feature: User Interface: The system shall ignore survey identifier and timestamp
 
   Scenario: B.3.16.600.100 Import ignores survey identifier and timestamp fields
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.3.16.600.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "B.3.16.600Project.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
@@ -25,7 +25,7 @@ Feature: User Interface: The system shall ignore survey identifier and timestamp
 
     When I click the link labeled " Data Exports, Reports and Stats"
     And I click the button labeled " View Report"
-        ##VERIFY_DE
+    ##VERIFY_DE
     Then I should see a table header and rows including the following values in the report data table:
       | record_id | Survey Identifier | Survey Timestamp | ptname    |
       | 4         |                   |                  | My Name   |

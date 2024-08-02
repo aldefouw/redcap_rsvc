@@ -5,11 +5,11 @@ Feature: User Interface: The system shall provide the ability to restrict a user
 
   Scenario: B.2.10.400.100 User restriction for records in DAGs
 
-        #SETUP_NOTE: Will reference unique Group ID numbers located on DAG page. These numbers are specific to the PID
+    #SETUP_NOTE: Will reference unique Group ID numbers located on DAG page. These numbers are specific to the PID
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.2.10.400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
     When I click on the link labeled "My Projects"
@@ -48,28 +48,28 @@ Feature: User Interface: The system shall provide the ability to restrict a user
       | TestRole                | [No users assigned] |
 
 
-        #This will give Test_User3 elevated privileges for this test
+    #This will give Test_User3 elevated privileges for this test
     And I click on the link labeled "Test User3"
     And I click on the button labeled "Edit user privileges"
     Then I should see a dialog containing the following text: "Editing existing user"
 
-        ##ACTION: Set user access to View & Edit + Edit survey responses
+    ##ACTION: Set user access to View & Edit + Edit survey responses
     When I set Data Viewing Rights to View & Edit for the instrument "Text Validation"
     And I set Data Viewing Rights to View & Edit with Edit survey responses checked for the instrument "Consent"
     And I save changes within the context of User Rights
 
-        #This will give Test_User4 elevated privileges for this test
+    #This will give Test_User4 elevated privileges for this test
     And I click on the link labeled "Test User4"
     And I click on the button labeled "Edit user privileges"
     Then I should see a dialog containing the following text: "Editing existing user"
 
-        ##ACTION: Set user access to View & Edit + Edit survey responses
+    ##ACTION: Set user access to View & Edit + Edit survey responses
     When I set Data Viewing Rights to View & Edit for the instrument "Text Validation"
     And I set Data Viewing Rights to View & Edit with Edit survey responses checked for the instrument "Consent"
     And I save changes within the context of User Rights
 
-        #ASSIGN RECORDS TO SPECIFIC DAGs
-        # -- Record ID 3 - TestGroup1 --
+    #ASSIGN RECORDS TO SPECIFIC DAGs
+    # -- Record ID 3 - TestGroup1 --
     Given I click on the link labeled "Add / Edit Records"
     And I select "3" on the dropdown field labeled "Choose an existing Record ID"
     Then I should see "Record ID 3"
@@ -82,7 +82,7 @@ Feature: User Interface: The system shall provide the ability to restrict a user
     And I click on the button labeled "Assign to Data Access Group" in the dialog box
     Then I should see "Record ID 3 was successfully assigned to a Data Access Group"
 
-        # -- Record ID 4 - TestGroup2 --
+    # -- Record ID 4 - TestGroup2 --
     Given I click on the link labeled "Add / Edit Records"
     And I select "4" on the dropdown field labeled "Choose an existing Record ID"
     Then I should see "Record ID 4"
@@ -98,13 +98,13 @@ Feature: User Interface: The system shall provide the ability to restrict a user
     When I click on the link labeled "DAGs"
     Then I should see "Assign user to a group"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION: Assign User to DAG
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION: Assign User to DAG
     When I select "test_user3 (Test User3)" on the dropdown field labeled "Assign user"
     When I select "TestGroup1" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
-        ##VERIFY
+    ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
       | Data Access Groups | Users in group |
       | TestGroup1         | test_user3     |
@@ -113,7 +113,7 @@ Feature: User Interface: The system shall provide the ability to restrict a user
     When I select "TestGroup1" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
-        ##VERIFY
+    ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
       | Data Access Groups | Users in group |
       | TestGroup1         | test_user3     |
@@ -123,7 +123,7 @@ Feature: User Interface: The system shall provide the ability to restrict a user
     When I select "TestGroup2" on the dropdown field labeled "to"
     And I click on the button labeled "Assign"
 
-        ##VERIFY
+    ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
       | Data Access Groups | Users in group |
       | TestGroup1         | test_user3     |
@@ -143,32 +143,32 @@ Feature: User Interface: The system shall provide the ability to restrict a user
 
     And I logout
 
-        ##VERIFY
+    ##VERIFY
     Given I login to REDCap with the user "Test_User3"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.2.10.400.100"
     And I click on the link labeled "Record Status Dashboard"
 
-        ##VERIFY_RSD:
+    ##VERIFY_RSD:
     Then I should see a table header and rows containing the following values in the record status dashboard table:
       | Record ID     |
       | 3  TestGroup1 |
 
-        ##VERIFY
+    ##VERIFY
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Then I should see "Record Home Page"
 
-        ##ACTION: Add record while in a DAG
+    ##ACTION: Add record while in a DAG
     Given I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event 1"
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     And I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event Three"
 
-        #This opens the survey
+    #This opens the survey
     When I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
 
-        #On the survey
+    #On the survey
     Then I should see "Consent"
     And I should see "Please complete the survey below."
 
@@ -189,20 +189,20 @@ Feature: User Interface: The system shall provide the ability to restrict a user
     And I click on the link labeled "B.2.10.400.100"
 
 #Manual:  DAG numbers will be different than what is listed below.  It will be based on your specific Group ID number located in the Data Access Groups Page
-        ##VERIFY_LOG:
+    ##VERIFY_LOG:
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action        | List of Data ChangesOR Fields Exported |
       | mm/dd/yyyy hh:mm | test_user3 | Create record | record_id = '1-1'                      |
 
-        ##VERIFY_RSD:
+    ##VERIFY_RSD:
     When I click on the link labeled "Record Status Dashboard"
     Then I should see a table header and rows containing the following values in the record status dashboard table:
       | Record ID |
       | 3         |
       | 1-1       |
 
-        ##VERIFY_FR:
+    ##VERIFY_FR:
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should see a table header and rows containing the following values in a table:
@@ -211,19 +211,19 @@ Feature: User Interface: The system shall provide the ability to restrict a user
 
     And I logout
 
-        ##ACTION: Another user from same DAG has access to same DAG records
+    ##ACTION: Another user from same DAG has access to same DAG records
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.2.10.400.100"
 
-        ##VERIFY_RSD:
+    ##VERIFY_RSD:
     When I click on the link labeled "Record Status Dashboard"
     Then I should see a table header and rows containing the following values in the record status dashboard table:
       | Record ID       |
       | 1-1  TestGroup1 |
       | 3  TestGroup1   |
 
-        ##VERIFY_FR:
+    ##VERIFY_FR:
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should see a table header and rows containing the following values in a table:
@@ -231,31 +231,31 @@ Feature: User Interface: The system shall provide the ability to restrict a user
       | 1-1    | Consent (Event Three (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       |
     And I logout
 
-        ##ACTION: Separate User DAG
+    ##ACTION: Separate User DAG
     Given I login to REDCap with the user "Test_User4"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.2.10.400.100"
 
-        ##VERIFY
+    ##VERIFY
     When I click on the link labeled "Add / Edit Records"
     And I select "4" on the dropdown field labeled "Choose an existing Record ID"
     Then I should see "Record Home Page"
 
-        ##ACTION: Add record while in a DAG
+    ##ACTION: Add record while in a DAG
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Then I should see "Record Home Page"
 
-        ##ACTION: Add record while in a DAG
+    ##ACTION: Add record while in a DAG
     Given I click the bubble to select a record for the "Text Validation" longitudinal instrument on event "Event 1"
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     And I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event Three"
 
-        #This opens the survey
+    #This opens the survey
     When I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
 
-        #On the survey
+    #On the survey
     Then I should see "Consent"
     And I should see "Please complete the survey below."
 
@@ -271,14 +271,14 @@ Feature: User Interface: The system shall provide the ability to restrict a user
     Given I click on the button labeled "Leave without saving changes"
 
 
-        ##VERIFY_RSD:
+    ##VERIFY_RSD:
     When I click on the link labeled "Record Status Dashboard"
     Then I should see a table header and rows containing the following values in the record status dashboard table:
       | Record ID       |
       | 2-1  TestGroup2 |
       | 4  TestGroup2   |
 
-        ##VERIFY_FR:
+    ##VERIFY_FR:
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should see a table header and rows containing the following values in a table:
@@ -286,19 +286,19 @@ Feature: User Interface: The system shall provide the ability to restrict a user
       | 2-1    | Consent (Event Three (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       |
     And I logout
 
-        ##ACTION: Another user from same DAG has access to same DAG records
+    ##ACTION: Another user from same DAG has access to same DAG records
     Given I login to REDCap with the user "Test_User2"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.2.10.400.100"
 
-        ##VERIFY_RSD:
+    ##VERIFY_RSD:
     When I click on the link labeled "Record Status Dashboard"
     Then I should see a table header and rows containing the following values in the record status dashboard table:
       | Record ID       |
       | 2-1  TestGroup2 |
       | 4  TestGroup2   |
 
-        ##VERIFY_FR:
+    ##VERIFY_FR:
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should see a table header and rows containing the following values in a table:

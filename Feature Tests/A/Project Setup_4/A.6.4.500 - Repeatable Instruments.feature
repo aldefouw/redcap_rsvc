@@ -4,12 +4,12 @@ Feature: Control Center: The system shall support the option to limit adding or 
   I want to see that repeatable function is functioning as expected
 
   Scenario: A.6.4.500.100 User's ability to add or modify repeatable instrument while in production mode
-            #SETUP_PROJECT
+        #SETUP_PROJECT
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "A.6.4.500.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     When I click on the link labeled "My Projects"
     And I click on the link labeled "A.6.4.500.100"
-            #SETUP_USER
+        #SETUP_USER
     And I click on the link labeled "User Rights"
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
@@ -18,7 +18,7 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     Then I should see "Test User1" within the "1_FullRights" row of the column labeled "Username" of the User Rights table
 
-            #SETUP_PRODUCTION
+        #SETUP_PRODUCTION
     Given I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
@@ -26,8 +26,8 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     Then I should see Project status: "Production"
 
-            #FUNCTIONAL REQUIREMENT - Only admins can modify repeating instance setup in production
-            #SETUP_CONTROL_CENTER
+        #FUNCTIONAL REQUIREMENT - Only admins can modify repeating instance setup in production
+        #SETUP_CONTROL_CENTER
     When I click on the link labeled "Control Center"
     And I click on the link labeled "User Settings"
 
@@ -40,20 +40,20 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     Given I logout
 
-            #FUNCTIONAL REQUIREMENT
-            #User unable to see repeatable instruments
+        #FUNCTIONAL REQUIREMENT
+        #User unable to see repeatable instruments
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "A.6.4.500.100"
     And I click on the link labeled "Project Setup"
 
     Then I should see a button labeled "Modify" on the field labeled "Repeating instruments and events"
-            #And I should see that I am unable to click on Modify
+        #And I should see that I am unable to click on Modify
 
     Given I logout
 
-            #FUNCTIONAL REQUIREMENT - normal users can modify the repeating instance setup in production
-            #SETUP_CONTROL_CENTER
+        #FUNCTIONAL REQUIREMENT - normal users can modify the repeating instance setup in production
+        #SETUP_CONTROL_CENTER
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "A.6.4.500.100"
@@ -69,8 +69,8 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     Given I logout
 
-            #FUNCTIONAL REQUIREMENT
-            #User modifies repeat instrument
+        #FUNCTIONAL REQUIREMENT
+        #User modifies repeat instrument
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "A.6.4.500.100"
@@ -89,14 +89,14 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     Given I click on the button labeled "Close" in the dialog box
 
-            ##VERIFY_LOG
+        ##VERIFY_LOG
     And I click on the link labeled "Logging"
 
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data ChangesOR Fields Exported |
       | test_user1 | Manage/Design | Set up repeating instruments/events    |
 
-            #Verify record home page
+        #Verify record home page
     When I click on the link labeled "Add / Edit Records"
     And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
     And I click the bubble to select a record for the "Survey" longitudinal instrument on event "Event Three"
@@ -105,7 +105,7 @@ Feature: Control Center: The system shall support the option to limit adding or 
     And I enter "MyOtherName" into the data entry form field labeled "Name"
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
 
-            ##VERIFY_DE
+        ##VERIFY_DE
     Given I click on the link labeled "Data Exports, Reports, and Stats"
 
     Then I see a table row containing the following values in the reports table:
@@ -119,8 +119,8 @@ Feature: Control Center: The system shall support the option to limit adding or 
       | 1         | Event Three (Arm 1: Arm 1) | Survey            | 2               | Name MyOtherName |
     And I should NOT see "Data Types"
 
-            #FUNCTIONAL REQUIREMENT
-            #User deletes repeatable instance
+        #FUNCTIONAL REQUIREMENT
+        #User deletes repeatable instance
     Given I click on the link labeled "Add / Edit Records"
     And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
     And I click the bubble to select a record for the "Survey" longitudinal instrument on event "Event Three" instance "2"
@@ -132,8 +132,8 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     Then I should NOT see "(#2)"
 
-            #FUNCTIONAL REQUIREMENT
-            #User modifies repeat instrument to capture orphaned data
+        #FUNCTIONAL REQUIREMENT
+        #User modifies repeat instrument to capture orphaned data
     Given I click on the link labeled "Project Setup"
 
     Then I should see "Repeating instruments and events"
@@ -149,14 +149,14 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     When I click on the button labeled "Close" in the dialog box
 
-            ##VERIFY_LOG
+        ##VERIFY_LOG
     When I click on the link labeled "Logging"
 
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data ChangesOR Fields Exported |
       | test_user1 | Manage/Design | Set up repeating instruments/events    |
 
-            #Verify record home page
+        #Verify record home page
     Given I click on the link labeled "Add / Edit Records"
     And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
     And I click the bubble to select a record for the "Survey" longitudinal instrument on event "Event Three"
@@ -172,7 +172,7 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     Then I see "Current instance:"
 
-            ##VERIFY_DE
+        ##VERIFY_DE
     Given I click on the link labeled "Data Exports, Reports, and Stats"
 
     Then I see a table row containing the following values in the reports table:
@@ -184,8 +184,8 @@ Feature: Control Center: The system shall support the option to limit adding or 
       | Event 2 (Arm 1: Arm 1) |  | 1 |  |  | Name | email@test.edu | Unverified |
     And I should NOT see "MyOtherName"
 
-            #FUNCTIONAL REQUIREMENT
-            #User modifies repeat event
+        #FUNCTIONAL REQUIREMENT
+        #User modifies repeat event
     When I click on the link labeled "Project Setup"
     And I open the dialog box for the Repeatable Instruments and Events module
     And I close the popup
@@ -197,7 +197,7 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     Given I click on the button labeled "Close" in the dialog box
 
-            ##VERIFY_LOG
+        ##VERIFY_LOG
     And I click on the link labeled "Logging"
 
     Then I should see a table header and rows containing the following values in the logging table:
@@ -205,7 +205,7 @@ Feature: Control Center: The system shall support the option to limit adding or 
       | test_user1 | Manage/Design | Set up repeating instruments/events    |
 
 
-            #Verify record home page
+        #Verify record home page
     Given I click on the link labeled "Add / Edit Records"
     And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
 
@@ -221,7 +221,7 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     Then I should see "(#2)"
 
-            ##VERIFY_DE
+        ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     And I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -229,8 +229,8 @@ Feature: Control Center: The system shall support the option to limit adding or 
     Then I should see a table row containing the following values in the report data table:
       | Event Three (Arm 1: Arm 1) | My repeat event name |
 
-            #FUNCTIONAL REQUIREMENT
-            #User modifies repeat event to see orphaned event
+        #FUNCTIONAL REQUIREMENT
+        #User modifies repeat event to see orphaned event
     When I click on the link labeled "Project Setup"
     And I open the dialog box for the Repeatable Instruments and Events module
     And I close the popup
@@ -242,7 +242,7 @@ Feature: Control Center: The system shall support the option to limit adding or 
 
     Given I click on the button labeled "Close" in the dialog box
 
-            ##VERIFY_DE
+        ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
 
     Then I see a table row containing the following values in the reports table:
@@ -254,8 +254,8 @@ Feature: Control Center: The system shall support the option to limit adding or 
     And I should see "" within the "Event Three (Arm 1: Arm 1)" row of the column labeled "Repeat Instance" of the Reports table
     And I should NOT see "My repeat event name"
 
-            #FUNCTIONAL REQUIREMENT
-            #User deletes repeatable event
+        #FUNCTIONAL REQUIREMENT
+        #User deletes repeatable event
     Given I click on the link labeled "Add / Edit Records"
     And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
     And I click the X to delete all data related to the event named "Event 2"

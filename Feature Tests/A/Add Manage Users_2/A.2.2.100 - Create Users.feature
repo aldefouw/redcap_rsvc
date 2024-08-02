@@ -4,8 +4,8 @@ Feature: A.2.2.100 Add/Manage users Control Center - Users: The system shall sup
   I want to see that Add / Manage Users is functioning as expected
 
   Scenario: A.2.2.100.100 Create Users
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: A.2.2.100.200 Create a Table-based user
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: A.2.2.100.200 Create a Table-based user
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Add Users (Table-based Only)"
@@ -20,11 +20,11 @@ Feature: A.2.2.100 Add/Manage users Control Center - Users: The system shall sup
     Then I should see "User has been successfully saved."
     And I should see "An email with login information was sent to: Test_User1@redcap.edu"
 
-        # Reset password through email link
-        # leader will handle password change feature test
+    # Reset password through email link
+    # leader will handle password change feature test
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: A.2.2.100.300 Create Table-based users via bulk upload
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: A.2.2.100.300 Create Table-based users via bulk upload
     When I click on the link labeled "Control Center"
     And I click on the link labeled "Add Users (Table-based Only)"
     Then I should see "User Management for Table-based Authentication"
@@ -36,11 +36,11 @@ Feature: A.2.2.100 Add/Manage users Control Center - Users: The system shall sup
     And I should see "Test_User3"
     And I should see "Test_User4"
 
-        # Reset password through email link
-        # leader will handle password change feature test
+    # Reset password through email link
+    # leader will handle password change feature test
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: A.2.2.100.400 Prevent a Second User with the Same Username
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: A.2.2.100.400 Prevent a Second User with the Same Username
 
     When I click on the link labeled "Control Center"
     And I click on the link labeled "Add Users (Table-based Only)"
@@ -54,8 +54,8 @@ Feature: A.2.2.100 Add/Manage users Control Center - Users: The system shall sup
     And I click on the button labeled "Save"
     Then I should see "ERROR: The user could not be added!"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: A.2.2.100.500 Search a Table-based user
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: A.2.2.100.500 Search a Table-based user
 
     When I click on the link labeled "Control Center"
     And I click on the link labeled "Browse Users"
@@ -65,8 +65,8 @@ Feature: A.2.2.100 Add/Manage users Control Center - Users: The system shall sup
     And I click on the button labeled "Search"
     Then I should see "Test_User1"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: System-level User Settings
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: System-level User Settings
     When I click on the link labeled "User Settings"
     Then I should see "System-level User Settings"
 
@@ -77,21 +77,21 @@ Feature: A.2.2.100 Add/Manage users Control Center - Users: The system shall sup
 
     When I logout
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: A.2.2.100.600 User has no control center access
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: A.2.2.100.600 User has no control center access
     Given I login to REDCap with the user "Test_User1"
     Then I should NOT see "Control Center"
     And I should see "New Project"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##VERIFY: Admin only can make project
+    #FUNCTIONAL_REQUIREMENT
+    ##VERIFY: Admin only can make project
     When I create a new project named "A.2.2.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     And I click on the button labeled "I Agree" in the dialog box
     Then I should see "Request Sent"
     When I logout
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: System-level User Settings
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: System-level User Settings
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     When I click on the link labeled "User Settings"
@@ -104,13 +104,13 @@ Feature: A.2.2.100 Add/Manage users Control Center - Users: The system shall sup
 
     When I logout
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: User can make new project without admin
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: User can make new project without admin
     Given I login to REDCap with the user "Test_User1"
     Then I should see "New Project"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##VERIFY: User can make project
+    #FUNCTIONAL_REQUIREMENT
+    ##VERIFY: User can make project
     When I create a new project named "A.2.2.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     And I click on the button labeled "I Agree" in the dialog box
     Then I should see "Project Setup"

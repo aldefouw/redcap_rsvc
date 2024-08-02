@@ -5,19 +5,19 @@ Feature: User Interface: The system shall support ranges for the following data 
 
   Scenario: B.4.8.300.100 Field range validation
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_User1"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.4.8.300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_4.8.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see Project status: "Production"
 
-        ##VERIFY_CODEBOOK
+    ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     And I click on the button labeled "Expand all instruments"
     Then I should see a table header and rows containing the following values in the codebook table:
@@ -34,8 +34,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | [time_mm_ss]          | Time MM:SS        | text (time_mm_ss, Min: 02:01, Max: 59:00)                                       |
       | [time_hhmmss]         | Time HH:MM:SS     | text (time_hh_mm_ss, Min: 8:01:01, Max: 23:00:00)                               |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation within range text
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation within range text
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble labeled "Date Types" for event "Event 1"
@@ -54,8 +54,8 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I click the button labeled "Save and Exit Form"
     Then I should see "Record ID 5 successfully added."
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble labeled "Date Types" for event "Event 1"
@@ -103,8 +103,8 @@ Feature: User Interface: The system shall support ranges for the following data 
     Then I should see "Record ID 6 successfully added."
         
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble labeled "Date Types" for event "Event 1"
@@ -151,7 +151,7 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I click the button labeled "Save and Exit Form"
     Then I should see "Record ID 7 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table row containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes                      |

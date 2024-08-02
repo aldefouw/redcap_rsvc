@@ -5,19 +5,19 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
 
   Scenario: B.3.15.1200.100 Deletion of meta data includes deletion of survey information and function
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_User1"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.3.15.1200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project status: Production"
 
-        #SETUP: DESIGNER
+    #SETUP: DESIGNER
     Given I click on the link labeled "Designer"
     And I click on the button labeled "Enable" for the instrument labeled "Text Validation"
     And I click on the button labeled "Save Changes"
@@ -28,7 +28,7 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved"
 
-        ##VERIFY_SDT: verifying survey link and return codes are available
+    ##VERIFY_SDT: verifying survey link and return codes are available
     Given I click on the link labeled "Survey Distribution Tools"
     And I click on the button labeled "Participant List"
     Then I should see "Text Validation" on the dropdown labeled "Participant List belonging to"
@@ -36,7 +36,7 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
     And I should see a survey access code icon for record "1"
 
 
-        ##ACTION
+    ##ACTION
     When I click on the link labeled "Record Status Dashboard"
     And I click on the bubble for the instrument labeled "Text Validation" for record "1" for event "Event 1"
     And I click on the dropdown option labeled "Open Survey" on the dropdown button labeled "Survey options"
@@ -46,7 +46,7 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
 
     Given I click on the button labeled "Close survey"
     And I click on the button labeled "Leave without saving changes" in the dialog box
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -56,8 +56,8 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
       | Record ID | Name            | Survey Timestamp |
       | 1         | B.3.15.1200.100 | mm/dd/yyyy HH:MM |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION
     When I click on the link labeled "Designer"
     And I click on the button labeled "Survey settings" for the instrument labeled "Text Validation"
     And I click on the button labeled "Delete Survey Settings"
@@ -65,7 +65,7 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
     Then I should see "Survey successfully deleted!"
     And I click on the button labeled "Close" in the dialog box
 
-        ##VERIFY_DE: confirm
+    ##VERIFY_DE: confirm
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -76,7 +76,7 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
       | 1         | B.3.15.1200.100 |
     And I should NOT see "text_validation_timestamp"
 
-        ##VERIFY_SDT: verifying survey link and return codes are NOT available
+    ##VERIFY_SDT: verifying survey link and return codes are NOT available
     Given I click on the link labeled "Survey Distribution Tools"
     And I click on the button labeled "Participant List"
     Then I should NOT see "Text Validation" on the dropdown labeled "Participant List belonging to"

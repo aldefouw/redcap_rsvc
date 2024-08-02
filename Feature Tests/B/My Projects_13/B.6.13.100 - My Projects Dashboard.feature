@@ -4,7 +4,7 @@ Feature: User Interface: The system shall support a My Project dashboard page co
   I want to see that My Project is functioning as expected
 
   Scenario:  B.6.13.100.100 My Project dashboard
-        #FUNCTIONAL_REQUIREMENT
+    #FUNCTIONAL_REQUIREMENT
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
     Then I should see "Project Title"

@@ -4,7 +4,7 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
   I want to see that file repository is functioning as expected
 
   Scenario: C.3.26.100.100 Enable/Disable file repository public links via Control Center
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "A.3.26.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     And I click on the link labeled "My Projects"
@@ -14,21 +14,21 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
     And I click on the button labeled "Auto-Archiver enabled + e-Consent Framework"
     And I click the button labeled "Save Changes"
 
-        ##SETUP_PRODUCTION
+    ##SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project status:  Production"
 
-        ##ACTION Upload to top tier file repo (all users will see file) - using the Select files to upload button
+    ##ACTION Upload to top tier file repo (all users will see file) - using the Select files to upload button
     When I click on the link labeled "File Repository"
     And I upload a "csv" format file located at "import_files/testusers_bulk_upload.csv", by clicking the button near "Select files to upload" to browse for the file, and clicking the button labeled "Open" to upload the file
-        ##VERIFY_FiRe file uploaded in folder
+    ##VERIFY_FiRe file uploaded in folder
     Then I should see "testusers_bulk_upload.csv"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: Disable File Repository Module
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: Disable File Repository Module
     When I click on the link labeled "Control Center"
     And I click on the link labeled "File Upload Settings "
     Then I should see "Configuration Options for Various Types of Stored Files"
@@ -36,9 +36,9 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
     When I select the dropdown option labeled "Disabled" on the dropdown field labeled "File Repository: Users are able to share files via public links"
     And I click on the button labeled "Save Changes"
 
-        ##VERIFY File Repository Module Disabled
+    ##VERIFY File Repository Module Disabled
     Then I should see "Your system configuration values have now been changed!"
-        ##VERIFY Project settings share ability in File Repository
+    ##VERIFY Project settings share ability in File Repository
     When I click on the link labeled "My Projects"
     And I click on the link labeled "A.3.26.100.100"
     And I click on the link labeled "File Repository."
@@ -46,16 +46,16 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
     Then I should see "Send the file securely using Send-It"
     And I should NOT see "Share a public link to view the file"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: Enable File Repository Module
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: Enable File Repository Module
     When I click on the link labeled "Control Center"
     And I click on the link labeled "File Upload Settings"
     And I select the dropdown option labeled "Enabled" on the dropdown field labeled "File Repository: Users are able to share files via public links"
     And I select the button "Save Changes"
-        ##VERIFY File Repository Module Enabled
+    ##VERIFY File Repository Module Enabled
     Then I should see "Your system configuration values have now been changed!"
 
-        ##VERIFY Project settings shareability in File Repository
+    ##VERIFY Project settings shareability in File Repository
     When I click on the link labeled "My Projects"
     And I click on the link labeled "A.3.26.100.100"
     And I click on the link labeled "File Repository."

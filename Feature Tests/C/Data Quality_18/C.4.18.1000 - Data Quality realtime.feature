@@ -5,19 +5,19 @@ Feature: User Interface: The system shall support the ability to run custom data
 
   Scenario: C.4.18.1000.100 Real-time rule execution
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "C.4.18.1000.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_418.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project status: Production"
 
-        #SETUP_PRODUCTION: Rule Creation
+    #SETUP_PRODUCTION: Rule Creation
     When I click on the link labeled "Data Quality"
     Then I should see "Data Quality Rules"
 
@@ -30,8 +30,8 @@ Feature: User Interface: The system shall support the ability to run custom data
       | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) | Real-time execution |
       | 3      | Integer   | [integer]<>'1999'                        | Enabled             |
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: System shall support the ability to run custom data quality rules real time
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: System shall support the ability to run custom data quality rules real time
     When I click the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble labeled "Data Types" for event "Event 1"

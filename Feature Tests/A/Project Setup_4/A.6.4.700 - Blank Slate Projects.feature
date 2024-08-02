@@ -10,11 +10,11 @@ Feature: A.6.4.700 Manage project creation, deletion, and settings. User Interfa
     And I select "Practice / Just for fun" on the dropdown field labeled "Project's purpose"
     And I click on the radio labeled "Empty project (blank slate)"
     And I click on the button labeled "Create Project"
-        # #############################################################################################################
-        # ATS Note: Below steps do not appear unless custom message is configured in Control Center so leaving them out
-        # Then I should see "You are now creating a test project"
-        # And I click on the button labeled "I Agree" in the dialog box
-        # #############################################################################################################
+    # #############################################################################################################
+    # ATS Note: Below steps do not appear unless custom message is configured in Control Center so leaving them out
+    # Then I should see "You are now creating a test project"
+    # And I click on the button labeled "I Agree" in the dialog box
+    # #############################################################################################################
     Then I should see "A.6.4.700.100"
     And I should see "Project Home"
-        #End
+    #End

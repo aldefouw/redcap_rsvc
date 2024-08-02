@@ -4,30 +4,30 @@ Feature: User Interface: The system shall allow for the creation of DAGs and the
   I want to see that Data Access Groups is functioning as expected
 
   Scenario: B.2.10.100.100 Create, Edit & Delete DAGs
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.2.10.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
     When I click on the link labeled "DAGs"
     Then I should see "Assign user to a group"
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION: Create DAG
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION: Create DAG
     When I enter "TestGroup3" into the "Enter new group name" input field
     And I click on the button labeled "Add Group"
-        ##VERIFY
+    ##VERIFY
     Then I should see "TestGroup3"
 
-        ##ACTION: Edit DAG
+    ##ACTION: Edit DAG
     When I click on the link labeled "TestGroup3"
     And I enter "RenameGroup3" into "Group name" the input field
-        ##VERIFY
+    ##VERIFY
     Then I should see "RenameGroup3"
 
-        ##ACTION: Delete DAG
+    ##ACTION: Delete DAG
     When I click delete icon for the DAG labeled "RenameGroup3"
     And I click on the button labeled "Delete" in the dialog box
-        ##VERIFY
+    ##VERIFY
     Then I should see "Data Access Group 'RenameGroup3' has been deleted!"
     And I should NOT see "RenameGroup3"
 #End

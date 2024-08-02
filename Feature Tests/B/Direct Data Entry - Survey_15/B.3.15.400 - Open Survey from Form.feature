@@ -4,20 +4,20 @@ Feature: User Interface: Survey Distribution: The system shall provide a survey 
   I want to see that Survey Distribution is functioning as expected
 
   Scenario: B.3.15.400.100 Open survey mode
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_User1"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.3.15.400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project status: Production"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Open survey
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Open survey
     Given I click the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble for the "Survey" longitudinal instrument on event "Event Three"
@@ -31,8 +31,8 @@ Feature: User Interface: Survey Distribution: The system shall provide a survey 
     And I click on the button labeled "Close survey"
 
     Given I click on the button labeled "Leave without saving changes"
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Log out + Open survey
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Log out + Open survey
     When I click the link labeled "Add/Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble for the "Survey" longitudinal instrument on event "Event Three"
@@ -45,7 +45,7 @@ Feature: User Interface: Survey Distribution: The system shall provide a survey 
     Then I should see "Thank you for taking this survey"
     And I click on the button labeled "Close survey"
 
-        ##VERIFY_LOG:
+    ##VERIFY_LOG:
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.3.15.400.100"

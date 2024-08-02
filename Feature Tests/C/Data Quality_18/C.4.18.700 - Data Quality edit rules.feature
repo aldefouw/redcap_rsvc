@@ -5,18 +5,18 @@ Feature: User Interface: The system shall support editing of user defined rules.
 
   Scenario: C.4.18.700.100 Edit rule
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_User1"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "C.4.18.700.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project418.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
 
-        #USER_RIGHTS
+    #USER_RIGHTS
     When I click on the link labeled "User Rights"
     And I click on the link labeled "Test_User1"
     And I click on the button labeled "Edit User Privileges"
@@ -25,8 +25,8 @@ Feature: User Interface: The system shall support editing of user defined rules.
     And I click on the button labeled "Save Changes"
     Then I should see "User "test_user1" was successfully edited"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: Manual rule add
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: Manual rule add
     When I click on the link labeled "Data Quality"
     Then I should see "Data Quality Rules"
 
@@ -34,13 +34,13 @@ Feature: User Interface: The system shall support editing of user defined rules.
     And I enter "[integer]='1'" for the field labeled "Logic Editor"
     And I click on the button labeled "Update & Close Editor" in the dialog box
     And I click on the button labeled "Add"
-        ##VERIFY
+    ##VERIFY
     Then I should see a table header and rows including the following values in the Data Quality Rules table:
       | Rule # | Rule Name | Rule Logic (Show discrepancy only if...) |
       | 3      | Integer   | [integer]='1'                            |
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION executing rule
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION executing rule
     When I click on the button labeled "All" in the Data Quality Rules controller box
     Then I should see a table header and rows containing the following values in the data quality report table:
       | Rule # | Rule Name                                                                 | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
@@ -57,8 +57,8 @@ Feature: User Interface: The system shall support editing of user defined rules.
       | 2      | [ptname]<>[name]                                                          | [ptname]<>[name]                         | 8 export            | view |
       | 3      | Integer                                                                   | [integer]='1'                            | 6 export            | view |
 
-        #USER_RIGHTS
-        ##ACTION: change rights-cannot create rules
+    #USER_RIGHTS
+    ##ACTION: change rights-cannot create rules
     When I click on the link labeled "User Rights"
     And I click on the link labeled "Test_User1"
     And I click on the button labeled "Edit User Privileges"
@@ -66,8 +66,8 @@ Feature: User Interface: The system shall support editing of user defined rules.
     And I click on the button labeled "Save Changes"
     Then I should see "User "test_user1" was successfully edited"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: cannot add rule and can execute rules
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: cannot add rule and can execute rules
     When I click on the link labeled "Data Quality"
     Then I should see "Data Quality Rules"
     And I should NOT see a button labeled "Add"
@@ -88,8 +88,8 @@ Feature: User Interface: The system shall support editing of user defined rules.
       | 2      | [ptname]<>[name]                                                          | [ptname]<>[name]                         | 8 export            | view |
       | 3      | Integer                                                                   | [integer]='1'                            | 6 export            | view |
 
-        #USER_RIGHTS
-        ##ACTION: change rights - cannot execute rules
+    #USER_RIGHTS
+    ##ACTION: change rights - cannot execute rules
     When I click on the link labeled "User Rights"
     And I click on the link labeled "test_user1"
     And I click on the button labeled "Edit User Privileges"
@@ -98,8 +98,8 @@ Feature: User Interface: The system shall support editing of user defined rules.
     And I click on the button labeled "Save Changes"
     Then I should see "User "test_user1" was successfully edited"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: can add rule and cannot execute rules
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: can add rule and cannot execute rules
     When I click on the link labeled "Data Quality"
     Then I should see "Data Quality Rules"
     And I should see a button labeled "Add"

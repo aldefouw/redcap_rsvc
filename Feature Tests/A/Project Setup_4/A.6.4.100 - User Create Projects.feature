@@ -4,22 +4,22 @@ Feature: A.6.4.100 Manage project creation, deletion, and settings.   Control Ce
   I want to see that manage project functions is functioning as expected
 
   Scenario: A.6.4.100.100 User's ability to create new projects
-        #SETUP_CONTROL_CENTER
+    #SETUP_CONTROL_CENTER
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "User Settings"
     Then I should see "System-level User Settings"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION Admin only can make project
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION Admin only can make project
     When I select "No, only Administrators can create new projects" on the dropdown field labeled "Allow normal users to create new projects?"
     And I click on the button labeled "Save Changes"
     Then I should see "Your system configuration values have now been changed!"
 
-        # Manual tester skips next step.
-        # BEGIN: STEPS FOR ATS
-        # - EMAIL ADDRESS SET FOR REDCAP ADMIN - without it, project request behavior does not work properly
-        # - CUSTOM MESSAGE SET - Makes the dialog box pop up when requesting a project
+    # Manual tester skips next step.
+    # BEGIN: STEPS FOR ATS
+    # - EMAIL ADDRESS SET FOR REDCAP ADMIN - without it, project request behavior does not work properly
+    # - CUSTOM MESSAGE SET - Makes the dialog box pop up when requesting a project
     Given I click on the link labeled "General Configuration"
     Then I should see "General Configuration"
 
@@ -27,11 +27,11 @@ Feature: A.6.4.100 Manage project creation, deletion, and settings.   Control Ce
     And I enter "You are now creating a test project" into the textarea field labeled "Custom message when creating/copying project"
     And I click on the button labeled "Save Changes"
     Then I should see "Your system configuration values have now been changed"
-        # END: STEPS FOR ATS ###
+    # END: STEPS FOR ATS ###
 
     Given I logout
 
-        ##VERIFY User can create new project with request to Admin
+    ##VERIFY User can create new project with request to Admin
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "A.6.4.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Send Request" button
     And I click on the button labeled "I Agree" in the dialog box
@@ -39,8 +39,8 @@ Feature: A.6.4.100 Manage project creation, deletion, and settings.   Control Ce
 
     Given I logout
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION Normal user can make new project
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION Normal user can make new project
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "User Settings"
@@ -52,9 +52,9 @@ Feature: A.6.4.100 Manage project creation, deletion, and settings.   Control Ce
 
     Given I logout
 
-        ##VERIFY User can create new project without request
+    ##VERIFY User can create new project without request
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "A.6.4.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     And I click on the button labeled "I Agree" in the dialog box
     Then I should see "Your new REDCap project has been created"
-        #End
+    #End

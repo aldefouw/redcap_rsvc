@@ -5,10 +5,10 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
 
   Scenario: B.2.6.100.100 Project level User Rights functions (Add, Edit, Expire, Remove)
 
-        #SETUP
+    #SETUP
 
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.2.6.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     And I click on the link labeled "My Projects"
     And I click on the link labeled "B.2.6.100.100"
@@ -18,8 +18,8 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I see "Project status: Production"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION: Add User with Basic custom rights
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION: Add User with Basic custom rights
 
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the input field labeled "Add with custom rights"
@@ -50,21 +50,21 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
     And I uncheck the User Right named "Lock/Unlock *Entire* Records (record level) "
     And I uncheck the User Right named "REDCap Mobile App - Allow users to collect data offline in the mobile app"
     And I save changes within the context of User Rights
-        ##VERIFY_LOG: Verify Update user rights
+    ##VERIFY_LOG: Verify Update user rights
     And I click on the button labeled "Logging"
     Then I should see a table header and rows including the following values in the logging table:
       | Username   | Action   | List of Data Changes OR Fields Exported |
       | test_admin | Add User | test_user1                              |
 
-        ##ACTION #CROSS-FEATURE B.2.23.100: Verify Logging Filter by user name
+    ##ACTION #CROSS-FEATURE B.2.23.100: Verify Logging Filter by user name
     When I select the "test_admin" on the dropdown field labeled "Filter by username"
-        ##VERIFY_LOG #CROSS-FEATURE: Verify Logging Filter by user name
+    ##VERIFY_LOG #CROSS-FEATURE: Verify Logging Filter by user name
     Then I should see a table header and rows including the following values in the logging table:
       | Username   | Action   | List of Data Changes OR Fields Exported |
       | test_admin | Add User | test_user1                              |
     Given I logout
 
-        ##VERIFY: Verify User with Basic custom rights
+    ##VERIFY: Verify User with Basic custom rights
     Given I login to REDCap with the user "Test_User1"
     Then I should see "Logged in as test_user1"
 
@@ -94,7 +94,7 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
     And I should NOT see a link labeled "REDCap Mobile App"
     Given I logout
 
-        ##ACTION: Edit User to full custom rights
+    ##ACTION: Edit User to full custom rights
 
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "My Projects"
@@ -132,14 +132,14 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
     And I check the User Right named "REDCap Mobile App - Allow user to download data for all records to the app?"
     And I save changes within the context of User Rights
 
-        ##VERIFY_LOG: Verify Update user rights
+    ##VERIFY_LOG: Verify Update user rights
     And I click on the button labeled "Logging"
     Then I should see a table header and rows including the following values in the logging table:
       | Username   | Action      | List of Data Changes OR Fields Exported |
       | test_admin | Update user | test_user1                              |
     Given I logout
 
-        ##VERIFY: Verify User with full custom rights
+    ##VERIFY: Verify User with full custom rights
 
     Given I login to REDCap with the user "Test_User1"
     Then I should see "Logged in as test_user1"
@@ -172,20 +172,20 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
     And I should see a link labeled "REDCap Mobile App"
     And I logout
 
-        ##ACTION: Expire User
+    ##ACTION: Expire User
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "B.2.6.100.100"
     And I click on the link labeled "User Rights"
     And I assign an expired expiration date to user "Test User1" with username of "test_user1"
-        ##VERIFY_LOG: Verify Expire User
+    ##VERIFY_LOG: Verify Expire User
     And I click on the button labeled "Logging"
     Then I should see a table header and rows including the following values in the logging table:
       | Username   | Action                  | List of Data Changes OR Fields Exported |
       | test_admin | Updated User Expiration | test_user1                              |
     Given I logout
 
-        ##VERIFY: Verify User access to project
+    ##VERIFY: Verify User access to project
 
     Given I login to REDCap with the user "Test_User1"
     Then I should see "Logged in as test_user1"
@@ -196,22 +196,22 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
     When I click on the link labeled "Return to My Projects page"
     And I logout
 
-        ##ACTION: Remove expiration for User
+    ##ACTION: Remove expiration for User
 
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "B.2.6.100.100"
     And I click on the link labeled "User Rights"
     And I remove the expiration date to user "Test User1" with username of "test_user1"
-        #The Expiration column shows 'never' for "Test_User1"
-        ##VERIFY_LOG: Verify Update user Expiration
+    #The Expiration column shows 'never' for "Test_User1"
+    ##VERIFY_LOG: Verify Update user Expiration
     And I click on the button labeled "Logging"
     Then I should see a table header and rows including the following values in the logging table:
       | Username   | Action                  | List of Data Changes OR Fields Exported |
       | test_admin | Updated User Expiration | test_user1                              |
     Given I logout
 
-        ##VERIFY: Verify User access to project
+    ##VERIFY: Verify User access to project
 
     Given I login to REDCap with the user "Test_User1"
     Then I should see "Logged in as test_user1"
@@ -220,7 +220,7 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
     Then I should see a link labeled "Project Home"
     Given I logout
 
-        ##ACTION: Remove User from project
+    ##ACTION: Remove User from project
 
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "My Projects"
@@ -234,7 +234,7 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
     Then I should see a dialog containing the following text: "Remove user?"
     And I click on the button labeled "Remove user" in the dialog box
 
-        ##VERIFY_LOG: Verify Logging of Delete user
+    ##VERIFY_LOG: Verify Logging of Delete user
     When I click on the link labeled "Logging"
     Then I should see a table header and rows including the following values in the logging table:
       | Username   | Action                  | List of Data Changes OR Fields Exported |
@@ -242,7 +242,7 @@ Feature: Project Level: The system shall allow the ability to add, edit or delet
       | test_admin | Updated User Expiration | test_user1                              |
     Given I logout
 
-        ##VERIFY: Verify User has no access to project
+    ##VERIFY: Verify User has no access to project
 
     Given I login to REDCap with the user "Test_User1"
     Then I should see "My Projects"

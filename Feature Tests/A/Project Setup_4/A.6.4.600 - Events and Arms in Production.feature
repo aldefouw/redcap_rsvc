@@ -4,7 +4,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
   I want to see that manage project is functioning as expected
 
   Scenario: A.6.4.600.100 User's ability to add or modify events and arms while in production mode
-        #SETUP_CONTROL_CENTER
+    #SETUP_CONTROL_CENTER
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "User Settings"
@@ -12,10 +12,10 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
     And I click on the button labeled "Save Changes"
     Then I should see "Your system configuration values have now been changed!"
 
-        #SETUP_DEV
+    #SETUP_DEV
     When I create a new project named "A.6.4.600.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_USER
+    #SETUP_USER
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
@@ -24,8 +24,8 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
     Then I should see "Test User1" within the "1_FullRights" row of the column labeled "Username" of the User Rights table
     Given I logout
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - User Adds new arm in Development mode
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - User Adds new arm in Development mode
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "Project Setup"
     And I click on the button labeled "Define My Events"
@@ -42,7 +42,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
 
     Then I should see "Event 1" in the define events table
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
 
     Then I should see table header and rows containing the following values in the logging table:
@@ -50,8 +50,8 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
       | test_user1 | Manage/Design | Create event (Event: Event 1, Arm: Arm 3, Days Offset: 0, Offset Range: -0/+0) |
       | test_user1 | Manage/Design | Create arm (Arm 3: Arm 3)                                                      |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - User Rename Arm in Development mode
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - User Rename Arm in Development mode
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Define My Events"
     And I click on the link labeled "Arm Two"
@@ -62,13 +62,13 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
     Then I should see "Arm name: Arm 2"
 
     When I click on the Edit image for the event named "Event 1"
-        #And I change the current Event Name from "Event 1" to "Event One"
+    #And I change the current Event Name from "Event 1" to "Event One"
     And I clear field and enter "Event One" into the input field labeled "1"
     And I click on the button labeled "Save"
 
     Then I should see "Event One"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
 
     Then I should see table header and rows containing the following values in the logging table:
@@ -76,15 +76,15 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
       | test_user1 | Manage/Design | Edit event (Event: Event One, Arm: Arm 1, Days Offset: 1, Offset Range: -0/+0 |
       | test_user1 | Manage/Design | Edit arm name/number (Arm 2: Arm 2)                                           |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - User Adds event with days offset in development mode
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - User Adds event with days offset in development mode
     Given I click on the link labeled "Project Setup"
     And I click on the button labeled "Define My Events"
     And I click on the link labeled "Arm 1"
     And I add an event named "Event 4" with offset of 4 days into the currently selected arm
     Then I should see "Event 4" in the define events table
 
-        #VERIFY_RSD
+    #VERIFY_RSD
     When I click on the link labeled "Record Status Dashboard"
     Then I should see "Arm 3: Arm 3"
     And I should see "Arm 2: Arm 2"
@@ -95,8 +95,8 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
     When I click on the link labeled "Arm 1"
     Then I should see "Event 4"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - User designates instruments in development mode
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - User designates instruments in development mode
     Given I click on the link labeled "Project Setup"
     When I click on the button labeled "Designate Instruments for My Events"
     And I click on the link labeled "Arm 1"
@@ -118,7 +118,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
 
     Then I verify the Data Collection Instrument named "Consent" is enabled for the Event named "Event 1"
 
-        #VERIFY_RSD
+    #VERIFY_RSD
     When I click on the link labeled "Record Status Dashboard"
     And I click on the link labeled "Arm 1"
 
@@ -128,22 +128,22 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
     When I click on the link labeled "Arm 3"
     Then I should see a Data Collection Instrument named "Consent" for the Event named "Event 1"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
 
     Then I should see table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
       | test_user1 | Manage/Design | Perform instrument-event mappings       |
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - User verifies no ability to modify events
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - User verifies no ability to modify events
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Define My Events"
 
@@ -170,7 +170,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
 
     Given I logout
 
-        #SETUP_CONTROL_CENTER
+    #SETUP_CONTROL_CENTER
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "User Settings"
@@ -181,8 +181,8 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
 
     Given I logout
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - User verifies has the ability to modify events
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - User verifies has the ability to modify events
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
@@ -201,7 +201,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
     Then I should see "Arm 4"
     And I should see "Event 1" in the define events table
 
-        ##ACTION - User renames arms and events
+    ##ACTION - User renames arms and events
     When I click on the link labeled "Arm 2"
     And I click on the link labeled "Rename Arm 2"
 
@@ -218,7 +218,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
 
     When I click on the button labeled "Close" in the dialog box
 
-        #VERIFY_RSD
+    #VERIFY_RSD
     When I click on the link labeled "Record Status Dashboard"
     And I click on the link labeled "Arm 1"
 
@@ -227,7 +227,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
     And I should see a link labeled "Arm 2"
     And I should see a link labeled "Arm 4"
 
-        ##ACTION - User unable to undesignated events
+    ##ACTION - User unable to undesignated events
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Define My Events"
     And I click on the link labeled "Arm 1"
@@ -237,7 +237,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
 
     When I verify the Data Collection Instrument named "Data Types" is unmodifiable for the Event named "Event One"
 
-        ##ACTION - User unable to Upload designated instruments
+    ##ACTION - User unable to Upload designated instruments
     When I click on the button labeled "Upload or download instrument mappings"
     And I click on the link labeled "Upload instrument-event mappings (CSV)"
     And I upload a "csv" format file located at "import_files/instrument_designation.csv", by clicking the button near "Select your CSV" to browse for the file, and clicking the button labeled "Upload" to upload the file
@@ -245,7 +245,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
     Then I should see a dialog containing the following text: "ERROR"
     And I click on the button labeled "Close" in the dialog box
 
-        ##ACTION -  User designates instruments in production mode
+    ##ACTION -  User designates instruments in production mode
     Given I click on the link labeled "Arm 1"
     And I click on the button labeled "Begin Editing"
     When I enable the Data Collection Instrument named "Data Types" for the Event named "Event 4"
@@ -253,7 +253,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
 
     Then I verify the Data Collection Instrument named "Data Types" is enabled for the Event named "Event 4"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
 
     Then I should see table header and rows containing the following values in the logging table:
@@ -262,8 +262,8 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
 
     Given I logout
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Admin Renames arms and events
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Admin Renames arms and events
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Project Setup"
     And I click on the button labeled "Define My Events"
@@ -280,7 +280,7 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
     Then I should see "Arm name: Arm One"
     And I should see "Event Four"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
 
     Then I should see table header and rows containing the following values in the logging table:
@@ -289,4 +289,4 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
       | test_admin | Manage/Design | Event Four, Arm: Arm One                |
       | test_admin | Manage/Design | Edit arm name/number                    |
       | test_admin | Manage/Design | Arm 1: Arm One                          |
-            #End
+        #End

@@ -5,17 +5,17 @@ Feature: User Interface: The system shall support viewing discrepancies found in
 
   Scenario: C.4.18.500.100 View discrepancies
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "C.4.18.500.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project418.xml", and clicking the "Create Project" button
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
 
-        ##ACTION executing all rules.
+    ##ACTION executing all rules.
     When I click on the link labeled "Data Quality"
     And I click on the button labeled "All" in the Data Quality Rules controller box
     Then I should see a table header and rows containing the following values in the data quality report table:
@@ -31,8 +31,8 @@ Feature: User Interface: The system shall support viewing discrepancies found in
       | I      | Fields containing "missing data codes"                                    | -                                         | 4 export            | view |
       | 1      | [radio]=9.9                                                               | [radio]= '9.9'                            | 1 export            | view |
       | 2      | [ptname]<>[name]                                                          | [ptname]<>[name]                          | 8 export            | view |
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: verify ability to view discrepancies
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: verify ability to view discrepancies
     When I click on the link labeled "view" for the Rule Name labeled "Field validation errors (incorrect data type)"
     Then I should see "Rule: Field validation errors (incorrect data type)" in the dialog box
     And I should see "Discrepancies found: 1" in the dialog box
@@ -40,8 +40,8 @@ Feature: User Interface: The system shall support viewing discrepancies found in
       | Record                     | Discrepant fields with their values | Status           | Exclude |
       | 6  Event 1 (Arm 1: Arm 1_) | email = HelloWorld                  | Validation error | exclude |
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: verify ability to export discrepancies
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: verify ability to export discrepancies
     When I click on the button labeled "Export results (CSV)" in the dialog box
     Then I should have a csv file with a table header and rows including the following values in the report table:
       | record_id | result-status    | email      |

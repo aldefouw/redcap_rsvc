@@ -5,19 +5,19 @@ Feature: Deleting Data: The system shall allow users to delete all data on the c
 
   Scenario: B.3.14.1000.100 Delete all data in a form for a record form
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_User1"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.3.14.000.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.14.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see "Project status: Production"
 
-        #SET UP_USER_RIGHTS
+    #SET UP_USER_RIGHTS
     When I click on the link labeled "User Rights"
     And I click on the link labeled "Test_User1"
     And I click on the button labeled "Assign to role"
@@ -25,19 +25,19 @@ Feature: Deleting Data: The system shall allow users to delete all data on the c
     And I click on the button labeled exactly "Assign" on the role selector dropdown
     Then I should see "Test User1" within the "1_FullRights" row of the column labeled "Username" of the User Rights table
 
-        ##ACTION
+    ##ACTION
     When I click the link labeled "Record Status Dashboard"
     And I click the bubble for the "Survey" instrument on event "Event Three" for record "1"
     Then I should see "Name" in the field labeled "Name"
     And I should see a button labeled "Delete data for THIS FORM only"
 
-        #FUNCTIONAL_REQUIREMENT
+    #FUNCTIONAL_REQUIREMENT
     When I click on the button labeled "Delete data for THIS FORM only"
     And I click on the button labeled "Delete data for THIS FORM only" in the dialog box
     Then I should see "Record ID 1 successfully edited."
     And I should see an Incomplete (no data saved) status icon for the "Survey" instrument on event "Event Three" for record "1"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see table rows including the following values in the logging table:
       | Username   | Action          | List of Data Changes OR Fields Exported |
@@ -45,7 +45,7 @@ Feature: Deleting Data: The system shall allow users to delete all data on the c
       | test_user1 | Update record 1 | name_survey = ''                        |
       | test_user1 | Update record 1 | survey_complete = ''                    |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |

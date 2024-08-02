@@ -4,19 +4,19 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
   I want to see that Field validation is functioning as expected
 
   Scenario: A.4.8.100.100 Control center Enable/disable field validation
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "A.4.8.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.14.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation Disable
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation Disable
     When I click on the link labeled "Control Center"
     And I click on the link labeled "Field Validation Types"
     Then I should see "Validation Types Currently Available for Use in All Projects"
@@ -37,7 +37,7 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
     And I should see the disabled icon for the field labeled "Number (1 decimal place - comma as decimal)"
     And I should see the disabled icon for the field labeled "Time (HH:MM)"
 
-        ##VERIFY: options not available on validation dropdown field
+    ##VERIFY: options not available on validation dropdown field
     When I click on the link labeled "My Projects"
     And I click on the link labeled "A.4.8.100.100"
     And I click on the link labeled "Designer"
@@ -60,7 +60,7 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
     And I should NOT see the dropdown option "Number (1 decimal place - comma as decimal)"
     And I should NOT see the dropdown option "Time (HH:MM)"
 
-        #SETUP
+    #SETUP
     Given I click on the button labeled "Cancel"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Field Validation Types"
@@ -83,9 +83,9 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
     And I should see the green checkmark icon for the field labeled "Number (1 decimal place - comma as decimal)"
     And I should see the green checkmark icon for the field labeled "Time (HH:MM)"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation Enable
-        ##VERIFY: options are available on validation dropdown field
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation Enable
+    ##VERIFY: options are available on validation dropdown field
 
     When I click on the link labeled "My Projects"
     And I click on the link labeled "A.4.8.100.100"  And I click on the link labeled "Designer"
@@ -101,4 +101,4 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
     And I should see the dropdown option "Number"
     And I should see the dropdown option "Number (1 decimal place - comma as decimal)"
     And I should see the dropdown option "Time (HH:MM)"  And I click on the button labeled "Cancel"
-        #End
+    #End

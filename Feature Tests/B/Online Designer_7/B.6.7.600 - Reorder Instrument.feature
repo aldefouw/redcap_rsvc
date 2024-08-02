@@ -5,15 +5,15 @@ Feature: Form Creation: The system shall support the ability to re-order data co
 
   Scenario: B.6.7.600.100 Reorder instrument from online designer
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.6.7.600.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.6.7.600.100"
 
-        ##SETUP_PRODUCTION
+    ##SETUP_PRODUCTION
     When I click on the button labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
@@ -24,10 +24,10 @@ Feature: Form Creation: The system shall support the ability to re-order data co
     And I click on the button labeled "Enter Draft Mode"
     Then I should see "The project is now in Draft Mode"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION
     When I drag on the instrument labeled "Data Types" to position 0
-        #The item below always passes when Saved! is hidden
+    #The item below always passes when Saved! is hidden
     Then I should see "Saved!"
     And I should see the instrument labeled "Data Types" in position 0
 
@@ -36,7 +36,7 @@ Feature: Form Creation: The system shall support the ability to re-order data co
     Then I should see "Changes Were Made Automatically"
     And I click on the button labeled "Close" in the dialog box
 
-        #VERIFY_LOG
+    #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows including the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |

@@ -4,7 +4,7 @@ Feature: A.2.2.800 Add/Manage users
   I want to see that amount of inactivity time before auto logout time is functioning as expected.
 
   Scenario: A.2.2.800.100 User account locked time
-        #SETUP control center Auto logout time
+    #SETUP control center Auto logout time
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Security & Authentication"
@@ -17,30 +17,30 @@ Feature: A.2.2.800 Add/Manage users
 
     Given I logout
 
-        #SETUP timeout warning
+    #SETUP timeout warning
     Given I login to REDCap with the user "Test_User1"
     Then I should see"My Projects"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION wait for timeout warning
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION wait for timeout warning
     Given I wait for 2 minutes
-        ##VERIFY warning
+    ##VERIFY warning
     Then I should see a dialog containing the following text: "REDCap Auto Logout Warning"
 
-        ##ACTION wait for login expiration
+    ##ACTION wait for login expiration
     Given I wait for another 2 minutes
-        ##VERIFY login expiration message
+    ##VERIFY login expiration message
     Then I should see a dialog containing the following text: "Due to inactivity, your REDCap session has expired"
 
-        ##ACTION re-login
+    ##ACTION re-login
     Given I click on the button labeled "Log In" in the dialog box
     Then I should see "Please log in with your user name and password."
 
     Given I login to REDCap with the user "Test_User1"
-        ##VERIFY Can login
+    ##VERIFY Can login
     Then I should see"My Projects"
 
-        #SETUP control center Auto logout time
+    #SETUP control center Auto logout time
     Given I logout
 
     Given I login to REDCap with the user "Test_Admin"
@@ -55,29 +55,29 @@ Feature: A.2.2.800 Add/Manage users
 
     Given I logout
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION wait for timeout warning
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION wait for timeout warning
     Given I login to REDCap with the user "Test_User1"
     And I wait for 2 minutes
-        ##VERIFY warning
+    ##VERIFY warning
     Then I should see a dialog containing the following text: "REDCap Auto Logout Warning"
 
-        ##ACTION wait for login expiration
+    ##ACTION wait for login expiration
     Given I wait for 1 minute
-        ##VERIFY login expiration message
+    ##VERIFY login expiration message
     Then I should see a dialog containing the following text: "Due to inactivity, your REDCap session has expired"
 
-        ##ACTION re-login
+    ##ACTION re-login
     Given I click on the button labeled "Log In" in the dialog box
     Then I should see "Please log in with your user name and password."
 
     Given I login to REDCap with the user "Test_User1"
-        ##VERIFY Can login
+    ##VERIFY Can login
     Then I should see"My Projects"
 
     Given I logout
 
-        #SETUP control center Auto logout time
+    #SETUP control center Auto logout time
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Security & Authentication"

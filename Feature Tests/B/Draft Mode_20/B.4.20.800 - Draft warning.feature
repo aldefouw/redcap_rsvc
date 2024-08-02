@@ -5,42 +5,42 @@ Feature: User Interface: The system shall flag any changes that may negatively i
 
   Scenario: B.4.20.800.100 Flag critical warnings
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_User1"
-        #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
+    #Manual: Append project name with the current version (i.e. "X.X.X.XXX.XXX - LTS X.X.X")
     And I create a new project named "B.4.20.800.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see Project Status: "Production"
 
-        ##ACTION: Draft Mode
+    ##ACTION: Draft Mode
     When I click on the link labeled "Designer"
     And I click on the button labeled "Enter Draft Mode"
     Then I should see "The project is now in Draft Mode"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table row containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
       | test_user1 | Manage/Design | Enter Draft Mode                        |
 
-        ##ACTION
+    ##ACTION
     When I click on the link labeled "Designer"
     And I click on the instrument labeled "Data Types"
     And I click on the Edit image for the field labeled "Radio Button Manual"
-        #DATA WILL BE LOST
+    #DATA WILL BE LOST
     And I delete the third option "101, Choice101" on the third row of the input field labeled "Choices (one choice per line)"
-        #DATA MISMATCH
+    #DATA MISMATCH
     And I edit the second option from "100, Choice100" to "101, Choice100" on the second row of the input field labeled "Choices (one choice per line)"
     And I click on the button labeled "Save"
     Then I should see the radio option labeled "Choice99"
     And I should see the radio option labeled "Choice100"
 
-        ##FUNCTIONAL_REQUIREMENT
+    ##FUNCTIONAL_REQUIREMENT
     When I click on the link labeled "View detailed summary of all drafted changes"
     Then I should see "Will these changes be automatically approved? No, an admin will have to review these changes."
     And I should see a table header and rows containing the following values in the summary data table:
