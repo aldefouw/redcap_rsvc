@@ -4,19 +4,19 @@ Feature: User Interface: The tool shall support the filtering the record list:
   I want to see that Record locking and E-signatures is functioning as expected
 
   Scenario: C.2.19.300.100 Record locking and E-signatures filtering
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "C.2.19.300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION Lock icon for instrument
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION Lock icon for instrument
     When I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "3" and click on the bubble
     Then I should see "Text Validation"
@@ -26,19 +26,19 @@ Feature: User Interface: The tool shall support the filtering the record list:
     And I click on the button labeled "Save & Exit Form"
     Then I should see "Record Home Page"
     And I should see "Record ID 3 successfully edited."
-        ##VERIFY_RH
+    ##VERIFY_RH
     Then I should see a table header and rows containing the following values in a table:
       | Data Collection Instrument | Event 1     | Event 2 | Event Three |
       | Text Validation            | [lock icon] |         |             |
        
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action               | List of Data Changes OR Fields Exported                                |
       | test_admin | Lock/Unlock Record 3 | Action: Lock instrument Record: 3 Form: Text Validation Event: Event 1 |
 
-        ##VERIFY_LOCK_ESIG: Record instrument lock on Locking Management
+    ##VERIFY_LOCK_ESIG: Record instrument lock on Locking Management
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
     And I click on the button labeled "I understand. Let me make changes" in the dialog box
     And I click on the link labeled "E-signature and Locking Management"
@@ -47,8 +47,8 @@ Feature: User Interface: The tool shall support the filtering the record list:
       | 3      | Text Validation | [lock icon] |
       | 3      | Consent         |             |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION Enable Locking/E-signatures at instrument level
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION Enable Locking/E-signatures at instrument level
     And I should see "SHOW ALL ROWS"
     And I should see "Show timestamp / user"
     And I should see "Hide timestamp / user"

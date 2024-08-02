@@ -4,11 +4,11 @@ Feature: User Interface: The system shall support the ability to identify data a
   I want to see that export data is functioning as expected
 
   Scenario: B.5.21.100.100 Limit identified data export
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.5.21.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_5.21.xml", and clicking the "Create Project" button
 
-        #SETUP_USER_RIGHTS
+    #SETUP_USER_RIGHTS
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
@@ -20,7 +20,7 @@ Feature: User Interface: The system shall support the ability to identify data a
       | Role name           | Username   |
       | 4_NoAccess_Noexport | test_user1 |
 
-        ##VERIFY_CODEBOOK
+    ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     Then I should see a table header and rows containing the following values in the codebook table:
       | Variable / Field Name | Field Label  | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
@@ -30,7 +30,7 @@ Feature: User Interface: The system shall support the ability to identify data a
       | [radio]               | radio        | radio, Identifier                                                      |
 
 
-        ##ACTION: change identifier status
+    ##ACTION: change identifier status
     When I click on the link labeled "Project Setup"
     Then I should see "Design your data collection instruments & enable your surveys"
 
@@ -52,7 +52,7 @@ Feature: User Interface: The system shall support the ability to identify data a
       | ptname        | Name         | [✓]         |
       | radio         | radio        | [✓]         |
 
-        ##VERIFY_CODEBOOK
+    ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     Then I should see a table header and rows containing the following values in the codebook table:
       | Variable / Field Name | Field Label  | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
@@ -61,12 +61,12 @@ Feature: User Interface: The system shall support the ability to identify data a
       | [ptname]              | Name         | text, Identifier                                                       |
       | [radio]               | radio        | radio, Identifier                                                      |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
 
-        ##ACTION: export all
+    ##ACTION: export all
     Given I click on the "Export Data" button for the "All data (all records and fields)" report in the My Reports & Exports table
     And I click on the radio labeled "CSV / Microsoft Excel (raw data)" in the dialog box
     And I click on the button labeled "Export Data" in the dialog box
@@ -74,14 +74,14 @@ Feature: User Interface: The system shall support the ability to identify data a
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
 
-        ##VERIFY: User can see all variables, including identifier, identifier_2 and name, survey_timestamp, radio button
+    ##VERIFY: User can see all variables, including identifier, identifier_2 and name, survey_timestamp, radio button
     Then I should have a "csv" file that contains the headings below
       | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | data_types_timestamp | ptname | textbox | radio | notesbox | identifier | identifier_2 | date_ymd | datetime_ymd_hmss | data_types_complete |
 
     And I click on the button labeled "Close" in the dialog box
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: remove identifiers from export
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: remove identifiers from export
     Given I click on the "Export Data" button for the "All data (all records and fields)" report in the My Reports & Exports table
     Then I should see "Known Identifiers"
 
@@ -93,14 +93,14 @@ Feature: User Interface: The system shall support the ability to identify data a
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
 
-        ##VERIFY: User can see all variables except for [identifier], [ptname], [radio], [redcap_survey_identifer] and check record id #ed
+    ##VERIFY: User can see all variables except for [identifier], [ptname], [radio], [redcap_survey_identifer] and check record id #ed
     Then I should have a "csv" file that contains the headings below
       | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | data_types_timestamp | textbox | notesbox | identifier_2 | date_ymd | datetime_ymd_hmss | data_types_complete |
 
     And I click on the button labeled "Close" in the dialog box
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: add identifiers back and remove unvalidated texts fields and notesbox fields
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: add identifiers back and remove unvalidated texts fields and notesbox fields
     Given I click on the "Export Data" button for the "All data (all records and fields)" report in the My Reports & Exports table
     When I uncheck the checkbox labeled "Remove All Identifier Fields" in the dialog box
     And I uncheck the checkbox labeled "Hash the Record ID field" in the dialog box
@@ -111,14 +111,14 @@ Feature: User Interface: The system shall support the ability to identify data a
     Then I should see a dialog containing the following text: "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
-        ##VERIFY: User can see all variables except for unvalidated fields and notes fields
+    ##VERIFY: User can see all variables except for unvalidated fields and notes fields
     Then I should have a "csv" file that contains the headings below
       | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | data_types_timestamp | radio | date_ymd | datetime_ymd_hmss | data_types_complete |
 
     And I click on the button labeled "Close" in the dialog box
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: remove date, datetime fields
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: remove date, datetime fields
     Given I click on the "Export Data" button for the "All data (all records and fields)" report in the My Reports & Exports table
     When I uncheck the checkbox labeled "Remove unvalidated Text fields" in the dialog box
     And I uncheck the checkbox labeled "Remove Notes/Essay box fields" in the dialog box
@@ -128,13 +128,13 @@ Feature: User Interface: The system shall support the ability to identify data a
     Then I should see a dialog containing the following text: "Data export was successful!"
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
-        ##VERIFY: User can see all variables except for date and datetime fields
+    ##VERIFY: User can see all variables except for date and datetime fields
     Then I should have a "csv" file that contains the headings below
       | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | ptname | textbox | radio | notesbox | identifier | identifier_2 | data_types_complete |
 
     And I click on the button labeled "Close" in the dialog box
 
-        ##ACTION: create record and enter dates in survey mode
+    ##ACTION: create record and enter dates in survey mode
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record"
     Then I should see "Adding new Record ID 5"
@@ -148,17 +148,17 @@ Feature: User Interface: The system shall support the ability to identify data a
     And I verify "yyyy-mm-dd" is within the data entry form field labeled "date YMD"
     And I verify "yyyy-mm-dd hh:mm:ss" is within the data entry form field labeled "datetime YMD HMSS"
     When I click on the button labeled "Submit"
-        #And I click on the button labeled "Close survey"
+    #And I click on the button labeled "Close survey"
 
-        #Manual Only: Surveys open in the same window (by default) in automated tests (automated tests this in B.3.15.500 - Survey Alerts and Prompts)
+    #Manual Only: Surveys open in the same window (by default) in automated tests (automated tests this in B.3.15.500 - Survey Alerts and Prompts)
 
     Given I return to the REDCap page I opened the survey from
     And I click on the button labeled "Leave without saving changes" in the dialog box
     And I click on the link labeled "Record Status Dashboard"
     And I should see the "Completed Survey Response" icon for the "Data Types" instrument for record "5"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: shift all dates
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: shift all dates
     Given I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the "Export Data" button in the row labeled "All data (all records and fields)"
 
@@ -170,8 +170,8 @@ Feature: User Interface: The system shall support the ability to identify data a
     And I should see a dialog containing the following text: "All dates within your data have been DATE SHIFTED to an unknown value between 0 and  364 days."
 
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
-        ##VERIFY:
-        #MUser can see all variables with dates shifted ([data_types_timestamp]=! today) AND ([date_ymd]=! today) AND ([date_ymd_hmss]=! today)
+    ##VERIFY:
+    #MUser can see all variables with dates shifted ([data_types_timestamp]=! today) AND ([date_ymd]=! today) AND ([date_ymd_hmss]=! today)
 
     Then I should see the latest downloaded "csv" file containing the headings below
       | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | data_types_timestamp | ptname | textbox | radio | notesbox | identifier | identifier_2 | date_ymd | datetime_ymd_hmss | data_types_complete |
@@ -179,7 +179,7 @@ Feature: User Interface: The system shall support the ability to identify data a
     And I verify the date in column labeled "date_ymd" for record "5" has shifted today's date in the latest downloaded "csv"
     And I verify the datetime in column labeled "datetime_ymd_hmss" for record "5" has shifted today's date in the latest downloaded "csv"
 
-        #M: Close the report & refresh page
+    #M: Close the report & refresh page
 
     And I click on the button labeled "Close" in the dialog box
     And I logout
@@ -189,8 +189,8 @@ Feature: User Interface: The system shall support the ability to identify data a
     When I click on the link labeled "B.5.21.100.100"
     And I click on the link labeled "Data Exports, Reports, and Stats"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: limited access
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: limited access
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
 

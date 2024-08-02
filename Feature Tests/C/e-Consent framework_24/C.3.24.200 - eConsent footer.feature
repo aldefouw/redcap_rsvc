@@ -5,18 +5,18 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
   Scenario: C.3.24.200.100 e-Consent text validation
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "C.3.24.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Consent.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
-        #SETUP_eConsent
+    #SETUP_eConsent
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
     Then I should see 'Modify survey settings for data collection instrument "Consent"'
@@ -36,7 +36,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
-        ##ACTION: add record
+    ##ACTION: add record
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
@@ -78,11 +78,11 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
     When I click on the button labeled "Close survey"
     Given I return to the REDCap page I opened the survey from
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     And I click on the link labeled "Record Status Dashboard"
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "1"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               | Time Uploaded | Size    |
@@ -95,9 +95,9 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see the following values in the downloaded PDF for Record "1" and Survey "Consent (Event 1 (Arm 1: Arm 1))"
       | Version: version test, Type: type test |
 
-        #M: Close document
+    #M: Close document
 
-        ##ACTION: add record_missing sig_1
+    ##ACTION: add record_missing sig_1
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
@@ -113,7 +113,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     And I should see "email@test.edu" in the data entry form field "3) Email"
     And I should see "yyyy-mm-dd" in the data entry form field "DOB"
 
-        #No signature entered for 5) Signature field this time
+    #No signature entered for 5) Signature field this time
 
     And I should see "signature_consent_2" in the data entry form field "6) Signature"
     And I should see "signature_consent_3" in the data entry form field "7) Signature"
@@ -129,9 +129,9 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "NOTE: Some fields are required!"
 
     When I click on the button labeled "Okay" in the dialog box
-        #M: Close browser page
+    #M: Close browser page
     Given I return to the REDCap page I opened the survey from
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     And I click on the link labeled "Record Status Dashboard"
     Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "2"
     When I locate the bubble for the "Consent" instrument on event "Event 1" for record ID "2" and click on the bubble
@@ -143,15 +143,15 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
     Given I see "You have not completed the entire survey, and your responses are thus considered only partially complete. For security reasons, you will not be allowed to continue taking the survey from the place where you stopped."
     Then I should see the button labeled "Start Over"
-        #M: Close browser page
+    #M: Close browser page
     Given I return to the REDCap page I opened the survey from
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should NOT see a link labeled exactly "2" in the File Repository table
 
-        ##ACTION: add record_missing sig_2
+    ##ACTION: add record_missing sig_2
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
@@ -187,18 +187,18 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "NOTE: Some fields are required!"
 
     When I click on the button labeled "Okay" in the dialog box
-        #M: Close browser page
+    #M: Close browser page
     Given I return to the REDCap page I opened the survey from
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     And I click on the link labeled "Record Status Dashboard"
     Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "3"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should NOT see a link labeled exactly "3" in the File Repository table
 
-        ##ACTION: add record_missing sig_3
+    ##ACTION: add record_missing sig_3
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
@@ -234,18 +234,18 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "NOTE: Some fields are required!"
 
     When I click on the button labeled "Okay" in the dialog box
-        #M: Close browser page
+    #M: Close browser page
     Given I return to the REDCap page I opened the survey from
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     And I click on the link labeled "Record Status Dashboard"
     Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "4"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should NOT see a link labeled exactly "4" in the File Repository table
 
-        ##ACTION: add record_missing sig_4
+    ##ACTION: add record_missing sig_4
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
@@ -270,7 +270,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     And I should see "signature_consent_2" in the data entry form field "6) Signature"
     And I should see "signature_consent_3" in the data entry form field "7) Signature"
 
-        #No signature entered for 8) Signature field this time
+    #No signature entered for 8) Signature field this time
 
     And I should see "signature_consent_5" in the data entry form field "9) Signature"
 
@@ -278,18 +278,18 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "NOTE: Some fields are required!"
 
     When I click on the button labeled "Okay" in the dialog box
-        #M: Close browser page
+    #M: Close browser page
     Given I return to the REDCap page I opened the survey from
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     And I click on the link labeled "Record Status Dashboard"
     Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "5"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should NOT see a link labeled exactly "5" in the File Repository table
 
-        ##ACTION: add record_missing sig_5
+    ##ACTION: add record_missing sig_5
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
@@ -326,18 +326,18 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     Then I should see "NOTE: Some fields are required!"
 
     When I click on the button labeled "Okay" in the dialog box
-        #M: Close browser page
+    #M: Close browser page
     Given I return to the REDCap page I opened the survey from
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     And I click on the link labeled "Record Status Dashboard"
     Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "6"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should NOT see a link labeled exactly "6" in the File Repository table
 
-        ##ACTION: add record_missing sig_5
+    ##ACTION: add record_missing sig_5
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
@@ -381,11 +381,11 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
     When I click on the button labeled "Close survey"
     Given I return to the REDCap page I opened the survey from
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     And I click on the link labeled "Record Status Dashboard"
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "7"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               | Time Uploaded | Size    |
@@ -397,9 +397,9 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     When I download the PDF by clicking on the link for Record "7" and Survey "Consent (Event 1 (Arm 1: Arm 1))" in the File Repository table
     Then I should see the following values in the downloaded PDF for Record "7" and Survey "Consent (Event 1 (Arm 1: Arm 1))"
       | Version: version test, Type: type test |
-        #M: Close document
+    #M: Close document
 
-        #SETUP_eConsent_change field
+    #SETUP_eConsent_change field
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
     And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
@@ -416,7 +416,7 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
-        ##ACTION: add record
+    ##ACTION: add record
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
@@ -459,11 +459,11 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
     When I click on the button labeled "Close survey"
     Given I return to the REDCap page I opened the survey from
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     And I click on the link labeled "Record Status Dashboard"
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "8"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               | Time Uploaded | Size    |
@@ -475,16 +475,16 @@ Feature: The e-Consent framework shall support the automatic insertion of select
     When I download the PDF by clicking on the link for Record "8" and Survey "Consent (Event 1 (Arm 1: Arm 1))" in the File Repository table
     Then I should see the following values in the downloaded PDF for Record "8" and Survey "Consent (Event 1 (Arm 1: Arm 1))"
       | Name Name, yyyy-mm-dd, Version: UPDATED VERSION TEST, Type: type test |
-        #M: Close document
+    #M: Close document
 
-        #SETUP_eConsent_change field
+    #SETUP_eConsent_change field
     When I click on the link labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
     And I select "Auto-Archiver enabled" on the radio field labeled "e-Consent Framework"
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
-        ##ACTION: add record
+    ##ACTION: add record
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
@@ -527,11 +527,11 @@ Feature: The e-Consent framework shall support the automatic insertion of select
 
     When I click on the button labeled "Close survey"
     Given I return to the REDCap page I opened the survey from
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     And I click on the link labeled "Record Status Dashboard"
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "9"
 
-        ##VERIFY_FiRe_no eConsent
+    ##VERIFY_FiRe_no eConsent
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               | Time Uploaded | Size    |

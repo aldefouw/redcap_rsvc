@@ -5,12 +5,12 @@ Feature: User Interface: The system shall support ranges for the following data 
 
   Scenario: B.4.8.300.100 Field range validation
 
-        #SETUP VALIDATION TYPES
+    #SETUP VALIDATION TYPES
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Field Validation Types"
 
-        #BUTTONS ARE TOGGLES - LABEL IS OPPOSITE OF CURRENT STATE
+    #BUTTONS ARE TOGGLES - LABEL IS OPPOSITE OF CURRENT STATE
     Then I should see "Validation Types Currently Available for Use in All Projects"
     When I click on the button labeled "Enable" in the validation row labeled "Time (MM:SS)"
     Then I should see a button labeled "Disable" in the validation row labeled "Time (MM:SS)"
@@ -21,7 +21,7 @@ Feature: User Interface: The system shall support ranges for the following data 
     When I click on the button labeled "Enable" in the validation row labeled "Number (1 decimal place)"
     Then I should see a button labeled "Disable" in the validation row labeled "Number (1 decimal place)"
 
-        #SETUP_PRODUCTION PROJECT
+    #SETUP_PRODUCTION PROJECT
     Given I create a new project named "B.4.8.300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_4.8.xml", and clicking the "Create Project" button
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
@@ -29,12 +29,12 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
-        #SETUP_DRAFT MODE
+    #SETUP_DRAFT MODE
     When I click on the link labeled "Designer"
     And I click on the button labeled "Enter Draft Mode"
     Then I should see "The project is now in Draft Mode"
 
-        ## ACTION:M date YMD validation
+    ## ACTION:M date YMD validation
     When I click on the instrument labeled "Data Types"
 
     And I click on the Edit image for the field named "date YMD"
@@ -43,71 +43,71 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I verify "2023-08-31" is within the input field labeled "Maximum" in the dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
 
-        ## ACTION:M Datetime validation
+    ## ACTION:M Datetime validation
     When I click on the Edit image for the field named "Datetime"
     Then I should see the dropdown field labeled "Validation?" with the option "Datetime (Y-M-D H:M)" selected in the dialog box
     And I verify "2023-09-01 01:01" is within the input field labeled "Minimum" in the dialog box
     And I verify "2023-09-30 01:59" is within the input field labeled "Maximum" in the dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
 
-        ## ACTION:M Datetime YMD HMSS validation
+    ## ACTION:M Datetime YMD HMSS validation
     When I click on the Edit image for the field named "Datetime YMD HMSS"
     Then I should see the dropdown field labeled "Validation?" with the option "Datetime w/ seconds (Y-M-D H:M:S)" selected in the dialog box
     And I verify "2023-09-01 11:01:01" is within the input field labeled "Minimum" in the dialog box
     And I verify "2023-09-30 11:01:01" is within the input field labeled "Maximum" in the dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
 
-        ## ACTION:M Time HH:MM validation
+    ## ACTION:M Time HH:MM validation
     When I click on the Edit image for the field named "Time HH:MM"
     Then I should see the dropdown field labeled "Validation?" with the option "Time (HH:MM)" selected in the dialog box
     And I verify "08:05" is within the input field labeled "Minimum" in the dialog box
     And I verify "23:00" is within the input field labeled "Maximum" in the dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
 
-        ## ACTION:M Time HH:MM:SS validation
+    ## ACTION:M Time HH:MM:SS validation
     When I click on the Edit image for the field named "Time HH:MM:SS"
     Then I should see the dropdown field labeled "Validation?" with the option "Time (HH:MM:SS)" selected in the dialog box
     And I verify "08:01:01" is within the input field labeled "Minimum" in the dialog box
     And I verify "23:00:00" is within the input field labeled "Maximum" in the dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
 
-        ## ACTION:M Time MM:SS validation
+    ## ACTION:M Time MM:SS validation
     When I click on the Edit image for the field named "Time MM:SS"
     Then I should see the dropdown field labeled "Validation?" with the option "Time (MM:SS)" selected in the dialog box
     And I verify "02:01" is within the input field labeled "Minimum" in the dialog box
     And I verify "59:00" is within the input field labeled "Maximum" in the dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
 
-        ## ACTION:M Integer validation
+    ## ACTION:M Integer validation
     When I click on the Edit image for the field named "Integer"
     Then I should see the dropdown field labeled "Validation?" with the option "Integer" selected in the dialog box
     And I verify "1" is within the input field labeled "Minimum" in the dialog box
     And I verify "100" is within the input field labeled "Maximum" in the dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
 
-        ## ACTION:M Number validation
+    ## ACTION:M Number validation
     When I click on the Edit image for the field named "Number"
     Then I should see the dropdown field labeled "Validation?" with the option "Number" selected in the dialog box
     And I verify "1" is within the input field labeled "Minimum" in the dialog box
     And I verify "5" is within the input field labeled "Maximum" in the dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
 
-        ## ACTION:M Number 1 Decimal validation
+    ## ACTION:M Number 1 Decimal validation
     When I click on the Edit image for the field named "Number Decimal"
     Then I should see the dropdown field labeled "Validation?" with the option "Number (1 decimal place)" selected in the dialog box
     And I verify "1" is within the input field labeled "Minimum" in the dialog box
     And I verify "5" is within the input field labeled "Maximum" in the dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
 
-        ## ACTION:M Number Comma validation
+    ## ACTION:M Number Comma validation
     When I click on the Edit image for the field named "Number Comma"
     Then I should see the dropdown field labeled "Validation?" with the option "Number (1 decimal place - comma as decimal)" selected in the dialog box
     And I verify "1,0" is within the input field labeled "Minimum" in the dialog box
     And I verify "2,0" is within the input field labeled "Maximum" in the dialog box
     And I click on the button labeled "Save" in the "Edit Field" dialog box
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation within range text
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation within range text
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -126,7 +126,7 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 5 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                  | List of Data Changes OR Fields Exported   |
@@ -141,7 +141,7 @@ Feature: User Interface: The system shall support ranges for the following data 
       | test_admin | Create record5 (Event 1 (Arm 1: Arm 1)) | time_mm_ss = '11:11'                      |
       | test_admin | Create record5 (Event 1 (Arm 1: Arm 1)) | time_hhmmss = '11:11:11'                  |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -155,8 +155,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | Record ID | Repeat Instrument | Number Decimal | Number Comma | Time HH:MM | Time MM:SS | Time HH:MM:SS |
       | 5         | Data Types        | 1.5            | 1,5          | 11:11      | 11:11      | 11:11:11      |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound (date YMD)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound (date YMD)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -168,13 +168,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 6 successfully added"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                  | List of Data Changes OR Fields Exported |
       | test_admin | Create record6 (Event 1 (Arm 1: Arm 1)) | date_ymd = '2022-08-02'                 |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -185,8 +185,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 6         | Data Types        | 2022-08-02 |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound (Datetime)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound (Datetime)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -199,13 +199,13 @@ Feature: User Interface: The system shall support ranges for the following data 
 
     And I want to export a snapshot of this feature here
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                  | List of Data Changes OR Fields Exported |
       | test_admin | Create record7 (Event 1 (Arm 1: Arm 1)) | datetime_ymd_hm = '2022-08-02 12:12'    |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -216,8 +216,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 7         | Data Types        | 2022-08-02 12:12 |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound (Datetime YMD HMSS)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound (Datetime YMD HMSS)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -228,13 +228,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 8 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                  | List of Data Changes OR Fields Exported   |
       | test_admin | Create record8 (Event 1 (Arm 1: Arm 1)) | datetime_ymd_hmss = '2022-08-02 12:12:12' |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -245,8 +245,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 8         | Data Types        | 2022-08-02 12:12:12 |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound (Time HH:MM)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound (Time HH:MM)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -257,13 +257,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 9 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                  | List of Data Changes OR Fields Exported |
       | test_admin | Create record9 (Event 1 (Arm 1: Arm 1)) | time_hhmm = '07:07'                     |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -274,8 +274,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 9         | Data Types        | 07:07      |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound (Time HH:MM:SS)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound (Time HH:MM:SS)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -286,13 +286,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 10 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record10 (Event 1 (Arm 1: Arm 1)) | time_hhmmss = '07:07:07'                |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -302,8 +302,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | Record ID | Repeat Instrument | Time HH:MM:SS |
       | 10        | Data Types        | 07:07:07      |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound (Time MM:SS)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound (Time MM:SS)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -314,13 +314,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 11 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record11 (Event 1 (Arm 1: Arm 1)) | time_mm_ss = '01:00'                    |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -330,8 +330,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | Record ID | Repeat Instrument | MM:SS |
       | 11        | Data Types        | 01:00 |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound (Integer)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound (Integer)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -342,13 +342,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 12 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record12 (Event 1 (Arm 1: Arm 1)) | integer = '0'                           |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -358,8 +358,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | Record ID | Repeat Instrument | Integer |
       | 12        | Data Types        | 0       |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound (Number)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound (Number)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -370,13 +370,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 13 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record13 (Event 1 (Arm 1: Arm 1)) | number = '0'                            |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -387,8 +387,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 13        | Data Types        | 0      |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound (Number Decimal)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound (Number Decimal)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -399,13 +399,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 14 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record14 (Event 1 (Arm 1: Arm 1)) | number_dec = '0.0'                      |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -415,8 +415,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | Record ID | Repeat Instrument | Number Decimal |
       | 14        | Data Types        | 0.0            |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside lower bound (Number Comma)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside lower bound (Number Comma)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -427,13 +427,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 15 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record15 (Event 1 (Arm 1: Arm 1)) | num_comma = '0,0'                       |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -444,8 +444,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 15        | Data Types        | 0,0          |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound (date YMD)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound (date YMD)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -455,13 +455,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 16 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record16 (Event 1 (Arm 1: Arm 1)) | date_ymd = '2024-08-02'                 |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -472,8 +472,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 16        | Data Types        | 2024-08-02 |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound (Datetime)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound (Datetime)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -484,13 +484,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 17 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record17 (Event 1 (Arm 1: Arm 1)) | datetime_ymd_hm = '2024-08-02 12:12'    |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -501,8 +501,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 17        | Data Types        | 2024-08-02 12:12 |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound (Datetime YMD HMSS)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound (Datetime YMD HMSS)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -513,13 +513,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 18 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported   |
       | test_admin | Create record18 (Event 1 (Arm 1: Arm 1)) | datetime_ymd_hmss = '2024-08-02 12:12:12' |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -529,8 +529,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | Record ID | Repeat Instrument | Datetime YMD HMSS   |
       | 18        | Data Types        | 2024-08-02 12:12:12 |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound (Time HH:MM)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound (Time HH:MM)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -541,13 +541,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 19 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record19 (Event 1 (Arm 1: Arm 1)) | time_hhmm = '23:07'                     |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -558,8 +558,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 19        | Data Types        | 23:07      |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound (Time HH:MM:SS)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound (Time HH:MM:SS)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -570,13 +570,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 20 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record20 (Event 1 (Arm 1: Arm 1)) | time_hhmmss = '23:07:07'                |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -587,8 +587,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 20        | Data Types        | 23:07:07      |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound (Time MM:SS)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound (Time MM:SS)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -599,13 +599,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 21 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record21 (Event 1 (Arm 1: Arm 1)) | time_mm_ss = '59:01'                    |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -616,8 +616,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 21        | Data Types        | 59:01      |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound (Integer)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound (Integer)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -628,13 +628,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 22 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record22 (Event 1 (Arm 1: Arm 1)) | integer = '200'                         |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -645,8 +645,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 22        | Data Types        | 200     |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound (Number)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound (Number)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -657,13 +657,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 23 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record23 (Event 1 (Arm 1: Arm 1)) | number = '10'                           |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -673,8 +673,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | Record ID | Repeat Instrument | Number |
       | 23        | Data Types        | 10     |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound (Number Decimal)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound (Number Decimal)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -685,13 +685,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 24 successfully added"
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record24 (Event 1 (Arm 1: Arm 1)) | number_dec = '6.0'                      |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |
@@ -702,8 +702,8 @@ Feature: User Interface: The system shall support ranges for the following data 
       | 24        | Data Types        | 6.0            |
 
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION - Verify field validation outside upper bound (Number Comma)
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION - Verify field validation outside upper bound (Number Comma)
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     And I click the bubble to add a record for the "Data Types" longitudinal instrument on event "Event 1"
@@ -714,13 +714,13 @@ Feature: User Interface: The system shall support ranges for the following data 
     And I select the submit option labeled "Save & Exit Form" on the Data Collection Instrument
     Then I should see "Record ID 25 successfully added."
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled exactly "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action                                   | List of Data Changes OR Fields Exported |
       | test_admin | Create record25 (Event 1 (Arm 1: Arm 1)) | num_comma = '3,0'                       |
 
-        ##VERIFY_DE
+    ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
     Then I should see a table row containing the following values in the reports table:
       | A | All data (all records and fields) |

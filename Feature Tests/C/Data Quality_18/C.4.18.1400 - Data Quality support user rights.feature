@@ -5,18 +5,18 @@ Feature: User Interface: The system shall support limiting a rule viewing that r
 
   Scenario: C.4.18.1400.100 User access limit rule viewing
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "C.4.18.1400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project418.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see Project status: "Production"
 
-        #USER_RIGHTS: add two users with diff access levels
+    #USER_RIGHTS: add two users with diff access levels
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
@@ -38,8 +38,8 @@ Feature: User Interface: The system shall support limiting a rule viewing that r
     And I click on the link labeled "Data Quality"
     Then I should see "Data Quality Rules"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: confirm user with full rights can execute
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: confirm user with full rights can execute
     When I click on the button labeled "All"
     Then I should see a table header and rows containing the following values in a table:
       | Rule # | Rule Name                                                                 | Rule Logic (Show discrepancy  only if...) | Total Discrepancies |
@@ -55,8 +55,8 @@ Feature: User Interface: The system shall support limiting a rule viewing that r
       | 1      | [radio]=9.9                                                               | [radio]= '9.9'                            | 1                   |
       | 2      | [ptname]<>[name]                                                          | [ptname]<>[name]                          | 8                   |
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: verify ability to view discrepancies with access
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: verify ability to view discrepancies with access
     When I click on the "view" link for Data Quality Rule # "C"
     Then I should see "Rule: Field validation errors (incorrect data type)" in the dialog box
     And I should see "Discrepancies found: 1" in the dialog box
@@ -67,15 +67,15 @@ Feature: User Interface: The system shall support limiting a rule viewing that r
     And I click on the button labeled "Close" in the dialog box
     And I logout
 
-        #ACTION: switch to Test_User2
+    #ACTION: switch to Test_User2
     Given I login to REDCap with the user "Test_User2"
     And I click on the link labeled "My Projects"
     And I click on the link labeled "C.4.18.1400"
     And I click on the link labeled "Data Quality"
     Then I should see "Data Quality Rules"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: confirm user with full rights can execute but NOT view discrepancy
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: confirm user with full rights can execute but NOT view discrepancy
     When I click on the button labeled "All"
     Then I should see a table header and rows containing the following values in a table:
       | Rule # | Rule Name                                                                 | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
@@ -100,7 +100,7 @@ Feature: User Interface: The system shall support limiting a rule viewing that r
 
     And I click on the button labeled "Close" in the dialog box
 
-        #VERIFY_RSD GO TO RSD AND CANNOT SEE ANY INSTRUMENTS
+    #VERIFY_RSD GO TO RSD AND CANNOT SEE ANY INSTRUMENTS
     When I click on the link labeled "Record Status Dashboard"
     And I should NOT see "Text Validation"
 

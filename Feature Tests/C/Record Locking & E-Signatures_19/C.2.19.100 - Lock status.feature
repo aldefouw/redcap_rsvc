@@ -93,7 +93,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
       | [✓]                                          | Consent                    | [ ]                                            | [text box]              |
 
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
@@ -103,7 +103,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
       | test_admin | Manage/Design | Customize record locking                |
 
 
-        ##VERIFY: custom text in record and revert back to template
+    ##VERIFY: custom text in record and revert back to template
     When I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
     Then I should see "Text Validation"

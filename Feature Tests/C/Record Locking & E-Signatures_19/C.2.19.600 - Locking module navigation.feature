@@ -4,18 +4,18 @@ Feature: User Interface: The tool shall support the ability to navigate directly
   I want to see that Record locking and E-signatures is functioning as expected
 
   Scenario: C.2.19.600.100 Navigate to record
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "C.2.19.600.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     When I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
-        #USER_RIGHTS
+    #USER_RIGHTS
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the input field labeled "Add with custom rights"
     And I click on the button labeled "Add with custom rights"
@@ -27,15 +27,15 @@ Feature: User Interface: The tool shall support the ability to navigate directly
     And I check the User Right named "Lock/Unlock *Entire* Records (record level)"
     And I save changes within the context of User Rights
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action     | List of Data Changes OR Fields Exported |
       | test_admin | Add user   | user = 'Test_User1'                     |
       |            | Test_User1 |                                         |
 
-        #FUNCTIONAL REQUIREMENT
-        ##ACTION Navigate to record
+    #FUNCTIONAL REQUIREMENT
+    ##ACTION Navigate to record
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
     And I click on the button labeled "I understand. Let me make changes" in the dialog box
     And I click on the link labeled "E-signature and Locking Management"
@@ -48,6 +48,6 @@ Feature: User Interface: The tool shall support the ability to navigate directly
       | Record | Event Name             | Form Name       |
       | 3      | Event 1 (Arm 1: Arm 1) | Text Validation |
 
-        ##VERIFY
+    ##VERIFY
     Then I should see "Text Validation"
     And I should see a checkbox labeled "Lock this instrument?" that is unchecked

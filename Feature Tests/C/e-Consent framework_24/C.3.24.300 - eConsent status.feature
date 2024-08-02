@@ -5,18 +5,18 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
 
   Scenario: C.3.24.300.100 Certification required to submit completed survey
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named " C.3.24.300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Consent.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
-        #SETUP: Project Setup:modify repeating instruments
+    #SETUP: Project Setup:modify repeating instruments
     When I click on the button labeled "Modify" in the "Repeating instruments and events" row in the "Enable optional modules and customizations" section
     Then I should see a dialog containing the following text: "WARNING"
     And I click on the button labeled "Close" in the dialog box
@@ -25,14 +25,14 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
     And I click on the button labeled "Save" on the dialog box for the Repeatable Instruments and Events module
     Then I should see "Successfully saved!"
 
-        #SETUP_eConsent
+    #SETUP_eConsent
     When I click on the button labeled "Designer"
     And I click on the "Survey settings" button for the instrument row labeled "Consent"
     And I select "Auto-Archiver + e-Consent Framework" on the radio field labeled "e-Consent Framework"
     And I click on the button labeled "Save Changes"
     Then I should see "Your survey settings were successfully saved!"
 
-        ##ACTION: add record
+    ##ACTION: add record
     When I click on the link labeled "Add / Edit Records"
     And I click on the button labeled "Add new record for the arm selected above"
     Given I click the bubble to select a record for the "Consent" longitudinal instrument on event "Event 1"
@@ -59,17 +59,17 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
     Then I should see "Consent"
     And I should see "Displayed below is a read-only copy of your survey responses."
     And I should see a checkbox labeled "I certify that all of my information in the document above is correct." that is unchecked
-        ##VERIFY: cannot submit without attestation
+    ##VERIFY: cannot submit without attestation
 
     And I should see a button labeled "Submit" that is disabled
 
     When I check the checkbox labeled "I certify that all of my information in the document above is correct."
-        ##VERIFY: can submit once attestation complete
+    ##VERIFY: can submit once attestation complete
     And I click on the button labeled "Submit"
     Then I should see "Thank you for taking the survey."
 
     Given I return to the REDCap page I opened the survey from
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     And I click on the link labeled exactly "Record Status Dashboard"
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument on event "Event 1" for record "1"
 
@@ -98,29 +98,29 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
     Then I should see "Displayed below is a read-only copy of your survey responses."
     And I should see a button labeled "Previous Page"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: click on previous page and cancel
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: click on previous page and cancel
     When I click on the button labeled "Previous Page"
     Then I should see "Erase your signature(s) in this survey?"
 
     When I click on the button labeled "Cancel" in the dialog box
     Then I should see "Displayed below is a read-only copy of your survey responses."
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: click on previous page and accept
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: click on previous page and accept
     When I click on the button labeled "Previous Page"
     Then I should see "Erase your signature(s) in this survey?"
     And I click on the button labeled "Erase my signature(s) and go to earlier page" in the dialog box
     Then I should see "Consent"
 
-        #If there is no "Remove signature" link, there are no E-signatures present
+    #If there is no "Remove signature" link, there are no E-signatures present
     Then I should NOT see a link labeled "Remove signature"
 
-        #These values are blank now
+    #These values are blank now
     And I should see "" in the data entry form field "6) Signature"
     And I should see "" in the data entry form field "7) Signature"
     And I should see "" in the data entry form field "9) Signature"
-        #M: Close browser page
+    #M: Close browser page
 
     Given I return to the REDCap page I opened the survey from
     And I click on the link labeled exactly "Record Status Dashboard"
@@ -130,7 +130,7 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
     And I click on the survey option label containing "Open survey" label
     Then I should see "Consent"
 
-        ##VERIFY: partial survey completion not accepted
+    ##VERIFY: partial survey completion not accepted
     And I should see "You have partially completed this survey."
 
     When I click on the button labeled "Start Over"
@@ -156,14 +156,14 @@ Feature: User Interface: The e-Consent framework will enable surveys to be consi
     And I draw a signature in the signature field area
     When I click on the button labeled "Save signature" in the dialog box
 
-        #M: Close browser page
+    #M: Close browser page
     Given I return to the REDCap page I opened the survey from
     And I click on the link labeled exactly "Record ID 1"
-        ##VERIFY_RSD
+    ##VERIFY_RSD
     Then I should see the "Completed Survey Response" icon for the "Consent" longitudinal instrument for instance 1 on event "Event 1"
     Then I should see the "Partial Survey Response" icon for the "Consent" longitudinal instrument for instance 2 on event "Event 1"
 
-        ##VERIFY_FiRe
+    ##VERIFY_FiRe
     When I click on the link labeled "File Repository"
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name               | Time Uploaded | Size    |

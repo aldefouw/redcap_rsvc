@@ -5,11 +5,11 @@ Feature: User Interface: The system shall import only valid choice codes for rad
 
   Scenario: B.3.16.500.100 Import valid choice codes fields
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.3.16.500.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.16.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
@@ -22,8 +22,8 @@ Feature: User Interface: The system shall import only valid choice codes for rad
     When I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION:  incorrect format
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION:  incorrect format
     When I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows Bad.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see "Errors were detected in the import file that prevented it from being loaded"
 
@@ -36,8 +36,8 @@ Feature: User Interface: The system shall import only valid choice codes for rad
       | 300    | checkbox___1             | 99    |
 
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION:  corrected format
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION:  corrected format
     When I upload a "csv" format file located at "import_files//B.3.16.500_DataImport_Rows Corrected.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
     Then I should see a table header and rows containing the following values in a table:
       | record_id | multiple_dropdown_auto | multiple_dropdown_manual | multiple_radio_auto | radio_button_manual | checkbox___1 |
@@ -46,7 +46,7 @@ Feature: User Interface: The system shall import only valid choice codes for rad
     When I click on the button labeled "Import Data"
     Then I should see "Import Successful!"
 
-        #VERIFY_LOG
+    #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see table header and rows containing the following values in the logging table:
       | Username   | Action                 | List of Data Changes OR Fields Exported |

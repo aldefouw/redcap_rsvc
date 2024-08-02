@@ -5,17 +5,17 @@ Feature: User Interface: The system shall support viewing discrepancies found in
 
   Scenario: C.4.18.500.100 View discrepancies
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "C.4.18.500.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project418.xml", and clicking the "Create Project" button
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see Project status: "Production"
 
-        ##ACTION executing all rules.
+    ##ACTION executing all rules.
     When I click on the link labeled "Data Quality"
     And I click on the button labeled exactly "All"
     Then I should see a table header and rows containing the following values in a table:
@@ -32,18 +32,18 @@ Feature: User Interface: The system shall support viewing discrepancies found in
       | 1      | [radio]=9.9                                   | [radio]=9.9                              | 1                   |
       | 2      | [ptname]<>[name]                              | [ptname]<>[name]                         | 8                   |
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: verify ability to view discrepancies
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: verify ability to view discrepancies
 
     When I click on the "view" link for Data Quality Rule # "C"
-        #When I click on the link labeled "view" for the Rule Name labeled "Field validation errors (incorrect data type)"
+    #When I click on the link labeled "view" for the Rule Name labeled "Field validation errors (incorrect data type)"
     Then I should see "Rule: Field validation errors (incorrect data type)" in the dialog box
     And I should see "Discrepancies found: 1" in the dialog box
     And I should see a table header and rows containing the following values in a table:
       | Record                    | Discrepant fields with their values | Status           | Exclude |
       | 6  Event 1 (Arm 1: Arm 1) | email = HelloWorld                  | Validation error | exclude |
 
-        #FUNCTIONAL_REQUIREMENT
+    #FUNCTIONAL_REQUIREMENT
     Given I click on the button labeled "Export results (CSV)" in the dialog box
     Then I should see "SUCCESS! The data quality results were successfully downloaded."
     And the downloaded CSV with filename "C418500100_DataQualityDiscrepancies_FieldValidationErrorsIncorrect_yyyy-mm-dd.csv" has the header and rows below

@@ -5,18 +5,18 @@ Feature: User Interface: The system shall support limiting rule viewing to a Dat
 
   Scenario: C.4.18.1300.100 DAG limits rule viewing
 
-        #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "C.4.18.1300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project418.xml", and clicking the "Create Project" button
 
-        #SETUP_PRODUCTION
+    #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box
     Then I should see Project status: "Production"
 
-        #USER_RIGHTS
+    #USER_RIGHTS
     When I click on the link labeled "User Rights"
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
     And I click on the button labeled "Assign to role"
@@ -43,7 +43,7 @@ Feature: User Interface: The system shall support limiting rule viewing to a Dat
       | 1_FullRights | test_user1 (Test User1)              | never      | TestGroup1        |
       |              | test_user2 (Test User2)              | never      | TestGroup2        |
 
-        #SETUP: Create Data Quality Rule
+    #SETUP: Create Data Quality Rule
     When I click on the link labeled "Data Quality"
     And I enter "TestGroup1" into the textarea field labeled "Enter descriptive name for new rule"
     And I enter '([ptname]<>[name]) AND ([user-dag-name]="testgroup1")' into the textarea field labeled "Enter logic for new rule"
@@ -55,8 +55,8 @@ Feature: User Interface: The system shall support limiting rule viewing to a Dat
       | 3      | TestGroup1 | ([ptname]<>[name]) AND ([user-dag-name]="testgroup1") |
     And I logout
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: testuser1 can see results within DAG
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: testuser1 can see results within DAG
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "C.4.18.1300.100"
@@ -64,14 +64,14 @@ Feature: User Interface: The system shall support limiting rule viewing to a Dat
     Then I should see "Data Quality Rules"
 
     When I click on the button labeled "All"
-        ##VERIFY
+    ##VERIFY
     Then I should see a table header and rows containing the following values in a table:
       | Rule # | Rule Name  | Rule Logic (Show discrepancy only if...)              | Total Discrepancies |
       | 3      | TestGroup1 | ([ptname]<>[name]) AND ([user-dag-name]="testgroup1") | 2                   |
     And I logout
 
-        #FUNCTIONAL_REQUIREMENT
-        ##ACTION: testuser2 cannot see results within DAG
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: testuser2 cannot see results within DAG
     Given I login to REDCap with the user "Test_User2"
     When I click on the link labeled "My Projects"
     And I click on the link labeled "C.4.18.1300.100"
@@ -79,7 +79,7 @@ Feature: User Interface: The system shall support limiting rule viewing to a Dat
     Then I should see "Data Quality Rules"
 
     When I click on the button labeled "All"
-        ##VERIFY
+    ##VERIFY
     Then I should see a table header and rows containing the following values in a table:
       | Rule # | Rule Name  | Rule Logic (Show discrepancy only if...)              | Total Discrepancies |
       | 3      | TestGroup1 | ([ptname]<>[name]) AND ([user-dag-name]="testgroup1") | 0                   |
