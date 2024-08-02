@@ -4,6 +4,7 @@ Feature: A.2.2.500 Add/Manage users
   I want to see that Users in tabular form is functioning as expected
 
   Scenario: A.2.2.500.100 Users in tabular form
+
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Browse Users"
@@ -17,5 +18,5 @@ Feature: A.2.2.500 Add/Manage users
 
     #VERIFY View Users in tabular form
     Then I should see a table header and rows containing the following values in the browse users table:
-      | Username   | First Name   | Last Name  | Email                |
-      | test_admin | Admin        | User       | test_admin@test.edu |
+      | Username   | First Name | Last Name | Email               |
+      | test_admin | Admin      | User      | test_admin@test.edu |

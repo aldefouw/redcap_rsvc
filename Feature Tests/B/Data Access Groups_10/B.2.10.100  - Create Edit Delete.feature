@@ -19,20 +19,20 @@ Feature: B.2.10.100 Data Access Groups-DAGs User Interface: The system shall all
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
-      | Data Access Groups      |
-      | TestGroup1              |
-      | TestGroup2              |
-      | TestGroup3              |
+      | Data Access Groups |
+      | TestGroup1         |
+      | TestGroup2         |
+      | TestGroup3         |
 
     ##ACTION: Edit DAG
     When I click on a table cell containing the text "TestGroup3" in the data access groups table and clear field and enter "RenameGroup3"
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
-      | Data Access Groups      |
-      | TestGroup1              |
-      | TestGroup2              |
-      | RenameGroup3            |
+      | Data Access Groups |
+      | TestGroup1         |
+      | TestGroup2         |
+      | RenameGroup3       |
 
     #FUNCTIONAL REQUIREMENT - Cannot delete DAG with User
     ##ACTION: Add User with Basic custom rights
@@ -50,10 +50,10 @@ Feature: B.2.10.100 Data Access Groups-DAGs User Interface: The system shall all
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
-      | Data Access Groups      | Users in group          |
-      | TestGroup1              |                         |
-      | TestGroup2              |                         |
-      | RenameGroup3            | test_user1 (Test User1) |
+      | Data Access Groups | Users in group          |
+      | TestGroup1         |                         |
+      | TestGroup2         |                         |
+      | RenameGroup3       | test_user1 (Test User1) |
         
     ##ACTION: Cannot Delete DAG with User
     Given I click the X to delete the data access group named "RenameGroup3"
@@ -63,10 +63,10 @@ Feature: B.2.10.100 Data Access Groups-DAGs User Interface: The system shall all
 
     ##VERIFY
     And I should see a table header and rows containing the following values in data access groups table:
-      | Data Access Groups      | Users in group          |
-      | TestGroup1              |                         |
-      | TestGroup2              |                         |
-      | RenameGroup3            | test_user1 (Test User1) |
+      | Data Access Groups | Users in group          |
+      | TestGroup1         |                         |
+      | TestGroup2         |                         |
+      | RenameGroup3       | test_user1 (Test User1) |
 
     ##ACTION: Remove User from DAG
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
@@ -75,10 +75,10 @@ Feature: B.2.10.100 Data Access Groups-DAGs User Interface: The system shall all
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
-      | Data Access Groups      | Users in group          |
-      | TestGroup1              |                         |
-      | TestGroup2              |                         |
-      | RenameGroup3            |                         |
+      | Data Access Groups | Users in group |
+      | TestGroup1         |                |
+      | TestGroup2         |                |
+      | RenameGroup3       |                |
 
     ##ACTION: Delete DAG
     Given I click the X to delete the data access group named "RenameGroup3"
@@ -87,15 +87,15 @@ Feature: B.2.10.100 Data Access Groups-DAGs User Interface: The system shall all
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
-      | Data Access Groups      |
-      | TestGroup1              |
-      | TestGroup2              |
+      | Data Access Groups |
+      | TestGroup1         |
+      | TestGroup2         |
     Then I should NOT see "RenameGroup3"
 
     ##VERIFY_LOG: Verify Update, Edit and Delete for DAG
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported  |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Delete data access group                 |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Rename data access group                 |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Create data access group                 |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Delete data access group                |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Rename data access group                |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Create data access group                |

@@ -30,7 +30,7 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
 
     When I click on the button labeled "Close" in the dialog box
     Then I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_admin          |
       | —                       | test_user1          |
       | —                       | test_user2          |
@@ -51,7 +51,7 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_admin          |
       | —                       | test_user1          |
       | —                       | test_user2          |
@@ -72,7 +72,7 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_admin          |
       | —                       | test_user2          |
       | —                       | test_user3          |
@@ -92,7 +92,7 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_admin          |
       | —                       | test_user2          |
       | —                       | test_user3          |
@@ -109,7 +109,7 @@ Feature: B.2.6.500 Assign user rights Project Level:  The system shall support a
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_admin          |
       | —                       | test_user1          |
       | —                       | test_user2          |

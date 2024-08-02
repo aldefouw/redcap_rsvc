@@ -4,7 +4,6 @@ Feature: The system shall allow creation of a participant list automatically usi
   I want to see that Participant List is functioning as expected
 
   Scenario: B.3.15.300.100 Participant list linked to designated email field
-
     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -42,6 +41,6 @@ Feature: The system shall allow creation of a participant list automatically usi
     And I click on the tab labeled "Participant List"
     Then I should see the dropdown field labeled "belonging to" with the option '[Initial survey] "Text Validation" - Event 1 (Arm 1: Arm 1)' selected
     And I should see a table header and rows containing the following values in the participant list table:
-      | Email              | Record | Participant Identifier| Responded | Invitation Scheduled? | Invitation Sent ? | Link   | Survey Access Code |
-      | email@test.edu     |   1    | Disabled              | [icon]    | -                     | [icon]            | [icon] | [icon]             |
+      | Email          | Record | Participant Identifier | Responded | Invitation Scheduled? | Invitation Sent ? | Link   | Survey Access Code |
+      | email@test.edu | 1      | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
     And I logout

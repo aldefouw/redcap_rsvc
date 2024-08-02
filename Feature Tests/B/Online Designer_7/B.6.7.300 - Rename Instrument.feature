@@ -5,7 +5,6 @@ Feature: Design forms Using Data Dictionary and Online Designer
   I want to see that Project Designer is functioning as expected
 
   Scenario: B.6.7.300.100 Unique instrument name
-
     ##SETUP_DEV
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.6.7.300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
@@ -21,11 +20,11 @@ Feature: Design forms Using Data Dictionary and Online Designer
     ##ACTION: Rename instrument and instrument variable name
     When I click on the link labeled "Online Designer"
     Then I should see a table header and rows containing the following values in a table:
-      | Instrument name  | Fields |
-      | Text Validation  | 3      |
-      | Data Types       | 45     |
-      | Survey           | 2      |
-      | Consent          | 4      |
+      | Instrument name | Fields |
+      | Text Validation | 3      |
+      | Data Types      | 45     |
+      | Survey          | 2      |
+      | Consent         | 4      |
 
     Given I click on the first button labeled "Choose action"
     And I click on the link labeled "Rename" in the action popup
@@ -47,8 +46,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Rename data collection instrument         |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Rename data collection instrument       |
 
     ##SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -77,11 +76,11 @@ Feature: Design forms Using Data Dictionary and Online Designer
 
     #VERIFY
     Then I should see a table header and rows containing the following values in a table:
-      | Instrument name          |  Fields |
-      | Text Validation Rename 2 | 3       |
-      | Data Types               | 45      |
-      | Survey                   | 2       |
-      | Consent                  | 4       |
+      | Instrument name          | Fields |
+      | Text Validation Rename 2 | 3      |
+      | Data Types               | 45     |
+      | Survey                   | 2      |
+      | Consent                  | 4      |
 
     When I click on the button labeled "Submit Changes for Review"
     And I click on the button labeled "Submit" in the dialog box
@@ -95,6 +94,6 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Rename data collection instrument         |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Rename data collection instrument       |
 

@@ -5,7 +5,6 @@ Feature: Design forms Using Data Dictionary and Online Designer
   I want to see that Project Designer is functioning as expected
 
   Scenario: B.6.7.1000.100 Creation of multiple choice dropdown list (single answer) through the Online Designer
-
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "New Project"
@@ -30,8 +29,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: radio field creation
     Given I see a table header and rows containing the following values in a table:
-      | Instrument name   | Fields |
-      | Form 1            | 1      |
+      | Instrument name | Fields |
+      | Form 1          | 1      |
     And I click on the link labeled "Form 1"
     Then I should see a field named "Record ID"
 
@@ -63,8 +62,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     Then I should see a table header and rows containing the following values in the codebook table:
-      | Variable / Field Name      | Field Label                     | Field Attributes |
-      | [radio_button_manual]      | Radio Button Manual             | radio            |
+      | Variable / Field Name | Field Label         | Field Attributes |
+      | [radio_button_manual] | Radio Button Manual | radio            |
 
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
@@ -94,5 +93,5 @@ Feature: Design forms Using Data Dictionary and Online Designer
     ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     Then I should see a table header and rows containing the following values in the codebook table:
-      | Variable / Field Name      | Field Label                     | Field Attributes |
-      | [radio_button_manual]      | Radio Button Manual             | radio            |
+      | Variable / Field Name | Field Label         | Field Attributes |
+      | [radio_button_manual] | Radio Button Manual | radio            |

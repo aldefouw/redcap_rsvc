@@ -58,17 +58,17 @@ Feature: Creating a Record and Entering Data: The system shall support data entr
     ###VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record7   | radio = '9..9'                         |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record7   | multiple_dropdown_manual_2 = '6'       |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record7   | notesbox2 = 'Notes box'                |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record7   | checkbox(1) = checked                  |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record7   | checkbox(2) = checked                  |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record7   | signature = '1'                        |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record7   | file_upload = '2'                      |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record7   | tf = '1'                               |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record7   | yn = '0'                               |
-      | mm/dd/yyyy hh:mm | test_user1 | Create record7   | slider = '65'                          |
+      | Time / Date      | Username   | Action         | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record7 | radio = '9..9'                          |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record7 | multiple_dropdown_manual_2 = '6'        |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record7 | notesbox2 = 'Notes box'                 |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record7 | checkbox(1) = checked                   |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record7 | checkbox(2) = checked                   |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record7 | signature = '1'                         |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record7 | file_upload = '2'                       |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record7 | tf = '1'                                |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record7 | yn = '0'                                |
+      | mm/dd/yyyy hh:mm | test_user1 | Create record7 | slider = '65'                           |
 
     ###VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
@@ -77,5 +77,5 @@ Feature: Creating a Record and Entering Data: The system shall support data entr
 
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
-    | Record ID | Event name             | Repeat Instrument | Repeat Instance | Data Access Group | Survey Identifier | Name | Email | Complete?| radio             | Multiple Choice Dropdown Manual | Notes box 2 | Checkbox1   | Checkbox2   | Checkbox3     | Signature | File Upload | True/False | Yes/No | Slider |
-    | 7         | Event 1 (Arm 1: Arm 1) | Data Types        | 1               |                   |                   |      |       |          | Choice99 (9..9)   | DDChoice6 (6)                   | Notes box   | Checked (1) | Checked (1) | Unchecked (0) | [button]  | [button]    | True (1)   | No (0) | 65     |
+      | Record ID | Event name             | Repeat Instrument | Repeat Instance | Data Access Group | Survey Identifier | Name | Email | Complete? | radio           | Multiple Choice Dropdown Manual | Notes box 2 | Checkbox1   | Checkbox2   | Checkbox3     | Signature | File Upload | True/False | Yes/No | Slider |
+      | 7         | Event 1 (Arm 1: Arm 1) | Data Types        | 1               |                   |                   |      |       |           | Choice99 (9..9) | DDChoice6 (6)                   | Notes box   | Checked (1) | Checked (1) | Unchecked (0) | [button]  | [button]    | True (1)   | No (0) | 65     |

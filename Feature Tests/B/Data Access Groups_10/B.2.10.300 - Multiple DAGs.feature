@@ -30,7 +30,7 @@ Feature: B.2.10.300 Data Access Groups-DAGs User Interface: The system shall all
 
     When I click on the button labeled "Close" in the dialog box
     Then I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_admin          |
       | —                       | test_user1          |
       | —                       | test_user2          |
@@ -53,9 +53,9 @@ Feature: B.2.10.300 Data Access Groups-DAGs User Interface: The system shall all
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
-      | Data Access Groups      | Users in group |
-      | TestGroup1              | test_user1     |
-      | TestGroup2              |                |
+      | Data Access Groups | Users in group |
+      | TestGroup1         | test_user1     |
+      | TestGroup2         |                |
 
     ##ACTION: Assign DAG
     When I select "test_user1 (Test User1)" on the dropdown field labeled "Assign user"
@@ -64,9 +64,9 @@ Feature: B.2.10.300 Data Access Groups-DAGs User Interface: The system shall all
 
     ##VERIFY
     Then I should see a table header and rows containing the following values in data access groups table:
-      | Data Access Groups      | Users in group |
-      | TestGroup1              |                |
-      | TestGroup2              | test_user1     |
+      | Data Access Groups | Users in group |
+      | TestGroup1         |                |
+      | TestGroup2         | test_user1     |
 
     ##ACTION: Assign DAG Switcher
     When I check "TestGroup1" for user "test_user1" in the DAG Switcher
@@ -125,8 +125,8 @@ Feature: B.2.10.300 Data Access Groups-DAGs User Interface: The system shall all
 
     ##VERIFY_RSD:
     Then I should see a table header and rows containing the following values in the record status dashboard table:
-      | Record ID             |
-      | 3  TestGroup1   |
+      | Record ID     |
+      | 3  TestGroup1 |
 
     ##VERIFY
     When I click on the button labeled "Switch"
@@ -143,5 +143,5 @@ Feature: B.2.10.300 Data Access Groups-DAGs User Interface: The system shall all
 
     ##VERIFY_RSD:
     Then I should see a table header and rows containing the following values in the record status dashboard table:
-      | Record ID           |
+      | Record ID     |
       | 4  TestGroup2 |

@@ -4,7 +4,6 @@ Feature: B.2.6.200 Assign user rights Project Level:  The system shall allow dat
   I want to see that data entry rights is functioning as expected
 
   Scenario: B.2.6.200.100 Data Viewing Rights
-
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.2.6.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
@@ -39,7 +38,7 @@ Feature: B.2.6.200 Assign user rights Project Level:  The system shall allow dat
     And I click on the button labeled "Close" in the dialog box
 
     And I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_admin          |
       | —                       | test_user1          |
       | —                       | test_user2          |
@@ -63,7 +62,7 @@ Feature: B.2.6.200 Assign user rights Project Level:  The system shall allow dat
     ##VERIFY_LOG: Verify Update user rights
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action   | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action   | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Add user | user = 'test_user1'                     |
 
     ##ACTION #CROSS-FEATURE B.2.23.100: Verify Logging Filter by user name
@@ -71,7 +70,7 @@ Feature: B.2.6.200 Assign user rights Project Level:  The system shall allow dat
 
     ##VERIFY_LOG #CROSS-FEATURE: Verify Logging Filter by user name
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                     |
     And I logout
 

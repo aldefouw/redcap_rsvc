@@ -29,8 +29,8 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username    | Action        | List of Data Changes OR Fields Exported |
-      | test_user1  | Manage/Design | Modify project settings                |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | test_user1 | Manage/Design | Modify project settings                 |
 
     When I click on the link labeled "Project Setup"
     #FUNCTIONAL REQUIREMENT
@@ -50,8 +50,8 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username    | Action        | List of Data Changes OR Fields Exported |
-      | test_user1  | Manage/Design | Set up survey                          |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | test_user1 | Manage/Design | Set up survey                           |
 
     ##ACTION Disable survey in Online Designer #B.3.15.100.100
     Given I click on the link labeled "Designer"
@@ -66,5 +66,5 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username    | Action        | List of Data Changes OR Fields Exported |
-      | test_user1  | Manage/Design | Delete survey                          |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | test_user1 | Manage/Design | Delete survey                           |

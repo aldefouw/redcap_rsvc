@@ -4,6 +4,7 @@ Feature: A.1.5.100 Browse Projects
   I want to see that I have the ability to access, search, and filter projects
 
   Scenario: A.1.5.100.100 Search/Sort project and Locate by User
+
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "A.1.5.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     And I click on the link labeled "Control Center"

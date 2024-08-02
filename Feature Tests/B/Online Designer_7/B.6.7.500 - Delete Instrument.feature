@@ -5,7 +5,6 @@ Feature: Design forms Using Data Dictionary and Online Designer
   I want to see that Project Designer is functioning as expected
 
   Scenario: B.6.7.500.100 Delete instrument from online designer
-
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
 
@@ -34,11 +33,11 @@ Feature: Design forms Using Data Dictionary and Online Designer
 
     #This establishes what instruments are here initially
     Then I should see a table header and rows containing the following values in a table:
-      | Instrument name   | Fields |
-      | Text Validation   | 3      |
-      | Data Types        | 45     |
-      | Survey            | 2      |
-      | Consent           | 4      |
+      | Instrument name | Fields |
+      | Text Validation | 3      |
+      | Data Types      | 45     |
+      | Survey          | 2      |
+      | Consent         | 4      |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION
@@ -61,10 +60,10 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #This establishes what instruments are here now
     When I click on the link labeled "Designer"
     Then I should see a table header and rows containing the following values in a table:
-      | Instrument name   | Fields |
-      | Data Types        | 46     |
-      | Survey            | 2      |
-      | Consent           | 4      |
+      | Instrument name | Fields |
+      | Data Types      | 46     |
+      | Survey          | 2      |
+      | Consent         | 4      |
 
     And I should NOT see "Text Validation"
 

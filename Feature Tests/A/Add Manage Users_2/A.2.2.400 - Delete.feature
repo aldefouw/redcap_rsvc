@@ -4,6 +4,7 @@ Feature: A.2.2.400 Add/Manage users
   I want to see that Delete Users is functioning as expected.
 
   Scenario: A.2.2.400.100 Delete User Function
+
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Add Users (Table-based Only)"

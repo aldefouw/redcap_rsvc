@@ -5,7 +5,6 @@ Feature: Design forms Using Data Dictionary and Online Designer
   I want to see that project Designer is functioning as expected
 
   Scenario: B.6.7.100.100 Data dictionary export/import function
-
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "New Project"
@@ -21,8 +20,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
 
     ##VERIFY
     Then I should see the latest downloaded "csv" file containing the headings and rows below
-      |"Variable / Field Name"|"Form Name"|"Section Header"|"Field Type"|"Field Label"|"Choices, Calculations, OR Slider Labels"|"Field Note"|"Text Validation Type OR Show Slider Number"|"Text Validation Min"|"Text Validation Max"|Identifier?|"Branching Logic (Show field only if...)"|"Required Field?"|"Custom Alignment"|"Question Number (surveys only)"|"Matrix Group Name"|"Matrix Ranking?"|"Field Annotation"|
-      |record_id              |form_1     |                |text        |"Record ID"  |                                         |            |                                            |                     |                     |           |                                         |                 |                  |                                |                   |                 |                  |
+      | "Variable / Field Name" | "Form Name" | "Section Header" | "Field Type" | "Field Label" | "Choices, Calculations, OR Slider Labels" | "Field Note" | "Text Validation Type OR Show Slider Number" | "Text Validation Min" | "Text Validation Max" | Identifier? | "Branching Logic (Show field only if...)" | "Required Field?" | "Custom Alignment" | "Question Number (surveys only)" | "Matrix Group Name" | "Matrix Ranking?" | "Field Annotation" |
+      | record_id               | form_1      |                  | text         | "Record ID"   |                                           |              |                                              |                       |                       |             |                                           |                   |                    |                                  |                     |                   |                    |
 
     ##ACTION: Upload data dictionary
     When I click on the link labeled "Dictionary"
@@ -40,8 +39,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Upload data dictionary                    |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Upload data dictionary                  |
 
     ##ACTION: Upload data dictionary with removed form and Reordered form (#B.6.7.500.200 & B.6.7.600.200)
     When I click on the link labeled "Dictionary"
@@ -60,8 +59,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Upload data dictionary                    |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Upload data dictionary                  |
 
     ##ACTION: Unable to upload data dictionary with Errors
     When I click on the link labeled "Dictionary"
@@ -75,5 +74,5 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Upload data dictionary                    |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Upload data dictionary                  |

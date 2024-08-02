@@ -4,7 +4,6 @@ Feature: User Interface: Survey Project Settings: The system shall support track
   I want to see that Survey Feature is functioning as expected
 
   Scenario: B.3.15.1100.100 Tracking survey responders
-
     #ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
