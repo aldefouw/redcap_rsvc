@@ -1,9 +1,9 @@
 Feature: User Interface: The system shall allow for exporting every field in a database.
 
-    As a REDCap end user
-    I want to see that export data is functioning as expected
+  As a REDCap end user
+  I want to see that export data is functioning as expected
 
-    Scenario: B.5.21.300.100 Export all fields
+  Scenario: B.5.21.300.100 Export all fields
 # #REDUNDANT
 # #Tested in #B.2.6.300.100 Assign User Rights -  Data Export Rights
 
