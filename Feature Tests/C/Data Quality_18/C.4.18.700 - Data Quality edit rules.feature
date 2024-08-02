@@ -4,7 +4,6 @@ Feature: User Interface: The system shall support editing of user defined rules.
   I want to see that Data Quality Module is functioning as expected
 
   Scenario: C.4.18.700.100 Edit rule
-
     #ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"

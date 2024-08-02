@@ -4,6 +4,7 @@ Feature: A.2.3.400 Assign administrators and account managers
   I want to see that Assign Super Users / Account Managers is functioning as expected
 
   Scenario: A.2.3.400.100 Give and remove user maximum user privileges
+
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Administrator Privileges"
@@ -34,7 +35,7 @@ Feature: A.2.3.400 Assign administrators and account managers
     And I login to REDCap with the user "Test_User1"
     When I click on the link labeled "Control Center"
     Then I should see "Control Center Home"
-    
+
     And I should see a link labeled "System Statistics"
     And I should NOT see a link labeled "Edit a Project's Settings"
     And I logout

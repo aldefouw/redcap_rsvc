@@ -4,7 +4,6 @@ Feature: User Interface: The system shall require changes made to data collectio
   I want to see that Draft Mode is functioning as expected
 
   Scenario: B.4.20.300.100 Changes occur in draft mode non-real-time
-
     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"

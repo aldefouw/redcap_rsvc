@@ -4,6 +4,7 @@ Feature: User Interface: The system shall support the ability to download two ve
   I want to see that Data import is functioning as expected
 
   Scenario: B.3.16.100.100 data import template
+
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.3.16.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.16.xml", and clicking the "Create Project" button
 

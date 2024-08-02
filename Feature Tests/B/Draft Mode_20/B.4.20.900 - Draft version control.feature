@@ -4,7 +4,6 @@ Feature: User Interface: The system shall record all versions of the data dictio
   I want to see that Draft Mode is functioning as expected
 
   Scenario: B.4.20.900.100 Data dictionary version history
-
     #ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"

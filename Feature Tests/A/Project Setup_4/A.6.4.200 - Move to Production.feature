@@ -4,6 +4,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
   I want to see that project management features are functioning as expected
 
   Scenario: A.6.4.200.100 User requests admin move project to production
+
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "A.6.4.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     When I click on the link labeled "My Projects"
@@ -35,7 +36,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     Then I should see "Request pending"
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported            |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Send request to move project to production status |
     Given I logout
 
@@ -61,7 +62,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     Then I should see Project status: "Production"
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Move project to Production status       |
 
   Scenario: A.6.4.200.200 User moves project to production
@@ -96,5 +97,5 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     Then I should see Project status: "Production"
     Given I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Move project to Production status       |

@@ -4,7 +4,6 @@ Feature: B.2.6.100 Assign user rights Project Level:  The system shall allow the
   I want to see that project level user access is functioning as expected
 
   Scenario: B.2.6.100.100 Project level User Rights functions (Add, Edit, Expire, Remove)
-
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.2.6.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
@@ -30,7 +29,7 @@ Feature: B.2.6.100 Assign user rights Project Level:  The system shall allow the
     ##VERIFY_LOG: Verify Update user rights
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action   | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action   | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Add user | user = 'test_admin'                     |
 
     ##ACTION #CROSS-FEATURE B.2.23.100: Verify Logging Filter by user name
@@ -38,7 +37,7 @@ Feature: B.2.6.100 Assign user rights Project Level:  The system shall allow the
 
     ##VERIFY_LOG #CROSS-FEATURE: Verify Logging Filter by user name
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action   | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action   | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Add user | user = 'Test_User1'                     |
     And I logout
 
@@ -116,7 +115,7 @@ Feature: B.2.6.100 Assign user rights Project Level:  The system shall allow the
     ##VERIFY_LOG: Verify Update user rights
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                     |
     And I logout
 
@@ -165,8 +164,8 @@ Feature: B.2.6.100 Assign user rights Project Level:  The system shall allow the
     And I click on the link labeled "Logging"
     #ATS: No mention in the logs of anything related to expiration.  It just says Update user in the logs.
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported  |
-      | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                      |
+      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                     |
 
     And I logout
 
@@ -189,8 +188,8 @@ Feature: B.2.6.100 Assign user rights Project Level:  The system shall allow the
 
     #ATS: No mention in the logs of anything related to expiration.  It just says Update user in the logs.
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported  |
-      | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                      |
+      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                     |
 
     And I logout
 
@@ -218,7 +217,7 @@ Feature: B.2.6.100 Assign user rights Project Level:  The system shall allow the
     ##VERIFY_LOG: Verify Logging of Delete user
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action      | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Update user | user = 'test_user1'                     |
       | mm/dd/yyyy hh:mm | test_admin | Delete user | user = 'test_user1'                     |
 

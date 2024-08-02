@@ -4,7 +4,6 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
   I want to see that Manage project user access is functioning as expected
 
   Scenario: B.3.15.100.100 Enable/Disable survey in Online Designer
-
     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -60,14 +59,14 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
 
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
-    | Record ID| Name                |
-    | 1        | Name_B.3.15.100.100 |
+      | Record ID | Name                |
+      | 1         | Name_B.3.15.100.100 |
 
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported |
-      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | name = 'Name_B.3.15.100.100'           |
+      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | name = 'Name_B.3.15.100.100'            |
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION Survey Offline
@@ -92,8 +91,8 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
     When I click on the link labeled "Logging"
     Then I should see "This module lists all changes made to this project"
     And I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported  |
-      | mm/dd/yyyy hh:mm | test_user1          | Manage/Design   | Modify survey info                      |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Modify survey info                      |
 
     ##FUNCTIONAL REQUIREMENT
     ###ACTION Disable survey in Online Designer
@@ -112,5 +111,5 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
     When I click on the link labeled "Logging"
     Then I should see "This module lists all changes made to this project"
     And I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported  |
-      | mm/dd/yyyy hh:mm | test_user1          | Manage/Design   | Delete survey                            |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Delete survey                           |

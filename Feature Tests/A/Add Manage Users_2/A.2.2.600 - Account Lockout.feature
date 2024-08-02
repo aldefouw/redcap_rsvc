@@ -4,6 +4,7 @@ Feature: A.2.2.600 Add/Manage users
   I want to see that Users failed login lockout is functioning as expected.
 
   Scenario: A.2.2.600.100 User account locked out after too many attempts
+
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Security & Authentication"

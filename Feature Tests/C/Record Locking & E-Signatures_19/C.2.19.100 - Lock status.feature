@@ -4,7 +4,6 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
   I want to see that Record locking and E-signatures is functioning as expected
 
   Scenario: C.2.19.100.100 Display locked and e-signed status
-
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "C.2.19.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
@@ -13,7 +12,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
     When I click on the link labeled "Project Setup"
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
-     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
+    And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
     Then I should see Project status: "Production"
 
     #SETUP
@@ -69,7 +68,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
     ##ACTION Edit / Remove Custom Text
     When I click on the link labeled "Customize & Manage Locking/E-signatures"
     And I click on the button labeled "I understand. Let me make changes" in the dialog box
-        
+
     #And I click on the Edit icon in the row labeled "Text Validation"
     And I click on the Edit icon within the Record Locking Customization table for the Data Collection Instrument named "Text Validation"
     And I clear field and enter "New custom text" into the textarea field labeled "Text Validation"
@@ -93,7 +92,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
       | [✓]                                          | Consent                    | [ ]                                            | [text box]              |
 
 
-        ##VERIFY_LOG
+    ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
@@ -103,7 +102,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
       | test_admin | Manage/Design | Customize record locking                |
 
 
-        ##VERIFY: custom text in record and revert back to template
+    ##VERIFY: custom text in record and revert back to template
     When I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Text Validation" instrument on event "Event 1" for record ID "1" and click on the bubble
     Then I should see "Text Validation"

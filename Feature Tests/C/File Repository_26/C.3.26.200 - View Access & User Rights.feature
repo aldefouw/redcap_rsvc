@@ -4,7 +4,6 @@ Feature: User Interface: The system shall support limiting file repository user 
   I want to see that file repository is functioning as expected
 
   Scenario: C.3.26.200.100 - Limit user view and export access based on User Rights and DAG
-
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     When I create a new project named "C.3.26.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
@@ -458,8 +457,8 @@ Feature: User Interface: The system shall support limiting file repository user 
 
     #Don't see consent created by testgroup2
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Record         | Survey                           | Survey Completion Time | Type      |
-        | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+      | Record         | Survey                           | Survey Completion Time | Type      |
+      | 1-1 TestGroup1 | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
 
     But I should NOT see "TestGroup2"
     And I should NOT see "2-1"
@@ -478,13 +477,13 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##VERIFY See file uploaded by Test_User1 & Test_User2
 
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | Data Export Files           |                  |                         |
-        | PDF Survey Archive          |                  |                         |
-        | Recycle Bin                 |                  |                         |
-        | TestGroup1_Folder           |                  |                         |
-        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | Data Export Files           |                  |                         |
+      | PDF Survey Archive          |                  |                         |
+      | Recycle Bin                 |                  |                         |
+      | TestGroup1_Folder           |                  |                         |
+      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user_list_for_project_1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     And I should NOT see "Role1_Folder"
 
@@ -500,8 +499,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##ACTION Access DAG folder
     Given I click on the link labeled "TestGroup1_Folder" in the File Repository table
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                      | Time Uploaded    | Comments                |
-        | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                      | Time Uploaded    | Comments                |
+      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
     ##VERIFY Download another users file in subfolder
@@ -514,9 +513,9 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I click on the link labeled "File Repository"
     And I click on the link labeled "PDF Survey Archive"
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Record | Survey                           | Survey Completion Time | Type      |
-        | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
-        | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+      | Record | Survey                           | Survey Completion Time | Type      |
+      | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
+      | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
 
   #Scenario: Delete folders - unable to delete with file in folder
 
@@ -535,20 +534,20 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I should see a dialog containing the following text: "Sorry, but the folder below cannot be deleted because it still has files in it."
     When I click on the button labeled "Close" in the dialog box
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | Data Export Files           |                  |                         |
-        | PDF Survey Archive          |                  |                         |
-        | Recycle Bin                 |                  |                         |
-        | TestGroup1_Folder           |                  |                         |
-        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | Data Export Files           |                  |                         |
+      | PDF Survey Archive          |                  |                         |
+      | Recycle Bin                 |                  |                         |
+      | TestGroup1_Folder           |                  |                         |
+      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION Cancel Remove files from folder
     When I click on the link labeled "TestGroup1_Folder" in the File Repository table
     Then I should see "All Files/TestGroup1_Folder" in the File Repository breadcrumb
     And I should see a table header and rows containing the following values in the file repository table:
-        | Name                      | Time Uploaded    | Comments                |
-        | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                      | Time Uploaded    | Comments                |
+      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     And I check the checkbox labeled "testusers_bulk_upload.csv"
     And I click on the button labeled "Delete"
@@ -556,8 +555,8 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I click on the button labeled "Cancel" in the dialog box
     ##VERIFY file still in folder
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                      | Time Uploaded    | Comments                |
-        | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                      | Time Uploaded    | Comments                |
+      | testusers_bulk_upload.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION Delete/Remove files from folder
     When I check the checkbox labeled "testusers_bulk_upload.csv"
@@ -568,7 +567,7 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see a dialog containing the following text: "SUCCESS!"
     And I click on the button labeled "Close" in the dialog box
     Then I should see a table row containing the following values in the file repository table:
-        | No files or sub-folders exist in this folder |
+      | No files or sub-folders exist in this folder |
 
     ##ACTION C.3.26.500.100 Delete folders - Cancel deletion
     When I click on the link labeled "File Repository"
@@ -578,13 +577,13 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
     When I click on the button labeled "Cancel" in the dialog box
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | Data Export Files           |                  |                         |
-        | PDF Survey Archive          |                  |                         |
-        | Recycle Bin                 |                  |                         |
-        | TestGroup1_Folder           |                  |                         |
-        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | Data Export Files           |                  |                         |
+      | PDF Survey Archive          |                  |                         |
+      | Recycle Bin                 |                  |                         |
+      | TestGroup1_Folder           |                  |                         |
+      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     ##ACTION C.3.26.500.100 Delete folders
     And I click on the Delete icon for the File Repository file named "TestGroup1_Folder"
@@ -592,11 +591,11 @@ Feature: User Interface: The system shall support limiting file repository user 
     Then I should see a dialog containing the following text: "Folder: TestGroup1_Folder"
     When I click on the button labeled "Delete" in the dialog box
     Then I should see a table header and rows containing the following values in the file repository table:
-        | Name                        | Time Uploaded    | Comments                |
-        | Data Export Files           |                  |                         |
-        | PDF Survey Archive          |                  |                         |
-        | Recycle Bin                 |                  |                         |
-        | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
-        | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | Name                        | Time Uploaded    | Comments                |
+      | Data Export Files           |                  |                         |
+      | PDF Survey Archive          |                  |                         |
+      | Recycle Bin                 |                  |                         |
+      | testusers_bulkupload.csv    | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
+      | user list for project 1.csv | mm/dd/yyyy hh:mm | Uploaded by test_user1. |
 
     And I should NOT see "TestGroup1_Folder"

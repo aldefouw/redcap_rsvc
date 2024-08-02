@@ -5,8 +5,7 @@ Feature: Design forms Using Data Dictionary and Online Designer
   I want to see that Online Designer is functioning as expected
 
   Scenario: B.6.7.200.100 Create form with Online Designer
-
-  #SETUP
+    #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.6.7.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     When I click on the link labeled "My Projects"
@@ -15,9 +14,9 @@ Feature: Design forms Using Data Dictionary and Online Designer
     And I click on the button labeled "Online Designer"
     Then I should see "Data Collection Instruments"
 
-  #FUNCTIONAL_REQUIREMENT
-  ##ACTION: Create new form
-  #Oddly, we need the space before this button because otherwise we match on "Create snapshot of instruments"
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: Create new form
+    #Oddly, we need the space before this button because otherwise we match on "Create snapshot of instruments"
     When I click on the button labeled exactly " Create"
     And I click on the last button labeled "Add instrument here"
     Then I should see "New instrument name:"
@@ -27,7 +26,7 @@ Feature: Design forms Using Data Dictionary and Online Designer
 
     Given I click on the button labeled "Close" in the dialog box
 
-  #VERIFY
+    #VERIFY
     Then I should see a table header and rows containing the following values in a table:
       | Instrument name | Fields |
       | Text Validation | 3      |
@@ -36,8 +35,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
       | Consent         | 4      |
       | New Form        | 0      |
 
-  #VERIFY_LOG
+    #VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Create data collection instrument         |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Create data collection instrument       |

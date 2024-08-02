@@ -1,9 +1,9 @@
 Feature: Control Center: The system shall provide the ability to enable/disable sharing of files via a public link.
 
- As a REDCap end user
- I want to see that file repository is functioning as expected
+  As a REDCap end user
+  I want to see that file repository is functioning as expected
 
- Scenario: A.3.26.100.100 Enable/Disable file repository public links via Control Center
+  Scenario: A.3.26.100.100 Enable/Disable file repository public links via Control Center
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "A.3.26.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
@@ -30,15 +30,15 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
     Then I should see "All Files" in the File Repository breadcrumb
 
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
-      |import_files/testusers_bulkupload.csv|
+      | import_files/testusers_bulkupload.csv |
 
     ##VERIFY file uploaded in folder
     Then I should see a table header and rows containing the following values in the file repository table:
-       | Name                     | Time Uploaded    | Comments                |
-       | Data Export Files        |                  |                         |
-       | PDF Survey Archive       |                  |                         |
-       | Recycle Bin              |                  |                         |
-       | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
+      | Name                     | Time Uploaded    | Comments                |
+      | Data Export Files        |                  |                         |
+      | PDF Survey Archive       |                  |                         |
+      | Recycle Bin              |                  |                         |
+      | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: Disable File Repository Module

@@ -56,16 +56,16 @@ Feature: User Interface: Longitudinal Project Settings: The system shall require
 
     # ##VERIFY
     Given I see a table header and rows containing the following values in the define events table:
-      | Event #    | Event Label |
-      | 1          | Event 1     |
-      | 2          | Event 2     |
-      | 3          | Event Three |
+      | Event # | Event Label |
+      | 1       | Event 1     |
+      | 2       | Event 2     |
+      | 3       | Event Three |
 
     When I click on the Delete image for the event named "Event 1"
     Then I should see a table header and rows containing the following values in the define events table:
-      | Event #    | Event Label |
-      | 2          | Event 2     |
-      | 3          | Event Three |
+      | Event # | Event Label |
+      | 2       | Event 2     |
+      | 3       | Event Three |
     And I should NOT see "Event 1"
 
     Given I should see a link labeled "Arm 1"

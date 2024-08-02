@@ -4,6 +4,7 @@ Feature: A.2.12.100 Security Settings- The system shall support changing the sys
   I want to see that system status is functioning as expected
 
   Scenario: A.2.12.100.100 System Status Online/Offline
+
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "General Configuration"

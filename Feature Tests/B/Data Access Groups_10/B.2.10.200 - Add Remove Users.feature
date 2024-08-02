@@ -53,16 +53,16 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
 
     ##VERIFY: DAG assignment
     Then I should see a table header and rows containing the following values in data access groups table:
-      | Data Access Groups      | Users in group |
-      | TestGroup1              | test_user1     |
+      | Data Access Groups | Users in group |
+      | TestGroup1         | test_user1     |
 
     ##VERIFY_LOG:
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | Assign user to data access group        |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | user = 'test_user1'                     |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | group = 'TestGroup1'                    |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Assign user to data access group        |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | user = 'test_user1'                     |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | group = 'TestGroup1'                    |
     And I logout
 
     Given I login to REDCap with the user "Test_User1"
@@ -76,8 +76,8 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
     ##VERIFY_UR: DAG assignment
     When I click on the link labeled "User Rights"
     Then I should see a table header and rows containing the following values in a table:
-      |Role name | Username   | Data Access Groups |
-      | —        | test_user1 | TestGroup1         |
+      | Role name | Username   | Data Access Groups |
+      | —         | test_user1 | TestGroup1         |
 
     ##VERIFY_RSD:
     When I click on the link labeled "Record Status Dashboard"
@@ -113,8 +113,8 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
     ##VERIFY_UR
     When I click on the link labeled "User Rights"
     Then I should see a table header and rows containing the following values in a table:
-      |Role name | Username   | Data Access Groups |
-      | —        | test_user1 |                    |
+      | Role name | Username   | Data Access Groups |
+      | —         | test_user1 |                    |
 
     ##VERIFY_RSD:
     When I click on the link labeled "Record Status Dashboard"
@@ -128,10 +128,10 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
     ##VERIFY_LOG:
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action           | List of Data Changes OR Fields Exported |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | Remove user from data access group      |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | user = 'test_user1'                     |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | group = 'TestGroup1'                    |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | Assign user to data access group        |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | user = 'test_user1'                     |
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design    | group = 'TestGroup1'                    |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Remove user from data access group      |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | user = 'test_user1'                     |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | group = 'TestGroup1'                    |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Assign user to data access group        |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | user = 'test_user1'                     |
+      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | group = 'TestGroup1'                    |

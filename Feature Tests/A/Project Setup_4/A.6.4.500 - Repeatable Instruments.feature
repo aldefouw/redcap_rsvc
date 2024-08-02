@@ -67,7 +67,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     Given I click on the button labeled "Close" in the dialog box
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   | Action        |  List of Data Changes OR Fields Exported |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
       | test_user1 | Manage/Design | Set up repeating instruments/events     |
 
     Given I click on the link labeled "Add / Edit Records"
@@ -93,7 +93,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     When I click on the button labeled "View Report"
 
     Then I should see table rows containing the following values in the report data table:
-      | Event Three (Arm 1: Arm 1) | Survey | 1 | Name MyName |
+      | Event Three (Arm 1: Arm 1) | Survey | 1 | Name MyName      |
       | Event Three (Arm 1: Arm 1) | Survey | 2 | Name MyOtherName |
     And I should NOT see "Data Types"
 
@@ -114,7 +114,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_user1 | Manage/Design | Set up repeating instruments/events    |
+      | test_user1 | Manage/Design | Set up repeating instruments/events     |
 
     Given I click on the link labeled "Add / Edit Records"
     And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
@@ -149,7 +149,7 @@ Feature: A.6.4.500 Manage project creation, deletion, and settings
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_user1 | Manage/Design | Set up repeating instruments/events    |
+      | test_user1 | Manage/Design | Set up repeating instruments/events     |
 
     Given I click on the link labeled "Add / Edit Records"
     And I select record ID "1" from arm name "Arm 1: Arm 1" on the Add / Edit record page
