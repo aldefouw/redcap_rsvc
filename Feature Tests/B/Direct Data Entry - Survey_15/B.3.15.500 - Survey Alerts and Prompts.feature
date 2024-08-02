@@ -34,7 +34,7 @@ Feature: User Interface: Survey Distribution: The system shall prompt the user t
     ##VERIFY_LOG:
     Given I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | survey_complete = '2'                   |
 
     #FUNCTIONAL REQUIREMENT
@@ -59,6 +59,6 @@ Feature: User Interface: Survey Distribution: The system shall prompt the user t
     ##VERIFY_LOG:
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin          | Update record   | name_survey = 'Overwrite Name'          |
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | survey_complete = '2'                   |

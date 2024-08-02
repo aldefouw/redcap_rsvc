@@ -20,7 +20,7 @@ Feature: A.2.3.300 Assign administrators and account managers
     Then I should see 'The user "Test_User1" has now been granted one or more administrator privileges'
     And I click on the button labeled "OK"
     And I should see "Test_User1"
-   
+
     Given I logout
 
     Given I login to REDCap with the user "Test_User1"
@@ -68,7 +68,7 @@ Feature: A.2.3.300 Assign administrators and account managers
     When I click on the link labeled exactly "Manage"
     And I should NOT see a button labeled "Enable a module"
     Given I logout
-    
+
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Administrator Privileges"

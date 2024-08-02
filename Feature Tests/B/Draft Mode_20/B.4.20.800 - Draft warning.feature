@@ -51,17 +51,17 @@ Feature: User Interface: The system shall flag any changes that may negatively i
     #DATA MISMATCH
     And I click on the button labeled "Save"
     Then I should see the radio field labeled "Radio Button Manual" with the options below
-      |Choice99|
-      |Choice100|
+      | Choice99  |
+      | Choice100 |
 
     ##FUNCTIONAL_REQUIREMENT
     When I click on the link labeled "View detailed summary of all drafted changes"
     Then I should see "Will these changes be automatically approved?"
     And I should see "No, an admin will have to review these changes."
     And I should see a table header and rows containing the following values in a table:
-      | Variable Name       | Choices or Calculations                                            |
-      | radio_button_manual | *Possible label mismatch because of label changes. Check if okay.  |
-      | radio_button_manual | *Data MIGHT be lost due to deleted choice(s)                       |
+      | Variable Name       | Choices or Calculations                                           |
+      | radio_button_manual | *Possible label mismatch because of label changes. Check if okay. |
+      | radio_button_manual | *Data MIGHT be lost due to deleted choice(s)                      |
 #
 
     When I click on the button labeled "Compare"

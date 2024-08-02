@@ -32,8 +32,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: calculated field creation
     Given I see a table header and rows containing the following values in a table:
-      | Instrument name   | Fields |
-      | Form 1            | 1      |
+      | Instrument name | Fields |
+      | Form 1          | 1      |
     And I click on the link labeled "Form 1"
     Then I should see a field named "Record ID"
 
@@ -62,8 +62,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username    | Action        | List of Data Changes OR Fields Exported |
-      | test_admin  | Manage/Design | Create project field                   |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | test_admin | Manage/Design | Create project field                    |
 
   Scenario: B.6.7.900.200 Creation of calculated field through Data Dictionary upload
 
@@ -94,4 +94,4 @@ Feature: Design forms Using Data Dictionary and Online Designer
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_admin | Manage/Design | Upload data dictionary                 |
+      | test_admin | Manage/Design | Upload data dictionary                  |

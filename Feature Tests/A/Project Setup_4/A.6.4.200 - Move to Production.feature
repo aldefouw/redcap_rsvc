@@ -35,7 +35,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     Then I should see "Request pending"
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported            |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported           |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Send request to move project to production status |
     Given I logout
 
@@ -61,7 +61,7 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     Then I should see Project status: "Production"
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Move project to Production status       |
 
   Scenario: A.6.4.200.200 User moves project to production
@@ -96,5 +96,5 @@ Feature: A.6.4.200 Manage project creation, deletion, and settings
     Then I should see Project status: "Production"
     Given I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported  |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Move project to Production status       |

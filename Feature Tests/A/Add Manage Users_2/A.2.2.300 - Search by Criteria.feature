@@ -18,8 +18,8 @@ Feature: A.2.2.300 Add/Manage users Control Center - Users: The system shall sup
     And I click on the button labeled "Display User List"
     #VERIFY_SEARCH
     Then I should see a table header and rows containing the following values in the browse users table:
-      | Username   | First Name   | Last Name  | Email                |
-      | test_admin | Admin        | User       | test_admin@test.edu  |
+      | Username   | First Name | Last Name | Email               |
+      | test_admin | Admin      | User      | test_admin@test.edu |
 
 
     #FUNCTIONAL REQUIREMENT
@@ -28,8 +28,8 @@ Feature: A.2.2.300 Add/Manage users Control Center - Users: The system shall sup
     And I enter "Admin" into the field with the placeholder text of "Keyword search"
     And I click on the button labeled "Display User List"
     Then I should see a table header and rows containing the following values in the browse users table:
-      | Username   | First Name   | Last Name  | Email                |
-      | test_admin | Admin        | User       | test_admin@test.edu  |
+      | Username   | First Name | Last Name | Email               |
+      | test_admin | Admin      | User      | test_admin@test.edu |
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION Search by Last Name with "Keyword search"
@@ -37,8 +37,8 @@ Feature: A.2.2.300 Add/Manage users Control Center - Users: The system shall sup
     And I enter "Test" into the field with the placeholder text of "Keyword search"
     And I click on the button labeled "Display User List"
     Then I should see a table header and rows containing the following values in the browse users table:
-      | Username   | First Name   | Last Name  | Email                |
-      | test_admin | Admin        | User       | test_admin@test.edu  |
+      | Username   | First Name | Last Name | Email               |
+      | test_admin | Admin      | User      | test_admin@test.edu |
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION Search by Email with "Keyword search"
@@ -46,8 +46,8 @@ Feature: A.2.2.300 Add/Manage users Control Center - Users: The system shall sup
     And I enter "test_admin@test.edu" into the field with the placeholder text of "Keyword search"
     And I click on the button labeled "Display User List"
     Then I should see a table header and rows containing the following values in the browse users table:
-      | Username   | First Name   | Last Name  | Email                |
-      | test_admin | Admin        | User       | test_admin@test.edu  |
+      | Username   | First Name | Last Name | Email               |
+      | test_admin | Admin      | User      | test_admin@test.edu |
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION Edit user information
@@ -67,11 +67,11 @@ Feature: A.2.2.300 Add/Manage users Control Center - Users: The system shall sup
     And I enter "test_user1" into the field with the placeholder text of "Keyword search"
     And I click on the button labeled "Display User List"
     Then I should see a table header and rows containing the following values in the browse users table:
-      | Username   | First Name   | Last Name  | Email                |
-      | test_user1 | Test1        | User1      | Test_User1@test.edu  |
+      | Username   | First Name | Last Name | Email               |
+      | test_user1 | Test1      | User1     | Test_User1@test.edu |
 
     ##VERIFY_LOG
     When I click on the link labeled "User Activity Log"
     Then I should see a table header and rows containing the following values in a table:
-      | User       |  Event           |
-      | test_admin |  Edit user       |
+      | User       | Event     |
+      | test_admin | Edit user |

@@ -33,8 +33,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: Note box field creation
     Given I see a table header and rows containing the following values in a table:
-      | Instrument name   | Fields |
-      | Form 1            | 1      |
+      | Instrument name | Fields |
+      | Form 1          | 1      |
     And I click on the link labeled "Form 1"
     Then I should see a field named "Record ID"
 
@@ -61,8 +61,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username    | Action        | List of Data Changes OR Fields Exported |
-      | test_admin  | Manage/Design | Create project field                   |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | test_admin | Manage/Design | Create project field                    |
 
   Scenario: B.6.7.800.200 Note box field creation in Data Dictionary
     #SETUP

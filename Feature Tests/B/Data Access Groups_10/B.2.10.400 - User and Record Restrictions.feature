@@ -34,7 +34,7 @@ Feature: B.2.10.400 Data Access Groups-DAGs User Interface: The system shall pro
 
     When I click on the button labeled "Close" in the dialog box
     Then I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_admin          |
       | —                       | test_user1          |
       | —                       | test_user2          |

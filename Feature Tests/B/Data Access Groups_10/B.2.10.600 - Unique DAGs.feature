@@ -50,8 +50,8 @@ Feature: B.2.10.600 Data Access Groups-DAGs User Interface: The system shall pro
 
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
-      | Record ID | Data Access Group      |
-      | 1         |                        |
-      | 2         |                        |
-      | 3         | TestGroup1             |
-      | 4         | TestGroup2             |
+      | Record ID | Data Access Group |
+      | 1         |                   |
+      | 2         |                   |
+      | 3         | TestGroup1        |
+      | 4         | TestGroup2        |

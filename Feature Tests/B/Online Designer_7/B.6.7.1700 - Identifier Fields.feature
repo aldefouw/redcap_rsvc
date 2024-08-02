@@ -41,13 +41,13 @@ Feature: Field Creation: The system shall support marking a data entry field as 
     ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     Then I should see a table row containing the following values in the codebook table:
-      | [identifier_3] | Identifier 3| text, Identifier|
+      | [identifier_3] | Identifier 3 | text, Identifier |
 
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_user1 | Manage/Design | Create project field                   |
+      | test_user1 | Manage/Design | Create project field                    |
 
   Scenario: B.6.7.1700.200 Designating field as identifier through Project Setup
     #SETUP
@@ -69,14 +69,14 @@ Feature: Field Creation: The system shall support marking a data entry field as 
     ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     Then I should see a table header and rows containing the following values in the codebook table:
-      | Variable / Field Name      | Field Label | Field Attributes |
-      | [identifier]               | Identifier  | text, Identifier|
+      | Variable / Field Name | Field Label | Field Attributes |
+      | [identifier]          | Identifier  | text, Identifier |
 
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_admin | Manage/Design | Tag new identifier fields              |
+      | test_admin | Manage/Design | Tag new identifier fields               |
 
   Scenario: B.6.7.1700.300 Designating field as identifier through Data Dictionary upload
     #SETUP
@@ -101,5 +101,5 @@ Feature: Field Creation: The system shall support marking a data entry field as 
     ##VERIFY_CODEBOOK
     When I click on the link labeled "Codebook"
     Then I should see a table header and rows containing the following values in the codebook table:
-      | Variable / Field Name      | Field Label | Field Attributes |
-      | [identifier]               | Identifier  | text, Identifier|
+      | Variable / Field Name | Field Label | Field Attributes |
+      | [identifier]          | Identifier  | text, Identifier |

@@ -23,14 +23,14 @@ Feature: User Interface: General: The system shall support the designation of th
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
-      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Modify project settings                   |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Modify project settings                 |
 
     ##ACTION #CROSS-FEATURE B.2.23.100: Verify Logging Filter by event manage/design
     And I select "Manage/Design" on the dropdown field labeled "Filter by event:"
 
     ##VERIFY_LOG #CROSS-FEATURE: Verify Logging Filter by event manage/design
     Then I should see a table header and rows containing the following values in the logging table:
-      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported    |
-      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Modify project settings                   |
-      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Create project using REDCap XML file      |
+      | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Modify project settings                 |
+      | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Create project using REDCap XML file    |

@@ -57,10 +57,10 @@ Feature: User Interface: The system shall support the ability for a user to chan
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     And I should see a table header and rows containing the following values in the logging table:
-    | Username   | Action           | List of Data Changes OR Fields Exported                              |
-    | test_admin | Manage/Design    | Move project back to Development status                              |
-    | test_admin | Manage/Design    | Return project to Production from Analysis/Cleanup status            |
-    | test_admin | Manage/Design    | Project moved from Completed status back to Analysis/Cleanup status  |
-    | test_admin | Manage/Design    | Project marked as Completed                                          |
-    | test_admin | Manage/Design    | Move project to Analysis/Cleanup status                              |
-    | test_admin | Manage/Design    | Move project to Production status                                    |
+      | Username   | Action        | List of Data Changes OR Fields Exported                             |
+      | test_admin | Manage/Design | Move project back to Development status                             |
+      | test_admin | Manage/Design | Return project to Production from Analysis/Cleanup status           |
+      | test_admin | Manage/Design | Project moved from Completed status back to Analysis/Cleanup status |
+      | test_admin | Manage/Design | Project marked as Completed                                         |
+      | test_admin | Manage/Design | Move project to Analysis/Cleanup status                             |
+      | test_admin | Manage/Design | Move project to Production status                                   |

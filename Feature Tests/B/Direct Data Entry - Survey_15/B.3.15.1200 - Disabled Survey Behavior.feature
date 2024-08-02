@@ -49,11 +49,11 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
       | "Consent" - Event Three (Arm 1: Arm 1)                      |
 
     And I should see a table header and rows containing the following values in a table:
-      | Email              | Record | Participant Identifier| Responded | Invitation Scheduled? | Invitation Sent ? | Link   | Survey Access Code |
-      | [No email listed]  |        | Disabled              | [icon]    | -                     | [icon]            | [icon] | [icon]             |
-      | [No email listed]  |        | Disabled              | [icon]    | -                     | [icon]            | [icon] | [icon]             |
-      | email@test.edu     |   1    | Disabled              | [icon]    | -                     | [icon]            | [icon] | [icon]             |
-      | email@test.edu     |   2    | Disabled              | [icon]    | -                     | [icon]            | [icon] | [icon]             |
+      | Email             | Record | Participant Identifier | Responded | Invitation Scheduled? | Invitation Sent ? | Link   | Survey Access Code |
+      | [No email listed] |        | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
+      | [No email listed] |        | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
+      | email@test.edu    | 1      | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
+      | email@test.edu    | 2      | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
 
     ##ACTION
     When I click on the link labeled "Record Status Dashboard"
@@ -78,8 +78,8 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
 
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
-      | Record ID  | Event Name             | Repeat Instrument | Repeat Instance | Data Access Group | Survey Identifier | Survey Timestamp | Name            |
-      | 1          | Event 1 (Arm 1: Arm 1) |                   |                 |                   |                   | mm-dd-yyyy hh:mm | B.3.15.1200.100 |
+      | Record ID | Event Name             | Repeat Instrument | Repeat Instance | Data Access Group | Survey Identifier | Survey Timestamp | Name            |
+      | 1         | Event 1 (Arm 1: Arm 1) |                   |                 |                   |                   | mm-dd-yyyy hh:mm | B.3.15.1200.100 |
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION
@@ -98,8 +98,8 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
 
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
-      | Record ID  | Event Name             | Repeat Instrument | Repeat Instance | Data Access Group | Survey Identifier | Name            |
-      | 1          | Event 1 (Arm 1: Arm 1) |                   |                 |                   |                   | B.3.15.1200.100 |
+      | Record ID | Event Name             | Repeat Instrument | Repeat Instance | Data Access Group | Survey Identifier | Name            |
+      | 1         | Event 1 (Arm 1: Arm 1) |                   |                 |                   |                   | B.3.15.1200.100 |
 
     #MANUAL: Note that "text_validation_timestamp" is the column VARIABLE name used if Text Validation instrument was enabled as survey.
     # Cannot look for "Survey Timestamp" because that same LABEL is used for all survey timestamp columns.

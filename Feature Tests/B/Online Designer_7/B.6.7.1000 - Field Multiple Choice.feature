@@ -33,8 +33,8 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #FUNCTIONAL_REQUIREMENT
     ##ACTION: dropdown field creation
     Given I see a table header and rows containing the following values in a table:
-      | Instrument name   | Fields |
-      | Form 1            | 1      |
+      | Instrument name | Fields |
+      | Form 1          | 1      |
     And I click on the link labeled "Form 1"
     Then I should see a field named "Record ID"
 
@@ -50,9 +50,9 @@ Feature: Design forms Using Data Dictionary and Online Designer
     #VERIFY
     Then I should see a field named "Multiple Choice Dropdown Manual"
     And I should see the dropdown field labeled "Multiple Choice Dropdown Manual" with the options below
-      |DDChoice5|
-      |DDChoice7|
-      |DDChoice6|
+      | DDChoice5 |
+      | DDChoice7 |
+      | DDChoice6 |
 
     ##SETUP_PRODUCTION
     When I click on the button labeled "Submit Changes for Review"
@@ -70,7 +70,7 @@ Feature: Design forms Using Data Dictionary and Online Designer
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Username   | Action        | List of Data Changes OR Fields Exported |
-      | test_admin | Manage/Design | Create project field                   |
+      | test_admin | Manage/Design | Create project field                    |
 
   Scenario: B.6.7.1000.200 Creation of multiple choice dropdown list (single answer) through Data Dictionary upload (#CROSSFUNCTIONAL – B.6.7.100.100)
 

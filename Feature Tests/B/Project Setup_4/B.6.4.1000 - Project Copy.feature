@@ -51,7 +51,7 @@ Feature: User Interface: General: The system shall support the ability to copy t
     ##VERIFY_UR
     When I click on the link labeled "User Rights"
     Then I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_user1          |
       | 1_FullRights            | [No users assigned] |
       | 2_Edit_RemoveID         | [No users assigned] |
@@ -71,9 +71,9 @@ Feature: User Interface: General: The system shall support the ability to copy t
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username    | Action                  | List of Data Changes OR Fields Exported  |
-      | test_user1  | Add user                | user = 'test_user1'                     |
-      | test_user1  | Manage/Design           | Copy project from                       |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | test_user1 | Add user      | user = 'test_user1'                     |
+      | test_user1 | Manage/Design | Copy project from                       |
 
     #SETUP_PRODUCTION
     Given I click on the link labeled "My Projects"
@@ -99,7 +99,7 @@ Feature: User Interface: General: The system shall support the ability to copy t
     ##VERIFY_UR
     When I click on the link labeled "User Rights"
     Then I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_user1          |
       | 1_FullRights            | [No users assigned] |
       | 2_Edit_RemoveID         | [No users assigned] |
@@ -119,9 +119,9 @@ Feature: User Interface: General: The system shall support the ability to copy t
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-    | Username   |        Action           | List of Data Changes OR Fields Exported |
-    | test_user1  | Add user              | user = 'test_user1'|
-    | test_user1  | Manage/Design | Copy project from |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | test_user1 | Add user      | user = 'test_user1'                     |
+      | test_user1 | Manage/Design | Copy project from                       |
 
     #SETUP_ANALYSIS
     Given I click on the link labeled "My Projects"
@@ -144,7 +144,7 @@ Feature: User Interface: General: The system shall support the ability to copy t
     ##VERIFY_UR
     When I click on the link labeled "User Rights"
     Then I should see a table header and rows containing the following values in a table:
-      |Role name                | Username            |
+      | Role name               | Username            |
       | —                       | test_user1          |
       | 1_FullRights            | [No users assigned] |
       | 2_Edit_RemoveID         | [No users assigned] |
@@ -164,9 +164,9 @@ Feature: User Interface: General: The system shall support the ability to copy t
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
-      | Username   |        Action           | List of Data Changes OR Fields Exported |
-      | test_user1  | Add user              | user = 'test_user1'|
-      | test_user1  | Manage/Design | Copy project from |
+      | Username   | Action        | List of Data Changes OR Fields Exported |
+      | test_user1 | Add user      | user = 'test_user1'                     |
+      | test_user1 | Manage/Design | Copy project from                       |
 
     #And I want to export a snapshot of this feature here
     #And I want to pause
