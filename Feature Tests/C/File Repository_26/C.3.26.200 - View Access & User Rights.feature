@@ -33,7 +33,6 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I click on the button labeled "Create folder" in the dialog box
     Then I should see "Role1_Folder"
 
-  #Scenario: SETUP User Rights
     ##SETUP User Rights:
     When I click on the link labeled "User Rights"
     And I click on the button labeled "Upload or download users, roles, and assignments"
@@ -437,8 +436,6 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
     Then I should see a downloaded file named "testusers_bulkupload.csv"
 
-  #Scenario: Access DAG folder
-
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
     When I click on the link labeled "TestGroup1_Folder" in the File Repository table
@@ -447,8 +444,6 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I download a file by clicking on the link labeled "testusers_bulk_upload.csv"
     ##VERIFY Download another users file in subfolder
     Then I should see a downloaded file named "testusers_bulk_upload.csv"
-
-  #Scenario: Auto-archive file in DAG TestGroup1
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive file in DAG TestGroup1
@@ -464,8 +459,6 @@ Feature: User Interface: The system shall support limiting file repository user 
     And I should NOT see "2-1"
 
     And I logout
-
-  #Scenario: Download to top tier file
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Download to top tier file
@@ -493,8 +486,6 @@ Feature: User Interface: The system shall support limiting file repository user 
     When I download a file by clicking on the link labeled "testusers_bulkupload.csv"
     Then I should see a downloaded file named "testusers_bulkupload.csv"
 
-  #Scenario: Access DAG folder
-
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Access DAG folder
     Given I click on the link labeled "TestGroup1_Folder" in the File Repository table
@@ -506,8 +497,6 @@ Feature: User Interface: The system shall support limiting file repository user 
     ##VERIFY Download another users file in subfolder
     Then I should see a downloaded file named "testusers_bulk_upload.csv"
 
-  #Scenario: Auto-archive access all file
-
     #FUNCTIONAL_REQUIREMENT
     ##ACTION Auto-archive access all file
     When I click on the link labeled "File Repository"
@@ -516,9 +505,7 @@ Feature: User Interface: The system shall support limiting file repository user 
       | Record | Survey                           | Survey Completion Time | Type      |
       | 1-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
       | 2-1    | Consent (Event 1 (Arm 1: Arm 1)) | mm/dd/yyyy hh:mm       | e-Consent |
-
-  #Scenario: Delete folders - unable to delete with file in folder
-
+    
     #FUNCTIONAL_REQUIREMENT
     ##ACTION C.3.26.500.100 Delete folders - unable to delete with file in folder
     When I click on the link labeled "File Repository"
