@@ -3,7 +3,7 @@ Feature: User Interface: The system shall support the ability to assign the User
   As a REDCap end user
   I want to see that Reporting is functioning as expected
 
-  Scenario: C.5.22.100.100 - MISSING SCENARIO TITLE
+  Scenario: C.5.22.100.100 - Assign User View Access and Edit Access in the Reporting module
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "C.5.22.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
