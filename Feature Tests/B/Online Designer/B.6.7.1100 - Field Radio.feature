@@ -45,6 +45,7 @@ Feature: Field Creation: The system shall support the creation and manual coding
 
         ##VERIFY_CODEBOOK
         When I click on the link labeled "Codebook"
+        And I click on the button labeled "Expand all instruments"
         Then I should see a table row containing the following values in the codebook table:
             | [radio_button_manual] | Radio Button Manual | radio |
 
@@ -73,6 +74,7 @@ Feature: Field Creation: The system shall support the creation and manual coding
 
         ##VERIFY_CODEBOOK
         When I click on the link labeled "Codebook"
+        And I click on the button labeled "Expand all instruments"
         Then I should see a table row containing the following values in the codebook table:
             | [radio_button_manual] | Radio Button Manual | radio |
 #END

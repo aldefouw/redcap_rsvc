@@ -23,7 +23,7 @@ Feature: Form Creation: The system shall support the creation of new data collec
 
         ##ACTION: Upload data dictionary
         When I click on the link labeled "Dictionary"
-        And I upload a "csv" format file located at "dictionaries/Project1xml_DataDictionary.csv", by clicking the button near "Upload your Data Dictionary file" to browse for the file, and clicking the button labeled "Upload" to upload the file
+        And I upload a "csv" format file located at "dictionaries/Project1xml_DataDictionary.csv", by clicking the button near "Upload your Data Dictionary file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
 
         ##VERIFY
         Then I should see "Your document was uploaded successfully and awaits your confirmation below."

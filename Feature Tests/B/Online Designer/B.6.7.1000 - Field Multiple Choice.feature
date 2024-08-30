@@ -13,7 +13,7 @@ Feature: Field Creation: The system shall support the creation and manual coding
         ##SETUP_PRODUCTION
         When I click on the link labeled "My Projects"
         And I click on the link labeled "B.6.7.1000.100"
-        When I click on the button labeled "Project Setup"
+        When I click on the link labeled "Project Setup"
         And I click on the button labeled "Move project to production"
         And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
         And I click on the button labeled "YES, Move to Production Status" in the dialog box
@@ -25,7 +25,7 @@ Feature: Field Creation: The system shall support the creation and manual coding
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: dropdown field creation
-        Given When I click on the instrument labeled "Form 1"
+        When I click on the instrument labeled "Form 1"
         And I click on the button labeled "Add Field" at the bottom of the instrument
         Then I should see a dropdown field labeled "Select a Type of Field"
 
@@ -46,6 +46,7 @@ Feature: Field Creation: The system shall support the creation and manual coding
 
         ##VERIFY_CODEBOOK
         When I click on the link labeled "Codebook"
+        And I click on the button labeled "Expand all instruments"
         Then I should see a table row containing the following values in the codebook table:
             | [multiple_dropdown_manual] | Multiple Choice Dropdown Manual | dropdown |
 
@@ -74,6 +75,7 @@ Feature: Field Creation: The system shall support the creation and manual coding
 
         ##VERIFY_CODEBOOK
         When I click on the link labeled "Codebook"
+        And I click on the button labeled "Expand all instruments"
         Then I should see a table row containing the following values in the codebook table:
             | [multiple_dropdown_manual] | Multiple Choice Dropdown Manual | dropdown |
 #END
