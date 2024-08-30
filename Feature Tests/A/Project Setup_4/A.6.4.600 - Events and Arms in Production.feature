@@ -290,4 +290,4 @@ Feature: A.6.4.600 Manage project creation, deletion, and settings. Control Cent
             | test_admin | Manage/Design | Event Four, Arm: Arm One                |
             | test_admin | Manage/Design | Edit arm name/number                    |
             | test_admin | Manage/Design | Arm 1: Arm One                          |
-            #End
+#End
