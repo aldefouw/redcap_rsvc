@@ -10,7 +10,7 @@ Feature: Field Creation: The system shall support creation and customization of 
         And I create a new project named "B.6.7.900.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing "Empty project", and clicking the "Create Project" button
 
         ##SETUP_PRODUCTION
-        When I click on the link labeled "Project Setup"
+        When I click on the button labeled "Project Setup"
         And I click on the button labeled "Move project to production"
         And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
         And I click on the button labeled "YES, Move to Production Status" in the dialog box
@@ -22,7 +22,7 @@ Feature: Field Creation: The system shall support creation and customization of 
 
         #FUNCTIONAL_REQUIREMENT
         ##ACTION: calculated field creation
-        When I click on the link labeled "Form 1"
+        Given When I click on the link labeled "Form 1"
         And I click on the button labeled "Add Field" at the bottom of the instrument
         And I click on the dropdown field labeled "Select a Type of Field"
         And I add a new Calculated Field field labeled "Calculated Field" with the variable name "calculated_field"
@@ -40,7 +40,6 @@ Feature: Field Creation: The system shall support creation and customization of 
 
         ##VERIFY_CODEBOOK
         When I click on the link labeled "Codebook"
-        And I click on the button labeled "Expand all instruments"
         Then I should see a table row containing the following values in the codebook table:
             | Variable / Field Name | Field Label      | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
             | [calculated_field]    | Calculated Field | calc                                                                   |
@@ -70,7 +69,6 @@ Feature: Field Creation: The system shall support creation and customization of 
 
         ##VERIFY_CODEBOOK
         When I click on the link labeled "Codebook"
-        And I click on the button labeled "Expand all instruments"
         Then I should see a table row containing the following values in the codebook table:
             | Variable / Field Name | Field Label        | Field Attributes (Field Type, Validation, Choices, Calculations, etc.) |
             | [calculated_field]    | Calculated Field   | calc                                                                   |

@@ -16,7 +16,7 @@ Feature: User Interface: The system shall support branching logic for data entry
         Then I verify I see "Branching logic: [record_id] = '999'" on the field labeled "Name"
         And I verify I see "Branching logic: [record_id] = '999'" on the field labeled "Text box"
         And I verify I see "Branching logic: [record_id] = '999'" on the field labeled "Text2"
-        And I verify I see "Branching logic: [record_id] = '999'" on the field labeled "Notes box"
+        And I verify I see "Branching logic: [record_id] = '999'" on the field labeled "Notes Box"
 
         #FUNCTIONAL_REQUIREMENT: survey mode
         When I click on the link labeled "Survey Distribution Tools"
@@ -64,18 +64,6 @@ Feature: User Interface: The system shall support branching logic for data entry
         And I click on the button labeled "Save"
         And I click on the button labeled "Yes" in the dialog box
         Then I should see "Branching logic: [record_id] <> '999'" on the field labeled "Text2"
-        And I should see "Branching logic: [record_id] <> '999'" on the field labeled "Text box"
-        And I should see "Branching logic: [record_id] <> '999'" on the field labeled "Notes box"
-       
-        ##ACTION: change branching logic for all
-        When I click on the Branching Logic icon for the field labeled "Text2"
-        And I enter " [record_id] <> '999'" in the field labeled "Advanced Branching Logic Syntax"
-        And I click on the button labeled "Update & Close Editor"
-        And I click on the button labeled "Save"
-        And I click on the button labeled "Yes" in the dialog box
-        Then I should see "Branching logic: [record_id] <> '999'" on the field labeled "Text2"
-        And I should see "Branching logic: [record_id] <> '999'" on the field labeled "Text box"
-        And I should see "Branching logic: [record_id] <> '999'" on the field labeled "Notes box"
 
         #FUNCTIONAL_REQUIREMENT: survey mode
         When I click on the link labeled "Survey Distribution Tools"

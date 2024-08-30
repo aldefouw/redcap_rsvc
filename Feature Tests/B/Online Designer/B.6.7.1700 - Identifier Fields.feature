@@ -40,7 +40,6 @@ Feature: Field Creation: The system shall support marking a data entry field as 
 
         ##VERIFY_CODEBOOK
         When I click on the link labeled "Codebook"
-        And I click on the button labeled "Expand all instruments"
         Then I should see a table row containing the following values in the codebook table:
             | [identifier_3] | Identifier 3 | text, Identifier |
 
@@ -70,7 +69,6 @@ Feature: Field Creation: The system shall support marking a data entry field as 
 
         ##VERIFY_CODEBOOK
         When I click on the link labeled "Codebook"
-        And I click on the button labeled "Expand all instruments"
         Then I should see a table row including the following values in the codebook table:
             | [name]       | Name       | text, Identifier |
             | [identifier] | Identifier | text, Identifier |
@@ -99,7 +97,6 @@ Feature: Field Creation: The system shall support marking a data entry field as 
 
         ##VERIFY_CODEBOOK
         When I click on the link labeled "Codebook"
-        And I click on the button labeled "Expand all instruments"
         Then I should see a table row containing the following values in the codebook table:
             | [identifier] | Identifier | text, Identifier |
 #END

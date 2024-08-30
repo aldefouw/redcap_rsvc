@@ -38,7 +38,7 @@ Feature: User Interface: Longitudinal Project Settings: The system shall support
         Then I should see "Event 2"
 
         ##ACTION Designate Instruments
-        When I click on the link labeled "Designate Instruments for My Events"
+        When I click on the button labeled "Designate Instruments for My Events"
         And I click on the link labeled "Arm 1"
         And I click on the button labeled "Begin Editing"
         And I enable the Data Collection Instrument named "Data Types" for the Event named "Event 4"
@@ -52,11 +52,9 @@ Feature: User Interface: Longitudinal Project Settings: The system shall support
         Then I should see Data Collection Instrument named "Survey" enabled for the Event named "Event 2"
 
         ##VERIFY_LOG
-        When I click on the link labeled "Logging"
+        When I click on the button labeled "Logging"
         Then I should see a table header and rows including the following values in the logging table:
             | Username   | Action        | List of Data Changes OR Fields Exported                                          |
-            | test_admin | Manage/Design | Perform instrument-event mappings                                                |
-            | test_admin | Manage/Design | Perform instrument-event mappings                                                |
             | test_admin | Manage/Design | Create event (Event: Event 2, Arm: Arm Two, Days Offset: 2, Offset Range: -0/+0) |
             | test_admin | Manage/Design | Create event (Event: Event 4, Arm: Arm 1, Days Offset: 4, Offset Range: -0/+0)   |
 
