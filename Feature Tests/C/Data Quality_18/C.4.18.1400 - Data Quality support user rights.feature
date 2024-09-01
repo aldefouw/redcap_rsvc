@@ -55,13 +55,21 @@ Feature: User Interface: The system shall support limiting a rule viewing that r
       | 2      | [ptname]<>[name]                                                          | [ptname]<>[name]                          | 8                   |
 
     #FUNCTIONAL_REQUIREMENT
-    ##ACTION: verify ability to view discrepancies with access
-    When I click on the "view" link for Data Quality Rule # "C"
-    Then I should see "Rule: Field validation errors (incorrect data type)" in the dialog box
-    And I should see "Discrepancies found: 1" in the dialog box
-    And I should see a table header and rows containing the following values in a table:
-      | Record                    | Discrepant fields with their values | Status           | Exclude |
-      | 6  Event 1 (Arm 1: Arm 1) | email = HelloWorld                  | Validation error | exclude |
+    ##ACTION: confirm user with full rights can execute
+    When I click on the button labeled "All"
+    Then I should see a table header and rows containing the following values in a table:
+        | Rule # | Rule Name                                                                 | Rule Logic (Show discrepancy  only if...) | Total Discrepancies |
+        | A      | Blank values*                                                             | -                                         | 377                 |
+        | B      | Blank values* (required fields only)                                      | -                                         | 2                   |
+        | C      | Field validation errors (incorrect data type)                             | -                                         | 1                   |
+        | D      | Field validation errors (out of range)                                    | -                                         | 4                   |
+        | E      | Outliers for numerical fields (numbers, integers, sliders, calc fields)** | -                                         | 2                   |
+        | F      | Hidden fields that contain values***                                      | -                                         | 1                   |
+        | G      | Multiple choice fields with invalid values                                | -                                         | 1                   |
+        | H      | Incorrect values for calculated fields                                    | -                                         | 26                  |
+        | I      | Fields containing "missing data codes"                                    | -                                         | 4                   |
+        | 1      | [radio]=9.9                                                               | [radio]= '9.9'                            | 1                   |
+        | 2      | [ptname]<>[name]                                                          | [ptname]<>[name]                          | 8                   |
 
     And I click on the button labeled "Close" in the dialog box
     And I logout
