@@ -31,9 +31,6 @@ Feature: User Interface: The system shall support viewing discrepancies found in
       | 1      | [radio]=9.9                                   | [radio]=9.9                              | 1                   |
       | 2      | [ptname]<>[name]                              | [ptname]<>[name]                         | 8                   |
 
-    #FUNCTIONAL_REQUIREMENT
-    ##ACTION: verify ability to view discrepancies
-
     When I click on the "view" link for Data Quality Rule # "C"
     #When I click on the link labeled "view" for the Rule Name labeled "Field validation errors (incorrect data type)"
     Then I should see "Rule: Field validation errors (incorrect data type)" in the dialog box
