@@ -31,22 +31,17 @@ Feature: User Interface: The system shall support excluding discrepancies found 
       | 1      | [radio]=9.9                                   | [radio]='9..9'                           | 1                   |
       | 2      | [ptname]<>[name]                              | [ptname]<>[name]                         | 8                   |
 
-    ##ACTION executing all rules.
-    When I click on the link labeled "Data Quality"
-    And I click on the button labeled exactly "All"
-    Then I should see a table header and rows containing the following values in a table:
-      | Rule # | Rule Name                                     | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
-      | A      | Blank values*                                 | -                                        | 377                 |
-      | B      | Blank values* (required fields only)          | -                                        | 2                   |
-      | C      | Field validation errors (incorrect data type) | -                                        | 1                   |
-      | D      | Field validation errors (out of range)        | -                                        | 4                   |
-      | E      | Outliers for numerical fields                 | -                                        | 2                   |
-      | F      | Hidden fields that contain values***          | -                                        | 1                   |
-      | G      | Multiple choice fields with invalid values    | -                                        | 1                   |
-      | H      | Incorrect values for calculated fields        | -                                        | 26                  |
-      | I      | Fields containing "missing data codes"        | -                                        | 4                   |
-      | 1      | [radio]=9.9                                   | [radio]='9..9'                           | 1                   |
-      | 2      | [ptname]<>[name]                              | [ptname]<>[name]                         | 8                   |
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION: verify ability to exclude a discrepancy
+    When I click on the "view" link for Data Quality Rule # "D"
+    Then I should see "Rule: Field validation errors (out of range)" in the dialog box
+    And I should see "Discrepancies found: 4" in the dialog box
+    And I should see a table header and rows containing the following values in a table:
+      | Record | Discrepant fields with their values | Status       | Exclude |
+      | 5 (#1) | integer = 1111111111                | Out of range | exclude |
+      | 5 (#1) | number_1_comma = 22222222.0         | Out of range | exclude |
+      | 5 (#1) | number_1_period = 4.2               | Out of range | exclude |
+      | 5 (#1) | number = 10.000                     | Out of range | exclude |
 
     When I click on the "exclude" link for the Discrepant field labeled "Integer"
     Then I should see a table header and rows containing the following values in a table:
