@@ -19,7 +19,7 @@ Feature: User Interface: The system shall support viewing discrepancies found in
     And I click on the button labeled exactly "All"
     Then I should see a table header and rows containing the following values in a table:
       | Rule # | Rule Name                                     | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
-      | A      | Blank values*                                 | -                                        | 377                 |
+      | A      | Blank values*                                 | -                                        | 375                 |
       | B      | Blank values* (required fields only)          | -                                        | 2                   |
       | C      | Field validation errors (incorrect data type) | -                                        | 1                   |
       | D      | Field validation errors (out of range)        | -                                        | 4                   |
@@ -30,23 +30,6 @@ Feature: User Interface: The system shall support viewing discrepancies found in
       | I      | Fields containing "missing data codes"        | -                                        | 4                   |
       | 1      | [radio]=9.9                                   | [radio]=9.9                              | 1                   |
       | 2      | [ptname]<>[name]                              | [ptname]<>[name]                         | 8                   |
-
-    ##ACTION executing all rules.
-    When I click on the link labeled "Data Quality"
-    And I click on the button labeled exactly "All"
-    Then I should see a table header and rows containing the following values in a table:
-        | Rule # | Rule Name                                     | Rule Logic (Show discrepancy only if...) | Total Discrepancies |
-        | A      | Blank values*                                 | -                                        | 375                 |
-        | B      | Blank values* (required fields only)          | -                                        | 2                   |
-        | C      | Field validation errors (incorrect data type) | -                                        | 1                   |
-        | D      | Field validation errors (out of range)        | -                                        | 4                   |
-        | E      | Outliers for numerical fields                 | -                                        | 2                   |
-        | F      | Hidden fields that contain values***          | -                                        | 1                   |
-        | G      | Multiple choice fields with invalid values    | -                                        | 1                   |
-        | H      | Incorrect values for calculated fields        | -                                        | 26                  |
-        | I      | Fields containing "missing data codes"        | -                                        | 4                   |
-        | 1      | [radio]=9.9                                   | [radio]=9.9                              | 1                   |
-        | 2      | [ptname]<>[name]                              | [ptname]<>[name]                         | 8                   |
 
     When I click on the "view" link for Data Quality Rule # "C"
     #When I click on the link labeled "view" for the Rule Name labeled "Field validation errors (incorrect data type)"

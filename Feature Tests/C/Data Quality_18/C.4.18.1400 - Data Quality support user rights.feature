@@ -42,7 +42,7 @@ Feature: User Interface: The system shall support limiting a rule viewing that r
     When I click on the button labeled "All"
     Then I should see a table header and rows containing the following values in a table:
       | Rule # | Rule Name                                                                 | Rule Logic (Show discrepancy  only if...) | Total Discrepancies |
-      | A      | Blank values*                                                             | -                                         | 377                 |
+      | A      | Blank values*                                                             | -                                         | 375                 |
       | B      | Blank values* (required fields only)                                      | -                                         | 2                   |
       | C      | Field validation errors (incorrect data type)                             | -                                         | 1                   |
       | D      | Field validation errors (out of range)                                    | -                                         | 4                   |
