@@ -1,6 +1,6 @@
 {
   "name": "redcap_rsvc",
-  "version": "14.5.5",
+  "version": "14.7.0",
   "description": "Version-specific feature tests written in Gherkin for the Regulatory and Software Validation Committee.",
   "repository": {
     "type": "git",
