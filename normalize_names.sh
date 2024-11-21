@@ -11,10 +11,12 @@ find "$repo_a_dir" -type f -name "*.feature" | while read -r file; do
 
   # Match and extract the parts of the filename
   if [[ "$base" =~ ([A-C]\.[0-9]+\.[0-9]+\.)[0-9]+ ]]; then
-    prefix="${BASH_REMATCH[1]}"                # Prefix up to the third period, e.g., "A.2.2."
-    number="${base:${#prefix}:$((${#base} - ${#prefix}))}" # Extract everything after the prefix
-    number="${number%%[^0-9]*}"                # Extract only the numeric portion after the third period
-    suffix="${base#* - }"                      # Everything after " - "
+    prefix="${BASH_REMATCH[1]}"                # Prefix up to the third period
+    number="${base:${#prefix}:$((${#base} - ${#prefix}))}" # Extract after prefix
+    number="${number%%[^0-9]*}"                # Extract numeric portion
+    number=$((10#$number))                     # Ensure number is treated as decimal
+    padded_number=$(printf "%04d" "$number")   # Pad number to 4 digits
+    suffix="${base#* - }"                      # Suffix after " - "
 
     # Pad the number to four digits
     padded_number=$(printf "%04d" "$number")
@@ -28,7 +30,7 @@ find "$repo_a_dir" -type f -name "*.feature" | while read -r file; do
     echo "Suffix: $suffix"
     echo "New Base: $new_base"
 
-    # Rename the file
-    mv "$file" "$dir/$new_base"
+    # Uncomment this line to rename the file
+    #mv "$file" "$dir/$new_base"
   fi
 done
