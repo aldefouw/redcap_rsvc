@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Feature: Deleting Data: The system shall allow users to delete all data on the current form of a given record.
+=======
+Feature: B.3.14.1000. The system shall allow users to delete all data on the current form of a given record from the Record Home Page. 
+>>>>>>> v14.7.0
 
   As a REDCap end user
   I want to see that delete record is functioning as expected
@@ -16,7 +20,11 @@ Feature: Deleting Data: The system shall allow users to delete all data on the c
 
     #SETUP
     Given I login to REDCap with the user "Test_User1"
+<<<<<<< HEAD
     And I create a new project named "B.3.14.000.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.14.xml", and clicking the "Create Project" button
+=======
+    And I create a new project named "B.3.14.1000.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.14.xml", and clicking the "Create Project" button
+>>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -50,10 +58,17 @@ Feature: Deleting Data: The system shall allow users to delete all data on the c
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
+<<<<<<< HEAD
       | Time / Date      | Username   | Action         | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_user1 | Update record1 | email_survey = ''                       |
       | mm/dd/yyyy hh:mm | test_user1 | Update record1 | name_survey = ''                        |
       | mm/dd/yyyy hh:mm | test_user1 | Update record1 | survey_complete = ''                    |
+=======
+      | Username   | Action         | List of Data Changes OR Fields Exported |
+      | test_user1 | Update record1 | email_survey = ''                       |
+      | test_user1 | Update record1 | name_survey = ''                        |
+      | test_user1 | Update record1 | survey_complete = ''                    |
+>>>>>>> v14.7.0
 
     ##VERIFY_DE
     When I click on the link labeled "Data Exports, Reports, and Stats"
@@ -63,4 +78,9 @@ Feature: Deleting Data: The system shall allow users to delete all data on the c
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
       | Record ID | email_survey | name_survey | survey_complete |
+<<<<<<< HEAD
       | 1         |              |             | Incomplete (0)  |
+=======
+      | 1         |              |             | Incomplete (0)  |
+#END
+>>>>>>> v14.7.0

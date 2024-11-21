@@ -1,9 +1,10 @@
-Feature: A.2.2.200 Add/Manage users
+Feature: A.2.2.0200 Add/Manage users
 
   As a REDCap end user
   I want to see that Suspend/Unsuspend Individual Users is functioning as expected
 
-  Scenario: A.2.2.200.100 Account suspension
+  Scenario: A.2.2.0200.100 Account suspension
+
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Add Users (Table-based Only)"
@@ -94,4 +95,9 @@ Feature: A.2.2.200 Add/Manage users
 
     Given I logout
     And I login to REDCap with the user "Test_User1"
+<<<<<<< HEAD
     Then I should see "Home"
+=======
+    Then I should see "Home"
+#End
+>>>>>>> v14.7.0

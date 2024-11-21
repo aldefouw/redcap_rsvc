@@ -1,12 +1,12 @@
-Feature: A.6.4.400 Manage project creation, deletion, and settings
+Feature: A.6.4.0400. Manage project creation, deletion, and settings. Control Center: The system shall allow production Draft Mode changes to be approved automatically under certain conditions.
 
   Manage project creation, deletion, and settings
   Control Center: The system shall allow production Draft Mode changes to be approved automatically under certain conditions.
 
-  Scenario: A.6.4.400.100 User's ability to approve draft changes without administrative approval
+  Scenario: A.6.4.0400.100 User's ability to approve draft changes without administrative approval
 
     Given I login to REDCap with the user "Test_Admin"
-    And I create a new project named "A.6.4.400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+    And I create a new project named "A.6.4.0400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
 
     # BEGIN: STEPS FOR ATS
     # - EMAIL ADDRESS SET FOR REDCAP ADMIN - without it, project request behavior does not work properly
@@ -20,7 +20,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
     # END: STEPS FOR ATS ###
 
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.100"
+    And I click on the link labeled "A.6.4.0400.100"
 
     And I click on the link labeled "User Rights"
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
@@ -51,7 +51,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.100"
+    And I click on the link labeled "A.6.4.0400.100"
     And I click on the link labeled "Designer"
     And I click on the button labeled "Enter Draft Mode"
     Then I should see "The project is now in Draft Mode"
@@ -75,7 +75,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.100"
+    And I click on the link labeled "A.6.4.0400.100"
     And I click on the link labeled "Designer"
     Then I should see "REVIEW CHANGES?"
 
@@ -87,7 +87,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.100"
+    And I click on the link labeled "A.6.4.0400.100"
     And I click on the link labeled "Logging"
 
     Then I should see a table header and rows containing the following values in the logging table:
@@ -112,7 +112,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.100"
+    And I click on the link labeled "A.6.4.0400.100"
     And I click on the link labeled "Designer"
     Then I should see "REVIEW CHANGES?"
 
@@ -124,7 +124,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.100"
+    And I click on the link labeled "A.6.4.0400.100"
     And I click on the link labeled "Logging"
 
     Then I should see a table header and rows containing the following values in the logging table:
@@ -135,11 +135,11 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
     Then I should see "Enter Draft Mode"
 
 
-  Scenario: A.6.4.400.200 User's ability to approve draft changes without administrative approval if no existing fields were modified
+  Scenario: A.6.4.0400.200 User's ability to approve draft changes without administrative approval if no existing fields were modified
     Given I login to REDCap with the user "Test_Admin"
-    And I create a new project named "A.6.4.400.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+    And I create a new project named "A.6.4.0400.200" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.200"
+    And I click on the link labeled "A.6.4.0400.200"
 
     And I click on the link labeled "User Rights"
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
@@ -164,7 +164,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.200"
+    And I click on the link labeled "A.6.4.0400.200"
     And I click on the link labeled "Designer"
     And I click on the button labeled "Enter Draft Mode"
     Then I should see "The project is now in Draft Mode"
@@ -179,7 +179,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.200"
+    And I click on the link labeled "A.6.4.0400.200"
     And I click on the link labeled "Designer"
     Then I should see "REVIEW CHANGES?"
 
@@ -191,7 +191,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.200"
+    And I click on the link labeled "A.6.4.0400.200"
     And I click on the link labeled "Logging"
 
     Then I should see a table header and rows containing the following values in the logging table:
@@ -217,11 +217,11 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Approve production project modifications (automatic) |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Create project field                                 |
 
-  Scenario: A.6.4.400.300 User's ability to approve draft changes without administrative approval if no critical issues exist
+  Scenario: A.6.4.0400.300 User's ability to approve draft changes without administrative approval if no critical issues exist
     Given I login to REDCap with the user "Test_Admin"
-    And I create a new project named "A.6.4.400.300" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+    And I create a new project named "A.6.4.0400.300" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.300"
+    And I click on the link labeled "A.6.4.0400.300"
     And I click on the link labeled "User Rights"
 
     And I enter "Test_User1" into the field with the placeholder text of "Assign new user to role"
@@ -246,7 +246,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.300"
+    And I click on the link labeled "A.6.4.0400.300"
     And I click on the link labeled "Designer"
     And I click on the button labeled "Enter Draft Mode"
     Then I should see "The project is now in Draft Mode"
@@ -291,7 +291,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.300"
+    And I click on the link labeled "A.6.4.0400.300"
     And I click on the link labeled "Designer"
     Then I should see "REVIEW CHANGES?"
 
@@ -304,7 +304,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.300"
+    And I click on the link labeled "A.6.4.0400.300"
     And I click on the link labeled "Logging"
 
     Then I should see a table header and rows containing the following values in the logging table:
@@ -335,7 +335,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.300"
+    And I click on the link labeled "A.6.4.0400.300"
     And I click on the link labeled "Designer"
     Then I should see "REVIEW CHANGES?"
 
@@ -348,7 +348,7 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-    And I click on the link labeled "A.6.4.400.300"
+    And I click on the link labeled "A.6.4.0400.300"
     And I click on the link labeled "Logging"
 
     Then I should see a table header and rows containing the following values in the logging table:
@@ -381,7 +381,11 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
 
     Given I see a table header and rows containing the following values in the report data table:
       | Record ID | Repeat Instrument | Event Name             | Radio Button Manual |
+<<<<<<< HEAD
       | 1         | Data Types        | Event 1 (Arm 1: Arm 1) |                     |
+=======
+      | 1         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
+>>>>>>> v14.7.0
       | 2         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
       | 3         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
       | 4         | Data Types        | Event 1 (Arm 1: Arm 1) | (100)               |
@@ -398,4 +402,9 @@ Feature: A.6.4.400 Manage project creation, deletion, and settings
     And I click on the button labeled "Submit Changes for Review"
     And I click on the button labeled "Submit" in the dialog box
     Then I should see "Changes Were Made Automatically"
+<<<<<<< HEAD
     And I click on the button labeled "Close" in the dialog box
+=======
+    And I click on the button labeled "Close" in the dialog box
+#End
+>>>>>>> v14.7.0

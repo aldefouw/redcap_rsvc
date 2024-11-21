@@ -40,4 +40,9 @@ Feature: User Interface: Survey distribution: The system shall allow creation of
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username            | Action          |
+<<<<<<< HEAD
       | mm/dd/yyyy hh:mm | [survey respondent] | Create Response |
+=======
+      | mm/dd/yyyy hh:mm | [survey respondent] | Create Response |
+#END
+>>>>>>> v14.7.0

@@ -3,12 +3,21 @@ Feature: User Interface: The logging module shall record all changes with userna
   As a REDCap end user
   I want to see that Logging Module is functioning as expected
 
+<<<<<<< HEAD
   Scenario: B.2.23.100.100 Logging module records changes
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.2.23.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.2.23.100.100"
+=======
+  Scenario: B.2.23.0100.100 Logging module records changes
+    #SETUP
+    Given I login to REDCap with the user "Test_Admin"
+    And I create a new project named "B.2.23.0100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+    When I click on the link labeled "My Projects"
+    And I click on the link labeled "B.2.23.0100.100"
+>>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -24,3 +33,7 @@ Feature: User Interface: The logging module shall record all changes with userna
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Move project to Production status       |
+<<<<<<< HEAD
+=======
+#END
+>>>>>>> v14.7.0

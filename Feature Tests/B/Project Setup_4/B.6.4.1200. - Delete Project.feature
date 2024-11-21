@@ -124,4 +124,9 @@ Feature: User Interface: General: The system shall support the ability to delete
 
     ##VERIFY
     And I close the iframe window
+<<<<<<< HEAD
     Then I should see the "Delete project" request created for the project named "B.6.4.1200.300.PROD" within the "Completed & Archived Requests" table
+=======
+    Then I should see the "Delete project" request created for the project named "B.6.4.1200.300.PROD" within the "Completed & Archived Requests" table
+    #END
+>>>>>>> v14.7.0

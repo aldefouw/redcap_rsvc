@@ -1,10 +1,16 @@
 Feature: User Interface: Survey Project Settings: The system shall support tracking responders and non-responders to surveys when using the participant list.
+<<<<<<< HEAD
 
+=======
+>>>>>>> v14.7.0
   As a REDCap end user
   I want to see that Survey Feature is functioning as expected
 
   Scenario: B.3.15.1100.100 Tracking survey responders
+<<<<<<< HEAD
 
+=======
+>>>>>>> v14.7.0
     #ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -44,8 +50,17 @@ Feature: User Interface: Survey Project Settings: The system shall support track
     And I click on the button labeled "Close survey"
 
     Given I return to the REDCap page I opened the survey from
+<<<<<<< HEAD
+=======
+    And I click on the link labeled "Leave without saving changes" in the dialog box
+>>>>>>> v14.7.0
     And I click on the link labeled "Survey Distribution Tools"
     When I click on the tab labeled "Participant List"
     Then I should see the dropdown field labeled "Participant List" with the option '"Consent" - Event 1 (Arm 1: Arm 1)' selected
     And I should see a "green checkmark" within the "1)  email@test.edu" row of the column labeled "Responded?" of the Participant List table
+<<<<<<< HEAD
     And I should see a "gray bubble" within the "2)  email@test.edu" row of the column labeled "Responded?" of the Participant List table
+=======
+    And I should see a "gray bubble" within the "2)  email@test.edu" row of the column labeled "Responded?" of the Participant List table
+#END
+>>>>>>> v14.7.0

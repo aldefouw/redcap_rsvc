@@ -3,12 +3,21 @@ Feature: Saving Data: The system shall support a Record Status Dashboard to disp
   As a REDCap end user
   I want to see that record status dashboard is functioning as expected
 
+<<<<<<< HEAD
   Scenario: B.3.14.800.100 record status dashboard display
     #SETUP
     Given I login to REDCap with the user "Test_User1"
     And I create a new project named "B.3.14.800.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.14.xml", and clicking the "Create Project" button
     And I click on the link labeled "My Projects"
     And I click on the link labeled "B.3.14.800.100"
+=======
+  Scenario: B.3.14.0800.100 record status dashboard display
+    #SETUP
+    Given I login to REDCap with the user "Test_User1"
+    And I create a new project named "B.3.14.0800.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.14.xml", and clicking the "Create Project" button
+    And I click on the link labeled "My Projects"
+    And I click on the link labeled "B.3.14.0800.100"
+>>>>>>> v14.7.0
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION - View Record Status Dashboard
@@ -18,4 +27,9 @@ Feature: Saving Data: The system shall support a Record Status Dashboard to disp
     Then I should see "Default dashboard"
     And I should see the link labeled exactly "1"
     And I should see the "Incomplete" icon for the "Text Validation" longitudinal instrument on event "Event 1" for record "1"
+<<<<<<< HEAD
     And I should see the link labeled "Arm 2:Arm Two"
+=======
+    And I should see the link labeled "Arm 2:Arm Two"
+#END
+>>>>>>> v14.7.0

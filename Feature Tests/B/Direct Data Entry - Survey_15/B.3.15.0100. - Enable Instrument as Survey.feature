@@ -3,8 +3,12 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
   As a REDCap end user
   I want to see that Manage project user access is functioning as expected
 
+<<<<<<< HEAD
   Scenario: B.3.15.100.100 Enable/Disable survey in Online Designer
 
+=======
+  Scenario: B.3.15.0100.100 Enable/Disable survey in Online Designer
+>>>>>>> v14.7.0
     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -17,7 +21,11 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
 
     #SETUP
     Given I login to REDCap with the user "Test_User1"
+<<<<<<< HEAD
     And I create a new project named "B.3.15.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+=======
+    And I create a new project named "B.3.15.0100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+>>>>>>> v14.7.0
 
     When I click on the link labeled "Project Setup"
     #PARENT #B.6.4.1300.100
@@ -30,7 +38,11 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
     Then I see Project status: "Production"
 
     #FUNCTIONAL REQUIREMENT
+<<<<<<< HEAD
     ##ACTION Enable survey in Online Designer #B.3.15.100.100
+=======
+    ##ACTION Enable survey in Online Designer #B.3.15.0100.100
+>>>>>>> v14.7.0
     Given I click on the link labeled "Designer"
     Then I click on the "Enable" button for the instrument row labeled "Text Validation"
     And I click on the button labeled "Save Changes"
@@ -44,7 +56,11 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
     And I click on the button labeled "Survey options"
     And I click on the survey option label containing "Open survey" label
 
+<<<<<<< HEAD
     Given I clear field and enter "Name_B.3.15.100.100" into the data entry form field labeled "Name"
+=======
+    Given I clear field and enter "Name_B.3.15.0100.100" into the data entry form field labeled "Name"
+>>>>>>> v14.7.0
     And I click on the button labeled "Submit"
     Then I should see "Thank you for taking the survey"
     And I click on the button labeled "Close survey"
@@ -60,14 +76,23 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
 
     When I click on the button labeled "View Report"
     Then I should see a table header and rows containing the following values in the report data table:
+<<<<<<< HEAD
       | Record ID | Name                |
       | 1         | Name_B.3.15.100.100 |
+=======
+      | Record ID | Name                 |
+      | 1         | Name_B.3.15.0100.100 |
+>>>>>>> v14.7.0
 
     ##VERIFY_LOG
     When I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported |
+<<<<<<< HEAD
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | name = 'Name_B.3.15.100.100'            |
+=======
+      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | name = 'Name_B.3.15.0100.100'           |
+>>>>>>> v14.7.0
 
     #FUNCTIONAL REQUIREMENT
     ##ACTION Survey Offline
@@ -114,3 +139,7 @@ Feature: User Interface: Survey Project Settings: The system shall support enabl
     And I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username   | Action        | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_user1 | Manage/Design | Delete survey                           |
+<<<<<<< HEAD
+=======
+#END
+>>>>>>> v14.7.0

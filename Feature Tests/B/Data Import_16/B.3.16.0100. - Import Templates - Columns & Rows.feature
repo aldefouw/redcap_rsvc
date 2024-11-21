@@ -3,9 +3,16 @@ Feature: User Interface: The system shall support the ability to download two ve
   As a REDCap end user
   I want to see that Data import is functioning as expected
 
+<<<<<<< HEAD
   Scenario: B.3.16.100.100 data import template
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.3.16.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.16.xml", and clicking the "Create Project" button
+=======
+  Scenario: B.3.16.0100.100 data import template
+
+    Given I login to REDCap with the user "Test_Admin"
+    And I create a new project named "B.3.16.0100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.16.xml", and clicking the "Create Project" button
+>>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the button labeled "Move project to production"
@@ -16,8 +23,13 @@ Feature: User Interface: The system shall support the ability to download two ve
     #FUNCTIONAL REQUIREMENT
     ##ACTION Data Import Template (with records in rows)
     When I click on the link labeled "Data Import Tool"
+<<<<<<< HEAD
     Then I should see a link labeled "Download your Data Import Template"
     And I click on the link labeled "Download your Data Import Template" to download a file
+=======
+    Then I should see "Download your Data Import Template (with records in rows)"
+    And I click on the link labeled "Download your Data Import Template" near "with records in rows" to download a file
+>>>>>>> v14.7.0
     Then I should see a downloaded file named "B316100100_ImportTemplate_yyyy-mm-dd.csv"
 
     ##VERIFY
@@ -28,8 +40,13 @@ Feature: User Interface: The system shall support the ability to download two ve
     #FUNCTIONAL REQUIREMENT
     ##ACTION Data Import Template (with records in columns)
     Given I click on the link labeled "Data Import Tool"
+<<<<<<< HEAD
     Then I should see a link labeled "column format"
     And I click on the link labeled "column format" to download a file
+=======
+    Then I should see "Download your Data Import Template (with records in columns)"
+    And I click on the link labeled "Download your Data Import Template" near "with records in columns" to download a file
+>>>>>>> v14.7.0
     Then I should see a downloaded file named "B316100100_ImportTemplate_yyyy-mm-dd.csv"
     #M: close csv file
 
@@ -60,4 +77,9 @@ Feature: User Interface: The system shall support the ability to download two ve
       | data_types_complete           |        |
       | data_dictionary_form_complete |        |
       | phone                         |        |
+<<<<<<< HEAD
       | demo_branching_complete       |        |
+=======
+      | demo_branching_complete       |        |
+#END
+>>>>>>> v14.7.0

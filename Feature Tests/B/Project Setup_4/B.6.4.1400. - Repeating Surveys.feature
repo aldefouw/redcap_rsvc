@@ -107,3 +107,7 @@ Feature: User Interface: Survey Project Settings: The system shall support the a
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | [instance = 2]                          |
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | name_survey = 'Name_survey2'            |
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | name_survey = 'Name_survey'             |
+<<<<<<< HEAD
+=======
+#END
+>>>>>>> v14.7.0

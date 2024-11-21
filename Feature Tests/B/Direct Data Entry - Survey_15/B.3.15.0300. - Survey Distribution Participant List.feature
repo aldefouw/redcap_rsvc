@@ -3,8 +3,12 @@ Feature: The system shall allow creation of a participant list automatically usi
   As a REDCap end user
   I want to see that Participant List is functioning as expected
 
+<<<<<<< HEAD
   Scenario: B.3.15.300.100 Participant list linked to designated email field
 
+=======
+  Scenario: B.3.15.0300.100 Participant list linked to designated email field
+>>>>>>> v14.7.0
     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -16,7 +20,11 @@ Feature: The system shall allow creation of a participant list automatically usi
     Then I logout
 
     Given I login to REDCap with the user "Test_User1"
+<<<<<<< HEAD
     And I create a new project named "B.3.15.300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+=======
+    And I create a new project named "B.3.15.0300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+>>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -44,4 +52,8 @@ Feature: The system shall allow creation of a participant list automatically usi
     And I should see a table header and rows containing the following values in the participant list table:
       | Email          | Record | Participant Identifier | Responded | Invitation Scheduled? | Invitation Sent ? | Link   | Survey Access Code |
       | email@test.edu | 1      | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
+<<<<<<< HEAD
     And I logout
+=======
+#END
+>>>>>>> v14.7.0

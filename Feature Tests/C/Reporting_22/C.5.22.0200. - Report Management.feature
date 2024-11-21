@@ -3,11 +3,18 @@ Feature: User Interface:  The system shall support the ability to create, modify
   As a REDCap end user
   I want to see that Reporting is functioning as expected
 
+<<<<<<< HEAD
   Scenario: C.5.22.200.100 - MISSING SCENARIO TITLE
 
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "C.5.22.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+=======
+  Scenario: C.5.22.0200.100 Reporting module functions create, modify, copy, or delete
+    #SETUP
+    Given I login to REDCap with the user "Test_Admin"
+    And I create a new project named "C.5.22.0200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+>>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -20,27 +27,44 @@ Feature: User Interface:  The system shall support the ability to create, modify
     ##ACTION:  create report
     When I click on the link labeled "Data Exports, Reports, and Stats"
     And I click on the button labeled "Create New Report"
+<<<<<<< HEAD
     And I enter "C.5.22.200.100 REPORT" into the input field labeled "Name of Report:"
+=======
+    And I enter "C.5.22.0200.100 REPORT" into the input field labeled "Name of Report:"
+>>>>>>> v14.7.0
     And I click on the button labeled "Save Report"
     Then I should see "Your report has been saved!" in the dialog box
 
     ##VERIFY: saved name
     When I click on the button labeled "View report" in the dialog box
+<<<<<<< HEAD
     Then I should see "C.5.22.200.100 REPORT"
 
     When I click on the button labeled "Edit Report"
     Then I should see "Edit Existing Report:"
     And I should see "C.5.22.200.100 REPORT"
+=======
+    Then I should see "C.5.22.0200.100 REPORT"
+
+    When I click on the button labeled "Edit Report"
+    Then I should see "Edit Existing Report:"
+    And I should see "C.5.22.0200.100 REPORT"
+>>>>>>> v14.7.0
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION:  edit report name
 
+<<<<<<< HEAD
     When I clear field and enter "C.5.22.200.100 REPORT_EDIT" into the input field labeled "Name of Report:"
+=======
+    When I clear field and enter "C.5.22.0200.100 REPORT_EDIT" into the input field labeled "Name of Report:"
+>>>>>>> v14.7.0
     And I click on the button labeled "Save Report"
     Then I should see "Your report has been saved!" in the dialog box
 
     ##VERIFY: edited name
     When I click on the button labeled "View report" in the dialog box
+<<<<<<< HEAD
     Then I should see "C.5.22.200.100 REPORT_EDIT"
 
     When I click on the button labeled "Edit Report"
@@ -48,11 +72,21 @@ Feature: User Interface:  The system shall support the ability to create, modify
     And I should see "C.5.22.200.100 REPORT_EDIT"
 
     When I clear field and enter "C.5.22.200.100 REPORT_EDIT2" into the input field labeled "Name of Report:"
+=======
+    Then I should see "C.5.22.0200.100 REPORT_EDIT"
+
+    When I click on the button labeled "Edit Report"
+    Then I should see "Edit Existing Report:"
+    And I should see "C.5.22.0200.100 REPORT_EDIT"
+
+    When I clear field and enter "C.5.22.0200.100 REPORT_EDIT2" into the input field labeled "Name of Report:"
+>>>>>>> v14.7.0
     And I click on the button labeled "Save Report"
     Then I should see "Your report has been saved!" in the dialog box
 
     ##VERIFY: edited name
     When I click on the button labeled "View report" in the dialog box
+<<<<<<< HEAD
     Then I should see "C.5.22.200.100 REPORT_EDIT2"
 
     When I click on the link labeled "Data Exports, Reports, and Stats"
@@ -62,20 +96,45 @@ Feature: User Interface:  The system shall support the ability to create, modify
     #FUNCTIONAL_REQUIREMENT
     ##ACTION:  copy report
     When  I click on the button labeled "Copy" for the report named "C.5.22.200.100 REPORT_EDIT2"
+=======
+    Then I should see "C.5.22.0200.100 REPORT_EDIT2"
+
+    When I click on the link labeled "Data Exports, Reports, and Stats"
+    Then I should see a table row containing the following values in the reports table:
+      | 2 | C.5.22.0200.100 REPORT_EDIT2 |
+
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION:  copy report
+    When  I click on the button labeled "Copy" for the report named "C.5.22.0200.100 REPORT_EDIT2"
+>>>>>>> v14.7.0
     Then I should see "COPY REPORT?"
 
     When I click on the button labeled "Copy" in the dialog box
     ##VERIFY: copy
     Then I should see a table row containing the following values in the reports table:
+<<<<<<< HEAD
       | 2 | C.5.22.200.100 REPORT_EDIT2        |
       | 3 | C.5.22.200.100 REPORT_EDIT2 (copy) |
 
     #FUNCTIONAL_REQUIREMENT
     ##ACTION:  delete report
     When  I click on the button labeled "Delete" for the report named "C.5.22.200.100 REPORT_EDIT2"
+=======
+      | 2 | C.5.22.0200.100 REPORT_EDIT2        |
+      | 3 | C.5.22.0200.100 REPORT_EDIT2 (copy) |
+
+    #FUNCTIONAL_REQUIREMENT
+    ##ACTION:  delete report
+    When  I click on the button labeled "Delete" for the report named "C.5.22.0200.100 REPORT_EDIT2"
+>>>>>>> v14.7.0
     Then I should see "DELETE REPORT?"
 
     When I click on the button labeled "Delete" in the dialog box
     ##VERIFY: delete
     Then I should see a table row containing the following values in the reports table:
+<<<<<<< HEAD
       | 2 | C.5.22.200.100 REPORT_EDIT2 (copy) |
+=======
+      | 2 | C.5.22.0200.100 REPORT_EDIT2 (copy) |
+#END
+>>>>>>> v14.7.0

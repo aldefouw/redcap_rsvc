@@ -1,9 +1,17 @@
 Feature: User Interface: The system shall allow submitted survey responses to be changed by a user who has edit survey responses rights.
+<<<<<<< HEAD
 
   As a REDCap end user
   I want to see that Survey Feature is functioning as expected
 
   Scenario: B.3.15.800.100 Edit survey response
+=======
+  
+  As a REDCap end user
+  I want to see that Survey Feature is functioning as expected
+
+  Scenario: B.3.15.0800.100 Edit survey response
+>>>>>>> v14.7.0
     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -16,7 +24,11 @@ Feature: User Interface: The system shall allow submitted survey responses to be
 
     #SETUP
     Given I login to REDCap with the user "Test_User1"
+<<<<<<< HEAD
     And I create a new project named "B.3.15.800.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+=======
+    And I create a new project named "B.3.15.0800.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+>>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -97,4 +109,9 @@ Feature: User Interface: The system shall allow submitted survey responses to be
     When I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Survey" instrument on event "Event Three" for record ID "5" and click on the bubble
     Then I should see "Survey response is read-only"
+<<<<<<< HEAD
     And I should NOT see the button labeled "Edit response"
+=======
+    And I should NOT see the button labeled "Edit response"
+#END
+>>>>>>> v14.7.0

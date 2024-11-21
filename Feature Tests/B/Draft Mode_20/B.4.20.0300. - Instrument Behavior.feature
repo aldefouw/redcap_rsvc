@@ -3,8 +3,12 @@ Feature: User Interface: The system shall require changes made to data collectio
   As a REDCap end user
   I want to see that Draft Mode is functioning as expected
 
+<<<<<<< HEAD
   Scenario: B.4.20.300.100 Changes occur in draft mode non-real-time
 
+=======
+  Scenario: B.4.20.0300.100 Changes occur in draft mode non-real-time
+>>>>>>> v14.7.0
     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -17,7 +21,11 @@ Feature: User Interface: The system shall require changes made to data collectio
 
     #SETUP
     Given I login to REDCap with the user "Test_User1"
+<<<<<<< HEAD
     And I create a new project named "B.4.20.300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+=======
+    And I create a new project named "B.4.20.0300.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
+>>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -67,4 +75,9 @@ Feature: User Interface: The system shall require changes made to data collectio
     ##VERIFY INSTRUMENT
     Given I click on the link labeled "Record Status Dashboard"
     And I locate the bubble for the "Data Types" instrument on event "Event 2" for record ID "1" and click on the bubble
+<<<<<<< HEAD
     Then I should see "Choice102"
+=======
+    Then I should see "Choice102"
+#END
+>>>>>>> v14.7.0

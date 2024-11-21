@@ -3,11 +3,19 @@ Feature: User Interface: The system shall not allow data to be changed on locked
   As a REDCap end user
   I want to see that Data import is functioning as expected
 
+<<<<<<< HEAD
   Scenario: B.3.16.900.100 Limit import to unlocked record forms
 
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.3.16.900.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.16.xml", and clicking the "Create Project" button
+=======
+  Scenario: B.3.16.0900.100 Limit import to unlocked record forms
+
+    #SETUP
+    Given I login to REDCap with the user "Test_Admin"
+    And I create a new project named "B.3.16.0900.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.16.xml", and clicking the "Create Project" button
+>>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -18,7 +26,12 @@ Feature: User Interface: The system shall not allow data to be changed on locked
 
     ##ACTION: Import data
     When I click on the link labeled "Data Import Tool"
+<<<<<<< HEAD
     And I upload a "csv" format file located at "import_files/B.3.16.900.100_ImportChangedUnlocked.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+=======
+    And I upload a "csv" format file located at "import_files/B.3.16.0900.100_ImportChangedUnlocked.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I click the button labeled "Upload File"
+>>>>>>> v14.7.0
     Then I should see a table header and rows containing the following values in a table:
       | record_id | name |
       | 1         | Name |
@@ -39,7 +52,12 @@ Feature: User Interface: The system shall not allow data to be changed on locked
 
     #VERIFY_DI
     When I click on the link labeled "Data Import Tool"
+<<<<<<< HEAD
     And I upload a "csv" format file located at "import_files/B.3.16.900.100_ImportChangedLocked.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
+=======
+    And I upload a "csv" format file located at "import_files/B.3.16.0900.100_ImportChangedLocked.csv", by clicking the button near "Upload your CSV file:" to browse for the file, and clicking the button labeled "Upload" to upload the file
+    And I click the button labeled "Upload File"
+>>>>>>> v14.7.0
     Then I should see a table header and rows containing the following values in a table:
       | Record | Field Name               | Error Message                                                                                 |
       | 1      | text_validation_complete | This record has been locked at the record level. No value within this record can be modified. |
@@ -50,3 +68,7 @@ Feature: User Interface: The system shall not allow data to be changed on locked
       #M: should not see anything was imported after record was locked
       | Username   | Action               | List of Data Changes      |
       | test_admin | Lock/Unlock Record 1 | Action Lock entire record |
+<<<<<<< HEAD
+=======
+#End
+>>>>>>> v14.7.0

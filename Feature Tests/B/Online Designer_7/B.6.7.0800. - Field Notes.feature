@@ -5,7 +5,10 @@ Feature: Design forms Using Data Dictionary and Online Designer
   I want to see that Project Designer is functioning as expected
 
   Scenario: B.6.7.800.100 Note box field creation in Online Designer
+<<<<<<< HEAD
 
+=======
+>>>>>>> v14.7.0
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "New Project"
@@ -86,4 +89,9 @@ Feature: Design forms Using Data Dictionary and Online Designer
     When I click on the link labeled "Codebook"
     Then I should see a table header and rows containing the following values in the codebook table:
       | Variable / Field Name | Field Label | Field Attributes |
+<<<<<<< HEAD
       | [notesbox2]           | Notes box 2 | notes            |
+=======
+      | [notesbox2]           | Notes box 2 | notes            |
+#END
+>>>>>>> v14.7.0
