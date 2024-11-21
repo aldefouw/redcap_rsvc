@@ -3,18 +3,10 @@ Feature: User Interface: The system shall support a My Project dashboard page co
   As a REDCap end user
   I want to see that My Project is functioning as expected
 
-<<<<<<< HEAD
   Scenario:  B.6.13.100.100 My Project dashboard
-=======
-  Scenario:  B.6.13.0100.100 My Project dashboard
->>>>>>> v14.7.0
     #FUNCTIONAL_REQUIREMENT
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
     Then I should see a table header and rows containing the following values in the a table:
       | Project Title                          | PID | Records | Fields | Instruments | Type | Status |
       | You do not have access to any projects |     |         |        |             |      |        |
-<<<<<<< HEAD
-=======
-#END
->>>>>>> v14.7.0

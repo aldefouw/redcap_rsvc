@@ -1,23 +1,12 @@
-<<<<<<< HEAD
 Feature: User Interface: Survey Distribution: The system shall prompt the user to leave the survey to avoid overwriting survey responses when opening surveys from a data entry form when using Open Survey link.
-=======
-Feature: User Interface: Survey Distribution: The system shall prohibit the user from overwriting partially or fully completed survey response from a data entry form when using Open Survey link.
->>>>>>> v14.7.0
 
   As a REDCap end user
   I want to see that Survey Feature is functioning as expected
 
-<<<<<<< HEAD
   Scenario: B.3.15.500.100 Data form overwrite function post survey entry
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.3.15.500.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
-=======
-  Scenario: B.3.15.0500.100 Data form overwrite function post survey entry
-    #SETUP
-    Given I login to REDCap with the user "Test_Admin"
-    And I create a new project named "B.3.15.0500.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
->>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -72,9 +61,4 @@ Feature: User Interface: Survey Distribution: The system shall prohibit the user
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username            | Action          | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | test_admin          | Update record   | name_survey = 'Overwrite Name'          |
-<<<<<<< HEAD
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | survey_complete = '2'                   |
-=======
-      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response | survey_complete = '2'                   |
-#END
->>>>>>> v14.7.0

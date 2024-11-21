@@ -1,10 +1,9 @@
-Feature: A.2.12.0100. Security Settings- The system shall support changing the system status between online and offline.
+Feature: A.2.12.100 Security Settings- The system shall support changing the system status between online and offline.
 
   As a REDCap end user
   I want to see that system status is functioning as expected
 
-  Scenario: A.2.12.0100.100 System Status Online/Offline
-
+  Scenario: A.2.12.100.100 System Status Online/Offline
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "General Configuration"
@@ -37,4 +36,4 @@ Feature: A.2.12.0100. Security Settings- The system shall support changing the s
     #Test REDCap online for "Test_User1"
     Given I login to REDCap with the user "Test_User1"
     Then I should see "My Projects"
-#End
+    

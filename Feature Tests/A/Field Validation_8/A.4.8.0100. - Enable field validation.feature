@@ -3,17 +3,10 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
   As a REDCap end user
   I want to see that Field validation is functioning as expected
 
-<<<<<<< HEAD
   Scenario: A.4.8.100.100 Control center Enable/disable field validation
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "A.4.8.100.100 " by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
-=======
-  Scenario: A.4.8.0100.100 Control center Enable/disable field validation
-    #SETUP
-    Given I login to REDCap with the user "Test_Admin"
-    And I create a new project named "A.4.8.0100.100 " by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
->>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -56,11 +49,7 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
 
     ##VERIFY: options not available on validation dropdown field
     When I click on the link labeled "My Projects"
-<<<<<<< HEAD
     And I click on the link labeled "A.4.8.100.100"
-=======
-    And I click on the link labeled "A.4.8.0100.100"
->>>>>>> v14.7.0
     And I click on the link labeled "Designer"
     And I click on the button labeled "Enter Draft Mode"
     Then I should see "The project is now in Draft Mode."
@@ -124,11 +113,7 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
     ##VERIFY: options are available on validation dropdown field
 
     When I click on the link labeled "My Projects"
-<<<<<<< HEAD
     And I click on the link labeled "A.4.8.100.100"
-=======
-    And I click on the link labeled "A.4.8.0100.100"
->>>>>>> v14.7.0
     And I click on the link labeled "Designer"
     And I click on the instrument labeled "Data Types"
     And I click on the first button labeled "Add Field"
@@ -153,9 +138,4 @@ Feature: Control Center: The system shall support the enabling/disabling of fiel
       | Time (HH:MM:SS)                             |
       | Time (HH:MM)                                |
       | Zipcode (U.S.)                              |
-<<<<<<< HEAD
     And I click on the button labeled "Cancel" on the dialog box
-=======
-    And I click on the button labeled "Cancel" on the dialog box
-#End
->>>>>>> v14.7.0

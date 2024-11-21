@@ -1,9 +1,9 @@
-Feature: A.2.2.0800. Add/Manage users
+Feature: A.2.2.800 Add/Manage users
 
   As a REDCap end user
   I want to see that amount of inactivity time before auto logout time is functioning as expected.
 
-  Scenario: A.2.2.0800.100 User account locked time
+  Scenario: A.2.2.800.100 User account locked time
 
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
@@ -67,4 +67,4 @@ Feature: A.2.2.0800. Add/Manage users
     And I click on the button labeled "Save Changes"
     Then I should see "Your system configuration values have now been changed!"
     Given I logout
-#End
+    

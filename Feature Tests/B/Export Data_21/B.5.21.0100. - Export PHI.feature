@@ -1,5 +1,4 @@
 Feature: User Interface: The system shall support the ability to identify data as containing a protected health information identifier.
-<<<<<<< HEAD
 
   As a REDCap end user
   I want to see that export data is functioning as expected
@@ -8,15 +7,6 @@ Feature: User Interface: The system shall support the ability to identify data a
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     And I create a new project named "B.5.21.100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_5.21.xml", and clicking the "Create Project" button
-=======
-  As a REDCap end user
-  I want to see that export data is functioning as expected
-
-  Scenario: B.5.21.0100.100 Limit identified data export
-    #SETUP
-    Given I login to REDCap with the user "Test_Admin"
-    And I create a new project named "B.5.21.0100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_5.21.xml", and clicking the "Create Project" button
->>>>>>> v14.7.0
 
     #SETUP_USER_RIGHTS
     When I click on the link labeled "User Rights"
@@ -140,11 +130,7 @@ Feature: User Interface: The system shall support the ability to identify data a
     Given I click on the download icons to receive the files for the "CSV / Microsoft Excel (raw data)" format in the dialog box
     ##VERIFY: User can see all variables except for date and datetime fields
     Then I should have a "csv" file that contains the headings below
-<<<<<<< HEAD
       | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | ptname | textbox | radio | notesbox | identifier | identifier_2 | data_types_complete |
-=======
-      | record_id | redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | redcap_survey_identifier | data_types_timestamp | ptname | textbox | radio | notesbox | identifier | identifier_2 | data_types_complete |
->>>>>>> v14.7.0
 
     And I click on the button labeled "Close" in the dialog box
 
@@ -200,11 +186,7 @@ Feature: User Interface: The system shall support the ability to identify data a
 
     Given I login to REDCap with the user "Test_User1"
     And I click on the link labeled "My Projects"
-<<<<<<< HEAD
     When I click on the link labeled "B.5.21.100.100"
-=======
-    When I click on the link labeled "B.5.21.0100.100"
->>>>>>> v14.7.0
     And I click on the link labeled "Data Exports, Reports, and Stats"
 
     #FUNCTIONAL_REQUIREMENT
@@ -213,8 +195,4 @@ Feature: User Interface: The system shall support the ability to identify data a
       | A | All data (all records and fields) |
 
     And I should NOT see a button labeled "Export Data"
-<<<<<<< HEAD
 
-=======
-#END
->>>>>>> v14.7.0

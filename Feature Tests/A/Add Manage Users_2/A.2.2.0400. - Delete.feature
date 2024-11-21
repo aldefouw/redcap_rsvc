@@ -1,14 +1,9 @@
-Feature: A.2.2.0400. Add/Manage users
+Feature: A.2.2.400 Add/Manage users
 
   As a REDCap end user
   I want to see that Delete Users is functioning as expected.
 
-<<<<<<< HEAD
   Scenario: A.2.2.400.100 Delete User Function
-=======
-  Scenario: A.2.2.0400.100 Delete User Function
-
->>>>>>> v14.7.0
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
     And I click on the link labeled "Add Users (Table-based Only)"
@@ -56,9 +51,4 @@ Feature: A.2.2.0400. Add/Manage users
 
     When I enter "Delete_User" into the input field labeled "User Search: Search for user by username, first name, last name, or primary email"
     And I click on the button labeled "Search"
-<<<<<<< HEAD
     Then I should see "User does not exist!"
-=======
-    Then I should see "User does not exist!"
-#End
->>>>>>> v14.7.0

@@ -5,10 +5,7 @@ Feature: Design forms Using Data Dictionary and Online Designer
   I want to see that Project Designer is functioning as expected
 
   Scenario: B.6.7.1000.100 Creation of multiple choice dropdown list (single answer) through the Online Designer
-<<<<<<< HEAD
 
-=======
->>>>>>> v14.7.0
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "New Project"
@@ -21,16 +18,9 @@ Feature: Design forms Using Data Dictionary and Online Designer
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.6.7.1000.100"
     And I click on the link labeled "Project Setup"
-<<<<<<< HEAD
     #And I click on the link labeled "Designer" #TODO: ATS: This puts us on the wrong page to move to production
     #Then I should see "Data Collection Instruments"
 
-=======
-    And I click on the link labeled "Designer" 
-    Then I should see "Data Collection Instruments"
-    
-    Given I click on the link labeled "Project Setup"
->>>>>>> v14.7.0
     And I click on the button labeled "Move project to production"
     And I click on the radio labeled "Keep ALL data saved so far" in the dialog box
     And I click on the button labeled "YES, Move to Production Status" in the dialog box to request a change in project status
@@ -82,14 +72,7 @@ Feature: Design forms Using Data Dictionary and Online Designer
       | Username   | Action        | List of Data Changes OR Fields Exported |
       | test_admin | Manage/Design | Create project field                    |
 
-<<<<<<< HEAD
   Scenario: B.6.7.1000.200 Creation of multiple choice dropdown list (single answer) through Data Dictionary upload (#CROSSFUNCTIONAL – B.6.7.100.100)
-=======
-    Given I logout
-
-  Scenario: B.6.7.1000.200 Creation of multiple choice dropdown list (single answer) through Data Dictionary upload 
-  #CROSSFUNCTIONAL – B.6.7.0100.100
->>>>>>> v14.7.0
 
     #SETUP
     Given I login to REDCap with the user "Test_Admin"
@@ -113,7 +96,3 @@ Feature: Design forms Using Data Dictionary and Online Designer
     Then I should see a table header and rows containing the following values in the codebook table:
       | Variable / Field Name      | Field Label                     | Field Attributes |
       | [multiple_dropdown_manual] | Multiple Choice Dropdown Manual | dropdown         |
-<<<<<<< HEAD
-=======
-#END
->>>>>>> v14.7.0

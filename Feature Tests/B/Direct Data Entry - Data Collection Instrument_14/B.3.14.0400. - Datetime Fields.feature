@@ -3,11 +3,7 @@ Feature: Creating a Record and Entering Data: The system shall support the abili
   As a REDCap end user
   I want to see that date/time widget is functioning as expected
 
-<<<<<<< HEAD
   Scenario: B.3.14.400.100 Data entry for Date/time validated fields
-=======
-  Scenario: B.3.14.0400.100 Data entry for Date/time validated fields
->>>>>>> v14.7.0
     #ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -20,11 +16,7 @@ Feature: Creating a Record and Entering Data: The system shall support the abili
 
     #SETUP
     Given I login to REDCap with the user "Test_User1"
-<<<<<<< HEAD
     And I create a new project named "B.3.14.400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.14.xml", and clicking the "Create Project" button
-=======
-    And I create a new project named "B.3.14.0400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_3.14.xml", and clicking the "Create Project" button
->>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -59,9 +51,4 @@ Feature: Creating a Record and Entering Data: The system shall support the abili
     ##ACTION: Today button
     When I click on the "Today" button for the field labeled "date YMD"
     ##VERIFY
-<<<<<<< HEAD
     Then I should see today's date in the field labeled "date YMD"
-=======
-    Then I should see today's date in the field labeled "date YMD"
-#END
->>>>>>> v14.7.0

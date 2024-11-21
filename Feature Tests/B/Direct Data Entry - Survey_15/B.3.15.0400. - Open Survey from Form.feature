@@ -3,11 +3,7 @@ Feature: User Interface: Survey Distribution: The system shall provide a survey 
   As a REDCap end user
   I want to see that Survey Distribution is functioning as expected
 
-<<<<<<< HEAD
   Scenario: B.3.15.400.100 Open survey mode
-=======
-  Scenario: B.3.15.0400.100 Open survey mode
->>>>>>> v14.7.0
     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -20,11 +16,7 @@ Feature: User Interface: Survey Distribution: The system shall provide a survey 
 
     #SETUP
     Given I login to REDCap with the user "Test_User1"
-<<<<<<< HEAD
     And I create a new project named "B.3.15.400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
-=======
-    And I create a new project named "B.3.15.0400.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
->>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -68,18 +60,9 @@ Feature: User Interface: Survey Distribution: The system shall provide a survey 
     ##VERIFY_LOG:
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-<<<<<<< HEAD
     And I click on the link labeled "B.3.15.400.100"
-=======
-    And I click on the link labeled "B.3.15.0400.100"
->>>>>>> v14.7.0
     And I click on the link labeled "Logging"
     Then I should see a table header and rows containing the following values in the logging table:
       | Time / Date      | Username            | Action           | List of Data Changes OR Fields Exported |
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response5 | survey_complete = '2'                   |
-<<<<<<< HEAD
       | mm/dd/yyyy hh:mm | [survey respondent] | Update Response6 | survey_complete = '2'                   |
-=======
-      | mm/dd/yyyy hh:mm | [survey respondent] | Update Response6 | survey_complete = '2'                   |
-#END
->>>>>>> v14.7.0

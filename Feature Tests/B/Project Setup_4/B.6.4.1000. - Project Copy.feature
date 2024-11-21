@@ -4,10 +4,7 @@ Feature: User Interface: General: The system shall support the ability to copy t
   I want to see that Project Setup is functioning as expected
 
   Scenario: B.6.4.1000.100 Copy a project with all users and all data
-<<<<<<< HEAD
 
-=======
->>>>>>> v14.7.0
     # BEGIN: STEPS FOR ATS
     Given I login to REDCap with the user "Test_Admin"
     And I click on the link labeled "Control Center"
@@ -203,7 +200,3 @@ Feature: User Interface: General: The system shall support the ability to copy t
     ##VERIFY
     Then I should see "NOTICE: Project was marked as Completed"
     And I click on the button labeled "Return to My Projects page"
-<<<<<<< HEAD
-=======
-#END
->>>>>>> v14.7.0

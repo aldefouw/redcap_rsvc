@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 Feature: Deleting Data: The system shall allow users to delete all data in an event for a given record.
-=======
-Feature: B.3.14.1100. The system shall allow users to delete all data in an event for a given record from the Record Home Page. 
->>>>>>> v14.7.0
 
   As a REDCap end user
   I want to see that delete all data is functioning as expected
@@ -81,9 +77,4 @@ Feature: B.3.14.1100. The system shall allow users to delete all data in an even
 
     #Notice how we have 2 less rows than line 42 because we have removed an entire event from a Record
     When I click on the button labeled "View Report"
-<<<<<<< HEAD
     Then I should see the report with 17 rows
-=======
-    Then I should see the report with 17 rows
-#END
->>>>>>> v14.7.0

@@ -1,6 +1,5 @@
 Feature: Control Center: The system shall provide the ability to enable/disable sharing of files via a public link.
 
-<<<<<<< HEAD
   As a REDCap end user
   I want to see that file repository is functioning as expected
 
@@ -18,18 +17,6 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
 
    #  And I click on the radio labeled "Auto-Archiver + e-Consent Framework"
    #  Then I click on the button labeled "Save Changes"
-=======
-
-  As a REDCap end user
-  I want to see that file repository is functioning as expected
-
-  Scenario: A.3.26.0100.100 Enable/Disable file repository public links via Control Center
-    #SETUP
-    Given I login to REDCap with the user "Test_Admin"
-    And I create a new project named "A.3.26.0100.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
-    And I click on the link labeled "My Projects"
-    And I click on the link labeled "A.3.26.0100.100"
->>>>>>> v14.7.0
 
     #SETUP_PRODUCTION
     When I click on the link labeled "Project Setup"
@@ -45,18 +32,11 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
     When I click the button labeled "Select files to upload" to select and upload the following file to the File Repository:
       | import_files/testusers_bulkupload.csv |
 
-<<<<<<< HEAD
-=======
-    When I click on the link labeled "File Repository"
->>>>>>> v14.7.0
     ##VERIFY file uploaded in folder
     Then I should see a table header and rows containing the following values in the file repository table:
       | Name                     | Time Uploaded    | Comments                |
       | Data Export Files        |                  |                         |
-<<<<<<< HEAD
       | PDF Survey Archive       |                  |                         |
-=======
->>>>>>> v14.7.0
       | Recycle Bin              |                  |                         |
       | testusers_bulkupload.csv | mm/dd/yyyy hh:mm | Uploaded by test_admin. |
 
@@ -98,9 +78,4 @@ Feature: Control Center: The system shall provide the ability to enable/disable 
     Given I click on the File Share icon for the File Repository file named "testusers_bulkupload.csv"
     Then I should see "Send the file securely using Send-It" in the dialog box
     And I should see "Share a public link to view the file" in the dialog box
-<<<<<<< HEAD
     And I click on the button labeled "Close" in the dialog box
-=======
-    And I click on the button labeled "Close" in the dialog box
-#End
->>>>>>> v14.7.0

@@ -27,10 +27,7 @@ Feature: User Interface: Survey Project Settings: The system shall support a par
       | email@test.edu    | 1      | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
       | email@test.edu    | 2      | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
 
-<<<<<<< HEAD
     #
-=======
->>>>>>> v14.7.0
     ###ACTION: Change survey distribution to form not in position 1
     When I select '"Survey" - Event Three (Arm 1: Arm 1)' on the dropdown field labeled "Participant List"
     ##VERIFY: YOU SEE RECORD 1
@@ -39,9 +36,4 @@ Feature: User Interface: Survey Project Settings: The system shall support a par
       | [No email listed] |        | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
       | [No email listed] |        | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
       | email@test.edu    | 1      | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
-<<<<<<< HEAD
       | email@test.edu    | 2      | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
-=======
-      | email@test.edu    | 2      | Disabled               | [icon]    | -                     | [icon]            | [icon] | [icon]             |
-#END
->>>>>>> v14.7.0

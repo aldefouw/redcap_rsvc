@@ -1,17 +1,10 @@
 Feature: User Interface: Survey Project Settings: The system shall delete all survey-related information and functions including survey link, return codes and date/time stamp when disabling survey functionality. Saved data will remain unaffected.
 
-<<<<<<< HEAD
-=======
-
->>>>>>> v14.7.0
   As a REDCap end user
   I want to see that Survey Feature is functioning as expected
 
   Scenario: B.3.15.1200.100 Deletion of meta data includes deletion of survey information and function
-<<<<<<< HEAD
 
-=======
->>>>>>> v14.7.0
     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -75,11 +68,7 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
     Then I should see "Thank you for taking the survey"
 
     Given I click on the button labeled "Close survey"
-<<<<<<< HEAD
     #And I click on the button labeled "Leave without saving changes" in the dialog box
-=======
-    And I click on the button labeled "Leave without saving changes" in the dialog box
->>>>>>> v14.7.0
 
     ##VERIFY_DE
     Given I return to the REDCap page I opened the survey from
@@ -125,9 +114,4 @@ Feature: User Interface: Survey Project Settings: The system shall delete all su
     Then I should see the dropdown field labeled "Participant List" with the options below
       | "Consent" - Event 1 (Arm 1: Arm 1)     |
       | "Survey" - Event Three (Arm 1: Arm 1)  |
-<<<<<<< HEAD
       | "Consent" - Event Three (Arm 1: Arm 1) |
-=======
-      | "Consent" - Event Three (Arm 1: Arm 1) |
-#END
->>>>>>> v14.7.0

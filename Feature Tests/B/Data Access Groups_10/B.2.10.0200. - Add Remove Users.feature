@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall support adding and removing users from DAGs.
 
   As a REDCap end user
@@ -10,18 +9,6 @@ Feature: B.2.10.200 Data Access Groups-DAGs User Interface: The system shall sup
     And I create a new project named "B.2.10.200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
     When I click on the link labeled "My Projects"
     And I click on the link labeled "B.2.10.200.100"
-=======
-Feature: B.2.10.0200. User Interface: The system shall support adding and removing users from DAGs.
-  As a REDCap end user
-  I want to see that Data Access Groups is functioning as expected
-
-  Scenario: B.2.10.0200.100 Assign & Remove User to DAG
-    #SETUP
-    Given I login to REDCap with the user "Test_Admin"
-    And I create a new project named "B.2.10.0200.100" by clicking on "New Project" in the menu bar, selecting "Practice / Just for fun" from the dropdown, choosing file "Project_1.xml", and clicking the "Create Project" button
-    When I click on the link labeled "My Projects"
-    And I click on the link labeled "B.2.10.0200.100"
->>>>>>> v14.7.0
     And I click on the link labeled "User Rights"
     And I click on the button labeled "Upload or download users, roles, and assignments"
     Then I should see "Upload users (CSV)"
@@ -80,11 +67,7 @@ Feature: B.2.10.0200. User Interface: The system shall support adding and removi
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-<<<<<<< HEAD
     And I click on the link labeled "B.2.10.200.100"
-=======
-    And I click on the link labeled "B.2.10.0200.100"
->>>>>>> v14.7.0
 
     ##VERIFY: Access to DAG Module restricted
     And I click on the button labeled "Data Access Groups"
@@ -104,11 +87,7 @@ Feature: B.2.10.0200. User Interface: The system shall support adding and removi
     And I logout
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "My Projects"
-<<<<<<< HEAD
     And I click on the link labeled "B.2.10.200.100"
-=======
-    And I click on the link labeled "B.2.10.0200.100"
->>>>>>> v14.7.0
     And I click on the link labeled "DAGs"
     Then I should see "Assign user to a group"
 
@@ -125,11 +104,7 @@ Feature: B.2.10.0200. User Interface: The system shall support adding and removi
 
     Given I login to REDCap with the user "Test_User1"
     When I click on the link labeled "My Projects"
-<<<<<<< HEAD
     And I click on the link labeled "B.2.10.200.100"
-=======
-    And I click on the link labeled "B.2.10.0200.100"
->>>>>>> v14.7.0
 
     ##VERIFY: Access to DAG Module
     And I click on the button labeled "Data Access Group"
@@ -159,9 +134,4 @@ Feature: B.2.10.0200. User Interface: The system shall support adding and removi
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | group = 'TestGroup1'                    |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | Assign user to data access group        |
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | user = 'test_user1'                     |
-<<<<<<< HEAD
       | mm/dd/yyyy hh:mm | test_admin | Manage/Design | group = 'TestGroup1'                    |
-=======
-      | mm/dd/yyyy hh:mm | test_admin | Manage/Design | group = 'TestGroup1'                    |
-#End
->>>>>>> v14.7.0

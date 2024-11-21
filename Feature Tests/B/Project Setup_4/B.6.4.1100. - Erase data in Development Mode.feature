@@ -4,10 +4,7 @@ Feature: User Interface: General: The system shall support the ability to erase 
   I want to see that Project Setup is functioning as expected
 
   Scenario: B.6.4.1100.100 Erase all data only in development as User
-<<<<<<< HEAD
 
-=======
->>>>>>> v14.7.0
     ##ATS prerequisite: Normal users cannot move projects to production by default - let's adjust that before we proceed.
     Given I login to REDCap with the user "Test_Admin"
     When I click on the link labeled "Control Center"
@@ -92,9 +89,4 @@ Feature: User Interface: General: The system shall support the ability to erase 
 
     ##VERIFY_RSD
     When I click on the link labeled "Record Status Dashboard"
-<<<<<<< HEAD
     Then I should see "No records exist yet"
-=======
-    Then I should see "No records exist yet"
-#END
->>>>>>> v14.7.0
