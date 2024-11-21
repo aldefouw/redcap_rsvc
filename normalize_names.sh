@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Base directory for Repo A
-repo_a_dir=~/Dev/redcap/redcap_rsvc/
+# Base directory for
+repo_a_dir=$(pwd)
 
 # Find all `.feature` files in Repo A
 find "$repo_a_dir" -type f -name "*.feature" | while read -r file; do
