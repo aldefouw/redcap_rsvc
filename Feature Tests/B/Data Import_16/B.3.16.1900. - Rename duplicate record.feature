@@ -18,11 +18,11 @@ Feature: User Interface: The system shall provide the ability to create a new re
         When I select "Import in real time" on the dropdown field labeled "Choose an import option"
         And I select "Yes, display uploaded data prior to importing" on the dropdown field labeled "Display the data comparison table"
         And I upload a "csv" format file located at "import_files/BigDataTestProjectDATARename1.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
-        And I click on the button labeled "Upload"
-        And I click on the button labeled "Upload File"
         Then I should see "Instructions for Data Review"
         And I click on the button labeled "Import Data"
-        Then I should see "Import Successful! 30 records where created of modified during the import"
+        Then I should see "Import Successful!"
+        And I should see "30"
+        And I should see "records were created or modified during the import"
 
         #VERIFY
         Given I click on the link labeled "Record Status Dashboard"
@@ -35,18 +35,24 @@ Feature: User Interface: The system shall provide the ability to create a new re
             | 5         |        |
             | 6         |        |
             | 7         |        |
-        And I should see all records are in an unverified status
+        And I should see the "Unverified" icon for the "Form 1" instrument for record "1"
+        And I should see the "Unverified" icon for the "Form 1" instrument for record "10"
 
         When I click on the link labeled "Project Setup"
-        And I disable the button labeled "Auto-numbering for Records"
+        And I click on the button labeled "Disable" in the "Auto-numbering for records" row in the "Enable optional modules and customizations" section
+        # The wait is required because the last step does not wait for the page to refresh before continueing to the following step (it likely should).
+        And I wait for 10 seconds
+
         And I click on the link labeled "Data Import Tool"
 
         When I select "Import in real time" on the dropdown field labeled "Choose an import option"
         And I select "Yes, display uploaded data prior to importing" on the dropdown field labeled "Display the data comparison table"
-        And I select "Yes, Blank values in the file will overwrite existing values" on the dropdown field labeled "Auto-number/overwrite record IDs?"
+        And I select "Yes, blank values in the file will overwrite existing values" on the dropdown field labeled "Overwrite data with blank values?"
+        And I click on the button labeled "Yes, I understand" in the dialog box
         And I upload a "csv" format file located at "import_files/BigDataTestProjectDATARename2.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
-        And I click on the button labeled "Upload File"
-        Then I should see "Import successful! 30 records were created or modified during the import"
+        Then I should see "Your document was uploaded successfully and is ready for review"
+        And I should see "(new record)"
+        And I should see "(existing record)"
 
         #VERIFY
         Given I click on the link labeled "Record Status Dashboard"
@@ -59,10 +65,11 @@ Feature: User Interface: The system shall provide the ability to create a new re
             | 5         |        |
             | 6         |        |
             | 7         |        |
-        And I should see all records are in an unverified status
+        And I should see the "Unverified" icon for the "Form 1" instrument for record "1"
+        And I should see the "Unverified" icon for the "Form 1" instrument for record "10"
         #VERIFY
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
             | Username    | Action                    | List of Data Changes OR Fields Exported |
-            | test_admin) | Create Record (import)900 | record_id='900'                         |
+            | test_admin  | Create record (import) 30 | record_id = '30'                        |
 #END

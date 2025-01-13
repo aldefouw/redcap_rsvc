@@ -19,15 +19,12 @@ Feature: User Interface:The system shall provide the ability to display real-tim
         When I select "Import in real time" on the dropdown field labeled "Choose an import option"
         And I select "Yes, display uploaded data prior to importing" on the dropdown field labeled "Display the data comparison table"
         And I upload a "csv" format file located at "import_files/BigDataTestProjectDATA.csv", by clicking the button near "Select your CSV data file" to browse for the file, and clicking the button labeled "Upload File" to upload the file
-        And I click on the button labeled "Upload File"
-        Then I should see " File is Large. Consider using the background process"
-
-        When I click on the button labeled "No, import in real time"
-        And I click on the button labeled "Upload File"
         Then I should see "Instructions for Data Review"
 
         When I click on the button labeled "Import Data"
-        Then I should see "Import successful! 75 records were created or modified during the import"
+        Then I should see "Import Successful!"
+        And I should see "75"
+        And I should see "records were created or modified during the import"
 
         Given I click on the link labeled "Record Status Dashboard"
         Then I should see a table header and rows containing the following values in a table:
@@ -36,10 +33,11 @@ Feature: User Interface:The system shall provide the ability to display real-tim
             | 2         |        |
             | 3         |        |
             | 4         |        |
-        And I should see all records are in an unverified status
+        And I should see the "Unverified" icon for the "Form 1" instrument for record "1"
+        And I should see the "Unverified" icon for the "Form 1" instrument for record "50"
         #VERIFY
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
             | Username    | Action                   | List of Data Changes OR Fields Exported |
-            | test_admin) | Create Record (import)75 | record_id='75                           |
+            | test_admin  | Create record 50         | record_id = '50'                        |
 #END

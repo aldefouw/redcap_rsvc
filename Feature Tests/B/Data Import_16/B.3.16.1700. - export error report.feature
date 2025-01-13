@@ -24,9 +24,29 @@ Feature: User Interface: The system shall report background process data import 
         Then I should see a table header and rows containing the following values in a table:
             | Status     | Original Filename              | Records Provided                  |
             | Queued     | BigDataTestProjectbadDATA.csv  | 75 |
+        # Wait for import batch 1
+        And I wait for background processes to finish
+        # Wait for import batch 2
         And I wait for background processes to finish
         #Manual: this may take several minutes
 
+        When I click on the button labeled "View details"
+        And I click on the button labeled "Download list of all errors"
+        Then I should see the latest downloaded "csv" file containing the headings and rows below
+            | Record | "Variable Name" | Value          | "Error Message"                                                                                                   |
+            | 2      | field_1         | "not a number" | "The value you provided could not be validated because it does not follow the expected format. Please try again." |
+            | 4      | field_2         | 3              | "The value is not a valid category for field_2"                                                                   |
+            | 7      | field_1         | 99-3           | "The value you provided could not be validated because it does not follow the expected format. Please try again." |
+
+        When I click on the button labeled "Download records/data that did not import"
+        Then I should see the latest downloaded "csv" file containing the headings and rows below
+            | record_id | field_1        | field_2 | field_3   | field_4   | field_10   | field_11   | field_12   | field_13   | form_1_complete |
+            | 2         | "not a number" | 1       | value-2-3 | value-2-4 | value-2-10 | value-2-11 | value-2-12 | value-2-13 | 1               |
+            | 4         | 44             | 3       | value-4-3 | value-4-4 | value-4-10 | value-4-11 | value-4-12 | value-4-13 | 1               |
+            | 7         | 99-3           | 1       | value-7-3 | value-7-4 | value-7-10 | value-7-11 | value-7-12 | value-7-13 | 1               |
+
+        Then I click on the button labeled "Close" in the dialog box
+        
         Given I click on the link labeled "Record Status Dashboard"
         Then I should see a table header and rows containing the following values in a table:
             | Record ID | Form 1 |
@@ -34,27 +54,14 @@ Feature: User Interface: The system shall report background process data import 
             | 3         |        |
             | 5         |        |
             | 6         |        |
-        And I should see all records are in an unverified status
+        And I should see the "Unverified" icon for the "Form 1" instrument for record "1"
+        And I should see the "Unverified" icon for the "Form 1" instrument for record "50"
         #Manual: note Records were skipped, user receives email with link to the "View background Imports" where they can click the View details button where they can either Download list of all errors or Download records/data that did not import
 
         #VERIFY
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
             | Username            | Action             | List of Data Changes OR Fields Exported |
-            | SYSTEM (Test_Admin) | Create Record 3000 | record_id='3000'                        |
+            | SYSTEM (Test_Admin) | Create record 50   | record_id = '50'                        |
 
-        When I click on the button labeled "View Details"
-        And I click on the button labeled "Download list of all errors"
-        Then I should see a table header and rows containing the following values in the logging table:
-            | Record | Variable Name | Value        | Error Message                                                                                                   |
-            | 2      | field 1       | Not a number | The value you provided could not be validated because it does not follow the expected format. Please try again. |
-            | 4      | field 2       | 3            | The value is not a valid category for field_2                                                                   |
-            | 7      | field 1       | 99-3         | The value you provided could not be validated because it does not follow the expected format. Please try again. |
-
-        When I click on the button labeled "Download records/data that did not import"
-        Then I should see a table header and rows containing the following values in the logging table:
-            | record_id | field 1      | field_2 | field_3                    |
-            | 2         | not a number | 1       | Lorem ipsum dolor sit amet |
-            | 4         | 44           | 3       | Lorem ipsum dolor sit amet |
-            | 7         | 99-3         | 1       | Lorem ipsum dolor sit amet |
 #END
