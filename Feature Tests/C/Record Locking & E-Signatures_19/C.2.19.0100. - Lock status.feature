@@ -82,7 +82,7 @@ Feature: User Interface: The E-signature and Locking Management tool shall displ
 
         And I click on the Delete icon within the Record Locking Customization table for the Data Collection Instrument named "Data Types"
 
-        #MANUAL: confirmation windows are automatically accepted on automated side
+        #Manual: confirmation windows are automatically accepted on automated side
         # And I click on the button labeled "OK" in the pop-up box
         Then I should see a table header and rows containing the following values in a table:
             | Display the Lock option for this instrument? | Data Collection Instrument | Also display E-signature option on instrument? | Lock Record Custom Text |
