@@ -42,7 +42,9 @@ Feature: User Interface: The system shall support viewing discrepancies found in
         #FUNCTIONAL_REQUIREMENT
         Given I click on the button labeled "Export results (CSV)" in the dialog box
         Then I should see "SUCCESS! The data quality results were successfully downloaded."
-        And the downloaded CSV with filename "C418500100_DataQualityDiscrepancies_FieldValidationErrorsIncorrect_yyyy-mm-dd.csv" has the header and rows below
-            | record_id | result-status    | email      |
-            | 6         | Validation error | HelloWorld |
+        And the downloaded CSV with filename "C4180500100_DataQualityDiscrepancies_FieldValidationErrorsIncorrect_yyyy-mm-dd.csv" has the header and rows below
+            | record_id	| redcap_event_name	| redcap_repeat_instrument | redcap_repeat_instance | redcap_data_access_group | result-status      | result-is-excluded    | email      |
+            | 6	        | event_1_arm_1		|                          |                        |                          | Validation error   | No                    | HelloWorld |
+
+            
 #END
