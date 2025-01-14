@@ -33,11 +33,11 @@ Feature: Control Center: The system shall support the option to display or hide 
               And I click on the link labeled "A.3.24.0900.100"
               And I click on the link labeled "Designer"
               #Verify econsent framework disabled
-              Then I should see "PDF Snapshots"
+              And I should NOT see "e-Consent"
 
+              Then I should see "PDF Snapshots"
               When I click on the button labeled "PDF Snapshots"
               Then I should see "PDF Snapshots of Records"
-              And I should NOT see "e-Consent Framework"
 
        #SETUP_CONTROL_CENTER
        Scenario: #Enable e-Consent Framework
