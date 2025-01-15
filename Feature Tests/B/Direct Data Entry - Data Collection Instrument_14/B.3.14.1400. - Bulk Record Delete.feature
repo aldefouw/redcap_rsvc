@@ -92,12 +92,18 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         When I click on the button labeled "Bulk Record Delete"
         Then I should see "Bulk Record Delete"
 
-        When I click the bubble labeled "Delete entire records"
-        And I click the bubble labeled "Enter a custom list of records"
-        And I type "3,5" into "Step 3: Enter records to delete"
-        And I click on the button labeled "Delete"
-        And I type "delete"
-        And I click on the button labeled "Delete"
+        When I click on the radio labeled exactly "Delete entire records"
+        When I click on the radio labeled exactly "Enter a custom list of records"
+        And I wait for 2 seconds
+        And I enter "3,5" into the textarea field labeled "Step 3: Enter records to delete"
+        Then I should see "Valid list entered"
+
+        #Automated: JavaScript does not fire for the alert box unless clicked again ..
+        When I click on the radio labeled exactly "Delete entire records"
+        And I click on the button labeled exactly " Delete "
+
+        And I enter "delete" into the input field labeled 'TYPE "DELETE" BELOW' in the dialog box
+        And I click on the button labeled "Delete" in the dialog box
         Then I should see "Deleted 2 record(s)"
 
     Scenario:  ##ACTION Verify record exist
