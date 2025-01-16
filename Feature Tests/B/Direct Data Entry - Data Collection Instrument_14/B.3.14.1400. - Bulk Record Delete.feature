@@ -187,7 +187,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         And I enter "delete" into the input field labeled 'TYPE "DELETE" BELOW' in the dialog box
         And I click on the button labeled "Delete" in the dialog box
         Then I should see "Deleted forms"
-        And I should see "[event_1_arm_1] text_validation"
+        And I should see "[event_1_arm_1] data_types"
         And I should see "for 1 record(s)"
 
     Scenario:##ACTION Verify record exist ##VERIFY_RSD
@@ -202,11 +202,12 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
         When I click on the link labeled "Logging"
         Then I should see a table header and rows containing the following values in the logging table:
             | Time / Date      | Username   | Action          | List of Data Changes OR Fields Exported   |
-            | mm/dd/yyyy hh:mm | test_user1 | Update record 1 | calc_text = '' , data_types_complete = '' |
+            | mm/dd/yyyy hh:mm | test_user1 | Update record 1 | calc_test = '', data_types_complete = ''                         |
             | mm/dd/yyyy hh:mm | test_user1 | Delete record 6 | record_id = '6'                           |
             | mm/dd/yyyy hh:mm | test_user1 | Delete record 2 | record_id = '2'                           |
             | mm/dd/yyyy hh:mm | test_user1 | Delete record 5 | record_id = '5'                           |
             | mm/dd/yyyy hh:mm | test_user1 | Delete record 3 | record_id = '3'                           |
+
     #END Scenario
 
     Scenario: B.3.14.1200.400: Bulk Delete Partial Records Using Select Records from List
@@ -252,7 +253,7 @@ Feature: The system shall support Bulk Delete functionality, allowing users to d
             | mm/dd/yyyy hh:mm | test_user1 | Update record 4 | [instance = 3], checkbox(1) = unchecked, checkbox(2) = unchecked, checkbox(3) = unchecked, data_types_complete = '', required = '', date_ymd = '', datetime_ymd_hmss = '', calc_test = |
             | mm/dd/yyyy hh:mm | test_user1 | Update record 4 | [instance = 2], checkbox(1) = unchecked, checkbox(2) = unchecked, checkbox(3) = unchecked, data_types_complete = '', required = '', date_ymd = '', datetime_ymd_hmss = '', calc_test = |
             | mm/dd/yyyy hh:mm | test_user1 | Update record 4 | checkbox(1) = unchecked, checkbox(2) = unchecked, checkbox(3) = unchecked, data_types_complete = '', required = '', date_ymd = '', datetime_ymd_hmss = '', calc_test =                 |
-            | mm/dd/yyyy hh:mm | test_user1 | Update record 1 | calc_text = '' , data_types_complete = ''                                                                                                                                              |
+            | mm/dd/yyyy hh:mm | test_user1 | Update record 1 | calc_test = '', data_types_complete = ''                           |
             | mm/dd/yyyy hh:mm | test_user1 | Delete record 6 | record_id = '6'                                                                                                                                                                        |
             | mm/dd/yyyy hh:mm | test_user1 | Delete record 2 | record_id = '2'                                                                                                                                                                        |
             | mm/dd/yyyy hh:mm | test_user1 | Delete record 5 | record_id = '5'                                                                                                                                                                        |
