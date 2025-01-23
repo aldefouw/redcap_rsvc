@@ -22,21 +22,18 @@ Feature: User Interface: The system shall support the enabling of the e-Consent 
         And I click on the button labeled "e-Consent"
         Then I should see a checkbox labeled "Hide inactive" that is checked
 
-        And  I check the checkbox labeled "Participant Consent"
-        And  I should see a checkbox labeled "Participant Consent" that is checked
-        #And I should see the e-consent framework for survey labeled "Participant Consent" is "Active"
+        And I enable the toggle button labeled "Participant Consent"
+        And I should see a toggle button labeled "Participant Consent" that is enabled
 
         When I uncheck the checkbox labeled "Hide inactive"
-
-        Given  I uncheck the checkbox labeled "Participant Consent"
-        #And I "Inactive" the e-consent framework for survey labeled "Participant Consent"
+        And I disable the toggle button labeled "Participant Consent"
         And I click on the button labeled "Set as inactive" in the dialog box
+
         Then I should see 'e-Consent has been successfully disabled for survey "participant_consent"'
-        And I should see a checkbox labeled "Participant Consent" that is unchecked
-        #Then I should see the e-consent framework for survey labeled "Participant Consent" is "Inactive"
+        And I should see a toggle button labeled "Participant Consent" that is disabled
 
         When I check the checkbox labeled "Hide inactive"
-        Then I should NOT see a checkbox labeled "Participant Consent"
+        Then I should NOT see a toggle button labeled "Participant Consent"
 
     ##ACTION: add record to get participant signature
     Scenario: Add record to get participant signature
@@ -98,9 +95,8 @@ Feature: User Interface: The system shall support the enabling of the e-Consent 
         When I click on the link labeled "Designer"
         And I click on the button labeled "e-Consent"
         When I uncheck the checkbox labeled "Hide inactive"
-        And  I check the checkbox labeled "Participant Consent"
-        And  I should see a checkbox labeled "Participant Consent" that is checked
-#        And I should see the e-consent framework for survey labeled "Participant Consent" is "Active"
+        And I enable the toggle button labeled "Participant Consent"
+        And I should see a toggle button labeled "Participant Consent" that is enabled
 
     ##ACTION: add record to get participant signature
     Scenario: Add record to get participant signature
